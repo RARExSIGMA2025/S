@@ -4,27 +4,23 @@ document.addEventListener('DOMContentLoaded', () => {
     // ----------------------------------------------------
     const mobileMenuButton = document.getElementById('mobile-menu-button');
     const mainNav = document.getElementById('main-nav');
-    // Select all links within the navigation menu, including those for index.html
     const navLinks = mainNav.querySelectorAll('a');
 
     if (mobileMenuButton && mainNav) {
         mobileMenuButton.addEventListener('click', () => {
-            // Toggle the visibility and opacity/height for smooth transition
             mainNav.classList.toggle('hidden');
             if (mainNav.classList.contains('hidden')) {
-                mainNav.classList.remove('opacity-100', 'max-h-screen', 'flex'); // Remove flex when hiding
+                mainNav.classList.remove('opacity-100', 'max-h-screen', 'flex');
                 mainNav.classList.add('opacity-0', 'max-h-0');
             } else {
                 mainNav.classList.remove('opacity-0', 'max-h-0');
-                mainNav.classList.add('opacity-100', 'max-h-screen', 'flex'); // Add flex when showing
+                mainNav.classList.add('opacity-100', 'max-h-screen', 'flex');
             }
         });
 
-        // Close menu when a link is clicked (for mobile UX)
         navLinks.forEach(link => {
             link.addEventListener('click', () => {
-                // Check if the menu is currently visible (i.e., not hidden) and it's a mobile view
-                if (!mainNav.classList.contains('hidden') && window.innerWidth < 768) { // md breakpoint for Tailwind is 768px
+                if (!mainNav.classList.contains('hidden') && window.innerWidth < 768) {
                     mainNav.classList.add('hidden');
                     mainNav.classList.remove('opacity-100', 'max-h-screen', 'flex');
                     mainNav.classList.add('opacity-0', 'max-h-0');
@@ -32,13 +28,11 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
 
-        // Handle menu state on window resize (from mobile to desktop and vice versa)
         window.addEventListener('resize', () => {
-            if (window.innerWidth >= 768) { // If resized to desktop view
+            if (window.innerWidth >= 768) {
                 mainNav.classList.remove('hidden', 'opacity-0', 'max-h-0');
-                mainNav.classList.add('opacity-100', 'max-h-full', 'flex'); // Ensure it's visible and flex
-            } else { // If resized to mobile view
-                // If the menu was open in desktop view and now it's mobile, ensure it's hidden properly
+                mainNav.classList.add('opacity-100', 'max-h-full', 'flex');
+            } else {
                 if (!mainNav.classList.contains('hidden') && mainNav.classList.contains('flex')) {
                     mainNav.classList.add('hidden');
                     mainNav.classList.remove('opacity-100', 'max-h-full', 'flex');
@@ -53,13 +47,10 @@ document.addEventListener('DOMContentLoaded', () => {
     // ----------------------------------------------------
     const heroElements = document.querySelectorAll('.animate-on-load-hero-text, .animate-on-load-hero-buttons, .animate-on-load-hero-grid');
     heroElements.forEach(element => {
-        // Trigger animation by adding the 'is-visible' class after a short delay
-        // This ensures the CSS transition can apply
         setTimeout(() => {
             element.classList.add('is-visible');
-        }, 100); // Small delay to ensure CSS is rendered before animation starts
+        }, 100);
     });
-
 
     // ----------------------------------------------------
     // 3. On-Scroll Section Animations (Intersection Observer)
@@ -76,7 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('is-visible');
-                observer.unobserve(entry.target); // Stop observing once animated
+                observer.unobserve(entry.target);
             }
         });
     }, observerOptions);
@@ -84,5 +75,65 @@ document.addEventListener('DOMContentLoaded', () => {
     animatedSections.forEach(section => {
         observer.observe(section);
     });
+
+    // ----------------------------------------------------
+    // 4. Sticky Header Behavior
+    // ----------------------------------------------------
+    const mainHeader = document.querySelector('.main-header');
+    if (mainHeader) {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) { // Add 'scrolled' class after scrolling down 50px
+                mainHeader.classList.add('scrolled');
+            } else {
+                mainHeader.classList.remove('scrolled');
+            }
+        });
+    }
+
+    // ----------------------------------------------------
+    // 5. Navigation Active State on Scroll (using Intersection Observer)
+    // ----------------------------------------------------
+    const sections = document.querySelectorAll('main section'); // Select all main content sections
+    const navLinksList = document.querySelectorAll('#main-nav .nav-link');
+
+    const sectionObserverOptions = {
+        root: null,
+        rootMargin: '-50% 0px -49% 0px', // When the section is roughly in the middle of the viewport
+        threshold: 0 // No specific threshold needed, just looking for intersection changes
+    };
+
+    const sectionObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const currentSectionId = entry.target.id;
+                // Remove active class from all links first
+                navLinksList.forEach(link => {
+                    link.classList.remove('current-active-link');
+                });
+                // Add active class to the link corresponding to the intersecting section
+                const activeLink = document.querySelector(`#main-nav a[href="#${currentSectionId}"]`);
+                if (activeLink) {
+                    activeLink.classList.add('current-active-link');
+                }
+            }
+        });
+    }, sectionObserverOptions);
+
+    sections.forEach(section => {
+        sectionObserver.observe(section);
+    });
+
+    // Special handling for initial load to set active link for 'home'
+    // This is because the IntersectionObserver might not trigger immediately for the first section
+    // or if the page is reloaded at a different scroll position.
+    // This ensures "Home" is active if at the top, or the correct section if scrolled.
+    const initialActiveSection = document.querySelector('main section.is-visible'); // Check for the first animated section
+    if (!initialActiveSection) {
+        // If no animated section is visible (e.g., initial load at top), set Home as active
+        const homeLink = document.querySelector('#main-nav a[href="#home"]');
+        if (homeLink) {
+            homeLink.classList.add('current-active-link');
+        }
+    }
 });
 
