@@ -5,7 +5,7 @@ body {
     color: #333;
 }
 
-/* Ensure Inter font is applied to headings explicitly if needed */
+/* Ensure Inter font is applied to headings explicitly */
 h1, h2, h3, h4, h5, h6, .font-inter {
     font-family: 'Inter', sans-serif;
 }
@@ -48,9 +48,10 @@ h1, h2, h3, h4, h5, h6, .font-inter {
 
 /* Unique Creative Background for Home Section */
 .home-background-creative {
-    background: linear-gradient(-45deg, #FF6F61, #E0BBE4, #957DAD, #D291BC); /* Multiple colors for gradient */
+    /* Using slightly different, yet vibrant, colors for the gradient */
+    background: linear-gradient(-45deg, #6366F1, #8B5CF6, #EC4899, #FBBF24);
     background-size: 400% 400%; /* Larger size for animation */
-    animation: gradientMove 15s ease infinite; /* Animation defined below */
+    animation: gradientMove 20s ease infinite; /* Slower animation for subtlety */
 }
 
 @keyframes gradientMove {
@@ -74,6 +75,7 @@ h1, h2, h3, h4, h5, h6, .font-inter {
     transform: scale(1);
     font-size: 1.125rem; /* text-xl */
     text-decoration: none; /* Remove underline for links */
+    white-space: nowrap; /* Prevent text wrapping on button */
 }
 .btn-primary:hover {
     background-color: #4338CA; /* Indigo 700 */
@@ -99,6 +101,7 @@ h1, h2, h3, h4, h5, h6, .font-inter {
     transform: scale(1);
     font-size: 1.125rem; /* text-xl */
     text-decoration: none; /* Remove underline for links */
+    white-space: nowrap; /* Prevent text wrapping on button */
 }
 .btn-secondary:hover {
     background-color: #16A34A; /* Green 600 */
@@ -110,19 +113,66 @@ h1, h2, h3, h4, h5, h6, .font-inter {
     box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.5); /* ring-4 focus:ring-green-300 */
 }
 
-/* Mobile navigation specific styles (already in base, but ensure consistency) */
+/* Drop shadow for main headings */
+.drop-shadow-md {
+    text-shadow: 0 2px 4px rgba(0,0,0,0.15);
+}
+
+/* Nav link specific styling for consistency and hover */
+.nav-link {
+    display: block;
+    padding: 0.5rem 0.75rem; /* py-2 px-3 */
+    border-radius: 0.375rem; /* rounded-md */
+    transition: background-color 0.2s, color 0.2s; /* transition-colors duration-200 */
+}
+.nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.1); /* hover:bg-white hover:bg-opacity-10 */
+}
+
+/* ------------------------------------- */
+/* Animations for UI/UX enhancements     */
+/* ------------------------------------- */
+
+/* Common animation state for elements that will fade in/slide up */
+.animate-on-load-hero-text,
+.animate-on-load-hero-buttons,
+.animate-on-load-hero-grid,
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(20px); /* Initial position below final */
+    transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+
+/* Delays for staggered animation in Hero section */
+.delay-100 { transition-delay: 0.1s; }
+.delay-200 { transition-delay: 0.2s; }
+.delay-300 { transition-delay: 0.3s; }
+.delay-400 { transition-delay: 0.4s; }
+.delay-500 { transition-delay: 0.5s; }
+
+/* Class added by JavaScript to trigger the animation */
+.animate-on-load-hero-text.is-visible,
+.animate-on-load-hero-buttons.is-visible,
+.animate-on-load-hero-grid.is-visible,
+.animate-on-scroll.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* For mobile menu transition - ensure it's smooth */
+#main-nav {
+    transform-origin: top; /* Animation originates from top */
+}
 #main-nav.hidden {
     opacity: 0;
     max-height: 0;
+    pointer-events: none; /* Disable clicks when hidden */
 }
 #main-nav.flex { /* This class is added by JS when menu is open */
     opacity: 1;
-    max-height: 500px; /* Arbitrary large height for transition */
-    overflow: hidden;
-}
-
-/* Drop shadow for main headings (if text-shadow is desired, else remove) */
-.drop-shadow-md {
-    text-shadow: 0 2px 4px rgba(0,0,0,0.15);
+    max-height: 500px; /* Sufficient height to show all links, adjust if more links are added */
+    pointer-events: auto; /* Enable clicks when visible */
+    overflow: hidden; /* Prevent content from overflowing during transition */
+    padding-bottom: 1rem; /* Add some padding to bottom of mobile menu */
 }
 
