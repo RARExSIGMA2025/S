@@ -1,0 +1,82 @@
+/* General Body Styles */
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f8fafc; /* Light gray background for overall site */
+    color: #333;
+}
+
+/* Section Padding for Responsiveness */
+.section-padding {
+    padding: 4rem 1rem; /* Responsive padding for sections */
+}
+@media (min-width: 768px) {
+    .section-padding {
+        padding: 6rem 2rem;
+    }
+}
+
+/* Card Styles (used in Courses, Facilities) */
+.card {
+    background-color: white;
+    border-radius: 0.75rem; /* rounded-xl */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* shadow-md */
+    padding: 1.5rem;
+    transition: transform 0.2s ease-in-out;
+}
+.card:hover {
+    transform: translateY(-5px);
+}
+
+/* Gallery Image Styles (for Album section) */
+.gallery-image {
+    width: 100%;
+    height: 200px; /* Fixed height for consistency */
+    object-fit: cover; /* Cover the area, crop if necessary */
+    border-radius: 0.5rem; /* rounded-lg */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+.gallery-image:hover {
+    transform: scale(1.03);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* Unique Creative Background for Home Section */
+.home-background-creative {
+    background: linear-gradient(-45deg, #FF6F61, #E0BBE4, #957DAD, #D291BC); /* Multiple colors for gradient */
+    background-size: 400% 400%; /* Larger size for animation */
+    animation: gradientMove 15s ease infinite; /* Animation defined below */
+}
+
+@keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Uncomment and experiment with other background ideas if you wish: */
+/*
+.home-background-dots {
+    background-color: #f8fafc;
+    background-image: radial-gradient(#cbd5e1 1px, transparent 1px), radial-gradient(#cbd5e1 1px, #f8fafc 1px);
+    background-size: 20px 20px;
+    background-position: 0 0, 10px 10px;
+}
+.home-background-waves {
+     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+     position: relative;
+     overflow: hidden;
+}
+.home-background-waves::before {
+    content: '';
+    position: absolute;
+    top: -10%; left: -10%; right: -10%; bottom: -10%;
+    background-image: url('data:image/svg+xml;charset=UTF-8,%3Csvg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M60 0L0 60V120H120V60L60 0Z" fill="%238B5CF6" fill-opacity="0.1"/%3E%3C/svg%3E');
+    background-repeat: repeat;
+    animation: backgroundWave 20s linear infinite;
+}
+@keyframes backgroundWave {
+    from { transform: translate(0, 0); }
+    to { transform: translate(-120px, -120px); }
+}
+*/
+
