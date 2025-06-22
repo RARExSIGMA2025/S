@@ -1,53 +1,46 @@
-# 🌐 Sankalp IT Classes— Next-Gen Web Experience
+# 💻 Sankalp Computer Classes — Learning Digitally, Growing Technically
 
-> A modern, fast, and fully responsive web application built with best practices in frontend engineering and backend architecture.
+> A modern, educational web interface for "Sankalp Computer Classes" — a computer institute aiming to deliver quality digital literacy and software training.
 
-![License](https://img.shields.io/github/license/yourusername/yourproject)
-![Framework](https://img.shields.io/badge/Framework-React-informational)
-![Deployed](https://img.shields.io/badge/Live-Demo-blue)
+![Status](https://img.shields.io/badge/Status-Active-brightgreen)
+![Made With](https://img.shields.io/badge/Made%20By-Full%20Stack%20Dev-blue)
+![Frontend](https://img.shields.io/badge/Frontend-Loved-red)
 
 ---
 
-## 🧩 Overview
+## 📌 Overview
 
-This project is a result of a developer's obsession with clean code, beautiful UI, and scalable architecture. Designed with performance, accessibility, and user experience in mind.
+**Sankalp** is a clean and responsive website developed to represent a computer training institute online. The focus is on front-end elegance and accessibility — ideal for students, staff, and visitors looking to explore courses, faculty, and admission options digitally.
 
-**Built by a full-stack developer passionate about elegant code and creative web solutions.**
+---
+
+## 🧰 Tech Stack
+
+- **HTML5 / CSS3**
+- **JavaScript**
+- **Bootstrap / Tailwind CSS**
+- *(Optional Backend Setup can be integrated with Node.js or Firebase)*
 
 ---
 
 ## ✨ Key Features
 
-- ⚡️ Lightning-fast load times
-- 🎨 Fully responsive UI (Mobile-First Design)
-- 🌙 Dark/Light mode toggle
-- 🔒 Auth-ready (JWT/OAuth optional)
-- 📈 SEO-optimized structure
-- 🔗 REST / GraphQL API ready
-- 🧪 Unit & Integration tested
-- ☁️ Deployment via Vercel / Netlify / Docker
+- 🔸 Modern responsive layout
+- 🔸 Smooth scroll and UI interactions
+- 🔸 Course list section
+- 🔸 Faculty / About Us page
+- 🔸 Contact form structure (optional backend ready)
+- 🔸 SEO-ready markup
 
 ---
 
-## 🚀 Tech Stack
-
-| Frontend | Backend | Tools & DevOps |
-|----------|---------|----------------|
-| React / Next.js / Vue | Node.js / Express / Django | Git / GitHub Actions / Docker |
-| Tailwind CSS / SCSS | MongoDB / PostgreSQL / Firebase | Prettier + ESLint |
-| Framer Motion | REST / GraphQL | CI/CD, Vercel, Netlify |
-
----
-
-## 📦 Getting Started
+## 🚀 Getting Started
 
 ```bash
-# Clone repo
-git clone https://github.com/yourusername/yourproject.git
-cd yourproject
+# Clone the repository
+git clone https://github.com/RARExSIGMA2025/Sankalp.git
 
-# Install dependencies
-npm install
+# Navigate into the directory
+cd Sankalp
 
-# Start development server
-npm run dev
+# Open index.html in your browser
