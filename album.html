@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sankalp Classes | Album - Celebrations & Events</title>
+    <title>Sankalp Classes | Album - Visuals</title>
     <!-- Meta Description for SEO -->
-    <meta name="description" content="Photo album of Sankalp Classes & Computer Classes featuring celebration photos, prize distribution ceremonies, events, and classroom moments in Ratanpura, Mau.">
+    <meta name="description" content="Photo and video album of Sankalp Classes & Computer Classes showcasing celebrations, prize distribution ceremonies, events, and campus life in Ratanpura, Mau.">
     <!-- Keywords for SEO -->
-    <meta name="keywords" content="Sankalp Classes album, computer classes photos Mau, prize distribution, celebration photos, educational events, Ratanpura Mau institute album">
+    <meta name="keywords" content="Sankalp Classes album, computer classes photos Mau, prize distribution videos, celebration videos, educational events, Ratanpura Mau institute album">
 
     <!-- Link to Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -15,6 +15,31 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <!-- Link to your custom stylesheet (relative path from album.html) -->
     <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* This specific style is for responsive video embedding (e.g., YouTube) */
+        .video-responsive {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 0;
+            overflow: hidden;
+            border-radius: 0.5rem; /* Match image border-radius */
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.06);
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+        .video-responsive:hover {
+            transform: scale(1.03);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.15);
+        }
+        .video-responsive iframe,
+        .video-responsive video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+    </style>
 </head>
 <body>
 
@@ -23,7 +48,7 @@
         <div class="container mx-auto flex flex-col md:flex-row justify-between items-center">
             <div class="flex items-center mb-2 md:mb-0">
                 <!-- Logo: Ensure this path is correct relative to album.html -->
-                <img src="https://iili.io/FzS4qxa.md.jpg" alt="Sankalp Classes Logo" class="h-10 w-10 rounded-full mr-3 border-2 border-white">
+                <img src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/logo.jpg" alt="Sankalp Classes Logo" class="h-10 w-10 rounded-full mr-3 border-2 border-white">
                 <h1 class="text-2xl font-bold">Sankalp Classes & Computer Classes</h1>
             </div>
             <nav>
@@ -42,102 +67,80 @@
     <!-- Main Content for Album Page -->
     <main class="pt-20"> <!-- Padding top to account for fixed header -->
 
-        <!-- Album Hero Section -->
+        <!-- Album Hero Section (Optional, but good for page title) -->
         <section class="section-padding bg-gradient-to-br from-purple-500 to-pink-500 text-white text-center">
             <div class="container mx-auto">
                 <h1 class="text-4xl md:text-5xl font-extrabold mb-4 animate-pulse">🎉 Our Moments & Milestones 🎉</h1>
-                <p class="text-xl md:text-2xl font-light">A visual journey through celebrations, achievements, and vibrant campus life.</p>
             </div>
         </section>
 
-        <!-- Album Photo Grid -->
+        <!-- Album Photo & Video Grid -->
         <section id="album-content" class="section-padding bg-gray-100">
             <div class="container mx-auto bg-white p-8 rounded-xl shadow-lg max-w-5xl">
-                <h2 class="text-4xl font-extrabold text-blue-800 mb-10 text-center">📸 Celebration & Prize Distribution</h2>
-                <p class="text-xl text-center mb-12 max-w-3xl mx-auto text-gray-700">Relive the joy of our events, the pride of our students, and the excitement of academic excellence!</p>
 
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                    <!-- Prize Distribution Photos -->
+
+                    <!-- Prize Distribution Images -->
                     <div class="rounded-lg overflow-hidden shadow-md">
-                        <img src="images/album/prize1.jpg" onerror="this.onerror=null;this.src='https://placehold.co/600x400/FFC107/000000?text=Prize+Distribution+1';" alt="Student receiving a prize certificate" class="gallery-image">
-                        <div class="p-4 bg-white text-center">
-                            <p class="font-semibold text-lg text-gray-800">Achiever's Moment</p>
-                        </div>
+                        <img src="images/album/prize1.jpg" onerror="this.onerror=null;this.src='https://placehold.co/600x400/FFC107/000000?text=Prize+1';" alt="Prize Distribution" class="gallery-image">
                     </div>
                     <div class="rounded-lg overflow-hidden shadow-md">
-                        <img src="images/album/prize2.jpg" onerror="this.onerror=null;this.src='https://placehold.co/600x400/FFA000/FFFFFF?text=Prize+Distribution+2';" alt="Group photo of prize winners with faculty" class="gallery-image">
-                        <div class="p-4 bg-white text-center">
-                            <p class="font-semibold text-lg text-gray-800">Celebrating Success</p>
-                        </div>
+                        <img src="images/album/prize2.jpg" onerror="this.onerror=null;this.src='https://placehold.co/600x400/FFA000/FFFFFF?text=Prize+2';" alt="Prize Distribution" class="gallery-image">
                     </div>
                     <div class="rounded-lg overflow-hidden shadow-md">
-                        <img src="images/album/prize3.jpg" onerror="this.onerror=null;this.src='https://placehold.co/600x400/FF8F00/FFFFFF?text=Prize+Distribution+3';" alt="Faculty member handing over a trophy to a student" class="gallery-image">
-                        <div class="p-4 bg-white text-center">
-                            <p class="font-semibold text-lg text-gray-800">Excellence Recognized</p>
-                        </div>
+                        <img src="images/album/prize3.jpg" onerror="this.onerror=null;this.src='https://placehold.co/600x400/FF8F00/FFFFFF?text=Prize+3';" alt="Prize Distribution" class="gallery-image">
                     </div>
                      <div class="rounded-lg overflow-hidden shadow-md">
-                        <img src="images/album/prize4.jpg" onerror="this.onerror=null;this.src='https://placehold.co/600x400/FF6F00/FFFFFF?text=Prize+Distribution+4';" alt="Students cheering during a prize ceremony" class="gallery-image">
-                        <div class="p-4 bg-white text-center">
-                            <p class="font-semibold text-lg text-gray-800">Joyful Recognition</p>
-                        </div>
+                        <img src="images/album/prize4.jpg" onerror="this.onerror=null;this.src='https://placehold.co/600x400/FF6F00/FFFFFF?text=Prize+4';" alt="Prize Distribution" class="gallery-image">
                     </div>
 
-                    <!-- Celebration Photos -->
+                    <!-- Celebration Images -->
                     <div class="rounded-lg overflow-hidden shadow-md">
-                        <img src="images/album/celebration1.jpg" onerror="this.onerror=null;this.src='https://placehold.co/600x400/6A1B9A/FFFFFF?text=Celebration+1';" alt="Students celebrating an event with balloons" class="gallery-image">
-                        <div class="p-4 bg-white text-center">
-                            <p class="font-semibold text-lg text-gray-800">Festive Mood</p>
-                        </div>
+                        <img src="images/album/celebration1.jpg" onerror="this.onerror=null;this.src='https://placehold.co/600x400/6A1B9A/FFFFFF?text=Celebration+1';" alt="Celebration Event" class="gallery-image">
                     </div>
                     <div class="rounded-lg overflow-hidden shadow-md">
-                        <img src="images/album/celebration2.jpg" onerror="this.onerror=null;this.src='https://placehold.co/600x400/8E24AA/FFFFFF?text=Celebration+2';" alt="Students and staff enjoying a college fete" class="gallery-image">
-                        <div class="p-4 bg-white text-center">
-                            <p class="font-semibold text-lg text-gray-800">Campus Event Fun</p>
-                        </div>
+                        <img src="images/album/celebration2.jpg" onerror="this.onerror=null;this.src='https://placehold.co/600x400/8E24AA/FFFFFF?text=Celebration+2';" alt="Celebration Event" class="gallery-image">
                     </div>
                      <div class="rounded-lg overflow-hidden shadow-md">
-                        <img src="images/album/celebration3.jpg" onerror="this.onerror=null;this.src='https://placehold.co/600x400/AB47BC/FFFFFF?text=Celebration+3';" alt="Students performing on stage during an annual day" class="gallery-image">
-                        <div class="p-4 bg-white text-center">
-                            <p class="font-semibold text-lg text-gray-800">Annual Day Performance</p>
-                        </div>
+                        <img src="images/album/celebration3.jpg" onerror="this.onerror=null;this.src='https://placehold.co/600x400/AB47BC/FFFFFF?text=Celebration+3';" alt="Celebration Event" class="gallery-image">
                     </div>
                      <div class="rounded-lg overflow-hidden shadow-md">
-                        <img src="images/album/celebration4.jpg" onerror="this.onerror=null;this.src='https://placehold.co/600x400/BA68C8/FFFFFF?text=Celebration+4';" alt="Students and teachers posing for a group photo during an event" class="gallery-image">
-                        <div class="p-4 bg-white text-center">
-                            <p class="font-semibold text-lg text-gray-800">Memorable Gathering</p>
-                        </div>
+                        <img src="images/album/celebration4.jpg" onerror="this.onerror=null;this.src='https://placehold.co/600x400/BA68C8/FFFFFF?text=Celebration+4';" alt="Celebration Event" class="gallery-image">
                     </div>
 
-                    <!-- Classroom & Lab Moments (Existing from previous album section) -->
+                    <!-- Classroom & Lab Moment Images (from previous) -->
                     <div class="rounded-lg overflow-hidden shadow-md">
-                        <img src="images/album/image1.jpg" onerror="this.onerror=null;this.src='https://placehold.co/600x400/81C784/FFFFFF?text=Classroom+Scene+1';" alt="Student attending a class lecture" class="gallery-image">
-                        <div class="p-4 bg-white text-center">
-                            <p class="font-semibold text-lg text-gray-800">Interactive Session</p>
-                        </div>
+                        <img src="images/album/image1.jpg" onerror="this.onerror=null;this.src='https://placehold.co/600x400/81C784/FFFFFF?text=Classroom+1';" alt="Classroom Scene" class="gallery-image">
                     </div>
                     <div class="rounded-lg overflow-hidden shadow-md">
-                        <img src="images/album/image2.jpg" onerror="this.onerror=null;this.src='https://placehold.co/600x400/ADD8E6/000000?text=Computer+Lab+1';" alt="Students working in the computer lab" class="gallery-image">
-                        <div class="p-4 bg-white text-center">
-                            <p class="font-semibold text-lg text-gray-800">Hands-on Lab Session</p>
-                        </div>
+                        <img src="images/album/image2.jpg" onerror="this.onerror=null;this.src='https://placehold.co/600x400/ADD8E6/000000?text=Computer+Lab+1';" alt="Computer Lab" class="gallery-image">
                     </div>
                     <div class="rounded-lg overflow-hidden shadow-md">
-                        <img src="images/album/image3.jpg" onerror="this.onerror=null;this.src='https://placehold.co/600x400/FFDDC1/000000?text=Student+Learning';" alt="A student focused on a coding project" class="gallery-image">
-                        <div class="p-4 bg-white text-center">
-                            <p class="font-semibold text-lg text-gray-800">Deep Learning Focus</p>
-                        </div>
+                        <img src="images/album/image3.jpg" onerror="this.onerror=null;this.src='https://placehold.co/600x400/FFDDC1/000000?text=Student+Learning';" alt="Student Learning" class="gallery-image">
                     </div>
                     <div class="rounded-lg overflow-hidden shadow-md">
-                        <img src="images/album/image4.jpg" onerror="this.onerror=null;this.src='https://placehold.co/600x400/DDA0DD/000000?text=Teacher+Guiding';" alt="Instructor helping a student individually" class="gallery-image">
-                        <div class="p-4 bg-white text-center">
-                            <p class="font-semibold text-lg text-gray-800">Personalized Mentorship</p>
-                        </div>
+                        <img src="images/album/image4.jpg" onerror="this.onerror=null;this.src='https://placehold.co/600x400/DDA0DD/000000?text=Teacher+Guiding';" alt="Teacher Guiding" class="gallery-image">
                     </div>
 
-                    <!-- Add more images by duplicating the div block above! -->
+                    <!-- Video Embed Placeholder 1 (e.g., YouTube) -->
+                    <div class="video-responsive">
+                        <!-- Replace 'YOUR_YOUTUBE_EMBED_URL' with the actual embed URL from YouTube -->
+                        <!-- Example: src="https://www.youtube.com/embed/VIDEO_ID?autoplay=0&controls=1&showinfo=0&rel=0" -->
+                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ?controls=0&modestbranding=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen title="Sankalp Classes Event Video 1"></iframe>
+                    </div>
+
+                    <!-- Video Embed Placeholder 2 (Local Video) -->
+                    <div class="video-responsive">
+                        <!-- Replace 'your_video.mp4' with the path to your video file (e.g., 'videos/my_event.mp4') -->
+                        <video controls preload="metadata" title="Sankalp Classes Event Video 2">
+                            <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+
+                    <!-- Add more images or videos by duplicating the div blocks above! -->
                 </div>
-                <p class="text-lg text-center mt-12 text-gray-600">More memorable moments coming soon!</p>
+                <p class="text-lg text-center mt-12 text-gray-600">More memorable moments and videos coming soon!</p>
             </div>
         </section>
 
