@@ -13,8 +13,90 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Link to Google Fonts - Inter for headings, Poppins for body -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <!-- Link to your custom stylesheet -->
-    <link rel="stylesheet" href="css/style.css">
+    
+    <!-- Custom Styles for Mobile Menu and other elements -->
+    <style>
+        /* Define custom font families */
+        .font-poppins {
+            font-family: 'Poppins', sans-serif;
+        }
+        .font-inter {
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* Custom styles for the mobile menu container */
+        .mobile-menu-container {
+            /* Initial state: hidden, applies to mobile view */
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+            pointer-events: none; /* Prevents interaction when hidden */
+            transition: max-height 0.4s ease-in-out, opacity 0.4s ease-in-out; /* Smooth transition */
+            position: relative; /* Ensure it's positioned correctly within the header */
+            width: 100%; /* Full width for mobile menu */
+            /* Add background and shadow for the expanded menu */
+            background: linear-gradient(to right, #1d4ed8, #4338ca); /* Re-applying gradient for mobile menu */
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            border-bottom-left-radius: 0.5rem; /* rounded-b-lg */
+            border-bottom-right-radius: 0.5rem; /* rounded-b-lg */
+        }
+
+        /* State when the mobile menu is open */
+        .mobile-menu-container.open {
+            max-height: 500px; /* Expand to show content when 'open' class is added */
+            /* Adjust this value if you add significantly more menu items */
+            opacity: 1;
+            pointer-events: auto; /* Allow interaction when open */
+        }
+
+        /* Standard vertical padding for sections */
+        .section-padding {
+            padding: 4rem 0;
+        }
+
+        /* Hero section background creative */
+        .home-background-creative {
+            background: url('https://images.unsplash.com/photo-1517694712202-14dd9538aa97?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1MDcxMzJ8MHwxfHNlYXJjaHw0fHxjb21wdXRlciUyMGNsYXNzcm9vbXxlbnwwfHx8fDE3MTg2Mzk4ODZ8MA&ixlib=rb-4.0.3&q=80&w=1080') no-repeat center center / cover;
+            position: relative;
+        }
+
+        /* Button styles using Tailwind's @apply */
+        .btn-primary {
+            @apply inline-flex items-center justify-center px-8 py-4 border border-transparent text-lg font-semibold rounded-xl shadow-lg text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-4 focus:ring-blue-300 transition-all duration-300 transform hover:-translate-y-1 active:scale-95;
+        }
+        .btn-secondary {
+            @apply inline-flex items-center justify-center px-8 py-4 border border-blue-600 text-lg font-semibold rounded-xl shadow-lg text-blue-800 bg-white hover:bg-blue-50 focus:outline-none focus:ring-4 focus:ring-blue-300 transition-all duration-300 transform hover:-translate-y-1 active:scale-95;
+        }
+
+        /* Card general style */
+        .card {
+            @apply bg-white rounded-xl;
+        }
+
+        /* Animations for hero section elements (example - adjust or remove if actual animations are in external CSS) */
+        .animate-on-load-hero-text { animation: fadeInScale 0.8s ease-out forwards; opacity: 0; }
+        .animate-on-load-hero-text.delay-100 { animation-delay: 0.1s; }
+        .animate-on-load-hero-text.delay-200 { animation-delay: 0.2s; }
+        .animate-on-load-hero-text.delay-300 { animation-delay: 0.3s; }
+        .animate-on-load-hero-text.delay-400 { animation-delay: 0.4s; }
+        .animate-on-load-hero-grid { animation: fadeInScale 0.8s ease-out forwards; opacity: 0; }
+        .animate-on-load-hero-grid.delay-500 { animation-delay: 0.5s; }
+        .animate-on-load-hero-grid.delay-600 { animation-delay: 0.6s; }
+
+        @keyframes fadeInScale {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        /* Nav link hover effects for both desktop and mobile */
+        .nav-link {
+            @apply text-white hover:text-blue-200 transition-colors duration-200;
+        }
+        /* For mobile nav links, ensure block display and padding */
+        .mobile-menu-container .nav-link {
+            @apply block py-2 px-4 rounded hover:bg-blue-600;
+        }
+    </style>
 </head>
 <body class="font-poppins text-gray-800 bg-gray-50">
 
@@ -22,31 +104,41 @@
     <header class="main-header bg-gradient-to-r from-blue-700 to-indigo-800 text-white p-4 shadow-xl fixed w-full z-10 transition-all duration-300 ease-in-out">
         <div class="container mx-auto flex justify-between items-center px-4 relative">
             <div class="flex items-center">
-                <!-- Logo: Uses raw GitHub link -->
+                <!-- Logo -->
                 <img src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/logo.jpg" alt="Sankalp Classes Logo" class="h-10 w-10 rounded-full mr-3 border-2 border-white shadow-md">
                 <h1 class="text-2xl font-extrabold font-inter tracking-wide whitespace-nowrap">Sankalp Classes <span class="hidden sm:inline">& Computer Classes</span></h1>
                 <span class="sm:hidden text-lg ml-1 leading-none"> & Comp. Classes</span> <!-- Shorter text for small screens -->
             </div>
 
-            <!-- Mobile Menu Button (Hamburger) - ALWAYS VISIBLE NOW -->
-            <button id="mobile-menu-button" class="text-white focus:outline-none focus:ring-2 focus:ring-white p-2 rounded-md z-20">
+            <!-- Desktop Navigation - Hidden on small screens, flex on medium and larger -->
+            <nav class="hidden md:flex space-x-6 text-lg font-medium">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#about" class="nav-link">About Us</a>
+                <a href="#courses" class="nav-link">Courses</a>
+                <a href="#facilities" class="nav-link">Facilities</a>
+                <a href="album.html" class="nav-link">Album</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </nav>
+
+            <!-- Mobile Menu Button (Hamburger) - Visible only on small screens -->
+            <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none focus:ring-2 focus:ring-white p-2 rounded-md z-20">
                 <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
                 </svg>
             </button>
-
-            <!-- Navigation Menu - ALWAYS COLLAPSED NOW -->
-            <nav id="main-nav" class="hidden flex-col absolute top-full right-0 w-full md:w-80 bg-gradient-to-r from-blue-700 to-indigo-800 shadow-lg transition-all duration-300 ease-in-out opacity-0 max-h-0 overflow-hidden md:rounded-b-lg">
-                <ul class="flex flex-col space-y-2 text-lg font-medium py-4 px-4">
-                    <li><a href="#home" class="nav-link">Home</a></li>
-                    <li><a href="#about" class="nav-link">About Us</a></li>
-                    <li><a href="#courses" class="nav-link">Courses</a></li>
-                    <li><a href="#facilities" class="nav-link">Facilities</a></li>
-                    <li><a href="album.html" class="nav-link">Album</a></li>
-                    <li><a href="#contact" class="nav-link">Contact</a></li>
-                </ul>
-            </nav>
         </div>
+
+        <!-- Mobile Navigation Menu - Collapsible, appears only on small screens -->
+        <nav id="mobile-menu" class="mobile-menu-container md:hidden">
+            <ul class="flex flex-col space-y-2 text-lg font-medium py-4 px-4">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#about" class="nav-link">About Us</a></li>
+                <li><a href="#courses" class="nav-link">Courses</a></li>
+                <li><a href="#facilities" class="nav-link">Facilities</a></li>
+                <li><a href="album.html" class="nav-link">Album</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+        </nav>
     </header>
 
     <!-- Main Content Sections -->
@@ -139,7 +231,7 @@
                         <p class="text-lg leading-relaxed mb-4 text-gray-700">Our core mission is to deliver <strong class="text-indigo-600">practical, result-driven computer education</strong> that genuinely empowers our students to thrive in the modern digital world. We go beyond mere theory. With a team of highly experienced and certified trainers, we immerse our students in real-world applications, ensuring they not only grasp concepts but also master the essential tools and technologies demanded by today's job market.</p>
                     </div>
                     <div class="md:order-1">
-                        <img src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(10).JPG" alt="Students in a modern computer lab" class="rounded-xl shadow-lg border border-gray-200 w-full h-auto object-cover">
+                        <img src="https://placehold.co/600x400/957DAD/FFFFFF?text=About+Us+Image" alt="Students in a modern computer lab" class="rounded-xl shadow-lg border border-gray-200 w-full h-auto object-cover">
                     </div>
                 </div>
                 <p class="text-lg leading-relaxed mt-6 mb-4 text-gray-700 text-center">We offer a diverse portfolio of certified diploma courses, cutting-edge job-ready skill training programs, and specialized software classes designed to give you a significant competitive advantage. Whether you're taking your first steps in IT or aiming to upgrade your existing knowledge, Sankalp Classes provides the perfect learning environment for your ambitions.</p>
@@ -356,8 +448,36 @@
         </div>
     </footer>
 
-    <!-- Link to your custom JavaScript file -->
-    <script src="js/script.js"></script>
+    <!-- JavaScript for Mobile Menu Functionality -->
+    <script>
+        // Ensure the DOM is fully loaded before trying to access elements
+        document.addEventListener('DOMContentLoaded', () => {
+            const mobileMenuButton = document.getElementById('mobile-menu-button'); // Get the hamburger icon button
+            const mobileMenu = document.getElementById('mobile-menu'); // Get the mobile menu container
+
+            // Check if both elements exist to prevent errors
+            if (mobileMenuButton && mobileMenu) {
+                // Add a click event listener to the menu button
+                mobileMenuButton.addEventListener('click', () => {
+                    // Toggle the 'open' class on the mobile menu.
+                    // This class controls the max-height and opacity, showing/hiding the menu.
+                    mobileMenu.classList.toggle('open');
+                });
+
+                // Get all navigation links within the mobile menu
+                const navLinks = mobileMenu.querySelectorAll('.nav-link');
+                // Add click event listener to each link to close the menu
+                navLinks.forEach(link => {
+                    link.addEventListener('click', () => {
+                        mobileMenu.classList.remove('open'); // Close the mobile menu
+                    });
+                });
+            } else {
+                // Log an error if elements are not found, useful for debugging
+                console.error("Error: Mobile menu button or mobile menu container not found. Please check your IDs in the HTML.");
+            }
+        });
+    </script>
 </body>
 </html>
 
