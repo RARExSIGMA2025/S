@@ -1,481 +1,119 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sankalp Classes & Computer Classes | Ratanpura, Mau</title>
-    <!-- Meta Description for SEO -->
-    <meta name="description" content="Join Sankalp Classes & Computer Classes at Ratanpura, Mau for high-quality, affordable, and job-oriented courses in ADCA, DCA, Tally, Typing, MS Office, Animation & more. Featuring modern labs and a 24/7 library. Call 9807534582.">
-    <!-- Keywords for SEO -->
-    <meta name="keywords" content="computer classes in Mau, ADCA in Ratanpura, Tally Prime course, DCA course Mau, typing classes Mau, IT coaching Mau, video editing Mau, animation training Ratanpura, affordable computer classes Mau, 24/7 library Mau, best computer institute Mau">
-
-    <!-- Link to Tailwind CSS CDN -->
+    <title>Sankalp Classes - Home</title>
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Link to Google Fonts - Inter for headings, Poppins for body -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-    
-    <!-- Custom Styles for Mobile Menu and other elements -->
     <style>
-        /* Define custom font families */
-        .font-poppins {
-            font-family: 'Poppins', sans-serif;
-        }
-        .font-inter {
+        /* Apply Inter font family */
+        body {
             font-family: 'Inter', sans-serif;
+            background-color: #f0f2f5; /* Light grey background */
         }
-
-        /* Custom styles for the mobile menu container */
-        .mobile-menu-container {
-            /* Initial state: hidden, applies to mobile view */
+        /* Custom styles for mobile menu transition */
+        .mobile-menu {
             max-height: 0;
-            opacity: 0;
             overflow: hidden;
-            pointer-events: none; /* Prevents interaction when hidden */
-            transition: max-height 0.4s ease-in-out, opacity 0.4s ease-in-out; /* Smooth transition */
-            position: relative; /* Ensure it's positioned correctly within the header */
-            width: 100%; /* Full width for mobile menu */
-            /* Add background and shadow for the expanded menu */
-            background: linear-gradient(to right, #1d4ed8, #4338ca); /* Re-applying gradient for mobile menu */
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-            border-bottom-left-radius: 0.5rem; /* rounded-b-lg */
-            border-bottom-right-radius: 0.5rem; /* rounded-b-lg */
+            transition: max-height 0.3s ease-out; /* Smooth transition for closing */
         }
-
-        /* State when the mobile menu is open */
-        .mobile-menu-container.open {
-            max-height: 500px; /* Expand to show content when 'open' class is added */
-            /* Adjust this value if you add significantly more menu items */
-            opacity: 1;
-            pointer-events: auto; /* Allow interaction when open */
-        }
-
-        /* Standard vertical padding for sections */
-        .section-padding {
-            padding: 4rem 0;
-        }
-
-        /* Hero section background creative */
-        .home-background-creative {
-            background: url('https://images.unsplash.com/photo-1517694712202-14dd9538aa97?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1MDcxMzJ8MHwxfHNlYXJjaHw0fHxjb21wdXRlciUyMGNsYXNzcm9vbXxlbnwwfHx8fDE3MTg2Mzk4ODZ8MA&ixlib=rb-4.0.3&q=80&w=1080') no-repeat center center / cover;
-            position: relative;
-        }
-
-        /* Button styles using Tailwind's @apply */
-        .btn-primary {
-            @apply inline-flex items-center justify-center px-8 py-4 border border-transparent text-lg font-semibold rounded-xl shadow-lg text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-4 focus:ring-blue-300 transition-all duration-300 transform hover:-translate-y-1 active:scale-95;
-        }
-        .btn-secondary {
-            @apply inline-flex items-center justify-center px-8 py-4 border border-blue-600 text-lg font-semibold rounded-xl shadow-lg text-blue-800 bg-white hover:bg-blue-50 focus:outline-none focus:ring-4 focus:ring-blue-300 transition-all duration-300 transform hover:-translate-y-1 active:scale-95;
-        }
-
-        /* Card general style */
-        .card {
-            @apply bg-white rounded-xl;
-        }
-
-        /* Animations for hero section elements (example - adjust or remove if actual animations are in external CSS) */
-        .animate-on-load-hero-text { animation: fadeInScale 0.8s ease-out forwards; opacity: 0; }
-        .animate-on-load-hero-text.delay-100 { animation-delay: 0.1s; }
-        .animate-on-load-hero-text.delay-200 { animation-delay: 0.2s; }
-        .animate-on-load-hero-text.delay-300 { animation-delay: 0.3s; }
-        .animate-on-load-hero-text.delay-400 { animation-delay: 0.4s; }
-        .animate-on-load-hero-grid { animation: fadeInScale 0.8s ease-out forwards; opacity: 0; }
-        .animate-on-load-hero-grid.delay-500 { animation-delay: 0.5s; }
-        .animate-on-load-hero-grid.delay-600 { animation-delay: 0.6s; }
-
-        @keyframes fadeInScale {
-            from { opacity: 0; transform: scale(0.9); }
-            to { opacity: 1; transform: scale(1); }
-        }
-
-        /* Nav link hover effects for both desktop and mobile */
-        .nav-link {
-            @apply text-white hover:text-blue-200 transition-colors duration-200;
-        }
-        /* For mobile nav links, ensure block display and padding */
-        .mobile-menu-container .nav-link {
-            @apply block py-2 px-4 rounded hover:bg-blue-600;
+        .mobile-menu.active {
+            max-height: 500px; /* Adjust based on content, large enough to cover all items */
+            transition: max-height 0.3s ease-in; /* Smooth transition for opening */
         }
     </style>
 </head>
-<body class="font-poppins text-gray-800 bg-gray-50">
-
-    <!-- Header Section -->
-    <header class="main-header bg-gradient-to-r from-blue-700 to-indigo-800 text-white p-4 shadow-xl fixed w-full z-10 transition-all duration-300 ease-in-out">
-        <div class="container mx-auto flex justify-between items-center px-4 relative">
-            <div class="flex items-center">
-                <!-- Logo -->
-                <img src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/logo.jpg" alt="Sankalp Classes Logo" class="h-10 w-10 rounded-full mr-3 border-2 border-white shadow-md">
-                <h1 class="text-2xl font-extrabold font-inter tracking-wide whitespace-nowrap">Sankalp Classes <span class="hidden sm:inline">& Computer Classes</span></h1>
-                <span class="sm:hidden text-lg ml-1 leading-none"> & Comp. Classes</span> <!-- Shorter text for small screens -->
+<body class="antialiased">
+    <!-- Navbar Section -->
+    <header class="bg-gradient-to-r from-blue-700 to-indigo-800 shadow-lg relative z-50 rounded-b-lg">
+        <nav class="container mx-auto px-4 py-4 flex items-center justify-between">
+            <!-- Logo -->
+            <div class="flex items-center space-x-2">
+                <!-- Placeholder for logo image -->
+                <img src="https://placehold.co/40x40/ffffff/000?text=Logo" alt="Sankalp Logo" class="w-10 h-10 rounded-full shadow-md">
+                <a href="index.html" class="text-white text-2xl font-bold tracking-wide">Sankalp Classes</a>
             </div>
 
-            <!-- Desktop Navigation - Hidden on small screens, flex on medium and larger -->
-            <nav class="hidden md:flex space-x-6 text-lg font-medium">
-                <a href="#home" class="nav-link">Home</a>
-                <a href="#about" class="nav-link">About Us</a>
-                <a href="#courses" class="nav-link">Courses</a>
-                <a href="#facilities" class="nav-link">Facilities</a>
-                <a href="album.html" class="nav-link">Album</a>
-                <a href="#contact" class="nav-link">Contact</a>
-            </nav>
+            <!-- Desktop Navigation Links -->
+            <div class="hidden md:flex space-x-8">
+                <a href="index.html" class="text-white hover:text-blue-200 transition duration-300 ease-in-out font-medium">Home</a>
+                <a href="#" class="text-white hover:text-blue-200 transition duration-300 ease-in-out font-medium">About Us</a>
+                <a href="#" class="text-white hover:text-blue-200 transition duration-300 ease-in-out font-medium">Courses</a>
+                <a href="#" class="text-white hover:text-blue-200 transition duration-300 ease-in-out font-medium">Facilities</a>
+                <a href="album.html" class="text-white hover:text-blue-200 transition duration-300 ease-in-out font-medium">Album</a>
+                <a href="#" class="text-white hover:text-blue-200 transition duration-300 ease-in-out font-medium">Contact</a>
+            </div>
 
-            <!-- Mobile Menu Button (Hamburger) - Visible only on small screens -->
-            <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none focus:ring-2 focus:ring-white p-2 rounded-md z-20">
-                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
-                </svg>
-            </button>
-        </div>
-
-        <!-- Mobile Navigation Menu - Collapsible, appears only on small screens -->
-        <nav id="mobile-menu" class="mobile-menu-container md:hidden">
-            <ul class="flex flex-col space-y-2 text-lg font-medium py-4 px-4">
-                <li><a href="#home" class="nav-link">Home</a></li>
-                <li><a href="#about" class="nav-link">About Us</a></li>
-                <li><a href="#courses" class="nav-link">Courses</a></li>
-                <li><a href="#facilities" class="nav-link">Facilities</a></li>
-                <li><a href="album.html" class="nav-link">Album</a></li>
-                <li><a href="#contact" class="nav-link">Contact</a></li>
-            </ul>
+            <!-- Mobile Menu Button (Hamburger) -->
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-white focus:outline-none focus:ring-2 focus:ring-blue-300 p-2 rounded-md" aria-label="Toggle mobile menu" aria-expanded="false" aria-controls="mobile-menu">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                    </svg>
+                </button>
+            </div>
         </nav>
+
+        <!-- Mobile Menu Overlay (Hidden by default) -->
+        <div id="mobile-menu" class="mobile-menu md:hidden bg-blue-800 pb-4 rounded-b-lg">
+            <div class="flex flex-col items-start px-4 py-2 space-y-2">
+                <a href="index.html" class="block text-white hover:bg-blue-700 w-full py-2 px-3 rounded-md transition duration-200 ease-in-out font-medium">Home</a>
+                <a href="#" class="block text-white hover:bg-blue-700 w-full py-2 px-3 rounded-md transition duration-200 ease-in-out font-medium">About Us</a>
+                <a href="#" class="block text-white hover:bg-blue-700 w-full py-2 px-3 rounded-md transition duration-200 ease-in-out font-medium">Courses</a>
+                <a href="#" class="block text-white hover:bg-blue-700 w-full py-2 px-3 rounded-md transition duration-200 ease-in-out font-medium">Facilities</a>
+                <a href="album.html" class="block text-white hover:bg-blue-700 w-full py-2 px-3 rounded-md transition duration-200 ease-in-out font-medium">Album</a>
+                <a href="#" class="block text-white hover:bg-blue-700 w-full py-2 px-3 rounded-md transition duration-200 ease-in-out font-medium">Contact</a>
+            </div>
+        </div>
     </header>
 
-    <!-- Main Content Sections -->
-    <main class="pt-24"> <!-- Increased padding-top for fixed header -->
+    <!-- Main Content Section (example content from your image) -->
+    <main class="container mx-auto px-4 mt-8 py-8 md:mt-12">
+        <section class="bg-white p-8 rounded-xl shadow-lg max-w-4xl mx-auto text-center">
+            <h1 class="text-4xl md:text-5xl font-extrabold text-blue-800 leading-tight mb-4 animate-fade-in-up">
+                Unlock Your Potential <br class="hidden md:block">with Cutting-Edge Tech Skills
+            </h1>
+            <p class="text-lg md:text-xl text-gray-700 mb-8 max-w-2xl mx-auto animate-fade-in">
+                Your Gateway to High-Quality, Affordable, and Job-Oriented Computer Education in Ratanpura, Mau.
+            </p>
 
-        <!-- Home Section - Hero -->
-        <section id="home" class="relative section-padding home-background-creative flex flex-col justify-center items-center text-center min-h-[calc(100vh-96px)]">
-            <!-- Overlay for better text readability on animated background -->
-            <div class="absolute inset-0 bg-black opacity-20"></div>
-            <div class="container mx-auto bg-white bg-opacity-95 p-8 md:p-12 rounded-2xl shadow-2xl max-w-4xl relative z-10 border border-blue-100 transform transition-all duration-500 ease-in-out hover:scale-[1.01]">
-                <h2 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-blue-800 mb-6 font-inter leading-tight drop-shadow-md animate-on-load-hero-text">
-                    <span class="block">Unlock Your Potential</span>
-                    <span class="block text-indigo-700">with Cutting-Edge Tech Skills</span>
-                </h2>
-                <p class="text-xl md:text-2xl leading-relaxed mb-8 font-light text-gray-700 max-w-2xl mx-auto animate-on-load-hero-text delay-100">
-                    Your Gateway to High-Quality, Affordable, and Job-Oriented Computer Education in Ratanpura, Mau.
-                </p>
-
-                <div class="flex flex-col sm:flex-row justify-center gap-4 mt-8 animate-on-load-hero-buttons delay-200">
-                    <a href="#courses" class="btn-primary">
-                        <span class="mr-2">🚀</span> Explore Courses
-                    </a>
-                    <a href="tel:9807534582" class="btn-secondary">
-                        <span class="mr-2">📞</span> Call Now: 9807534582
-                    </a>
+            <div class="space-y-4 text-left text-lg md:text-xl text-gray-800 max-w-sm mx-auto">
+                <div class="flex items-center space-x-3">
+                    <span class="text-red-500 text-2xl">🚀</span>
+                    <span>Explore Courses</span>
                 </div>
-                <p class="text-md md:text-lg mt-6 text-gray-600 animate-on-load-hero-text delay-300">📍 Ratanpura, Mau</p>
-
-                <h3 class="text-2xl font-semibold text-indigo-700 mt-16 mb-6 font-inter border-b-2 border-indigo-300 pb-3 inline-block animate-on-load-hero-text delay-400">💡 Why Choose Us?</h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 text-gray-700 text-left animate-on-load-hero-grid delay-500">
-                    <div class="flex items-start bg-blue-50 p-5 rounded-lg shadow-md border border-blue-200 transform hover:scale-[1.02] transition-transform duration-200">
-                        <span class="text-3xl text-blue-600 mr-3 mt-1">👨‍🏫</span>
-                        <p class="leading-relaxed font-medium"><strong>Experienced Trainers</strong> – Learn from certified and skilled professionals dedicated to your success.</p>
-                    </div>
-                    <div class="flex items-start bg-blue-50 p-5 rounded-lg shadow-md border border-blue-200 transform hover:scale-[1.02] transition-transform duration-200">
-                        <span class="text-3xl text-blue-600 mr-3 mt-1">🧑‍💻</span>
-                        <p class="leading-relaxed font-medium"><strong>Practical & Job-Oriented Training</strong> – Our industry-ready curriculum ensures you gain real-world skills.</p>
-                    </div>
-                    <div class="flex items-start bg-blue-50 p-5 rounded-lg shadow-md border border-blue-200 transform hover:scale-[1.02] transition-transform duration-200">
-                        <span class="text-3xl text-blue-600 mr-3 mt-1">💰</span>
-                        <p class="leading-relaxed font-medium"><strong>Affordable Fees</strong> – High-quality education made accessible within your budget.</p>
-                    </div>
-                    <div class="flex items-start bg-blue-50 p-5 rounded-lg shadow-md border border-blue-200 transform hover:scale-[1.02] transition-transform duration-200">
-                        <span class="text-3xl text-blue-600 mr-3 mt-1">🏆</span>
-                        <p class="leading-relaxed font-medium"><strong>Government-Recognized Certification</strong> – Boost your career with valid and widely accepted credentials.</p>
-                    </div>
-                    <div class="flex items-start bg-blue-50 p-5 rounded-lg shadow-md border border-blue-200 transform hover:scale-[1.02] transition-transform duration-200">
-                        <span class="text-3xl text-blue-600 mr-3 mt-1">💻</span>
-                        <p class="leading-relaxed font-medium"><strong>Modern Computer Labs</strong> – Real-time, hands-on learning with the latest technology and software.</p>
-                    </div>
-                    <div class="flex items-start bg-blue-50 p-5 rounded-lg shadow-md border border-blue-200 transform hover:scale-[1.02] transition-transform duration-200">
-                        <span class="text-3xl text-blue-600 mr-3 mt-1">🎯</span>
-                        <p class="leading-relaxed font-medium"><strong>Small Batches for Personal Attention</strong> – Individualized focus ensures better understanding and progress.</p>
-                    </div>
-                    <div class="flex items-start bg-blue-50 p-5 rounded-lg shadow-md border border-blue-200 transform hover:scale-[1.02] transition-transform duration-200">
-                        <span class="text-3xl text-blue-600 mr-3 mt-1">📚</span>
-                        <p class="leading-relaxed font-medium"><strong>24/7 Library Access</strong> – Study at your convenience anytime with extensive learning resources.</p>
-                    </div>
-                    <div class="flex items-start bg-blue-50 p-5 rounded-lg shadow-md border border-blue-200 transform hover:scale-[1.02] transition-transform duration-200">
-                        <span class="text-3xl text-blue-600 mr-3 mt-1">🗓️</span>
-                        <p class="leading-relaxed font-medium"><strong>Flexible Course Timings</strong> – Learn at your own pace and convenience with adaptable schedules.</p>
-                    </div>
+                <div class="flex items-center space-x-3">
+                    <span class="text-green-600 text-2xl">📞</span>
+                    <span>Call Now: 9807534582</span>
                 </div>
-
-                <!-- Album Teaser Section -->
-                <div class="mt-20 border-t-2 border-indigo-300 pt-16 animate-on-load-hero-grid delay-600">
-                    <h3 class="text-3xl font-extrabold text-blue-800 mb-8 font-inter text-center">📸 Explore Our Campus Life!</h3>
-                    <a href="album.html" class="block rounded-xl overflow-hidden shadow-2xl border-4 border-indigo-400 transform transition-all duration-300 ease-in-out hover:scale-[1.02] hover:shadow-3xl group">
-                        <div class="relative">
-                            <img src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(6).JPG" alt="Students celebrating an event at Sankalp Classes" class="w-full h-auto object-cover rounded-xl group-hover:brightness-90 transition-all duration-300">
-                            <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                <span class="text-white text-3xl font-bold tracking-wide">VIEW FULL ALBUM →</span>
-                            </div>
-                        </div>
-                    </a>
-                    <p class="text-lg text-center mt-6 text-gray-700">Click the image above to see more moments from our celebrations, prize distributions, and campus activities.</p>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- About Us Section -->
-        <section id="about" class="section-padding bg-gray-100 animate-on-scroll">
-            <div class="container mx-auto bg-white p-8 md:p-12 rounded-2xl shadow-xl max-w-5xl border border-gray-200">
-                <h2 class="text-4xl font-extrabold font-inter text-blue-800 mb-6 text-center">📖 About Us</h2>
-                <h3 class="text-3xl font-semibold text-indigo-700 mb-8 text-center leading-snug">Empowering Students with Skills that Matter for a Digital Future</h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
-                    <div class="md:order-2">
-                        <p class="text-lg leading-relaxed mb-4 text-gray-700">At Sankalp Classes & Computer Classes, we are driven by a singular belief: technology has the power to transform lives. Established in the vibrant community of Ratanpura, Mau, our coaching center has rapidly evolved into a trusted beacon for aspiring IT professionals and students eager to build a strong foundation in computer science.</p>
-                        <p class="text-lg leading-relaxed mb-4 text-gray-700">Our core mission is to deliver <strong class="text-indigo-600">practical, result-driven computer education</strong> that genuinely empowers our students to thrive in the modern digital world. We go beyond mere theory. With a team of highly experienced and certified trainers, we immerse our students in real-world applications, ensuring they not only grasp concepts but also master the essential tools and technologies demanded by today's job market.</p>
-                    </div>
-                    <div class="md:order-1">
-                        <img src="https://placehold.co/600x400/957DAD/FFFFFF?text=About+Us+Image" alt="Students in a modern computer lab" class="rounded-xl shadow-lg border border-gray-200 w-full h-auto object-cover">
-                    </div>
-                </div>
-                <p class="text-lg leading-relaxed mt-6 mb-4 text-gray-700 text-center">We offer a diverse portfolio of certified diploma courses, cutting-edge job-ready skill training programs, and specialized software classes designed to give you a significant competitive advantage. Whether you're taking your first steps in IT or aiming to upgrade your existing knowledge, Sankalp Classes provides the perfect learning environment for your ambitions.</p>
-                <p class="text-3xl font-bold text-center text-blue-600 mt-10 font-inter">Join Sankalp – <span class="text-indigo-700">Build Skills.</span> Build Future.</p>
-            </div>
-        </section>
-
-        <!-- Courses We Offer Section -->
-        <section id="courses" class="section-padding bg-blue-50 animate-on-scroll">
-            <div class="container mx-auto">
-                <h2 class="text-4xl font-extrabold font-inter text-blue-800 mb-10 text-center">🎓 Our Diverse Courses</h2>
-                <p class="text-xl text-center mb-12 max-w-3xl mx-auto text-gray-700 leading-relaxed">Explore a wide range of industry-relevant courses designed for beginners, students, and professionals to elevate their digital expertise.</p>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-
-                    <!-- Course Card Template (Example: Diploma Courses) -->
-                    <div class="card p-6 border border-blue-200 shadow-xl flex flex-col h-full transform transition-transform duration-200 hover:scale-[1.02] hover:shadow-2xl">
-                        <h3 class="text-2xl font-semibold font-inter text-blue-700 mb-4 pb-2 border-b border-blue-100">🏅 Diploma Courses</h3>
-                        <ul class="list-disc list-inside text-gray-700 space-y-2 text-md flex-grow">
-                            <li>Comprehensive Computer Diploma Programs for long-term career building.</li>
-                            <li>Includes practical project work & government-recognized certification.</li>
-                            <li>Designed with a robust job-oriented curriculum.</li>
-                        </ul>
-                        <div class="mt-4 text-right">
-                             <a href="#contact" class="text-indigo-600 hover:text-indigo-800 font-semibold transition-colors duration-200 text-sm">Learn More <span aria-hidden="true">→</span></a>
-                        </div>
-                    </div>
-
-                    <!-- Video Editing Card -->
-                    <div class="card p-6 border border-blue-200 shadow-xl flex flex-col h-full transform transition-transform duration-200 hover:scale-[1.02] hover:shadow-2xl">
-                        <h3 class="text-2xl font-semibold font-inter text-blue-700 mb-4 pb-2 border-b border-blue-100">✂️ Video Editing</h3>
-                        <ul class="list-disc list-inside text-gray-700 space-y-2 text-md flex-grow">
-                            <li>Master tools like Adobe Premiere Pro, Filmora, and more.</li>
-                            <li>Learn video cutting, professional effects, seamless transitions, and audio syncing.</li>
-                            <li>Ideal for aspiring YouTube creators and media professionals.</li>
-                        </ul>
-                        <div class="mt-4 text-right">
-                             <a href="#contact" class="text-indigo-600 hover:text-indigo-800 font-semibold transition-colors duration-200 text-sm">Learn More <span aria-hidden="true">→</span></a>
-                        </div>
-                    </div>
-
-                    <!-- Animation Card -->
-                    <div class="card p-6 border border-blue-200 shadow-xl flex flex-col h-full transform transition-transform duration-200 hover:scale-[1.02] hover:shadow-2xl">
-                        <h3 class="text-2xl font-semibold font-inter text-blue-700 mb-4 pb-2 border-b border-blue-100">🎨 Animation</h3>
-                        <ul class="list-disc list-inside text-gray-700 space-y-2 text-md flex-grow">
-                            <li>Introduction to both 2D & 3D Animation principles.</li>
-                            <li>Create compelling character movements, scenes & visual effects.</li>
-                            <li>Perfect for graphic design and gaming enthusiasts.</li>
-                        </ul>
-                        <div class="mt-4 text-right">
-                             <a href="#contact" class="text-indigo-600 hover:text-indigo-800 font-semibold transition-colors duration-200 text-sm">Learn More <span aria-hidden="true">→</span></a>
-                        </div>
-                    </div>
-
-                    <!-- ADCA Card -->
-                    <div class="card p-6 border border-blue-200 shadow-xl flex flex-col h-full transform transition-transform duration-200 hover:scale-[1.02] hover:shadow-2xl">
-                        <h3 class="text-2xl font-semibold font-inter text-blue-700 mb-4 pb-2 border-b border-blue-100">🖥️ ADCA (Advanced Diploma in Computer Application)</h3>
-                        <ul class="list-disc list-inside text-gray-700 space-y-2 text-md flex-grow">
-                            <li>Gain full practical knowledge of essential computer applications.</li>
-                            <li>Extensive coverage including MS Office Suite, Internet fundamentals, DBMS, Tally, and Graphic Designing.</li>
-                        </ul>
-                        <div class="mt-4 text-right">
-                             <a href="#contact" class="text-indigo-600 hover:text-indigo-800 font-semibold transition-colors duration-200 text-sm">Learn More <span aria-hidden="true">→</span></a>
-                        </div>
-                    </div>
-
-                    <!-- DCA Card -->
-                    <div class="card p-6 border border-blue-200 shadow-xl flex flex-col h-full transform transition-transform duration-200 hover:scale-[1.02] hover:shadow-2xl">
-                        <h3 class="text-2xl font-semibold font-inter text-blue-700 mb-4 pb-2 border-b border-blue-100">📁 DCA (Diploma in Computer Applications)</h3>
-                        <ul class="list-disc list-inside text-gray-700 space-y-2 text-md flex-grow">
-                            <li>Foundational computer knowledge tailored for beginners.</li>
-                            <li>Covers core applications: MS Word, Excel, PowerPoint, and Internet usage.</li>
-                        </ul>
-                        <div class="mt-4 text-right">
-                             <a href="#contact" class="text-indigo-600 hover:text-indigo-800 font-semibold transition-colors duration-200 text-sm">Learn More <span aria-hidden="true">→</span></a>
-                        </div>
-                    </div>
-
-                    <!-- Tally Prime Card -->
-                    <div class="card p-6 border border-blue-200 shadow-xl flex flex-col h-full transform transition-transform duration-200 hover:scale-[1.02] hover:shadow-2xl">
-                        <h3 class="text-2xl font-semibold font-inter text-blue-700 mb-4 pb-2 border-b border-blue-100">📊 Tally Prime with GST</h3>
-                        <ul class="list-disc list-inside text-gray-700 space-y-2 text-md flex-grow">
-                            <li>Specialized training in Tally Prime accounting software.</li>
-                            <li>Learn key functionalities including GST, efficient billing, inventory management, and report generation.</li>
-                            <li>Highly recommended for commerce students and job seekers in accounting.</li>
-                        </ul>
-                        <div class="mt-4 text-right">
-                             <a href="#contact" class="text-indigo-600 hover:text-indigo-800 font-semibold transition-colors duration-200 text-sm">Learn More <span aria-hidden="true">→</span></a>
-                        </div>
-                    </div>
-
-                    <!-- MS Office Card -->
-                    <div class="card p-6 border border-blue-200 shadow-xl flex flex-col h-full transform transition-transform duration-200 hover:scale-[1.02] hover:shadow-2xl">
-                        <h3 class="text-2xl font-semibold font-inter text-blue-700 mb-4 pb-2 border-b border-blue-100">🖱️ MS Office</h3>
-                        <ul class="list-disc list-inside text-gray-700 space-y-2 text-md flex-grow">
-                            <li>Master the full MS Office suite: Word, Excel, PowerPoint, and Outlook.</li>
-                            <li>Learn essential shortcut tips, advanced formatting, and effective document management.</li>
-                        </ul>
-                        <div class="mt-4 text-right">
-                             <a href="#contact" class="text-indigo-600 hover:text-indigo-800 font-semibold transition-colors duration-200 text-sm">Learn More <span aria-hidden="true">→</span></a>
-                        </div>
-                    </div>
-
-                    <!-- Graphic Designing Card -->
-                    <div class="card p-6 border border-blue-200 shadow-xl flex flex-col h-full transform transition-transform duration-200 hover:scale-[1.02] hover:shadow-2xl">
-                        <h3 class="text-2xl font-semibold font-inter text-blue-700 mb-4 pb-2 border-b border-blue-100">🎨 Graphic Designing</h3>
-                        <ul class="list-disc list-inside text-gray-700 space-y-2 text-md flex-grow">
-                            <li>Hands-on training with industry-standard software: Photoshop, CorelDRAW, Illustrator.</li>
-                            <li>Develop skills in poster design, professional logo making, advanced image editing, and impactful branding.</li>
-                        </ul>
-                        <div class="mt-4 text-right">
-                             <a href="#contact" class="text-indigo-600 hover:text-indigo-800 font-semibold transition-colors duration-200 text-sm">Learn More <span aria-hidden="true">→</span></a>
-                        </div>
-                    </div>
-
-                    <!-- Typing Card -->
-                    <div class="card p-6 border border-blue-200 shadow-xl flex flex-col h-full transform transition-transform duration-200 hover:scale-[1.02] hover:shadow-2xl">
-                        <h3 class="text-2xl font-semibold font-inter text-blue-700 mb-4 pb-2 border-b border-blue-100">⌨️ Typing (Hindi & English)</h3>
-                        <ul class="list-disc list-inside text-gray-700 space-y-2 text-md flex-grow">
-                            <li>Dedicated speed typing classes with daily practice sessions.</li>
-                            <li>Significantly improves both accuracy and overall typing speed.</li>
-                            <li>Excellent preparation for various competitive exams requiring typing proficiency.</li>
-                        </ul>
-                        <div class="mt-4 text-right">
-                             <a href="#contact" class="text-indigo-600 hover:text-indigo-800 font-semibold transition-colors duration-200 text-sm">Learn More <span aria-hidden="true">→</span></a>
-                        </div>
-                    </div>
-
-                </div>
-                <p class="text-lg text-center mt-12 text-gray-600">All courses come with completion certificates and dedicated placement assistance.</p>
-                <div class="mt-8 text-center">
-                    <a href="tel:9807534582" class="btn-primary">
-                        <span class="mr-2">✅</span> Enroll Now! Call: 9807534582
-                    </a>
+                <div class="flex items-center space-x-3">
+                    <span class="text-blue-500 text-2xl">📍</span>
+                    <span>City Center, Ratanpura, Mau</span>
                 </div>
             </div>
         </section>
-
-        <!-- Our Facilities Section -->
-        <section id="facilities" class="section-padding bg-gray-100 animate-on-scroll">
-            <div class="container mx-auto bg-white p-8 md:p-12 rounded-2xl shadow-xl max-w-5xl border border-gray-200">
-                <h2 class="text-4xl font-extrabold font-inter text-blue-800 mb-10 text-center">🌟 Our State-of-the-Art Facilities</h2>
-                <p class="text-xl text-center mb-12 max-w-3xl mx-auto text-gray-700 leading-relaxed">At Sankalp Classes, we provide top-notch facilities designed to enhance your learning experience, foster collaboration, and support your academic and professional success.</p>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div class="card p-6 border border-blue-200 shadow-xl flex flex-col items-center text-center transform transition-transform duration-200 hover:scale-[1.02] hover:shadow-2xl">
-                        <span class="text-5xl text-indigo-600 mb-4">📚</span>
-                        <h3 class="text-2xl font-semibold font-inter text-blue-700 mb-2">24/7 Library Access</h3>
-                        <p class="text-gray-700 leading-relaxed">Our comprehensive library is available around the clock, providing a quiet and resourceful environment for self-study and research. Access a wide range of books, journals, and digital resources anytime you need them.</p>
-                    </div>
-                    <div class="card p-6 border border-blue-200 shadow-xl flex flex-col items-center text-center transform transition-transform duration-200 hover:scale-[1.02] hover:shadow-2xl">
-                        <span class="text-5xl text-green-600 mb-4">💻</span>
-                        <h3 class="text-2xl font-semibold font-inter text-blue-700 mb-2">Modern Computer Labs</h3>
-                        <p class="text-gray-700 leading-relaxed">Equipped with the latest hardware and software, our computer labs offer real-time, hands-on experience. Work on your projects, practice your skills, and stay updated with the newest technologies.</p>
-                    </div>
-                    <div class="card p-6 border border-blue-200 shadow-xl flex flex-col items-center text-center transform transition-transform duration-200 hover:scale-[1.02] hover:shadow-2xl">
-                        <span class="text-5xl text-yellow-600 mb-4">🛋️</span>
-                        <h3 class="text-2xl font-semibold font-inter text-blue-700 mb-2">Comfortable Study Zones</h3>
-                        <p class="text-gray-700 leading-relaxed">Beyond the lab, find comfortable and conducive study zones designed for individual focus or group discussions. A perfect space to collaborate and concentrate.</p>
-                    </div>
-                    <div class="card p-6 border border-blue-200 shadow-xl flex flex-col items-center text-center transform transition-transform duration-200 hover:scale-[1.02] hover:shadow-2xl">
-                        <span class="text-5xl text-red-600 mb-4">📶</span>
-                        <h3 class="text-2xl font-semibold font-inter text-blue-700 mb-2">High-Speed Wi-Fi</h3>
-                        <p class="text-gray-700 leading-relaxed">Stay connected with our high-speed internet access available throughout the institute, ensuring seamless online learning and research.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Contact Us Section -->
-        <section id="contact" class="section-padding bg-blue-50 animate-on-scroll">
-            <div class="container mx-auto bg-white p-8 md:p-12 rounded-2xl shadow-xl max-w-4xl border border-blue-200 text-center">
-                <h2 class="text-4xl font-extrabold font-inter text-blue-800 mb-6">📞 Get in Touch with Sankalp</h2>
-                <p class="text-xl mb-8 text-gray-700 leading-relaxed">Have questions? Ready to start your computer education journey?
-                    We’re just a call or visit away! Reach out to us anytime to learn more about our courses and facilities.</p>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-lg text-gray-700">
-                    <div class="flex flex-col items-center p-6 bg-gray-50 rounded-lg shadow-md border border-gray-100">
-                        <span class="text-3xl text-blue-600 mb-2">📍</span>
-                        <p class="font-semibold text-xl">Address:</p>
-                        <p>Sankalp Classes & Computer Classes</p>
-                        <p>Ratanpura, Mau – Uttar Pradesh</p>
-                    </div>
-
-                    <div class="flex flex-col items-center p-6 bg-gray-50 rounded-lg shadow-md border border-gray-100">
-                        <span class="text-3xl text-blue-600 mb-2">📞</span>
-                        <p class="font-semibold text-xl">Phone:</p>
-                        <a href="tel:9807534582" class="text-blue-700 hover:underline text-2xl font-bold transition-colors duration-200">9807534582</a>
-                    </div>
-
-                    <div class="flex flex-col items-center p-6 bg-gray-50 rounded-lg shadow-md border border-gray-100">
-                        <span class="text-3xl text-blue-600 mb-2">📧</span>
-                        <p class="font-semibold text-xl">Email:</p>
-                        <a href="mailto:sankalpclasses@gmail.com" class="text-blue-700 hover:underline text-xl transition-colors duration-200">sankalpclasses@gmail.com</a>
-                    </div>
-
-                    <div class="flex flex-col items-center p-6 bg-gray-50 rounded-lg shadow-md border border-gray-100">
-                        <span class="text-3xl text-blue-600 mb-2">🕒</span>
-                        <p class="font-semibold text-xl">Working Hours:</p>
-                        <p>Monday to Saturday: 9:00 AM – 5:30 PM</p>
-                        <p>Sunday: Closed</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
     </main>
 
-    <!-- Footer Section -->
-    <footer class="bg-gray-900 text-white text-center p-6 mt-12 shadow-inner">
-        <div class="container mx-auto">
-            <p>&copy; 2017 Sankalp Classes & Computer Classes. All rights reserved.</p>
-            <p class="text-sm mt-2 opacity-80">Designed by Ayu💡 for Sankalp Classes & Computer Classes.</p>
-        </div>
-    </footer>
-
-    <!-- JavaScript for Mobile Menu Functionality -->
+    <!-- JavaScript for Mobile Menu Toggle -->
     <script>
-        // Ensure the DOM is fully loaded before trying to access elements
-        document.addEventListener('DOMContentLoaded', () => {
-            const mobileMenuButton = document.getElementById('mobile-menu-button'); // Get the hamburger icon button
-            const mobileMenu = document.getElementById('mobile-menu'); // Get the mobile menu container
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
 
-            // Check if both elements exist to prevent errors
-            if (mobileMenuButton && mobileMenu) {
-                // Add a click event listener to the menu button
-                mobileMenuButton.addEventListener('click', () => {
-                    // Toggle the 'open' class on the mobile menu.
-                    // This class controls the max-height and opacity, showing/hiding the menu.
-                    mobileMenu.classList.toggle('open');
-                });
+            mobileMenuButton.addEventListener('click', function() {
+                const isExpanded = this.getAttribute('aria-expanded') === 'true' || false;
+                this.setAttribute('aria-expanded', !isExpanded);
+                mobileMenu.classList.toggle('active');
+            });
 
-                // Get all navigation links within the mobile menu
-                const navLinks = mobileMenu.querySelectorAll('.nav-link');
-                // Add click event listener to each link to close the menu
-                navLinks.forEach(link => {
-                    link.addEventListener('click', () => {
-                        mobileMenu.classList.remove('open'); // Close the mobile menu
-                    });
+            // Close mobile menu when a link is clicked
+            mobileMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenuButton.setAttribute('aria-expanded', 'false');
+                    mobileMenu.classList.remove('active');
                 });
-            } else {
-                // Log an error if elements are not found, useful for debugging
-                console.error("Error: Mobile menu button or mobile menu container not found. Please check your IDs in the HTML.");
-            }
+            });
         });
     </script>
 </body>
