@@ -1,46 +1,48 @@
-# 💻 Sankalp Computer Classes — Learning Digitally, Growing Technically
+# 🧠 Sankalp Computer Classes
 
-> A modern, educational web interface for "Sankalp Computer Classes" — a computer institute aiming to deliver quality digital literacy and software training.
+> “Where logic meets creativity, and education meets innovation.”
 
-![Status](https://img.shields.io/badge/Status-Active-brightgreen)
-![Made With](https://img.shields.io/badge/Made%20By-Full%20Stack%20Dev-blue)
-![Frontend](https://img.shields.io/badge/Frontend-Loved-red)
+A beautifully crafted, modern educational website for a next-gen computer institute — designed and built by a developer who sees **code as art** and **UI as storytelling**.
 
----
-
-## 📌 Overview
-
-**Sankalp** is a clean and responsive website developed to represent a computer training institute online. The focus is on front-end elegance and accessibility — ideal for students, staff, and visitors looking to explore courses, faculty, and admission options digitally.
+![Built with Love](https://img.shields.io/badge/Built%20with-%F0%9F%92%96%20and%20VSCode-blueviolet)
+![Frontend Obsessed](https://img.shields.io/badge/Frontend-❤️%20Preferred-orange)
+![Live Soon](https://img.shields.io/badge/Live-Demo%20Coming%20Soon-lightgrey)
 
 ---
 
-## 🧰 Tech Stack
+## 🌟 Project Vision
 
-- **HTML5 / CSS3**
-- **JavaScript**
-- **Bootstrap / Tailwind CSS**
-- *(Optional Backend Setup can be integrated with Node.js or Firebase)*
+**Sankalp** means *"a solemn promise"* — and this project is just that: a commitment to quality learning, intuitive design, and a digital-first experience for computer learners.
 
----
-
-## ✨ Key Features
-
-- 🔸 Modern responsive layout
-- 🔸 Smooth scroll and UI interactions
-- 🔸 Course list section
-- 🔸 Faculty / About Us page
-- 🔸 Contact form structure (optional backend ready)
-- 🔸 SEO-ready markup
+Crafted not just for screens, but for **humans**.
 
 ---
 
-## 🚀 Getting Started
+## ✨ Highlights
+
+- 🎯 **Visually-striking UI** built for both students and faculty
+- 🌐 **Responsive design** that works beautifully on every screen
+- 📚 **Modular pages** for courses, about, and contact
+- 🌓 **Dark-mode ready** design structure (optional)
+- ⚙️ **Scalable architecture** for future backend integration
+- 🌱 **Clean, semantic HTML/CSS** and beginner-friendly for open-source contributors
+
+---
+
+## 🛠️ Tech Stack
+
+| 🌍 Frontend       | 🎯 Utilities           | 🧠 Optional Stack         |
+|------------------|------------------------|---------------------------|
+| HTML5 + CSS3     | Font Awesome, Favicon  | Firebase / Express.js     |
+| JavaScript (Vanilla) | GitHub Pages Ready | Tailwind or Bootstrap (v2) |
+
+---
+
+## 🔧 Setup Guide
+
+Clone. Customize. Launch.
 
 ```bash
-# Clone the repository
 git clone https://github.com/RARExSIGMA2025/Sankalp.git
-
-# Navigate into the directory
 cd Sankalp
-
-# Open index.html in your browser
+open index.html
