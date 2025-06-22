@@ -6,7 +6,7 @@ A beautifully crafted, modern educational website for a next-gen computer instit
 
 ![Built with Love](https://img.shields.io/badge/Built%20with-%F0%9F%92%96%20and%20VSCode-blueviolet)
 ![Frontend Obsessed](https://img.shields.io/badge/Frontend-❤️%20Preferred-orange)
-![Live Soon](https://img.shields.io/badge/Live-Demo%20Coming%20Soon-lightgrey)
+![Live Here](https://img.shields.io/badge/Live-Demo%20Coming%20Soon-lightgrey)
 
 ---
 
