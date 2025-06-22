@@ -1,33 +1,39 @@
 /* General Body Styles */
 body {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Poppins', sans-serif; /* Set Poppins as default body font */
     background-color: #f8fafc; /* Light gray background for overall site */
     color: #333;
 }
 
+/* Ensure Inter font is applied to headings explicitly if needed */
+h1, h2, h3, h4, h5, h6, .font-inter {
+    font-family: 'Inter', sans-serif;
+}
+
 /* Section Padding for Responsiveness */
 .section-padding {
-    padding: 4rem 1rem; /* Responsive padding for sections */
+    padding: 6rem 1rem; /* More generous padding for sections */
 }
 @media (min-width: 768px) {
     .section-padding {
-        padding: 6rem 2rem;
+        padding: 8rem 2rem; /* Even more padding on larger screens */
     }
 }
 
-/* Card Styles (used in Courses, Facilities) */
+/* Base Card Styles (used in Courses, Facilities, Contact info) */
 .card {
     background-color: white;
     border-radius: 0.75rem; /* rounded-xl */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* shadow-md */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.08); /* slightly softer shadow */
     padding: 1.5rem;
-    transition: transform 0.2s ease-in-out;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 }
 .card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-3px); /* Subtle lift on hover */
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.12); /* More pronounced shadow on hover */
 }
 
-/* Gallery Image Styles (for Album section) */
+/* Gallery Image Styles (for Album section - unchanged from previous) */
 .gallery-image {
     width: 100%;
     height: 200px; /* Fixed height for consistency */
@@ -53,30 +59,70 @@ body {
     100% { background-position: 0% 50%; }
 }
 
-/* Uncomment and experiment with other background ideas if you wish: */
-/*
-.home-background-dots {
-    background-color: #f8fafc;
-    background-image: radial-gradient(#cbd5e1 1px, transparent 1px), radial-gradient(#cbd5e1 1px, #f8fafc 1px);
-    background-size: 20px 20px;
-    background-position: 0 0, 10px 10px;
+/* Custom Button Styles for a more professional look */
+.btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #4F46E5; /* Indigo 600 */
+    color: white;
+    font-weight: 700; /* bold */
+    padding: 0.75rem 2rem; /* py-3 px-8 */
+    border-radius: 9999px; /* rounded-full */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* shadow-lg */
+    transition: all 0.3s ease-in-out;
+    transform: scale(1);
+    font-size: 1.125rem; /* text-xl */
+    text-decoration: none; /* Remove underline for links */
 }
-.home-background-waves {
-     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-     position: relative;
-     overflow: hidden;
+.btn-primary:hover {
+    background-color: #4338CA; /* Indigo 700 */
+    transform: scale(1.05);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.15);
 }
-.home-background-waves::before {
-    content: '';
-    position: absolute;
-    top: -10%; left: -10%; right: -10%; bottom: -10%;
-    background-image: url('data:image/svg+xml;charset=UTF-8,%3Csvg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M60 0L0 60V120H120V60L60 0Z" fill="%238B5CF6" fill-opacity="0.1"/%3E%3C/svg%3E');
-    background-repeat: repeat;
-    animation: backgroundWave 20s linear infinite;
+.btn-primary:focus {
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.5); /* ring-4 focus:ring-indigo-300 */
 }
-@keyframes backgroundWave {
-    from { transform: translate(0, 0); }
-    to { transform: translate(-120px, -120px); }
+
+.btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #22C55E; /* Green 500 */
+    color: white;
+    font-weight: 700; /* bold */
+    padding: 0.75rem 2rem; /* py-3 px-8 */
+    border-radius: 9999px; /* rounded-full */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* shadow-lg */
+    transition: all 0.3s ease-in-out;
+    transform: scale(1);
+    font-size: 1.125rem; /* text-xl */
+    text-decoration: none; /* Remove underline for links */
 }
-*/
+.btn-secondary:hover {
+    background-color: #16A34A; /* Green 600 */
+    transform: scale(1.05);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.15);
+}
+.btn-secondary:focus {
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.5); /* ring-4 focus:ring-green-300 */
+}
+
+/* Mobile navigation specific styles (already in base, but ensure consistency) */
+#main-nav.hidden {
+    opacity: 0;
+    max-height: 0;
+}
+#main-nav.flex { /* This class is added by JS when menu is open */
+    opacity: 1;
+    max-height: 500px; /* Arbitrary large height for transition */
+    overflow: hidden;
+}
+
+/* Drop shadow for main headings (if text-shadow is desired, else remove) */
+.drop-shadow-md {
+    text-shadow: 0 2px 4px rgba(0,0,0,0.15);
+}
 
