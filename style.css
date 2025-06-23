@@ -26,11 +26,12 @@ h1, h2, h3, h4, h5, h6, .font-inter {
     border-radius: 0.75rem; /* rounded-xl */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.08); /* slightly softer shadow */
     padding: 1.5rem;
-    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    /* Combine hover transitions for a single card class */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 .card:hover {
-    transform: translateY(-3px); /* Subtle lift on hover */
-    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.12); /* More pronounced shadow on hover */
+    transform: translateY(-8px) scale(1.02); /* Lifts and slightly scales (from card-hover-effect) */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1); /* Stronger shadow (from card-hover-effect) */
 }
 
 /* Gallery Image Styles (for Album section - unchanged from previous) */
