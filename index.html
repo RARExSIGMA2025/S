@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,32 +11,485 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Custom Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Link to your external stylesheet -->
-    <link rel="stylesheet" href="css/style.css"> 
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" xintegrity="sha512-z7P0bM/oRjB2Gj5iO/u8DqP+k2yW2Z6ZgA+k7I+d/n2n+z9Y+xW5fW7fW6xW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aT:
+/* Custom CSS for Sankalp Classes Website - Redesigned Theme */
 
+/* --- Root Variables for Theme Colors --- */
+:root {
+    --primary-blue: #2563eb;    /* Tailwind blue-600 */
+    --dark-blue: #1e3a8a;       /* Tailwind blue-900 */
+    --indigo-dark: #3730a3;     /* Tailwind indigo-800 */
+    --indigo-light: #4f46e5;    /* Tailwind indigo-600 */
+    --accent-amber: #f59e0b;    /* Tailwind amber-500 for highlights */
+    --background-light: #f8fafc; /* Tailwind slate-50 */
+    --text-color-primary: #374151; /* Tailwind gray-700 */
+    --border-light: #e2e8f0;    /* Tailwind gray-200 */
+    --blue-gradient-start: #1d4ed8; /* Tailwind blue-700 */
+    --blue-gradient-end: #3730a3;   /* Tailwind indigo-800 */
+}
+
+/* Ensure smooth scrolling and padding for fixed header */
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 6rem; /* Adjust for fixed header height on scroll */
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: var(--text-color-primary);
+    background-color: var(--background-light);
+    line-height: 1.7; /* Improved readability */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Headings use Inter font */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Inter', sans-serif;
+}
+
+/* --- Header & Navigation --- */
+.main-header {
+    background-image: linear-gradient(to right, var(--blue-gradient-start), var(--blue-gradient-end));
+    border-bottom: 2px solid transparent;
+    transition: all 0.3s ease-in-out;
+    height: 6rem; /* Fixed height for header */
+    display: flex;
+    align-items: center;
+    position: fixed; /* Ensures it stays on top */
+    width: 100%;
+    z-index: 20;
+    top: 0;
+    left: 0;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); /* default shadow */
+}
+
+/* Styles for header when scrolled */
+.main-header.scrolled {
+    background-color: rgba(29, 78, 216, 0.95); /* blue-700 with opacity */
+    backdrop-filter: blur(8px); /* Frosted glass effect */
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* stronger shadow */
+    border-bottom-color: rgba(255, 255, 255, 0.15); /* Subtle white line */
+    padding-top: 0.75rem; /* py-3 */
+    padding-bottom: 0.75rem; /* py-3 */
+    height: 5rem; /* Slightly reduced height */
+}
+
+/* Navigation Links */
+.main-header .nav-link {
+    position: relative;
+    padding: 0.75rem 1rem; /* More generous padding */
+    color: white; /* Default text color */
+    transition: color 0.2s ease, background-color 0.2s ease, transform 0.2s ease;
+    border-radius: 0.375rem; /* rounded-md */
+    font-weight: 500; /* Medium weight */
+}
+
+.main-header .nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.15); /* Slightly more prominent hover */
+    transform: translateY(-2px);
+    color: #dbeafe; /* blue-100 */
+}
+
+/* Underline animation for active and hovered links */
+.main-header .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0.25rem; /* Adjusted for better visual alignment */
+    left: 50%;
+    transform: translateX(-50%) scaleX(0);
+    width: calc(100% - 2rem); /* Width based on padding */
+    height: 2px;
+    background-color: var(--accent-amber); /* Accent color for active link */
+    transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Smooth transition */
+    border-radius: 9999px; /* rounded-full */
+}
+
+.main-header .nav-link:hover::after,
+.main-header .nav-link.current-active-link::after {
+    transform: translateX(-50%) scaleX(1);
+}
+
+.main-header .nav-link.current-active-link {
+    font-weight: 700; /* Bold for active link */
+    color: var(--accent-amber); /* Ensure text color is amber for active */
+}
+
+/* Navigation Call to Action Button */
+.btn-nav-cta {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.75rem 1.5rem; /* Matches Allen's button size */
+    border-radius: 0.25rem; /* Slightly less rounded */
+    background-color: var(--accent-amber); /* Accent color */
+    color: var(--dark-blue); /* Dark blue text for contrast */
+    font-weight: 600; /* Semi-bold */
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: 0 2px 5px rgba(245, 158, 11, 0.3); /* Softer shadow */
+    flex-shrink: 0; /* Prevents shrinking on smaller screens */
+    margin-left: auto; /* Pushes to the right */
+}
+
+.btn-nav-cta:hover {
+    background-color: #d97706; /* Darker amber on hover */
+    transform: translateY(-1px); /* Less pronounced lift */
+    box-shadow: 0 4px 10px rgba(245, 158, 11, 0.5);
+}
+
+.btn-nav-cta:active {
+    transform: translateY(0);
+    box-shadow: 0 1px 3px rgba(245, 158, 11, 0.2);
+}
+
+/* Mobile Menu Transitions */
+#main-nav {
+    transform-origin: top;
+    transition: transform 0.4s ease-out, opacity 0.4s ease-out, max-height 0.4s ease-out;
+}
+#main-nav.hidden-mobile { /* Custom class for hiding on mobile */
+    transform: scaleY(0);
+    opacity: 0;
+    max-height: 0;
+}
+#main-nav.open-mobile { /* Custom class for opening on mobile */
+    transform: scaleY(1);
+    opacity: 1;
+    max-height: 500px; /* Sufficient height for content */
+}
+@media (min-width: 768px) {
+    #main-nav.hidden-mobile, #main-nav.open-mobile {
+        transform: none; /* Reset transform for desktop */
+        opacity: 1;
+        max-height: none;
+    }
+}
+
+
+/* --- General Section Styling --- */
+.section-padding {
+    padding-top: 5rem; /* 80px */
+    padding-bottom: 5rem; /* 80px */
+}
+
+@media (min-width: 768px) {
+    .section-padding {
+        padding-top: 7rem; /* 112px */
+        padding-bottom: 7rem; /* 112px */
+    }
+}
+
+.section-title {
+    font-size: 2.5rem; /* text-4xl */
+    font-weight: 800; /* font-extrabold */
+    font-family: 'Inter', sans-serif;
+    color: var(--primary-blue);
+    margin-bottom: 2.5rem; /* mb-10 */
+    text-align: center;
+    position: relative;
+    padding-bottom: 1rem; /* pb-4 */
+}
+.section-title::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 6rem; /* w-24 */
+    height: 0.5rem; /* h-2 */
+    background-image: linear-gradient(to right, var(--primary-blue), var(--indigo-light));
+    border-radius: 9999px; /* rounded-full */
+    transform: translateX(-50%);
+}
+
+/* --- Hero Section Specifics --- */
+.hero-section-bg {
+    /* Layered background handled in HTML */
+    background-image: url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="%239c92ac" fill-opacity="0.1" fill-rule="evenodd"%3E%3Cpath d="M0 0h30v30H0V0zm30 30h30v30H30V30z"/%3E%3C/g%3E%3C/svg%3E');
+    background-size: 30px 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: calc(100vh - 6rem); /* Adjust for header height */
+    color: white;
+    overflow: hidden;
+    position: relative; /* Ensure relative positioning for children */
+}
+
+/* Frosted Glass Effect for Hero Container */
+.frosted-glass-card {
+    background-color: rgba(255, 255, 255, 0.9); /* Slightly less opaque */
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 2rem 3rem; /* p-8 md:p-12 */
+    border-radius: 1rem; /* rounded-2xl */
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25); /* shadow-2xl */
+    transform: scale(1); /* Initial state for hover effect */
+    transition: all 0.5s ease-in-out;
+}
+.frosted-glass-card:hover {
+    transform: scale(1.005);
+}
+
+
+/* Feature Cards (Why Choose Us) */
+.feature-card {
+    display: flex;
+    align-items: flex-start;
+    background-color: var(--background-light); /* Lighter background for cards */
+    padding: 1.25rem; /* p-5 */
+    border-radius: 0.75rem; /* rounded-xl */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08); /* Softer, more subtle shadow */
+    border: 1px solid var(--border-light);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-8px); /* More pronounced lift */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15); /* Stronger shadow on hover */
+    border-color: var(--primary-blue); /* Highlight border */
+}
+
+/* --- Primary & Secondary Buttons --- */
+.btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.25rem 2.5rem; /* Larger buttons */
+    border-radius: 9999px; /* full rounded */
+    background-image: linear-gradient(to right, var(--primary-blue), var(--indigo-light));
+    color: white;
+    font-weight: 700;
+    text-align: center;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Smooth easing */
+    box-shadow: 0 5px 15px rgba(33, 150, 243, 0.4);
+    border: 2px solid transparent;
+    letter-spacing: 0.05em;
+    font-family: 'Inter', sans-serif;
+    font-size: 1.125rem; /* text-lg */
+}
+
+.btn-primary:hover {
+    background-image: linear-gradient(to right, var(--dark-blue), var(--indigo-dark));
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(33, 150, 243, 0.6);
+}
+
+.btn-primary:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 8px rgba(33, 150, 243, 0.3);
+}
+
+.btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.25rem 2.5rem; /* Larger buttons */
+    border-radius: 9999px; /* full rounded */
+    background-color: white;
+    color: var(--primary-blue);
+    font-weight: 700;
+    text-align: center;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    border: 2px solid var(--primary-blue);
+    letter-spacing: 0.05em;
+    font-family: 'Inter', sans-serif;
+    font-size: 1.125rem; /* text-lg */
+}
+
+.btn-secondary:hover {
+    background-color: var(--primary-blue);
+    color: white;
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.btn-secondary:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+/* --- Form Specific Styles --- */
+.form-input {
+    width: 100%;
+    padding: 0.75rem 1rem; /* py-3 px-4 */
+    border: 1px solid #d1d5db; /* gray-300 */
+    border-radius: 0.5rem; /* rounded-lg */
+    font-size: 1rem; /* text-base */
+    line-height: 1.5;
+    color: #374151; /* gray-700 */
+    background-color: #ffffff; /* white */
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.05);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: var(--primary-blue);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2); /* blue-600 with opacity */
+}
+
+.form-input::placeholder {
+    color: #9ca3af; /* gray-400 */
+}
+
+.btn-primary-form {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem; /* rounded-lg */
+    background-color: var(--primary-blue);
+    color: white;
+    font-weight: 600;
+    text-align: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 8px rgba(33, 150, 243, 0.3);
+    width: 100%; /* Ensures button takes full width of parent */
+}
+
+.btn-primary-form:hover {
+    background-color: var(--dark-blue);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 12px rgba(33, 150, 243, 0.4);
+}
+
+.btn-primary-form:active {
+    transform: translateY(0);
+    box-shadow: 0 1px 3px rgba(33, 150, 243, 0.2);
+}
+
+
+/* --- Courses, Facilities, Contact Cards --- */
+.course-card, .facility-card, .info-card {
+    background-color: white;
+    padding: 1.75rem; /* p-7, slightly more padding */
+    border-radius: 1rem; /* rounded-xl */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08); /* Consistent shadow with feature cards */
+    border: 1px solid var(--border-light);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.course-card:hover, .facility-card:hover, .info-card:hover {
+    transform: translateY(-10px); /* More significant lift on hover */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+    border-color: var(--indigo-light); /* Accent border on hover */
+}
+
+.course-card-icon, .facility-card-icon {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+.course-card-icon i, .facility-card-icon i {
+    font-size: 3rem; /* text-5xl */
+    color: var(--accent-amber); /* amber-400 */
+}
+
+
+.course-card-title {
+    font-size: 1.75rem; /* text-3xl */
+    font-weight: 700; /* font-bold */
+    font-family: 'Inter', sans-serif;
+    color: var(--primary-blue);
+    margin-bottom: 1rem; /* mb-4 */
+    padding-bottom: 0.5rem; /* pb-2 */
+    border-bottom: 2px solid var(--primary-blue); /* Stronger border for title */
+    text-align: center; /* Center the course titles */
+}
+
+.read-more-link {
+    color: var(--indigo-light);
+    font-weight: 600;
+    transition: color 0.2s ease, transform 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+}
+
+.read-more-link:hover {
+    color: var(--indigo-dark);
+    transform: translateX(4px); /* Slight movement on hover */
+}
+
+/* Subtle Background for Sections */
+.bg-pattern-light {
+    background-image: url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="%239C92AC" fill-opacity="0.05" fill-rule="evenodd"%3E%3Cpath d="M0 0h30v30H0V0zm30 30h30v30H30V30z"/%3E%3C/g%3E%3C/svg%3E');
+}
+
+
+/* --- Animations (existing, refined) --- */
+.animate-on-load-hero-text,
+.animate-on-load-hero-buttons,
+.animate-on-load-hero-grid,
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(30px); /* More pronounced initial translateY */
+    transition: opacity 1s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.animate-on-load-hero-text.is-visible,
+.animate-on-load-hero-buttons.is-visible,
+.animate-on-load-hero-grid.is-visible,
+.animate-on-scroll.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Delay for hero animations for staggered effect */
+.animate-on-load-hero-text.delay-100 { transition-delay: 0.1s; }
+.animate-on-load-hero-text.delay-200 { transition-delay: 0.2s; }
+.animate-on-load-hero-buttons.delay-300 { transition-delay: 0.3s; }
+.animate-on-load-hero-text.delay-400 { transition-delay: 0.4s; }
+.animate-on-load-hero-text.delay-500 { transition-delay: 0.5s; }
+.animate-on-load-hero-grid.delay-600 { transition-delay: 0.6s; }
+
+/* Custom scrollbar for better aesthetics */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 5px;
+}
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+    </style>
 </head>
 <body class="font-poppins text-gray-800 bg-slate-50">
 
     <!-- Header and Navigation Bar -->
-    <header class="main-header bg-gradient-to-r from-blue-700 to-indigo-800 text-white p-4 shadow-xl fixed w-full z-20 transition-all duration-300 ease-in-out">
+    <header class="main-header">
         <div class="container mx-auto flex justify-between items-center px-4 relative">
             <!-- Logo (Sankalp Classes) -->
             <div class="flex-shrink-0">
-                <a href="#home" class="flex items-center">
+                <a href="#home" class="flex items-center space-x-2">
                     <img src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/logo.jpg" alt="Sankalp Classes Logo" class="h-12 w-12 md:h-16 md:w-16 rounded-full mr-0 border-2 border-white shadow-md transform hover:scale-105 transition-transform duration-200">
+                    <span class="text-xl md:text-2xl font-bold font-inter text-amber-300 hidden sm:block">SANKALP</span>
                 </a>
             </div>
 
             <!-- Mobile Menu Button -->
-            <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none focus:ring-2 focus:ring-white p-2 rounded-md transition-transform duration-300 transform active:scale-95">
+            <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none p-2 rounded-md transition-transform duration-300 transform active:scale-95 focus:ring-2 focus:ring-amber-300">
                 <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
                 </svg>
             </button>
 
             <!-- Main Navigation -->
-            <nav id="main-nav" class="hidden md:flex flex-col md:flex-row md:static absolute top-full left-0 w-full md:w-auto bg-gradient-to-r from-blue-700 to-indigo-800 md:bg-transparent shadow-lg md:shadow-none transition-all duration-300 ease-in-out opacity-0 md:opacity-100 max-h-0 md:max-h-full overflow-hidden items-center md:flex-grow md:justify-center">
-                <ul class="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-8 text-lg font-medium py-4 md:py-0 px-4 md:px-0 w-full md:w-auto">
+            <nav id="main-nav" class="hidden-mobile md:flex flex-col md:flex-row md:static absolute top-full left-0 w-full md:w-auto md:bg-transparent md:shadow-none overflow-hidden items-center md:flex-grow md:justify-center">
+                <ul class="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-8 text-lg py-4 md:py-0 px-4 md:px-0 w-full md:w-auto">
                     <li><a href="#home" class="nav-link">Home</a></li>
                     <li><a href="#about" class="nav-link">About Us</a></li>
                     <li><a href="#courses" class="nav-link">Courses</a></li>
@@ -58,15 +511,15 @@
     <!-- Main Content Area -->
     <main class="pt-24">
         <!-- Hero Section -->
-        <section id="home" class="relative section-padding hero-section-bg flex flex-col justify-center items-center text-center min-h-[calc(100vh-96px)] text-white">
+        <section id="home" class="section-padding hero-section-bg">
             <div class="absolute inset-0 bg-blue-900 opacity-80 z-0"></div>
             <!-- Background image overlay (add your hero-bg.jpg to the specified path) -->
-            <img src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/hero-bg.jpg" alt="Sankalp Classes background" class="absolute inset-0 w-full h-full object-cover opacity-20 z-0">
+            <img src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/hero-bg.jpg" alt="Sankalp Classes background" class="absolute inset-0 w-full h-full object-cover opacity-20 z-0 transform scale-110 motion-safe:animate-pulse">
 
-            <div class="container mx-auto bg-white bg-opacity-95 p-8 md:p-12 rounded-2xl shadow-2xl max-w-4xl relative z-10 border border-blue-100 transform transition-all duration-500 ease-in-out hover:scale-[1.005]">
+            <div class="container mx-auto frosted-glass-card max-w-4xl relative z-10">
                 <h2 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-blue-800 mb-6 font-inter leading-tight drop-shadow-md animate-on-load-hero-text delay-100">
                     <span class="block">Empowering Your Future</span>
-                    <span class="block text-indigo-700">Through Quality Education</span>
+                    <span class="block text-indigo-700">Through <span class="text-blue-600">Cutting-Edge</span> Education</span>
                 </h2>
                 <p class="text-xl md:text-2xl leading-relaxed mb-8 font-light text-gray-700 max-w-2xl mx-auto animate-on-load-hero-text delay-200">
                     Your trusted partner for <strong>High-Quality, Affordable, and Job-Oriented</strong> Computer & Academic Education in Ratanpura, Mau.
@@ -74,10 +527,10 @@
 
                 <div class="flex flex-col sm:flex-row justify-center gap-4 mt-8 animate-on-load-hero-buttons delay-300">
                     <a href="#courses" class="btn-primary">
-                        <span class="mr-2 text-2xl">📚</span> View Our Courses
+                        <i class="fas fa-book-open mr-2 text-xl"></i> View Our Courses
                     </a>
                     <a href="#contact" class="btn-secondary">
-                        <span class="mr-2 text-2xl">📞</span> Request a Call Back
+                        <i class="fas fa-phone-volume mr-2 text-xl"></i> Request a Call Back
                     </a>
                 </div>
                 <p class="text-md md:text-lg mt-6 text-gray-600 font-medium animate-on-load-hero-text delay-400">📍 City Center, Ratanpura, Mau</p>
@@ -85,35 +538,35 @@
                 <h3 class="text-2xl font-bold text-indigo-700 mt-16 mb-6 font-inter border-b-2 border-indigo-300 pb-3 inline-block animate-on-load-hero-text delay-500">💡 Why Choose Sankalp?</h3>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 text-gray-700 text-left animate-on-load-hero-grid delay-600">
                     <div class="feature-card">
-                        <span class="text-4xl text-amber-500 mr-3 mt-1">👨‍🏫</span>
+                        <i class="fas fa-chalkboard-user text-4xl text-amber-500 mr-3 mt-1"></i>
                         <p class="leading-relaxed font-semibold"><strong>Experienced Faculty</strong> – Learn from dedicated and certified experts passionate about teaching.</p>
                     </div>
                     <div class="feature-card">
-                        <span class="text-4xl text-amber-500 mr-3 mt-1">🧑‍💻</span>
+                        <i class="fas fa-laptop-code text-4xl text-amber-500 mr-3 mt-1"></i>
                         <p class="leading-relaxed font-semibold"><strong>Practical Training</strong> – Hands-on, real-world projects prepare you for immediate job readiness.</p>
                     </div>
                     <div class="feature-card">
-                        <span class="text-4xl text-amber-500 mr-3 mt-1">💰</span>
+                        <i class="fas fa-hand-holding-dollar text-4xl text-amber-500 mr-3 mt-1"></i>
                         <p class="leading-relaxed font-semibold"><strong>Affordable Education</strong> – High-value courses designed to fit your budget.</p>
                     </div>
                     <div class="feature-card">
-                        <span class="text-4xl text-amber-500 mr-3 mt-1">🏆</span>
+                        <i class="fas fa-trophy text-4xl text-amber-500 mr-3 mt-1"></i>
                         <p class="leading-relaxed font-semibold"><strong>Recognized Certifications</strong> – Boost your career with credentials valued by employers.</p>
                     </div>
                     <div class="feature-card">
-                        <span class="text-4xl text-amber-500 mr-3 mt-1">💻</span>
+                        <i class="fas fa-flask text-4xl text-amber-500 mr-3 mt-1"></i>
                         <p class="leading-relaxed font-semibold"><strong>State-of-the-Art Labs</strong> – Access modern computers and software for optimal learning.</p>
                     </div>
                     <div class="feature-card">
-                        <span class="text-4xl text-amber-500 mr-3 mt-1">🎯</span>
+                        <i class="fas fa-user-graduate text-4xl text-amber-500 mr-3 mt-1"></i>
                         <p class="leading-relaxed font-semibold"><strong>Personalized Attention</strong> – Small batch sizes ensure one-on-one guidance and support.</p>
                     </div>
                     <div class="feature-card">
-                        <span class="text-4xl text-amber-500 mr-3 mt-1">📚</span>
+                        <i class="fas fa-book-reader text-4xl text-amber-500 mr-3 mt-1"></i>
                         <p class="leading-relaxed font-semibold"><strong>24/7 Library Access</strong> – Flexible study environment with extensive learning resources.</p>
                     </div>
                     <div class="feature-card">
-                        <span class="text-4xl text-amber-500 mr-3 mt-1">🗓️</span>
+                        <i class="fas fa-calendar-alt text-4xl text-amber-500 mr-3 mt-1"></i>
                         <p class="leading-relaxed font-semibold"><strong>Flexible Timings</strong> – Learn at your own pace with schedules that fit your life.</p>
                     </div>
                 </div>
@@ -121,10 +574,10 @@
         </section>
 
         <!-- About Us Section -->
-        <section id="about" class="section-padding bg-slate-100 animate-on-scroll">
+        <section id="about" class="section-padding bg-slate-100 bg-pattern-light animate-on-scroll">
             <div class="container mx-auto bg-white p-8 md:p-12 rounded-2xl shadow-xl max-w-5xl border border-gray-200">
                 <h2 class="section-title">📖 About Us</h2>
-                <h3 class="text-3xl font-semibold text-indigo-700 mb-8 text-center leading-snug">Empowering Students with <strong>Skills that Matter</strong> for a Digital Future</h3>
+                <h3 class="text-3xl font-semibold text-indigo-700 mb-8 text-center leading-snug">Empowering Students with <strong class="text-blue-600">Skills that Matter</strong> for a Digital Future</h3>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
                     <div class="md:order-2">
                         <p class="text-lg leading-relaxed mb-4 text-gray-700">At Sankalp Classes & Computer Classes, we are driven by a singular belief: technology has the power to transform lives. Established in the vibrant community of Ratanpura, Mau, our coaching center has rapidly evolved into a trusted beacon for aspiring IT professionals and students eager to build a strong foundation in computer science.</p>
@@ -151,7 +604,8 @@
 
                     <!-- Course Card: Academic & Competitive Coaching -->
                     <div class="course-card">
-                        <h3 class="course-card-title">📚 Academic & Competitive Coaching</h3>
+                        <div class="course-card-icon"><i class="fas fa-book-open-reader"></i></div>
+                        <h3 class="course-card-title">Academic & Competitive Coaching</h3>
                         <ul class="list-disc list-inside text-gray-700 space-y-2 text-md flex-grow">
                             <li>Comprehensive coaching for <strong>Class 6 to 12</strong> (CBSE, UP, ICSE Boards).</li>
                             <li>Targeted preparation for <strong>SSC CGL</strong> and other one-day competitive exams.</li>
@@ -164,7 +618,8 @@
 
                     <!-- Course Card: Diploma Courses -->
                     <div class="course-card">
-                        <h3 class="course-card-title">🏅 Diploma Courses</h3>
+                        <div class="course-card-icon"><i class="fas fa-award"></i></div>
+                        <h3 class="course-card-title">Diploma Courses</h3>
                         <ul class="list-disc list-inside text-gray-700 space-y-2 text-md flex-grow">
                             <li>Comprehensive Computer Diploma Programs for <strong>long-term career building.</strong></li>
                             <li>Includes practical project work & government-recognized certification.</li>
@@ -177,380 +632,7 @@
 
                     <!-- Course Card: Video Editing -->
                     <div class="course-card">
-                        <h3 class="course-card-title">✂️ Video Editing</h3>
-                        <ul class="list-disc list-inside text-gray-700 space-y-2 text-md flex-grow">
-                            <li>Master tools like <strong>Adobe Premiere Pro, Filmora</strong>, and more.</li>
-                            <li>Learn video cutting, professional effects, seamless transitions, and audio syncing.</li>
-                            <li>Ideal for aspiring YouTube creators and media professionals.</li>
-                        </ul>
-                        <div class="mt-4 text-right">
-                             <a href="#contact" class="read-more-link">Learn More <span aria-hidden="true">→</span></a>
-                        </div>
-                    </div>
-
-                    <!-- Course Card: Animation -->
-                    <div class="course-card">
-                        <h3 class="course-card-title">🎨 Animation</h3>
-                        <ul class="list-disc list-inside text-gray-700 space-y-2 text-md flex-grow">
-                            <li>Introduction to both <strong>2D & 3D Animation</strong> principles.</li>
-                            <li>Develop skills to create compelling character movements, scenes & visual effects.</li>
-                            <li>Perfect for graphic design and gaming enthusiasts.</li>
-                        </ul>
-                        <div class="mt-4 text-right">
-                             <a href="#contact" class="read-more-link">Learn More <span aria-hidden="true">→</span></a>
-                        </div>
-                    </div>
-
-                    <!-- Course Card: ADCA -->
-                    <div class="course-card">
-                        <h3 class="course-card-title">🖥️ ADCA (Advanced Diploma in Computer Application)</h3>
-                        <ul class="list-disc list-inside text-gray-700 space-y-2 text-md flex-grow">
-                            <li>Gain full practical knowledge of <strong>essential computer applications</strong>.</li>
-                            <li>Extensive coverage including MS Office Suite, Internet fundamentals, DBMS, Tally, and Graphic Designing.</li>
-                        </ul>
-                        <div class="mt-4 text-right">
-                             <a href="#contact" class="read-more-link">Learn More <span aria-hidden="true">→</span></a>
-                        </div>
-                    </div>
-
-                    <!-- Course Card: DCA -->
-                    <div class="course-card">
-                        <h3 class="course-card-title">📁 DCA (Diploma in Computer Applications)</h3>
-                        <ul class="list-disc list-inside text-gray-700 space-y-2 text-md flex-grow">
-                            <li><strong>Foundational computer knowledge</strong> tailored for beginners.</li>
-                            <li>Covers core applications: MS Word, Excel, PowerPoint, and Internet usage.</li>
-                        </ul>
-                        <div class="mt-4 text-right">
-                             <a href="#contact" class="read-more-link">Learn More <span aria-hidden="true">→</span></a>
-                        </div>
-                    </div>
-
-                    <!-- Course Card: Tally Prime with GST -->
-                    <div class="course-card">
-                        <h3 class="course-card-title">📊 Tally Prime with GST</h3>
-                        <ul class="list-disc list-inside text-gray-700 space-y-2 text-md flex-grow">
-                            <li>Specialized training in <strong>Tally Prime accounting software</strong>.</li>
-                            <li>Learn key functionalities including GST, efficient billing, inventory management, and report generation.</li>
-                            <li>Highly recommended for commerce students and job seekers in accounting.</li>
-                        </ul>
-                        <div class="mt-4 text-right">
-                             <a href="#contact" class="read-more-link">Learn More <span aria-hidden="true">→</span></a>
-                        </div>
-                    </div>
-
-                    <!-- Course Card: MS Office -->
-                    <div class="course-card">
-                        <h3 class="course-card-title">🖱️ MS Office</h3>
-                        <ul class="list-disc list-inside text-gray-700 space-y-2 text-md flex-grow">
-                            <li>Master the full <strong>MS Office suite</strong>: Word, Excel, PowerPoint, and Outlook.</li>
-                            <li>Learn essential shortcut tips, advanced formatting, and effective document management.</li>
-                        </ul>
-                        <div class="mt-4 text-right">
-                             <a href="#contact" class="read-more-link">Learn More <span aria-hidden="true">→</span></a>
-                        </div>
-                    </div>
-
-                    <!-- Course Card: Graphic Designing -->
-                    <div class="course-card">
-                        <h3 class="course-card-title">🎨 Graphic Designing</h3>
-                        <ul class="list-disc list-inside text-gray-700 space-y-2 text-md flex-grow">
-                            <li>Hands-on training with industry-standard software: <strong>Photoshop, CorelDRAW, Illustrator.</strong></li>
-                            <li>Develop skills in poster design, professional logo making, advanced image editing, and impactful branding.</li>
-                        </ul>
-                        <div class="mt-4 text-right">
-                             <a href="#contact" class="read-more-link">Learn More <span aria-hidden="true">→</span></a>
-                        </div>
-                    </div>
-
-                    <!-- Course Card: Typing (Hindi & English) -->
-                    <div class="course-card">
-                        <h3 class="course-card-title">⌨️ Typing (Hindi & English)</h3>
-                        <ul class="list-disc list-inside text-gray-700 space-y-2 text-md flex-grow">
-                            <li>Dedicated <strong>speed typing classes</strong> with daily practice sessions.</li>
-                            <li>Significantly improves both accuracy and overall typing speed.</li>
-                            <li>Excellent preparation for various competitive exams requiring typing proficiency.</li>
-                        </ul>
-                        <div class="mt-4 text-right">
-                             <a href="#contact" class="read-more-link">Learn More <span aria-hidden="true">→</span></a>
-                        </div>
-                    </div>
-
-                </div>
-                <p class="text-lg text-center mt-12 text-gray-600 font-medium">All courses come with completion certificates and dedicated placement assistance.</p>
-                <div class="mt-8 text-center">
-                    <a href="#contact" class="btn-primary">
-                        <span class="mr-2 text-2xl">✅</span> Request Callback for Enrollment
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Our Facilities Section -->
-        <section id="facilities" class="section-padding bg-slate-100 animate-on-scroll">
-            <div class="container mx-auto bg-white p-8 md:p-12 rounded-2xl shadow-xl max-w-5xl border border-gray-200">
-                <h2 class="section-title">🌟 Our State-of-the-Art Facilities</h2>
-                <p class="text-xl text-center mb-12 max-w-3xl mx-auto text-gray-700 leading-relaxed">At Sankalp Classes, we provide <strong>top-notch facilities</strong> designed to enhance your learning experience, foster collaboration, and support your academic and professional success.</p>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div class="facility-card">
-                        <span class="text-6xl text-amber-500 mb-4">📚</span>
-                        <h3 class="text-2xl font-bold font-inter text-blue-700 mb-2">24/7 Library Access</h3>
-                        <p class="text-gray-700 leading-relaxed">Our comprehensive library is available around the clock, providing a quiet and resourceful environment for self-study and research. Access a wide range of books, journals, and digital resources anytime you need them.</p>
-                    </div>
-                    <div class="facility-card">
-                        <span class="text-6xl text-amber-500 mb-4">💻</span>
-                        <h3 class="text-2xl font-bold font-inter text-blue-700 mb-2">Modern Computer Labs</h3>
-                        <p class="text-gray-700 leading-relaxed">Equipped with the latest hardware and software, our computer labs offer real-time, hands-on experience. Work on your projects, practice your skills, and stay updated with the newest technologies.</p>
-                    </div>
-                    <div class="facility-card">
-                        <span class="text-6xl text-amber-500 mb-4">🛋️</span>
-                        <h3 class="text-2xl font-bold font-inter text-blue-700 mb-2">Comfortable Study Zones</h3>
-                        <p class="text-gray-700 leading-relaxed">Beyond the lab, find comfortable and conducive study zones designed for individual focus or group discussions. A perfect space to collaborate and concentrate.</p>
-                    </div>
-                    <div class="facility-card">
-                        <span class="text-6xl text-amber-500 mb-4">📶</span>
-                        <h3 class="text-2xl font-bold font-inter text-blue-700 mb-2">High-Speed Wi-Fi</h3>
-                        <p class="text-gray-700 leading-relaxed">Stay connected with our high-speed internet access available throughout the institute, ensuring seamless online learning and research.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Contact Us Section -->
-        <section id="contact" class="section-padding bg-blue-50 animate-on-scroll">
-            <div class="container mx-auto bg-white p-8 md:p-12 rounded-2xl shadow-xl max-w-4xl border border-blue-200 text-center">
-                <h2 class="section-title">📞 Get in Touch with Sankalp</h2>
-                <p class="text-xl mb-8 text-gray-700 leading-relaxed">Have questions? Ready to start your computer education journey?
-                    Fill out the form below to request a callback, or reach out directly!</p>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-lg text-gray-700">
-                    <div class="info-card">
-                        <span class="text-4xl text-amber-500 mb-2">📍</span>
-                        <p class="font-semibold text-xl">Address:</p>
-                        <p>Sankalp Classes & Computer Classes</p>
-                        <p>City Center, Ratanpura, Mau – Uttar Pradesh</p>
-                    </div>
-
-                    <!-- Phone Info Card - Modified to indicate callback form -->
-                    <div class="info-card">
-                        <span class="text-4xl text-amber-500 mb-2">📞</span>
-                        <p class="font-semibold text-xl">Phone:</p>
-                        <p class="text-gray-700 text-xl">Request a call via the form below</p>
-                        <p class="text-sm text-gray-500 mt-2">(Response within 24 hours)</p>
-                    </div>
-
-                    <div class="info-card">
-                        <span class="text-4xl text-amber-500 mb-2">📧</span>
-                        <p class="font-semibold text-xl">Email:</p>
-                        <a href="mailto:sankalpclasses@gmail.com" class="text-blue-700 hover:underline text-xl transition-colors duration-200">sankalpclasses@gmail.com</a>
-                    </div>
-
-                    <div class="info-card">
-                        <span class="text-4xl text-amber-500 mb-2">🕒</span>
-                        <p class="font-semibold text-xl">Working Hours:</p>
-                        <p>Monday to Saturday: 9:00 AM – 7:00 PM</p>
-                        <p>Sunday: Closed</p>
-                    </div>
-                </div>
-
-                <!-- Call Back Request Form -->
-                <div class="mt-12 w-full max-w-lg mx-auto p-8 bg-white rounded-xl shadow-xl border border-blue-200 text-left animate-on-scroll">
-                    <h3 class="text-2xl font-bold font-inter text-blue-800 mb-6 text-center">Request a Call Back</h3>
-                    <form id="callback-form" action="https://formspree.io/f/xovwpynb" method="POST" class="space-y-6">
-                        <div>
-                            <label for="name" class="block text-gray-700 text-sm font-semibold mb-2">Your Name</label>
-                            <input type="text" id="name" name="name" class="form-input" placeholder="Enter your full name" required>
-                        </div>
-                        <div>
-                            <label for="phone" class="block text-gray-700 text-sm font-semibold mb-2">Phone Number</label>
-                            <input type="tel" id="phone" name="phone" class="form-input" pattern="[0-9]{10}" placeholder="e.g., 9876543210" required>
-                            <p class="text-xs text-gray-500 mt-1">Please enter a 10-digit mobile number.</p>
-                        </div>
-                        <div>
-                            <label for="message" class="block text-gray-700 text-sm font-semibold mb-2">Your Message (Optional)</label>
-                            <textarea id="message" name="message" rows="4" class="form-input" placeholder="e.g., Interested in DCA course"></textarea>
-                        </div>
-                        <div class="text-center">
-                            <button type="submit" class="btn-primary-form">
-                                Submit Request <span class="ml-2 text-xl">🚀</span>
-                            </button>
-                        </div>
-                        <div id="form-message" class="mt-4 p-3 rounded-lg text-center hidden"></div>
-                    </form>
-                </div>
-
-                <!-- Google Maps Embed -->
-                <div class="mt-12">
-                    <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1428.1883726712316!2d83.7446819!3d25.9201361!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjXCsDU1JzEyLjUiTiA4M8KwNDQnNDAuOCJF!5e0!3m2!1sen!2sin!4v1719658000000!5m2!1sen!2sin"
-                        width="100%"
-                        height="450"
-                        style="border:0;"
-                        allowfullscreen=""
-                        loading="lazy"
-                        referrerpolicy="no-referrer-when-downgrade"
-                        class="rounded-xl shadow-lg border border-blue-200 animate-on-scroll"
-                    ></iframe>
-                </div>
-            </div>
-        </section>
-
-    </main>
-
-    <!-- Footer -->
-    <footer class="bg-gray-900 text-white text-center p-6 mt-12 shadow-inner">
-        <div class="container mx-auto">
-            <p>&copy; 2025 Sankalp Classes & Computer Classes. All rights reserved.</p>
-            <p class="text-sm mt-2 opacity-80">Designed with passion by AI for Sankalp Classes & Computer Classes.</p>
-        </div>
-    </footer>
-
-    <!-- JavaScript for Interactions and Animations & Formspree Submission -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const mobileMenuButton = document.getElementById('mobile-menu-button');
-            const mainNav = document.getElementById('main-nav');
-            const navLinks = document.querySelectorAll('.nav-link');
-            const header = document.querySelector('.main-header'); // Get the header
-            const sections = document.querySelectorAll('section[id]'); // All sections with an ID
-            const callbackForm = document.getElementById('callback-form');
-            const formMessage = document.getElementById('form-message');
-
-            // --- Mobile Menu Toggle ---
-            mobileMenuButton.addEventListener('click', function() {
-                mainNav.classList.toggle('hidden');
-                mainNav.classList.toggle('opacity-0');
-                mainNav.classList.toggle('max-h-0');
-                mainNav.classList.toggle('opacity-100');
-                mainNav.classList.toggle('max-h-screen');
-                mobileMenuButton.classList.toggle('open');
-            });
-
-            // --- Close Mobile Menu on Nav Link Click ---
-            navLinks.forEach(link => {
-                link.addEventListener('click', () => {
-                    if (!mainNav.classList.contains('hidden') && window.innerWidth < 768) {
-                        mainNav.classList.add('hidden');
-                        mainNav.classList.remove('opacity-100', 'max-h-screen');
-                        mainNav.classList.add('opacity-0', 'max-h-0');
-                        mobileMenuButton.classList.remove('open');
-                    }
-                });
-            });
-
-            // --- Handle Window Resize for Menu State ---
-            window.addEventListener('resize', function() {
-                if (window.innerWidth >= 768) {
-                    mainNav.classList.remove('hidden', 'opacity-0', 'max-h-0');
-                    mainNav.classList.add('opacity-100', 'max-h-full');
-                    mobileMenuButton.classList.remove('open');
-                } else {
-                    if (!mainNav.classList.contains('hidden')) { 
-                         mainNav.classList.add('hidden'); 
-                         mainNav.classList.remove('opacity-100', 'max-h-screen');
-                         mainNav.classList.add('opacity-0', 'max-h-0');
-                    }
-                }
-            });
-
-            // --- Sticky Header and Active Nav Link Logic ---
-            window.addEventListener('scroll', function() {
-                if (window.scrollY > 50) {
-                    header.classList.add('scrolled');
-                } else {
-                    header.classList.remove('scrolled');
-                }
-
-                let current = '';
-                sections.forEach(section => {
-                    const sectionTop = section.offsetTop;
-                    const sectionHeight = section.clientHeight;
-                    const offset = 100;
-
-                    if (window.scrollY >= sectionTop - offset && window.scrollY < sectionTop + sectionHeight - offset) {
-                        current = section.getAttribute('id');
-                    }
-                });
-
-                navLinks.forEach(link => {
-                    link.classList.remove('current-active-link');
-                    if (link.href.includes(current) && current !== '') {
-                        link.classList.add('current-active-link');
-                    }
-                });
-            });
-
-            // --- On-Load Animations for Hero Section elements ---
-            const heroTextElements = document.querySelectorAll('.animate-on-load-hero-text');
-            const heroButtonElements = document.querySelectorAll('.animate-on-load-hero-buttons');
-            const heroGridElements = document.querySelectorAll('.animate-on-load-hero-grid');
-
-            setTimeout(() => {
-                heroTextElements.forEach(el => el.classList.add('is-visible'));
-                heroButtonElements.forEach(el => el.classList.add('is-visible'));
-                heroGridElements.forEach(el => el.classList.add('is-visible'));
-            }, 100);
-
-            // --- On-Scroll Animations for other sections ---
-            const animateOnScrollElements = document.querySelectorAll('.animate-on-scroll');
-            const observerOptions = { root: null, rootMargin: '0px', threshold: 0.1 };
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('is-visible');
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, observerOptions);
-
-            animateOnScrollElements.forEach(el => { observer.observe(el); });
-
-            // --- Formspree Call Back Form Submission Handler ---
-            if (callbackForm) {
-                callbackForm.addEventListener('submit', async function(event) {
-                    event.preventDefault(); // Prevent default form submission (page reload)
-
-                    formMessage.classList.remove('hidden', 'bg-green-100', 'text-green-700', 'bg-red-100', 'text-red-700');
-                    formMessage.classList.add('bg-blue-100', 'text-blue-700');
-                    formMessage.textContent = 'Submitting your request...';
-
-                    const formData = new FormData(callbackForm);
-
-                    try {
-                        const response = await fetch(callbackForm.action, {
-                            method: callbackForm.method,
-                            body: formData,
-                            headers: {
-                                'Accept': 'application/json' // Important for Formspree AJAX response
-                            }
-                        });
-
-                        if (response.ok) {
-                            formMessage.classList.remove('bg-blue-100', 'text-blue-700', 'bg-red-100', 'text-red-700');
-                            formMessage.classList.add('bg-green-100', 'text-green-700');
-                            formMessage.textContent = 'Thank you! Your request has been sent successfully. We will call you back soon.';
-                            callbackForm.reset(); // Clear the form fields
-                        } else {
-                            const data = await response.json();
-                            let errorMessage = 'Failed to send request. Please try again or email us directly.';
-                            if (data.errors) {
-                                errorMessage = data.errors.map(error => error.message).join(', ');
-                            }
-                            formMessage.classList.remove('bg-blue-100', 'text-blue-700', 'bg-green-100', 'text-green-700');
-                            formMessage.classList.add('bg-red-100', 'text-red-700');
-                            formMessage.textContent = errorMessage;
-                            console.error('Formspree error:', data);
-                        }
-                    } catch (error) {
-                        formMessage.classList.remove('bg-blue-100', 'text-blue-700', 'bg-green-100', 'text-green-700');
-                        formMessage.classList.add('bg-red-100', 'text-red-700');
-                        formMessage.textContent = 'Network error. Please check your internet connection and try again.';
-                        console.error('Fetch error:', error);
-                    }
-                });
-            }
-        });
-    </script>
-</body>
-</html>
+                        <div class="course-card-icon"><i class="fas fa-video"></i></div>
+                        <h3 class="course-card-title">Video Editing</h3>
+                        <ul class="list-disc list-inside text-gray-700 space-y-2 text-
 
