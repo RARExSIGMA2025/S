@@ -21,7 +21,7 @@
     <header class="main-header bg-gradient-to-r from-blue-700 to-indigo-800 text-white p-4 shadow-xl fixed w-full z-20 transition-all duration-300 ease-in-out">
         <div class="container mx-auto flex justify-between items-center px-4 relative">
             <!-- Logo (Sankalp Classes) -->
-            <div class="flex items-center">
+            <div class="flex-shrink-0">
                 <a href="#home" class="flex items-center">
                     <img src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/logo.jpg" alt="Sankalp Classes Logo" class="h-12 w-12 md:h-16 md:w-16 rounded-full mr-0 border-2 border-white shadow-md transform hover:scale-105 transition-transform duration-200">
                 </a>
@@ -35,8 +35,8 @@
             </button>
 
             <!-- Main Navigation -->
-            <nav id="main-nav" class="hidden md:flex flex-col md:flex-row md:static absolute top-full left-0 w-full md:w-auto bg-gradient-to-r from-blue-700 to-indigo-800 md:bg-transparent shadow-lg md:shadow-none transition-all duration-300 ease-in-out opacity-0 md:opacity-100 max-h-0 md:max-h-full overflow-hidden items-center md:space-x-8 mt-2 md:mt-0 py-4 md:py-0 px-4 md:px-0 rounded-b-lg md:rounded-none md:flex-grow md:justify-center">
-                <ul class="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-8 text-lg font-medium py-4 md:py-0 px-4 md:px-0 w-full md:w-auto md:justify-center md:flex-grow">
+            <nav id="main-nav" class="hidden md:flex flex-col md:flex-row md:static absolute top-full left-0 w-full md:w-auto bg-gradient-to-r from-blue-700 to-indigo-800 md:bg-transparent shadow-lg md:shadow-none transition-all duration-300 ease-in-out opacity-0 md:opacity-100 max-h-0 md:max-h-full overflow-hidden items-center md:flex-grow md:justify-center">
+                <ul class="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-8 text-lg font-medium py-4 md:py-0 px-4 md:px-0 w-full md:w-auto">
                     <li><a href="#home" class="nav-link">Home</a></li>
                     <li><a href="#about" class="nav-link">About Us</a></li>
                     <li><a href="#courses" class="nav-link">Courses</a></li>
@@ -46,8 +46,8 @@
                 </ul>
             </nav>
 
-            <!-- Call to Action Button (Moved to align right) -->
-            <div class="mt-4 md:mt-0 hidden md:flex items-center ml-auto">
+            <!-- Call to Action Button (pushed to the right) -->
+            <div class="mt-4 md:mt-0 hidden md:flex items-center flex-shrink-0 ml-auto">
                 <a href="#contact" class="btn-nav-cta">
                     Request Callback <span class="ml-2 text-lg">📞</span>
                 </a>
@@ -382,7 +382,7 @@
                 <!-- Google Maps Embed -->
                 <div class="mt-12">
                     <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3570.6120020147696!2d83.7446819!3d25.9201361!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1719543200000!5m2!1sen!2sin"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1428.1883726712316!2d83.7446819!3d25.9201361!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjXCsDU1JzEyLjUiTiA4M8KwNDQnNDAuOCJF!5e0!3m2!1sen!2sin!4v1719658000000!5m2!1sen!2sin"
                         width="100%"
                         height="450"
                         style="border:0;"
@@ -447,7 +447,7 @@
                 } else {
                     if (!mainNav.classList.contains('hidden')) { 
                          mainNav.classList.add('hidden'); 
-                         main.classList.remove('opacity-100', 'max-h-screen');
+                         mainNav.classList.remove('opacity-100', 'max-h-screen');
                          mainNav.classList.add('opacity-0', 'max-h-0');
                     }
                 }
