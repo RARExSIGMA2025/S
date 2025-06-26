@@ -211,6 +211,55 @@ body {
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
+/* --- Form Specific Styles --- */
+.form-input {
+    width: 100%;
+    padding: 0.75rem 1rem; /* py-3 px-4 */
+    border: 1px solid #d1d5db; /* gray-300 */
+    border-radius: 0.5rem; /* rounded-lg */
+    font-size: 1rem; /* text-base */
+    line-height: 1.5;
+    color: #374151; /* gray-700 */
+    background-color: #ffffff; /* white */
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.05);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: var(--primary-blue);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2); /* blue-600 with opacity */
+}
+
+.form-input::placeholder {
+    color: #9ca3af; /* gray-400 */
+}
+
+.btn-primary-form {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem; /* rounded-lg */
+    background-color: var(--primary-blue);
+    color: white;
+    font-weight: 600;
+    text-align: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 8px rgba(33, 150, 243, 0.3);
+}
+
+.btn-primary-form:hover {
+    background-color: var(--dark-blue);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 12px rgba(33, 150, 243, 0.4);
+}
+
+.btn-primary-form:active {
+    transform: translateY(0);
+    box-shadow: 0 1px 3px rgba(33, 150, 243, 0.2);
+}
+
 
 /* --- Courses, Facilities, Contact Cards --- */
 .course-card, .facility-card, .info-card {
