@@ -9,41 +9,48 @@
 
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css"> <!-- Link to your external stylesheet -->
+    <link rel="stylesheet" href="css/style.css"> 
 
 </head>
 <body class="font-poppins text-gray-800 bg-gray-50">
 
-    <header class="main-header bg-gradient-to-r from-blue-700 to-indigo-800 text-white p-4 shadow-xl fixed w-full z-10 transition-all duration-300 ease-in-out">
+    <header class="main-header bg-gradient-to-r from-blue-700 to-indigo-800 text-white p-4 shadow-xl fixed w-full z-20 transition-all duration-300 ease-in-out">
         <div class="container mx-auto flex justify-between items-center px-4 relative">
             <div class="flex items-center">
-                <img src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/logo.jpg" alt="Sankalp Classes Logo" class="h-10 w-10 rounded-full mr-3 border-2 border-white shadow-md">
-                <h1 class="text-2xl font-extrabold font-inter tracking-wide">Sankalp Classes <span class="hidden md:inline">& Computer Classes</span></h1>
-                <span class="md:hidden text-lg ml-1">& Computer Classes</span>
+                <img src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/logo.jpg" alt="Sankalp Classes Logo" class="h-10 w-10 md:h-12 md:w-12 rounded-full mr-3 border-2 border-white shadow-md">
+                <h1 class="text-xl md:text-3xl font-extrabold font-inter tracking-wide whitespace-nowrap">Sankalp Classes <span class="hidden md:inline">& Computer Classes</span></h1>
+                <span class="md:hidden text-lg ml-1 whitespace-nowrap"> & Comp. Classes</span>
             </div>
 
-            <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none focus:ring-2 focus:ring-white p-2 rounded-md">
+            <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none focus:ring-2 focus:ring-white p-2 rounded-md transition-transform duration-300 transform active:scale-95">
                 <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
                 </svg>
             </button>
 
-            <nav id="main-nav" class="hidden md:flex flex-col md:flex-row md:static absolute top-full left-0 w-full md:w-auto bg-gradient-to-r from-blue-700 to-indigo-800 md:bg-transparent shadow-lg md:shadow-none transition-all duration-300 ease-in-out opacity-0 md:opacity-100 max-h-0 md:max-h-full overflow-hidden">
-                <ul class="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-8 text-lg font-medium py-4 md:py-0 px-4 md:px-0">
-                    <li><a href="#home" class="nav-link block py-2 px-3 rounded-md hover:bg-white hover:bg-opacity-10 transition-colors duration-200">Home</a></li>
-                    <li><a href="#about" class="nav-link block py-2 px-3 rounded-md hover:bg-white hover:bg-opacity-10 transition-colors duration-200">About Us</a></li>
-                    <li><a href="#courses" class="nav-link block py-2 px-3 rounded-md hover:bg-white hover:bg-opacity-10 transition-colors duration-200">Courses</a></li>
-                    <li><a href="#facilities" class="nav-link block py-2 px-3 rounded-md hover:bg-white hover:bg-opacity-10 transition-colors duration-200">Facilities</a></li>
-                    <li><a href="album.html" class="nav-link block py-2 px-3 rounded-md hover:bg-white hover:bg-opacity-10 transition-colors duration-200">Album</a></li>
-                    <li><a href="#contact" class="nav-link block py-2 px-3 rounded-md hover:bg-white hover:bg-opacity-10 transition-colors duration-200">Contact</a></li>
+            <nav id="main-nav" class="hidden md:flex flex-col md:flex-row md:static absolute top-full left-0 w-full md:w-auto bg-gradient-to-r from-blue-700 to-indigo-800 md:bg-transparent shadow-lg md:shadow-none transition-all duration-300 ease-in-out opacity-0 md:opacity-100 max-h-0 md:max-h-full overflow-hidden items-center md:space-x-8 mt-2 md:mt-0 py-4 md:py-0 px-4 md:px-0 rounded-b-lg md:rounded-none">
+                <ul class="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-8 text-lg font-medium py-4 md:py-0 px-4 md:px-0 w-full md:w-auto">
+                    <li><a href="#home" class="nav-link block py-2 px-3 rounded-md hover:bg-white hover:bg-opacity-20 transition-colors duration-200">Home</a></li>
+                    <li><a href="#about" class="nav-link block py-2 px-3 rounded-md hover:bg-white hover:bg-opacity-20 transition-colors duration-200">About Us</a></li>
+                    <li><a href="#courses" class="nav-link block py-2 px-3 rounded-md hover:bg-white hover:bg-opacity-20 transition-colors duration-200">Courses</a></li>
+                    <li><a href="#facilities" class="nav-link block py-2 px-3 rounded-md hover:bg-white hover:bg-opacity-20 transition-colors duration-200">Facilities</a></li>
+                    <li><a href="album.html" class="nav-link block py-2 px-3 rounded-md hover:bg-white hover:bg-opacity-20 transition-colors duration-200">Album</a></li>
+                    <li><a href="#contact" class="nav-link block py-2 px-3 rounded-md hover:bg-white hover:bg-opacity-20 transition-colors duration-200">Contact</a></li>
                 </ul>
+                <div class="mt-4 md:mt-0">
+                    <a href="tel:9807534582" class="btn-primary-nav">
+                        Call Now <span class="ml-1 text-xl">📞</span>
+                    </a>
+                </div>
             </nav>
         </div>
     </header>
 
     <main class="pt-24">
         <section id="home" class="relative section-padding home-background-creative flex flex-col justify-center items-center text-center min-h-[calc(100vh-96px)]">
-            <div class="absolute inset-0 bg-black opacity-30"></div>
+            <div class="absolute inset-0 bg-gradient-to-b from-blue-900 to-blue-700 opacity-90 z-0"></div>
+            <img src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/hero-bg.jpg" alt="Sankalp Classes background" class="absolute inset-0 w-full h-full object-cover opacity-20 z-0">
+
             <div class="container mx-auto bg-white bg-opacity-95 p-8 md:p-12 rounded-2xl shadow-2xl max-w-4xl relative z-10 border border-blue-100 transform transition-all duration-500 ease-in-out hover:scale-[1.005]">
                 <h2 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-blue-800 mb-6 font-inter leading-tight drop-shadow-md animate-on-load-hero-text delay-100">
                     <span class="block">Unlock Your Potential</span>
@@ -65,41 +72,43 @@
 
                 <h3 class="text-2xl font-bold text-indigo-700 mt-16 mb-6 font-inter border-b-2 border-indigo-300 pb-3 inline-block animate-on-load-hero-text delay-500">💡 Why Choose Us?</h3>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 text-gray-700 text-left animate-on-load-hero-grid delay-600">
-                    <div class="flex items-start bg-blue-50 p-5 rounded-lg shadow-md border border-blue-200 card">
+                    <div class="feature-card">
                         <span class="text-4xl text-blue-600 mr-3 mt-1">👨‍🏫</span>
                         <p class="leading-relaxed font-semibold"><strong>Experienced Trainers</strong> – Learn from certified and skilled professionals dedicated to your success.</p>
                     </div>
-                    <div class="flex items-start bg-blue-50 p-5 rounded-lg shadow-md border border-blue-200 card">
+                    <div class="feature-card">
                         <span class="text-4xl text-blue-600 mr-3 mt-1">🧑‍💻</span>
                         <p class="leading-relaxed font-semibold"><strong>Practical & Job-Oriented Training</strong> – Our industry-ready curriculum ensures you gain real-world skills.</p>
                     </div>
-                    <div class="flex items-start bg-blue-50 p-5 rounded-lg shadow-md border border-blue-200 card">
+                    <div class="feature-card">
                         <span class="text-4xl text-blue-600 mr-3 mt-1">💰</span>
                         <p class="leading-relaxed font-semibold"><strong>Affordable Fees</strong> – High-quality education made accessible within your budget.</p>
                     </div>
-                    <div class="flex items-start bg-blue-50 p-5 rounded-lg shadow-md border border-blue-200 card">
+                    <div class="feature-card">
                         <span class="text-4xl text-blue-600 mr-3 mt-1">🏆</span>
                         <p class="leading-relaxed font-semibold"><strong>Government-Recognized Certification</strong> – Boost your career with valid and widely accepted credentials.</p>
                     </div>
-                    <div class="flex items-start bg-blue-50 p-5 rounded-lg shadow-md border border-blue-200 card">
+                    <div class="feature-card">
                         <span class="text-4xl text-blue-600 mr-3 mt-1">💻</span>
                         <p class="leading-relaxed font-semibold"><strong>Modern Computer Labs</strong> – Real-time, hands-on learning with the latest technology and software.</p>
                     </div>
-                    <div class="flex items-start bg-blue-50 p-5 rounded-lg shadow-md border border-blue-200 card">
+                    <div class="feature-card">
                         <span class="text-4xl text-blue-600 mr-3 mt-1">🎯</span>
                         <p class="leading-relaxed font-semibold"><strong>Small Batches for Personal Attention</strong> – Individualized focus ensures better understanding and progress.</p>
                     </div>
-                    <div class="flex items-start bg-blue-50 p-5 rounded-lg shadow-md border border-blue-200 card">
+                    <div class="feature-card">
                         <span class="text-4xl text-blue-600 mr-3 mt-1">📚</span>
                         <p class="leading-relaxed font-semibold"><strong>24/7 Library Access</strong> – Study at your convenience anytime with extensive learning resources.</p>
                     </div>
-                    <div class="flex items-start bg-blue-50 p-5 rounded-lg shadow-md border border-blue-200 card">
+                    <div class="feature-card">
                         <span class="text-4xl text-blue-600 mr-3 mt-1">🗓️</span>
                         <p class="leading-relaxed font-semibold"><strong>Flexible Course Timings</strong> – Learn at your own pace and convenience with adaptable schedules.</p>
                     </div>
                 </div>
             </div>
         </section>
+
+        ---
 
         <section id="about" class="section-padding bg-gray-100 animate-on-scroll">
             <div class="container mx-auto bg-white p-8 md:p-12 rounded-2xl shadow-xl max-w-5xl border border-gray-200">
@@ -110,14 +119,18 @@
                         <p class="text-lg leading-relaxed mb-4 text-gray-700">At Sankalp Classes & Computer Classes, we are driven by a singular belief: technology has the power to transform lives. Established in the vibrant community of Ratanpura, Mau, our coaching center has rapidly evolved into a trusted beacon for aspiring IT professionals and students eager to build a strong foundation in computer science.</p>
                         <p class="text-lg leading-relaxed mb-4 text-gray-700">Our core mission is to deliver <strong class="text-indigo-600">practical, result-driven computer education</strong> that genuinely empowers our students to thrive in the modern digital world. We go beyond mere theory. With a team of highly experienced and certified trainers, we immerse our students in real-world applications, ensuring they not only grasp concepts but also master the essential tools and technologies demanded by today's job market.</p>
                     </div>
-                    <div class="md:order-1">
-                        <img src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(5).JPG" alt="Students in a modern computer lab" class="rounded-xl shadow-lg border border-gray-200 w-full h-auto object-cover">
+                    <div class="md:order-1 relative group overflow-hidden rounded-xl shadow-lg border border-gray-200">
+                        <img src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(5).JPG" alt="Students in a modern computer lab" class="w-full h-auto object-cover transform transition-transform duration-500 group-hover:scale-105">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-50 group-hover:opacity-70 transition-opacity duration-300"></div>
+                        <p class="absolute bottom-4 left-4 text-white text-xl font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300 translate-y-4 group-hover:translate-y-0">Learning in action!</p>
                     </div>
                 </div>
                 <p class="text-lg leading-relaxed mt-6 mb-4 text-gray-700 text-center">We offer a diverse portfolio of certified diploma courses, cutting-edge job-ready skill training programs, and specialized software classes designed to give you a significant competitive advantage. Whether you're taking your first steps in IT or aiming to upgrade your existing knowledge, Sankalp Classes provides the perfect learning environment for your ambitions.</p>
                 <p class="text-3xl font-bold text-center text-blue-600 mt-10 font-inter">Join Sankalp – <span class="text-indigo-700">Build Skills.</span> Build Future.</p>
             </div>
         </section>
+
+        ---
 
         <section id="courses" class="section-padding bg-blue-50 animate-on-scroll">
             <div class="container mx-auto">
@@ -126,8 +139,7 @@
 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 
-                    <!-- New card for Academic Coaching & Competitive Exams -->
-                    <div class="card p-6 border border-blue-200 shadow-xl flex flex-col h-full">
+                    <div class="course-card">
                         <h3 class="text-2xl font-bold font-inter text-blue-700 mb-4 pb-2 border-b border-blue-100">📚 Academic & Competitive Coaching</h3>
                         <ul class="list-disc list-inside text-gray-700 space-y-2 text-md flex-grow">
                             <li>Comprehensive coaching for **Class 6 to 12** (CBSE, UP, ICSE Boards).</li>
@@ -139,7 +151,7 @@
                         </div>
                     </div>
 
-                    <div class="card p-6 border border-blue-200 shadow-xl flex flex-col h-full">
+                    <div class="course-card">
                         <h3 class="text-2xl font-bold font-inter text-blue-700 mb-4 pb-2 border-b border-blue-100">🏅 Diploma Courses</h3>
                         <ul class="list-disc list-inside text-gray-700 space-y-2 text-md flex-grow">
                             <li>Comprehensive Computer Diploma Programs for **long-term career building.**</li>
@@ -151,7 +163,7 @@
                         </div>
                     </div>
 
-                    <div class="card p-6 border border-blue-200 shadow-xl flex flex-col h-full">
+                    <div class="course-card">
                         <h3 class="text-2xl font-bold font-inter text-blue-700 mb-4 pb-2 border-b border-blue-100">✂️ Video Editing</h3>
                         <ul class="list-disc list-inside text-gray-700 space-y-2 text-md flex-grow">
                             <li>Master tools like **Adobe Premiere Pro, Filmora**, and more.</li>
@@ -163,7 +175,7 @@
                         </div>
                     </div>
 
-                    <div class="card p-6 border border-blue-200 shadow-xl flex flex-col h-full">
+                    <div class="course-card">
                         <h3 class="text-2xl font-bold font-inter text-blue-700 mb-4 pb-2 border-b border-blue-100">🎨 Animation</h3>
                         <ul class="list-disc list-inside text-gray-700 space-y-2 text-md flex-grow">
                             <li>Introduction to both **2D & 3D Animation** principles.</li>
@@ -175,7 +187,7 @@
                         </div>
                     </div>
 
-                    <div class="card p-6 border border-blue-200 shadow-xl flex flex-col h-full">
+                    <div class="course-card">
                         <h3 class="text-2xl font-bold font-inter text-blue-700 mb-4 pb-2 border-b border-blue-100">🖥️ ADCA (Advanced Diploma in Computer Application)</h3>
                         <ul class="list-disc list-inside text-gray-700 space-y-2 text-md flex-grow">
                             <li>Gain full practical knowledge of **essential computer applications**.</li>
@@ -186,7 +198,7 @@
                         </div>
                     </div>
 
-                    <div class="card p-6 border border-blue-200 shadow-xl flex flex-col h-full">
+                    <div class="course-card">
                         <h3 class="text-2xl font-bold font-inter text-blue-700 mb-4 pb-2 border-b border-blue-100">📁 DCA (Diploma in Computer Applications)</h3>
                         <ul class="list-disc list-inside text-gray-700 space-y-2 text-md flex-grow">
                             <li>**Foundational computer knowledge** tailored for beginners.</li>
@@ -197,7 +209,7 @@
                         </div>
                     </div>
 
-                    <div class="card p-6 border border-blue-200 shadow-xl flex flex-col h-full">
+                    <div class="course-card">
                         <h3 class="text-2xl font-bold font-inter text-blue-700 mb-4 pb-2 border-b border-blue-100">📊 Tally Prime with GST</h3>
                         <ul class="list-disc list-inside text-gray-700 space-y-2 text-md flex-grow">
                             <li>Specialized training in **Tally Prime accounting software**.</li>
@@ -209,7 +221,7 @@
                         </div>
                     </div>
 
-                    <div class="card p-6 border border-blue-200 shadow-xl flex flex-col h-full">
+                    <div class="course-card">
                         <h3 class="text-2xl font-bold font-inter text-blue-700 mb-4 pb-2 border-b border-blue-100">🖱️ MS Office</h3>
                         <ul class="list-disc list-inside text-gray-700 space-y-2 text-md flex-grow">
                             <li>Master the full **MS Office suite**: Word, Excel, PowerPoint, and Outlook.</li>
@@ -220,7 +232,7 @@
                         </div>
                     </div>
 
-                    <div class="card p-6 border border-blue-200 shadow-xl flex flex-col h-full">
+                    <div class="course-card">
                         <h3 class="text-2xl font-bold font-inter text-blue-700 mb-4 pb-2 border-b border-blue-100">🎨 Graphic Designing</h3>
                         <ul class="list-disc list-inside text-gray-700 space-y-2 text-md flex-grow">
                             <li>Hands-on training with industry-standard software: **Photoshop, CorelDRAW, Illustrator.**</li>
@@ -231,7 +243,7 @@
                         </div>
                     </div>
 
-                    <div class="card p-6 border border-blue-200 shadow-xl flex flex-col h-full">
+                    <div class="course-card">
                         <h3 class="text-2xl font-bold font-inter text-blue-700 mb-4 pb-2 border-b border-blue-100">⌨️ Typing (Hindi & English)</h3>
                         <ul class="list-disc list-inside text-gray-700 space-y-2 text-md flex-grow">
                             <li>Dedicated **speed typing classes** with daily practice sessions.</li>
@@ -253,35 +265,39 @@
             </div>
         </section>
 
+        ---
+
         <section id="facilities" class="section-padding bg-gray-100 animate-on-scroll">
             <div class="container mx-auto bg-white p-8 md:p-12 rounded-2xl shadow-xl max-w-5xl border border-gray-200">
                 <h2 class="text-4xl font-extrabold font-inter text-blue-800 mb-10 text-center">🌟 Our State-of-the-Art Facilities</h2>
                 <p class="text-xl text-center mb-12 max-w-3xl mx-auto text-gray-700 leading-relaxed">At Sankalp Classes, we provide **top-notch facilities** designed to enhance your learning experience, foster collaboration, and support your academic and professional success.</p>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div class="card p-6 border border-blue-200 shadow-xl flex flex-col items-center text-center">
+                    <div class="facility-card">
                         <span class="text-6xl text-indigo-600 mb-4">📚</span>
                         <h3 class="text-2xl font-bold font-inter text-blue-700 mb-2">24/7 Library Access</h3>
                         <p class="text-gray-700 leading-relaxed">Our comprehensive library is available around the clock, providing a quiet and resourceful environment for self-study and research. Access a wide range of books, journals, and digital resources anytime you need them.</p>
                     </div>
-                    <div class="card p-6 border border-blue-200 shadow-xl flex flex-col items-center text-center">
+                    <div class="facility-card">
                         <span class="text-6xl text-green-600 mb-4">💻</span>
                         <h3 class="text-2xl font-bold font-inter text-blue-700 mb-2">Modern Computer Labs</h3>
                         <p class="text-gray-700 leading-relaxed">Equipped with the latest hardware and software, our computer labs offer real-time, hands-on experience. Work on your projects, practice your skills, and stay updated with the newest technologies.</p>
                     </div>
-                    <div class="card p-6 border border-blue-200 shadow-xl flex flex-col items-center text-center">
-                        <span class="text-6xl text-yellow-600 mb-4">🛋️</span>
+                    <div class="facility-card">
+                        <span class="6xl text-yellow-600 mb-4">🛋️</span>
                         <h3 class="text-2xl font-bold font-inter text-blue-700 mb-2">Comfortable Study Zones</h3>
                         <p class="text-gray-700 leading-relaxed">Beyond the lab, find comfortable and conducive study zones designed for individual focus or group discussions. A perfect space to collaborate and concentrate.</p>
                     </div>
-                    <div class="card p-6 border border-blue-200 shadow-xl flex flex-col items-center text-center">
+                    <div class="facility-card">
                         <span class="text-6xl text-red-600 mb-4">📶</span>
-                        <h3 class="text-2xl font-bold font-inter text-blue-700 mb-2">High-Speed Wi-Fi</h3>
+                        <h3 class="2xl font-bold font-inter text-blue-700 mb-2">High-Speed Wi-Fi</h3>
                         <p class="text-gray-700 leading-relaxed">Stay connected with our high-speed internet access available throughout the institute, ensuring seamless online learning and research.</p>
                     </div>
                 </div>
             </div>
         </section>
+
+        ---
 
         <section id="contact" class="section-padding bg-blue-50 animate-on-scroll">
             <div class="container mx-auto bg-white p-8 md:p-12 rounded-2xl shadow-xl max-w-4xl border border-blue-200 text-center">
@@ -290,26 +306,26 @@
                     We’re just a call or visit away! Reach out to us anytime to learn more about our courses and facilities.</p>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-lg text-gray-700">
-                    <div class="flex flex-col items-center p-6 bg-gray-50 rounded-lg shadow-md border border-gray-100 card">
+                    <div class="info-card">
                         <span class="text-4xl text-blue-600 mb-2">📍</span>
                         <p class="font-semibold text-xl">Address:</p>
                         <p>Sankalp Classes & Computer Classes</p>
                         <p>City Center, Ratanpura, Mau – Uttar Pradesh</p>
                     </div>
 
-                    <div class="flex flex-col items-center p-6 bg-gray-50 rounded-lg shadow-md border border-gray-100 card">
+                    <div class="info-card">
                         <span class="text-4xl text-blue-600 mb-2">📞</span>
                         <p class="font-semibold text-xl">Phone:</p>
                         <a href="tel:9807534582" class="text-blue-700 hover:underline text-2xl font-bold transition-colors duration-200">9807534582</a>
                     </div>
 
-                    <div class="flex flex-col items-center p-6 bg-gray-50 rounded-lg shadow-md border border-gray-100 card">
+                    <div class="info-card">
                         <span class="text-4xl text-blue-600 mb-2">📧</span>
                         <p class="font-semibold text-xl">Email:</p>
                         <a href="mailto:sankalpclasses@gmail.com" class="text-blue-700 hover:underline text-xl transition-colors duration-200">sankalpclasses@gmail.com</a>
                     </div>
 
-                    <div class="flex flex-col items-center p-6 bg-gray-50 rounded-lg shadow-md border border-gray-100 card">
+                    <div class="info-card">
                         <span class="text-4xl text-blue-600 mb-2">🕒</span>
                         <p class="font-semibold text-xl">Working Hours:</p>
                         <p>Monday to Saturday: 9:00 AM – 7:00 PM</p>
@@ -318,7 +334,7 @@
                 </div>
                 <div class="mt-12">
                     <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3587.218844883162!2d83.56834167512803!3d26.657788876800746!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399120614ddf4e2f%3A0xb36ed5d4a13d711c!2sSankalp%20Classes%20%26%20Computer%20Classes!5e0!3m2!1sen!2sin!4v1719409867540!5m2!1sen!2sin"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3587.2023058865487!2d83.56586047530664!3d26.54593127690184!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3991206f40b2f81b%3A0xc4eb0b10642f494c!2sSankalp%20Claases%20%26%20Sankalp%20computer%20Classes!5e0!3m2!1sen!2sin!4v1719363024505!5m2!1sen!2sin"
                         width="100%"
                         height="450"
                         style="border:0;"
@@ -335,7 +351,7 @@
 
     <footer class="bg-gray-900 text-white text-center p-6 mt-12 shadow-inner">
         <div class="container mx-auto">
-            <p>&copy; 2025 Sankalp Classes & Computer Classes. All rights reserved.</p>
+            <p>© 2025 Sankalp Classes & Computer Classes. All rights reserved.</p>
             <p class="text-sm mt-2 opacity-80">Designed by AI with 💡 for Sankalp Classes & Computer Classes.</p>
         </div>
     </footer>
@@ -408,7 +424,10 @@
 
                 navLinks.forEach(link => {
                     link.classList.remove('current-active-link');
-                    if (link.href.includes(current)) {
+                    // Special handling for album.html if it's external
+                    if (link.href.includes('album.html') && current === 'album') { // Assuming 'album' is an ID if it's ever on the same page
+                        // Do nothing, or add a specific class if you want it to remain active
+                    } else if (link.href.includes(current)) {
                         link.classList.add('current-active-link');
                     }
                 });
@@ -451,4 +470,3 @@
     </script>
 </body>
 </html>
-
