@@ -7,112 +7,123 @@
     <meta name="description" content="Join Sankalp Classes & Computer Classes at City Center, Ratanpura, Mau for high-quality, affordable, and job-oriented courses in ADCA, DCA, Tally, Typing, MS Office, Animation & more. Featuring modern labs and a 24/7 library. Call 9807534582.">
     <meta name="keywords" content="computer classes in Mau, ADCA in Ratanpura, Tally Prime course, DCA course Mau, typing classes Mau, IT coaching Mau, video editing Mau, animation training Ratanpura, affordable computer classes Mau, 24/7 library Mau, best computer institute Mau">
 
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Custom Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Link to your external stylesheet (IMPORTANT: Ensure this path is correct) -->
     <link rel="stylesheet" href="css/style.css"> 
 
 </head>
-<body class="font-poppins text-gray-800 bg-gray-50">
+<body class="font-poppins text-gray-800 bg-slate-50">
 
+    <!-- Header and Navigation Bar -->
     <header class="main-header bg-gradient-to-r from-blue-700 to-indigo-800 text-white p-4 shadow-xl fixed w-full z-20 transition-all duration-300 ease-in-out">
         <div class="container mx-auto flex justify-between items-center px-4 relative">
+            <!-- Logo (Sankalp Classes) -->
             <div class="flex items-center">
-                <img src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/logo.jpg" alt="Sankalp Classes Logo" class="h-10 w-10 md:h-12 md:w-12 rounded-full mr-3 border-2 border-white shadow-md">
-                <h1 class="text-xl md:text-3xl font-extrabold font-inter tracking-wide whitespace-nowrap">Sankalp Classes <span class="hidden md:inline">& Computer Classes</span></h1>
-                <span class="md:hidden text-lg ml-1 whitespace-nowrap"> & Comp. Classes</span>
+                <a href="#home" class="flex items-center">
+                    <img src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/logo.jpg" alt="Sankalp Classes Logo" class="h-12 w-12 md:h-16 md:w-16 rounded-full mr-0 border-2 border-white shadow-md transform hover:scale-105 transition-transform duration-200">
+                </a>
             </div>
 
+            <!-- Mobile Menu Button -->
             <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none focus:ring-2 focus:ring-white p-2 rounded-md transition-transform duration-300 transform active:scale-95">
                 <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
                 </svg>
             </button>
 
-            <nav id="main-nav" class="hidden md:flex flex-col md:flex-row md:static absolute top-full left-0 w-full md:w-auto bg-gradient-to-r from-blue-700 to-indigo-800 md:bg-transparent shadow-lg md:shadow-none transition-all duration-300 ease-in-out opacity-0 md:opacity-100 max-h-0 md:max-h-full overflow-hidden items-center md:space-x-8 mt-2 md:mt-0 py-4 md:py-0 px-4 md:px-0 rounded-b-lg md:rounded-none">
-                <ul class="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-8 text-lg font-medium py-4 md:py-0 px-4 md:px-0 w-full md:w-auto">
-                    <li><a href="#home" class="nav-link block py-2 px-3 rounded-md hover:bg-white hover:bg-opacity-20 transition-colors duration-200">Home</a></li>
-                    <li><a href="#about" class="nav-link block py-2 px-3 rounded-md hover:bg-white hover:bg-opacity-20 transition-colors duration-200">About Us</a></li>
-                    <li><a href="#courses" class="nav-link block py-2 px-3 rounded-md hover:bg-white hover:bg-opacity-20 transition-colors duration-200">Courses</a></li>
-                    <li><a href="#facilities" class="nav-link block py-2 px-3 rounded-md hover:bg-white hover:bg-opacity-20 transition-colors duration-200">Facilities</a></li>
-                    <li><a href="album.html" class="nav-link block py-2 px-3 rounded-md hover:bg-white hover:bg-opacity-20 transition-colors duration-200">Album</a></li>
-                    <li><a href="#contact" class="nav-link block py-2 px-3 rounded-md hover:bg-white hover:bg-opacity-20 transition-colors duration-200">Contact</a></li>
+            <!-- Main Navigation -->
+            <nav id="main-nav" class="hidden md:flex flex-col md:flex-row md:static absolute top-full left-0 w-full md:w-auto bg-gradient-to-r from-blue-700 to-indigo-800 md:bg-transparent shadow-lg md:shadow-none transition-all duration-300 ease-in-out opacity-0 md:opacity-100 max-h-0 md:max-h-full overflow-hidden items-center md:space-x-8 mt-2 md:mt-0 py-4 md:py-0 px-4 md:px-0 rounded-b-lg md:rounded-none md:flex-grow md:justify-center">
+                <ul class="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-8 text-lg font-medium py-4 md:py-0 px-4 md:px-0 w-full md:w-auto md:justify-center md:flex-grow">
+                    <li><a href="#home" class="nav-link">Home</a></li>
+                    <li><a href="#about" class="nav-link">About Us</a></li>
+                    <li><a href="#courses" class="nav-link">Courses</a></li>
+                    <li><a href="#facilities" class="nav-link">Facilities</a></li>
+                    <li><a href="album.html" class="nav-link">Album</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
                 </ul>
-                <div class="mt-4 md:mt-0">
-                    <a href="tel:9807534582" class="btn-primary-nav">
-                        Call Now <span class="ml-1 text-xl">📞</span>
-                    </a>
-                </div>
             </nav>
+
+            <!-- Call to Action Button (Moved to align right) -->
+            <div class="mt-4 md:mt-0 hidden md:flex items-center ml-auto">
+                <a href="tel:9807534582" class="btn-nav-cta">
+                    Enroll Now <span class="ml-2 text-lg">➡️</span>
+                </a>
+            </div>
         </div>
     </header>
 
+    <!-- Main Content Area -->
     <main class="pt-24">
-        <section id="home" class="relative section-padding home-background-creative flex flex-col justify-center items-center text-center min-h-[calc(100vh-96px)]">
-            <div class="absolute inset-0 bg-gradient-to-b from-blue-900 to-blue-700 opacity-90 z-0"></div>
+        <!-- Hero Section -->
+        <section id="home" class="relative section-padding hero-section-bg flex flex-col justify-center items-center text-center min-h-[calc(100vh-96px)] text-white">
+            <div class="absolute inset-0 bg-blue-900 opacity-80 z-0"></div>
+            <!-- Background image overlay (add your hero-bg.jpg to the specified path) -->
             <img src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/hero-bg.jpg" alt="Sankalp Classes background" class="absolute inset-0 w-full h-full object-cover opacity-20 z-0">
 
             <div class="container mx-auto bg-white bg-opacity-95 p-8 md:p-12 rounded-2xl shadow-2xl max-w-4xl relative z-10 border border-blue-100 transform transition-all duration-500 ease-in-out hover:scale-[1.005]">
                 <h2 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-blue-800 mb-6 font-inter leading-tight drop-shadow-md animate-on-load-hero-text delay-100">
-                    <span class="block">Unlock Your Potential</span>
-                    <span class="block text-indigo-700">with Cutting-Edge Tech Skills</span>
+                    <span class="block">Empowering Your Future</span>
+                    <span class="block text-indigo-700">Through Quality Education</span>
                 </h2>
                 <p class="text-xl md:text-2xl leading-relaxed mb-8 font-light text-gray-700 max-w-2xl mx-auto animate-on-load-hero-text delay-200">
-                    Your Gateway to **High-Quality, Affordable, and Job-Oriented** Computer Education in Ratanpura, Mau.
+                    Your trusted partner for **High-Quality, Affordable, and Job-Oriented** Computer & Academic Education in Ratanpura, Mau.
                 </p>
 
                 <div class="flex flex-col sm:flex-row justify-center gap-4 mt-8 animate-on-load-hero-buttons delay-300">
                     <a href="#courses" class="btn-primary">
-                        <span class="mr-2 text-2xl">🚀</span> Explore Courses
+                        <span class="mr-2 text-2xl">📚</span> View Our Courses
                     </a>
                     <a href="tel:9807534582" class="btn-secondary">
-                        <span class="mr-2 text-2xl">📞</span> Call Now: 9807534582
+                        <span class="mr-2 text-2xl">📞</span> Speak with an Advisor
                     </a>
                 </div>
                 <p class="text-md md:text-lg mt-6 text-gray-600 font-medium animate-on-load-hero-text delay-400">📍 City Center, Ratanpura, Mau</p>
 
-                <h3 class="text-2xl font-bold text-indigo-700 mt-16 mb-6 font-inter border-b-2 border-indigo-300 pb-3 inline-block animate-on-load-hero-text delay-500">💡 Why Choose Us?</h3>
+                <h3 class="text-2xl font-bold text-indigo-700 mt-16 mb-6 font-inter border-b-2 border-indigo-300 pb-3 inline-block animate-on-load-hero-text delay-500">💡 Why Choose Sankalp?</h3>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 text-gray-700 text-left animate-on-load-hero-grid delay-600">
                     <div class="feature-card">
-                        <span class="text-4xl text-blue-600 mr-3 mt-1">👨‍🏫</span>
-                        <p class="leading-relaxed font-semibold"><strong>Experienced Trainers</strong> – Learn from certified and skilled professionals dedicated to your success.</p>
+                        <span class="text-4xl text-amber-500 mr-3 mt-1">👨‍🏫</span>
+                        <p class="leading-relaxed font-semibold"><strong>Experienced Faculty</strong> – Learn from dedicated and certified experts passionate about teaching.</p>
                     </div>
                     <div class="feature-card">
-                        <span class="text-4xl text-blue-600 mr-3 mt-1">🧑‍💻</span>
-                        <p class="leading-relaxed font-semibold"><strong>Practical & Job-Oriented Training</strong> – Our industry-ready curriculum ensures you gain real-world skills.</p>
+                        <span class="text-4xl text-amber-500 mr-3 mt-1">🧑‍💻</span>
+                        <p class="leading-relaxed font-semibold"><strong>Practical Training</strong> – Hands-on, real-world projects prepare you for immediate job readiness.</p>
                     </div>
                     <div class="feature-card">
-                        <span class="text-4xl text-blue-600 mr-3 mt-1">💰</span>
-                        <p class="leading-relaxed font-semibold"><strong>Affordable Fees</strong> – High-quality education made accessible within your budget.</p>
+                        <span class="text-4xl text-amber-500 mr-3 mt-1">💰</span>
+                        <p class="leading-relaxed font-semibold"><strong>Affordable Education</strong> – High-value courses designed to fit your budget.</p>
                     </div>
                     <div class="feature-card">
-                        <span class="text-4xl text-blue-600 mr-3 mt-1">🏆</span>
-                        <p class="leading-relaxed font-semibold"><strong>Government-Recognized Certification</strong> – Boost your career with valid and widely accepted credentials.</p>
+                        <span class="text-4xl text-amber-500 mr-3 mt-1">🏆</span>
+                        <p class="leading-relaxed font-semibold"><strong>Recognized Certifications</strong> – Boost your career with credentials valued by employers.</p>
                     </div>
                     <div class="feature-card">
-                        <span class="text-4xl text-blue-600 mr-3 mt-1">💻</span>
-                        <p class="leading-relaxed font-semibold"><strong>Modern Computer Labs</strong> – Real-time, hands-on learning with the latest technology and software.</p>
+                        <span class="text-4xl text-amber-500 mr-3 mt-1">💻</span>
+                        <p class="leading-relaxed font-semibold"><strong>State-of-the-Art Labs</strong> – Access modern computers and software for optimal learning.</p>
                     </div>
                     <div class="feature-card">
-                        <span class="text-4xl text-blue-600 mr-3 mt-1">🎯</span>
-                        <p class="leading-relaxed font-semibold"><strong>Small Batches for Personal Attention</strong> – Individualized focus ensures better understanding and progress.</p>
+                        <span class="text-4xl text-amber-500 mr-3 mt-1">🎯</span>
+                        <p class="leading-relaxed font-semibold"><strong>Personalized Attention</strong> – Small batch sizes ensure one-on-one guidance and support.</p>
                     </div>
                     <div class="feature-card">
-                        <span class="text-4xl text-blue-600 mr-3 mt-1">📚</span>
-                        <p class="leading-relaxed font-semibold"><strong>24/7 Library Access</strong> – Study at your convenience anytime with extensive learning resources.</p>
+                        <span class="text-4xl text-amber-500 mr-3 mt-1">📚</span>
+                        <p class="leading-relaxed font-semibold"><strong>24/7 Library Access</strong> – Flexible study environment with extensive learning resources.</p>
                     </div>
                     <div class="feature-card">
-                        <span class="text-4xl text-blue-600 mr-3 mt-1">🗓️</span>
-                        <p class="leading-relaxed font-semibold"><strong>Flexible Course Timings</strong> – Learn at your own pace and convenience with adaptable schedules.</p>
+                        <span class="text-4xl text-amber-500 mr-3 mt-1">🗓️</span>
+                        <p class="leading-relaxed font-semibold"><strong>Flexible Timings</strong> – Learn at your own pace with schedules that fit your life.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        ---
-
-        <section id="about" class="section-padding bg-gray-100 animate-on-scroll">
+        <!-- About Us Section -->
+        <section id="about" class="section-padding bg-slate-100 animate-on-scroll">
             <div class="container mx-auto bg-white p-8 md:p-12 rounded-2xl shadow-xl max-w-5xl border border-gray-200">
-                <h2 class="text-4xl font-extrabold font-inter text-blue-800 mb-6 text-center">📖 About Us</h2>
+                <h2 class="section-title">📖 About Us</h2>
                 <h3 class="text-3xl font-semibold text-indigo-700 mb-8 text-center leading-snug">Empowering Students with **Skills that Matter** for a Digital Future</h3>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
                     <div class="md:order-2">
@@ -121,7 +132,7 @@
                     </div>
                     <div class="md:order-1 relative group overflow-hidden rounded-xl shadow-lg border border-gray-200">
                         <img src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(5).JPG" alt="Students in a modern computer lab" class="w-full h-auto object-cover transform transition-transform duration-500 group-hover:scale-105">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-50 group-hover:opacity-70 transition-opacity duration-300"></div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-blue-900 via-transparent to-transparent opacity-50 group-hover:opacity-70 transition-opacity duration-300"></div>
                         <p class="absolute bottom-4 left-4 text-white text-xl font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300 translate-y-4 group-hover:translate-y-0">Learning in action!</p>
                     </div>
                 </div>
@@ -130,128 +141,137 @@
             </div>
         </section>
 
-        ---
-
+        <!-- Our Diverse Courses Section -->
         <section id="courses" class="section-padding bg-blue-50 animate-on-scroll">
             <div class="container mx-auto">
-                <h2 class="text-4xl font-extrabold font-inter text-blue-800 mb-10 text-center">🎓 Our Diverse Courses</h2>
+                <h2 class="section-title">🎓 Our Diverse Courses</h2>
                 <p class="text-xl text-center mb-12 max-w-3xl mx-auto text-gray-700 leading-relaxed">Explore a wide range of **industry-relevant courses** designed for beginners, students, and professionals to elevate their digital expertise, along with comprehensive academic and competitive exam coaching.</p>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 
+                    <!-- Course Card: Academic & Competitive Coaching -->
                     <div class="course-card">
-                        <h3 class="text-2xl font-bold font-inter text-blue-700 mb-4 pb-2 border-b border-blue-100">📚 Academic & Competitive Coaching</h3>
+                        <h3 class="course-card-title">📚 Academic & Competitive Coaching</h3>
                         <ul class="list-disc list-inside text-gray-700 space-y-2 text-md flex-grow">
                             <li>Comprehensive coaching for **Class 6 to 12** (CBSE, UP, ICSE Boards).</li>
                             <li>Targeted preparation for **SSC CGL** and other one-day competitive exams.</li>
                             <li>Experienced faculty and result-oriented strategies for academic excellence and exam success.</li>
                         </ul>
                         <div class="mt-4 text-right">
-                             <a href="#contact" class="text-indigo-600 hover:text-indigo-800 font-semibold transition-colors duration-200 text-sm">Learn More <span aria-hidden="true">→</span></a>
+                             <a href="#contact" class="read-more-link">Learn More <span aria-hidden="true">→</span></a>
                         </div>
                     </div>
 
+                    <!-- Course Card: Diploma Courses -->
                     <div class="course-card">
-                        <h3 class="text-2xl font-bold font-inter text-blue-700 mb-4 pb-2 border-b border-blue-100">🏅 Diploma Courses</h3>
+                        <h3 class="course-card-title">🏅 Diploma Courses</h3>
                         <ul class="list-disc list-inside text-gray-700 space-y-2 text-md flex-grow">
                             <li>Comprehensive Computer Diploma Programs for **long-term career building.**</li>
                             <li>Includes practical project work & government-recognized certification.</li>
                             <li>Designed with a robust job-oriented curriculum.</li>
                         </ul>
                         <div class="mt-4 text-right">
-                             <a href="#contact" class="text-indigo-600 hover:text-indigo-800 font-semibold transition-colors duration-200 text-sm">Learn More <span aria-hidden="true">→</span></a>
+                             <a href="#contact" class="read-more-link">Learn More <span aria-hidden="true">→</span></a>
                         </div>
                     </div>
 
+                    <!-- Course Card: Video Editing -->
                     <div class="course-card">
-                        <h3 class="text-2xl font-bold font-inter text-blue-700 mb-4 pb-2 border-b border-blue-100">✂️ Video Editing</h3>
+                        <h3 class="course-card-title">✂️ Video Editing</h3>
                         <ul class="list-disc list-inside text-gray-700 space-y-2 text-md flex-grow">
                             <li>Master tools like **Adobe Premiere Pro, Filmora**, and more.</li>
                             <li>Learn video cutting, professional effects, seamless transitions, and audio syncing.</li>
                             <li>Ideal for aspiring YouTube creators and media professionals.</li>
                         </ul>
                         <div class="mt-4 text-right">
-                             <a href="#contact" class="text-indigo-600 hover:text-indigo-800 font-semibold transition-colors duration-200 text-sm">Learn More <span aria-hidden="true">→</span></a>
+                             <a href="#contact" class="read-more-link">Learn More <span aria-hidden="true">→</span></a>
                         </div>
                     </div>
 
+                    <!-- Course Card: Animation -->
                     <div class="course-card">
-                        <h3 class="text-2xl font-bold font-inter text-blue-700 mb-4 pb-2 border-b border-blue-100">🎨 Animation</h3>
+                        <h3 class="course-card-title">🎨 Animation</h3>
                         <ul class="list-disc list-inside text-gray-700 space-y-2 text-md flex-grow">
                             <li>Introduction to both **2D & 3D Animation** principles.</li>
                             <li>Develop skills to create compelling character movements, scenes & visual effects.</li>
                             <li>Perfect for graphic design and gaming enthusiasts.</li>
                         </ul>
                         <div class="mt-4 text-right">
-                             <a href="#contact" class="text-indigo-600 hover:text-indigo-800 font-semibold transition-colors duration-200 text-sm">Learn More <span aria-hidden="true">→</span></a>
+                             <a href="#contact" class="read-more-link">Learn More <span aria-hidden="true">→</span></a>
                         </div>
                     </div>
 
+                    <!-- Course Card: ADCA -->
                     <div class="course-card">
-                        <h3 class="text-2xl font-bold font-inter text-blue-700 mb-4 pb-2 border-b border-blue-100">🖥️ ADCA (Advanced Diploma in Computer Application)</h3>
+                        <h3 class="course-card-title">🖥️ ADCA (Advanced Diploma in Computer Application)</h3>
                         <ul class="list-disc list-inside text-gray-700 space-y-2 text-md flex-grow">
                             <li>Gain full practical knowledge of **essential computer applications**.</li>
                             <li>Extensive coverage including MS Office Suite, Internet fundamentals, DBMS, Tally, and Graphic Designing.</li>
                         </ul>
                         <div class="mt-4 text-right">
-                             <a href="#contact" class="text-indigo-600 hover:text-indigo-800 font-semibold transition-colors duration-200 text-sm">Learn More <span aria-hidden="true">→</span></a>
+                             <a href="#contact" class="read-more-link">Learn More <span aria-hidden="true">→</span></a>
                         </div>
                     </div>
 
+                    <!-- Course Card: DCA -->
                     <div class="course-card">
-                        <h3 class="text-2xl font-bold font-inter text-blue-700 mb-4 pb-2 border-b border-blue-100">📁 DCA (Diploma in Computer Applications)</h3>
+                        <h3 class="course-card-title">📁 DCA (Diploma in Computer Applications)</h3>
                         <ul class="list-disc list-inside text-gray-700 space-y-2 text-md flex-grow">
                             <li>**Foundational computer knowledge** tailored for beginners.</li>
                             <li>Covers core applications: MS Word, Excel, PowerPoint, and Internet usage.</li>
                         </ul>
                         <div class="mt-4 text-right">
-                             <a href="#contact" class="text-indigo-600 hover:text-indigo-800 font-semibold transition-colors duration-200 text-sm">Learn More <span aria-hidden="true">→</span></a>
+                             <a href="#contact" class="read-more-link">Learn More <span aria-hidden="true">→</span></a>
                         </div>
                     </div>
 
+                    <!-- Course Card: Tally Prime with GST -->
                     <div class="course-card">
-                        <h3 class="text-2xl font-bold font-inter text-blue-700 mb-4 pb-2 border-b border-blue-100">📊 Tally Prime with GST</h3>
+                        <h3 class="course-card-title">📊 Tally Prime with GST</h3>
                         <ul class="list-disc list-inside text-gray-700 space-y-2 text-md flex-grow">
                             <li>Specialized training in **Tally Prime accounting software**.</li>
                             <li>Learn key functionalities including GST, efficient billing, inventory management, and report generation.</li>
                             <li>Highly recommended for commerce students and job seekers in accounting.</li>
                         </ul>
                         <div class="mt-4 text-right">
-                             <a href="#contact" class="text-indigo-600 hover:text-indigo-800 font-semibold transition-colors duration-200 text-sm">Learn More <span aria-hidden="true">→</span></a>
+                             <a href="#contact" class="read-more-link">Learn More <span aria-hidden="true">→</span></a>
                         </div>
                     </div>
 
+                    <!-- Course Card: MS Office -->
                     <div class="course-card">
-                        <h3 class="text-2xl font-bold font-inter text-blue-700 mb-4 pb-2 border-b border-blue-100">🖱️ MS Office</h3>
+                        <h3 class="course-card-title">🖱️ MS Office</h3>
                         <ul class="list-disc list-inside text-gray-700 space-y-2 text-md flex-grow">
                             <li>Master the full **MS Office suite**: Word, Excel, PowerPoint, and Outlook.</li>
                             <li>Learn essential shortcut tips, advanced formatting, and effective document management.</li>
                         </ul>
                         <div class="mt-4 text-right">
-                             <a href="#contact" class="text-indigo-600 hover:text-indigo-800 font-semibold transition-colors duration-200 text-sm">Learn More <span aria-hidden="true">→</span></a>
+                             <a href="#contact" class="read-more-link">Learn More <span aria-hidden="true">→</span></a>
                         </div>
                     </div>
 
+                    <!-- Course Card: Graphic Designing -->
                     <div class="course-card">
-                        <h3 class="text-2xl font-bold font-inter text-blue-700 mb-4 pb-2 border-b border-blue-100">🎨 Graphic Designing</h3>
+                        <h3 class="course-card-title">🎨 Graphic Designing</h3>
                         <ul class="list-disc list-inside text-gray-700 space-y-2 text-md flex-grow">
                             <li>Hands-on training with industry-standard software: **Photoshop, CorelDRAW, Illustrator.**</li>
                             <li>Develop skills in poster design, professional logo making, advanced image editing, and impactful branding.</li>
                         </ul>
                         <div class="mt-4 text-right">
-                             <a href="#contact" class="text-indigo-600 hover:text-indigo-800 font-semibold transition-colors duration-200 text-sm">Learn More <span aria-hidden="true">→</span></a>
+                             <a href="#contact" class="read-more-link">Learn More <span aria-hidden="true">→</span></a>
                         </div>
                     </div>
 
+                    <!-- Course Card: Typing (Hindi & English) -->
                     <div class="course-card">
-                        <h3 class="text-2xl font-bold font-inter text-blue-700 mb-4 pb-2 border-b border-blue-100">⌨️ Typing (Hindi & English)</h3>
+                        <h3 class="course-card-title">⌨️ Typing (Hindi & English)</h3>
                         <ul class="list-disc list-inside text-gray-700 space-y-2 text-md flex-grow">
                             <li>Dedicated **speed typing classes** with daily practice sessions.</li>
                             <li>Significantly improves both accuracy and overall typing speed.</li>
                             <li>Excellent preparation for various competitive exams requiring typing proficiency.</li>
                         </ul>
                         <div class="mt-4 text-right">
-                             <a href="#contact" class="text-indigo-600 hover:text-indigo-800 font-semibold transition-colors duration-200 text-sm">Learn More <span aria-hidden="true">→</span></a>
+                             <a href="#contact" class="read-more-link">Learn More <span aria-hidden="true">→</span></a>
                         </div>
                     </div>
 
@@ -265,68 +285,66 @@
             </div>
         </section>
 
-        ---
-
-        <section id="facilities" class="section-padding bg-gray-100 animate-on-scroll">
+        <!-- Our Facilities Section -->
+        <section id="facilities" class="section-padding bg-slate-100 animate-on-scroll">
             <div class="container mx-auto bg-white p-8 md:p-12 rounded-2xl shadow-xl max-w-5xl border border-gray-200">
-                <h2 class="text-4xl font-extrabold font-inter text-blue-800 mb-10 text-center">🌟 Our State-of-the-Art Facilities</h2>
+                <h2 class="section-title">🌟 Our State-of-the-Art Facilities</h2>
                 <p class="text-xl text-center mb-12 max-w-3xl mx-auto text-gray-700 leading-relaxed">At Sankalp Classes, we provide **top-notch facilities** designed to enhance your learning experience, foster collaboration, and support your academic and professional success.</p>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                     <div class="facility-card">
-                        <span class="text-6xl text-indigo-600 mb-4">📚</span>
+                        <span class="text-6xl text-amber-500 mb-4">📚</span>
                         <h3 class="text-2xl font-bold font-inter text-blue-700 mb-2">24/7 Library Access</h3>
                         <p class="text-gray-700 leading-relaxed">Our comprehensive library is available around the clock, providing a quiet and resourceful environment for self-study and research. Access a wide range of books, journals, and digital resources anytime you need them.</p>
                     </div>
                     <div class="facility-card">
-                        <span class="text-6xl text-green-600 mb-4">💻</span>
+                        <span class="text-6xl text-amber-500 mb-4">💻</span>
                         <h3 class="text-2xl font-bold font-inter text-blue-700 mb-2">Modern Computer Labs</h3>
                         <p class="text-gray-700 leading-relaxed">Equipped with the latest hardware and software, our computer labs offer real-time, hands-on experience. Work on your projects, practice your skills, and stay updated with the newest technologies.</p>
                     </div>
                     <div class="facility-card">
-                        <span class="6xl text-yellow-600 mb-4">🛋️</span>
+                        <span class="text-6xl text-amber-500 mb-4">🛋️</span>
                         <h3 class="text-2xl font-bold font-inter text-blue-700 mb-2">Comfortable Study Zones</h3>
                         <p class="text-gray-700 leading-relaxed">Beyond the lab, find comfortable and conducive study zones designed for individual focus or group discussions. A perfect space to collaborate and concentrate.</p>
                     </div>
                     <div class="facility-card">
-                        <span class="text-6xl text-red-600 mb-4">📶</span>
-                        <h3 class="2xl font-bold font-inter text-blue-700 mb-2">High-Speed Wi-Fi</h3>
+                        <span class="text-6xl text-amber-500 mb-4">📶</span>
+                        <h3 class="text-2xl font-bold font-inter text-blue-700 mb-2">High-Speed Wi-Fi</h3>
                         <p class="text-gray-700 leading-relaxed">Stay connected with our high-speed internet access available throughout the institute, ensuring seamless online learning and research.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        ---
-
+        <!-- Contact Us Section -->
         <section id="contact" class="section-padding bg-blue-50 animate-on-scroll">
             <div class="container mx-auto bg-white p-8 md:p-12 rounded-2xl shadow-xl max-w-4xl border border-blue-200 text-center">
-                <h2 class="text-4xl font-extrabold font-inter text-blue-800 mb-6">📞 Get in Touch with Sankalp</h2>
+                <h2 class="section-title">📞 Get in Touch with Sankalp</h2>
                 <p class="text-xl mb-8 text-gray-700 leading-relaxed">Have questions? Ready to start your computer education journey?
                     We’re just a call or visit away! Reach out to us anytime to learn more about our courses and facilities.</p>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-lg text-gray-700">
                     <div class="info-card">
-                        <span class="text-4xl text-blue-600 mb-2">📍</span>
+                        <span class="text-4xl text-amber-500 mb-2">📍</span>
                         <p class="font-semibold text-xl">Address:</p>
                         <p>Sankalp Classes & Computer Classes</p>
                         <p>City Center, Ratanpura, Mau – Uttar Pradesh</p>
                     </div>
 
                     <div class="info-card">
-                        <span class="text-4xl text-blue-600 mb-2">📞</span>
+                        <span class="text-4xl text-amber-500 mb-2">📞</span>
                         <p class="font-semibold text-xl">Phone:</p>
                         <a href="tel:9807534582" class="text-blue-700 hover:underline text-2xl font-bold transition-colors duration-200">9807534582</a>
                     </div>
 
                     <div class="info-card">
-                        <span class="text-4xl text-blue-600 mb-2">📧</span>
+                        <span class="text-4xl text-amber-500 mb-2">📧</span>
                         <p class="font-semibold text-xl">Email:</p>
                         <a href="mailto:sankalpclasses@gmail.com" class="text-blue-700 hover:underline text-xl transition-colors duration-200">sankalpclasses@gmail.com</a>
                     </div>
 
                     <div class="info-card">
-                        <span class="text-4xl text-blue-600 mb-2">🕒</span>
+                        <span class="text-4xl text-amber-500 mb-2">🕒</span>
                         <p class="font-semibold text-xl">Working Hours:</p>
                         <p>Monday to Saturday: 9:00 AM – 7:00 PM</p>
                         <p>Sunday: Closed</p>
@@ -349,13 +367,15 @@
 
     </main>
 
+    <!-- Footer -->
     <footer class="bg-gray-900 text-white text-center p-6 mt-12 shadow-inner">
         <div class="container mx-auto">
-            <p>© 2025 Sankalp Classes & Computer Classes. All rights reserved.</p>
-            <p class="text-sm mt-2 opacity-80">Designed by AI with 💡 for Sankalp Classes & Computer Classes.</p>
+            <p>&copy; 2025 Sankalp Classes & Computer Classes. All rights reserved.</p>
+            <p class="text-sm mt-2 opacity-80">Designed with passion by AI for Sankalp Classes & Computer Classes.</p>
         </div>
     </footer>
 
+    <!-- JavaScript for Interactions and Animations -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const mobileMenuButton = document.getElementById('mobile-menu-button');
@@ -364,13 +384,14 @@
             const header = document.querySelector('.main-header'); // Get the header
             const sections = document.querySelectorAll('section[id]'); // All sections with an ID
 
-            // Function to toggle mobile menu
+            // Function to toggle mobile menu visibility and button animation
             mobileMenuButton.addEventListener('click', function() {
                 mainNav.classList.toggle('hidden');
                 mainNav.classList.toggle('opacity-0');
                 mainNav.classList.toggle('max-h-0');
                 mainNav.classList.toggle('opacity-100');
                 mainNav.classList.toggle('max-h-screen');
+                mobileMenuButton.classList.toggle('open'); // Toggle class for button animation
             });
 
             // Close mobile menu when a nav link is clicked
@@ -381,19 +402,21 @@
                         mainNav.classList.add('hidden');
                         mainNav.classList.remove('opacity-100', 'max-h-screen');
                         mainNav.classList.add('opacity-0', 'max-h-0');
+                        mobileMenuButton.classList.remove('open'); // Reset button animation
                     }
                 });
             });
 
-            // Handle window resize to ensure correct menu state
+            // Handle window resize to ensure correct menu state for desktop/mobile transition
             window.addEventListener('resize', function() {
                 if (window.innerWidth >= 768) { // If desktop
                     mainNav.classList.remove('hidden', 'opacity-0', 'max-h-0');
                     mainNav.classList.add('opacity-100', 'max-h-full');
+                    mobileMenuButton.classList.remove('open'); // Ensure button is reset on desktop
                 } else { // If mobile
-                    // Restore initial hidden state if window is resized smaller
-                    if (!mainNav.classList.contains('hidden')) { // If menu is currently open on desktop and resized to mobile
-                         mainNav.classList.add('hidden'); // Hide it
+                    // Restore initial hidden state if window is resized smaller from desktop
+                    if (!mainNav.classList.contains('hidden')) { 
+                         mainNav.classList.add('hidden'); 
                          mainNav.classList.remove('opacity-100', 'max-h-screen');
                          mainNav.classList.add('opacity-0', 'max-h-0');
                     }
@@ -402,20 +425,19 @@
 
             // --- Sticky Header and Active Nav Link Logic ---
             window.addEventListener('scroll', function() {
-                // Sticky Header
-                if (window.scrollY > 50) { // Add 'scrolled' class after scrolling 50px
+                // Sticky Header: Add 'scrolled' class to header after scrolling 50px
+                if (window.scrollY > 50) {
                     header.classList.add('scrolled');
                 } else {
                     header.classList.remove('scrolled');
                 }
 
-                // Active Nav Link
+                // Active Nav Link: Determine current section in viewport and apply 'current-active-link' class
                 let current = '';
                 sections.forEach(section => {
                     const sectionTop = section.offsetTop;
-                    // Adjusted offset for header height and some buffer
                     const sectionHeight = section.clientHeight;
-                    const offset = 100; // Adjust this value as needed
+                    const offset = 100; // Adjust this value to control when a link becomes active
 
                     if (window.scrollY >= sectionTop - offset && window.scrollY < sectionTop + sectionHeight - offset) {
                         current = section.getAttribute('id');
@@ -424,21 +446,19 @@
 
                 navLinks.forEach(link => {
                     link.classList.remove('current-active-link');
-                    // Special handling for album.html if it's external
-                    if (link.href.includes('album.html') && current === 'album') { // Assuming 'album' is an ID if it's ever on the same page
-                        // Do nothing, or add a specific class if you want it to remain active
-                    } else if (link.href.includes(current)) {
+                    // Check if the link's href matches the current section ID
+                    if (link.href.includes(current) && current !== '') { // Ensure current is not empty for non-section links
                         link.classList.add('current-active-link');
                     }
                 });
             });
 
-            // --- On-Load Animations for Hero Section ---
+            // --- On-Load Animations for Hero Section elements ---
             const heroTextElements = document.querySelectorAll('.animate-on-load-hero-text');
             const heroButtonElements = document.querySelectorAll('.animate-on-load-hero-buttons');
             const heroGridElements = document.querySelectorAll('.animate-on-load-hero-grid');
 
-            // Trigger hero section animations after a slight delay
+            // Trigger hero section animations after a slight delay for better visual effect
             setTimeout(() => {
                 heroTextElements.forEach(el => el.classList.add('is-visible'));
                 heroButtonElements.forEach(el => el.classList.add('is-visible'));
@@ -449,20 +469,25 @@
             const animateOnScrollElements = document.querySelectorAll('.animate-on-scroll');
 
             const observerOptions = {
-                root: null, // Use the viewport as the root
+                root: null, // Use the viewport as the root for observation
                 rootMargin: '0px',
-                threshold: 0.1 // Trigger when 10% of the element is visible
+                threshold: 0.1 // Trigger when 10% of the element is visible in the viewport
             };
 
             const observer = new IntersectionObserver((entries, observer) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add('is-visible');
-                        observer.unobserve(entry.target); // Stop observing once animated
+                        observer.unobserve(entry.target); // Stop observing once the animation has played
+                    }
+                    else {
+                        // Optional: remove is-visible class if you want to re-animate on scroll back up
+                        // entry.target.classList.remove('is-visible'); 
                     }
                 });
             }, observerOptions);
 
+            // Observe each element marked for on-scroll animation
             animateOnScrollElements.forEach(el => {
                 observer.observe(el);
             });
@@ -470,3 +495,4 @@
     </script>
 </body>
 </html>
+
