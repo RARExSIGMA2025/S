@@ -4,46 +4,172 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sankalp Classes | Album - Visuals</title>
-    <!-- Meta Description for SEO -->
     <meta name="description" content="Photo and video album of Sankalp Classes & Computer Classes showcasing celebrations, prize distribution ceremonies, events, and campus life in Ratanpura, Mau.">
-    <!-- Keywords for SEO -->
     <meta name="keywords" content="Sankalp Classes album, computer classes photos Mau, prize distribution videos, celebration videos, educational events, Ratanpura Mau institute album">
 
-    <!-- Link to Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Link to Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Link to your custom stylesheet (relative path from album.html) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=Montserrat:wght@700;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <style>
         /* Custom CSS for consistency and new hover effects */
-        .section-padding {
-            padding-top: 5rem; /* Increased padding */
-            padding-bottom: 5rem; /* Increased padding */
+        :root {
+            --primary-blue: #2563EB; /* Tailwind blue-700 equivalent */
+            --primary-indigo: #4F46E5; /* Tailwind indigo-800 equivalent */
+            --accent-teal: #14B8A6; /* A vibrant teal */
+            --accent-yellow: #FACC15; /* A bright yellow */
+            --dark-background: #1F2937; /* A darker gray for footer/sections */
         }
 
-        /* Card hover effects - Applied to gallery items */
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: #333; /* Darker text for better contrast */
+            background-color: #F8FAFC; /* Lighter, more modern background */
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', 'Inter', sans-serif;
+            font-weight: 900; /* Extra bold for headings */
+            color: #1A202C; /* Darker heading color */
+        }
+
+        .section-padding {
+            padding-top: 6rem;
+            padding-bottom: 6rem;
+        }
+
+        /* Header Gradient - More refined */
+        header {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-indigo) 100%);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* Stronger, softer shadow */
+        }
+
+        /* Navigation Links - More dynamic hover */
+        .nav-link {
+            position: relative;
+            padding: 0.5rem 0.75rem;
+            border-radius: 0.375rem;
+            transition: all 0.3s ease-in-out;
+            overflow: hidden; /* For the underline effect */
+        }
+
+        .nav-link::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px; /* Thickness of the underline */
+            background-color: var(--accent-teal); /* Accent color */
+            transform: scaleX(0);
+            transform-origin: bottom right;
+            transition: transform 0.3s ease-out;
+        }
+
+        .nav-link:hover::before {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+        .nav-link:hover {
+            color: white; /* Keep text white on hover */
+            background-color: rgba(255, 255, 255, 0.15); /* Slightly more visible hover */
+        }
+
+
+        /* Album Hero Section - More engaging gradient */
+        .album-hero-background {
+            background: linear-gradient(135deg, #6A5ACD 0%, #8A2BE2 50%, #4B0082 100%); /* Deeper, richer purple gradient */
+            color: #FFFFFF;
+            padding-top: 7rem; /* More generous padding */
+            padding-bottom: 7rem;
+            position: relative; /* For potential future patterns/overlays */
+            overflow: hidden;
+            border-bottom-left-radius: 50px; /* Shaped border */
+            border-bottom-right-radius: 50px;
+            box-shadow: inset 0 -10px 20px rgba(0,0,0,0.1);
+        }
+        .album-hero-background h1 {
+            font-size: 3.5rem; /* Larger hero title */
+            line-height: 1.2;
+            text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Stronger text shadow */
+        }
+        .album-hero-background p {
+            font-size: 1.6rem; /* Larger sub-text */
+            opacity: 0.95;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Gallery Item Card Hover Effects - Enhanced */
         .card-hover-effect {
-            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+            position: relative;
+            overflow: hidden; /* Ensures anything outside the rounded corner is hidden */
+            border: 1px solid #E2E8F0; /* Subtle border */
         }
         .card-hover-effect:hover {
-            transform: translateY(-8px) scale(1.02); /* Lifts and slightly scales */
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1); /* Stronger shadow */
+            transform: translateY(-12px) scale(1.04) rotateZ(1deg); /* More pronounced lift, scale, and subtle rotation */
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2); /* Much stronger shadow */
+            z-index: 5; /* Brings hovered card to front */
         }
 
-        /* Responsive video embedding */
+        /* Image specific styling within gallery */
+        .gallery-image {
+            width: 100%;
+            height: 220px; /* Slightly taller images */
+            object-fit: cover;
+            border-radius: 0.75rem;
+            transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
+        }
+        .card-hover-effect:hover .gallery-image {
+            transform: scale(1.05); /* Slight zoom on image within card */
+            filter: brightness(0.9); /* Slightly darken image on hover */
+        }
+
+        /* Image Overlay for a professional touch */
+        .image-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4); /* Dark overlay */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+            border-radius: 0.75rem;
+        }
+        .card-hover-effect:hover .image-overlay {
+            opacity: 1;
+        }
+        .overlay-text {
+            color: white;
+            font-weight: 600;
+            font-size: 1.1rem;
+            text-align: center;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+        }
+        .card-hover-effect:hover .overlay-text {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive video embedding - Enhanced */
         .video-responsive {
             position: relative;
             padding-bottom: 56.25%; /* 16:9 aspect ratio */
             height: 0;
             overflow: hidden;
-            border-radius: 0.75rem; /* More rounded corners */
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.06);
-            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            border-radius: 0.75rem;
+            box-shadow: 0 6px 12px -2px rgba(0, 0, 0, 0.15);
+            transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+            border: 1px solid #E2E8F0;
         }
         .video-responsive:hover {
-            transform: scale(1.03);
-            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.15);
+            transform: scale(1.03) translateY(-8px); /* Lighter lift for videos */
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
         }
         .video-responsive iframe,
         .video-responsive video {
@@ -53,142 +179,202 @@
             width: 100%;
             height: 100%;
             border: 0;
+            border-radius: 0.75rem; /* Ensure iframe also has rounded corners */
         }
 
-        /* General image styling for gallery */
-        .gallery-image {
-            width: 100%;
-            height: 200px; /* Fixed height for consistent grid appearance */
-            object-fit: cover; /* Cover the area, cropping if necessary */
-            border-radius: 0.75rem; /* Consistent rounded corners with videos */
-            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-        }
-        .gallery-image:hover {
-            transform: scale(1.03);
-            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.15);
+        /* Main album content wrapper */
+        #album-content > div {
+            background-color: #FFFFFF;
+            border-radius: 1.5rem; /* More rounded corners for the main container */
+            padding: 2.5rem; /* More padding inside the container */
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08); /* Softer, larger shadow */
         }
 
-        /* Hero section specific style for the album page */
-        .album-hero-background {
-            background: linear-gradient(135deg, #6A5ACD, #8A2BE2); /* More vibrant purple-blue gradient */
-            padding-top: 6rem;
-            padding-bottom: 6rem;
+        /* Grid layout adjustments for more dynamic look */
+        .album-grid {
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* More flexible grid sizing */
+            gap: 1.5rem; /* Increased gap */
+        }
+
+        /* Footer styling */
+        footer {
+            background-color: var(--dark-background);
+            color: #E0E7FF;
+            padding: 3rem;
+            margin-top: 4rem;
+            box-shadow: inset 0 8px 15px rgba(0, 0, 0, 0.2); /* Inset shadow for depth */
+        }
+
+        /* Mobile navigation styling */
+        @media (max-width: 767px) {
+            #main-nav {
+                background: linear-gradient(180deg, var(--primary-blue) 0%, var(--primary-indigo) 100%);
+                padding-bottom: 1rem;
+            }
+            .nav-link {
+                text-align: center;
+                padding: 0.75rem 0;
+            }
+            .nav-link::before {
+                height: 2px;
+                background-color: var(--accent-yellow); /* Different accent for mobile */
+            }
         }
     </style>
 </head>
 <body class="font-poppins text-gray-800 bg-gray-50">
 
-    <!-- Header Section (Consistent with index.html) -->
     <header class="bg-gradient-to-r from-blue-700 to-indigo-800 text-white p-4 shadow-xl fixed w-full z-10 transition-all duration-300 ease-in-out">
         <div class="container mx-auto flex justify-between items-center px-4 relative">
             <div class="flex items-center">
-                <!-- Logo: Uses raw GitHub link -->
                 <img src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/logo.jpg" alt="Sankalp Classes Logo" class="h-10 w-10 rounded-full mr-3 border-2 border-white shadow-md">
                 <h1 class="text-2xl font-extrabold font-inter tracking-wide">Sankalp Classes <span class="hidden md:inline">& Computer Classes</span></h1>
-                <span class="md:hidden text-lg ml-1">& Computer Classes</span> <!-- Shorter text for small screens -->
-            </div>
+                <span class="md:hidden text-lg ml-1 font-inter font-bold"> & C.C.</span> </div>
 
-            <!-- Mobile Menu Button (Hamburger) -->
             <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none focus:ring-2 focus:ring-white p-2 rounded-md">
                 <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
                 </svg>
             </button>
 
-            <!-- Navigation Menu -->
             <nav id="main-nav" class="hidden md:flex flex-col md:flex-row md:static absolute top-full left-0 w-full md:w-auto bg-gradient-to-r from-blue-700 to-indigo-800 md:bg-transparent shadow-lg md:shadow-none transition-all duration-300 ease-in-out opacity-0 md:opacity-100 max-h-0 md:max-h-full overflow-hidden">
                 <ul class="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-8 text-lg font-medium py-4 md:py-0 px-4 md:px-0">
-                    <li><a href="index.html#home" class="nav-link block py-2 px-3 rounded-md hover:bg-white hover:bg-opacity-10 transition-colors duration-200">Home</a></li>
-                    <li><a href="index.html#about" class="nav-link block py-2 px-3 rounded-md hover:bg-white hover:bg-opacity-10 transition-colors duration-200">About Us</a></li>
-                    <li><a href="index.html#courses" class="nav-link block py-2 px-3 rounded-md hover:bg-white hover:bg-opacity-10 transition-colors duration-200">Courses</a></li>
-                    <li><a href="index.html#facilities" class="nav-link block py-2 px-3 rounded-md hover:bg-white hover:bg-opacity-10 transition-colors duration-200">Facilities</a></li>
-                    <li><a href="album.html" class="nav-link block py-2 px-3 rounded-md hover:bg-white hover:bg-opacity-10 transition-colors duration-200">Album</a></li>
-                    <li><a href="index.html#contact" class="nav-link block py-2 px-3 rounded-md hover:bg-white hover:bg-opacity-10 transition-colors duration-200">Contact</a></li>
+                    <li><a href="index.html#home" class="nav-link block py-2 px-3 rounded-md">Home</a></li>
+                    <li><a href="index.html#about" class="nav-link block py-2 px-3 rounded-md">About Us</a></li>
+                    <li><a href="index.html#courses" class="nav-link block py-2 px-3 rounded-md">Courses</a></li>
+                    <li><a href="index.html#facilities" class="nav-link block py-2 px-3 rounded-md">Facilities</a></li>
+                    <li><a href="album.html" class="nav-link block py-2 px-3 rounded-md">Album</a></li>
+                    <li><a href="index.html#contact" class="nav-link block py-2 px-3 rounded-md">Contact</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <!-- Main Content for Album Page -->
-    <main class="pt-24"> <!-- Increased padding-top for fixed header -->
-
-        <!-- Album Hero Section -->
-        <section class="section-padding album-hero-background text-white text-center">
-            <div class="container mx-auto">
-                <h1 class="text-4xl md:text-5xl font-extrabold mb-4 font-inter">🎉 Our Memorable Moments 🎉</h1>
-                <p class="text-xl md:text-2xl font-light opacity-90">Celebrating achievements, events, and campus life at Sankalp Classes.</p>
+    <main class="pt-24"> <section class="section-padding album-hero-background text-white text-center">
+            <div class="container mx-auto px-4">
+                <h1 class="text-4xl md:text-5xl font-extrabold mb-4 font-montserrat">🎉 Our Memorable Moments 🎉</h1>
+                <p class="text-xl md:text-2xl font-light opacity-90 font-poppins">Celebrating achievements, events, and campus life at Sankalp Classes.</p>
             </div>
         </section>
 
-        <!-- Album Photo & Video Grid -->
         <section id="album-content" class="section-padding bg-gray-100">
             <div class="container mx-auto bg-white p-8 md:p-10 rounded-xl shadow-lg max-w-6xl border border-gray-200">
 
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                <div class="grid album-grid">
 
-                    <!-- Album Images (18 Slots) -->
-                    <!-- Each image is wrapped in a div with shadow and rounded corners -->
-                    <div class="rounded-xl overflow-hidden shadow-lg card-hover-effect">
+                    <div class="rounded-xl overflow-hidden shadow-lg card-hover-effect group">
                         <img src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(1).JPG" onerror="this.onerror=null;this.src='https://placehold.co/600x400/81C784/FFFFFF?text=Image+1';" alt="Sankalp Classes Photo 1" class="gallery-image">
+                        <div class="image-overlay">
+                            <span class="overlay-text">Event Highlight</span>
+                        </div>
                     </div>
-                    <div class="rounded-xl overflow-hidden shadow-lg card-hover-effect">
+                    <div class="rounded-xl overflow-hidden shadow-lg card-hover-effect group">
                         <img src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(2).JPG" onerror="this.onerror=null;this.src='https://placehold.co/600x400/ADD8E6/000000?text=Image+2';" alt="Sankalp Classes Photo 2" class="gallery-image">
+                        <div class="image-overlay">
+                            <span class="overlay-text">Prize Distribution</span>
+                        </div>
                     </div>
-                    <div class="rounded-xl overflow-hidden shadow-lg card-hover-effect">
+                    <div class="rounded-xl overflow-hidden shadow-lg card-hover-effect group">
                         <img src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(3).JPG" onerror="this.onerror=null;this.src='https://placehold.co/600x400/FFDDC1/000000?text=Image+3';" alt="Sankalp Classes Photo 3" class="gallery-image">
+                        <div class="image-overlay">
+                            <span class="overlay-text">Student Gathering</span>
+                        </div>
                     </div>
-                    <div class="rounded-xl overflow-hidden shadow-lg card-hover-effect">
+                    <div class="rounded-xl overflow-hidden shadow-lg card-hover-effect group">
                         <img src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(4).JPG" onerror="this.onerror=null;this.src='https://placehold.co/600x400/DDA0DD/000000?text=Image+4';" alt="Sankalp Classes Photo 4" class="gallery-image">
+                        <div class="image-overlay">
+                            <span class="overlay-text">Learning Fun</span>
+                        </div>
                     </div>
-                    <div class="rounded-xl overflow-hidden shadow-lg card-hover-effect">
+                    <div class="rounded-xl overflow-hidden shadow-lg card-hover-effect group">
                         <img src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(5).JPG" onerror="this.onerror=null;this.src='https://placehold.co/600x400/98FB98/000000?text=Image+5';" alt="Sankalp Classes Photo 5" class="gallery-image">
+                        <div class="image-overlay">
+                            <span class="overlay-text">Group Study</span>
+                        </div>
                     </div>
-                    <div class="rounded-xl overflow-hidden shadow-lg card-hover-effect">
+                    <div class="rounded-xl overflow-hidden shadow-lg card-hover-effect group">
                         <img src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(6).JPG" onerror="this.onerror=null;this.src='https://placehold.co/600x400/F0E68C/000000?text=Image+6';" alt="Sankalp Classes Photo 6" class="gallery-image">
+                        <div class="image-overlay">
+                            <span class="overlay-text">Campus Life</span>
+                        </div>
                     </div>
-                    <div class="rounded-xl overflow-hidden shadow-lg card-hover-effect">
+                    <div class="rounded-xl overflow-hidden shadow-lg card-hover-effect group">
                         <img src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(7).JPG" onerror="this.onerror=null;this.src='https://placehold.co/600x400/C0C0C0/333333?text=Image+7';" alt="Sankalp Classes Photo 7" class="gallery-image">
+                        <div class="image-overlay">
+                            <span class="overlay-text">Teacher-Student Interaction</span>
+                        </div>
                     </div>
-                    <div class="rounded-xl overflow-hidden shadow-lg card-hover-effect">
+                    <div class="rounded-xl overflow-hidden shadow-lg card-hover-effect group">
                         <img src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(8).JPG" onerror="this.onerror=null;this.src='https://placehold.co/600x400/A9A9A9/FFFFFF?text=Image+8';" alt="Sankalp Classes Photo 8" class="gallery-image">
+                        <div class="image-overlay">
+                            <span class="overlay-text">Coding Session</span>
+                        </div>
                     </div>
-                    <div class="rounded-xl overflow-hidden shadow-lg card-hover-effect">
+                    <div class="rounded-xl overflow-hidden shadow-lg card-hover-effect group">
                         <img src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(9).JPG" onerror="this.onerror=null;this.src='https://placehold.co/600x400/778899/FFFFFF?text=Image+9';" alt="Sankalp Classes Photo 9" class="gallery-image">
+                        <div class="image-overlay">
+                            <span class="overlay-text">Project Work</span>
+                        </div>
                     </div>
-                    <div class="rounded-xl overflow-hidden shadow-lg card-hover-effect">
+                    <div class="rounded-xl overflow-hidden shadow-lg card-hover-effect group">
                         <img src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(10).JPG" onerror="this.onerror=null;this.src='https://placehold.co/600x400/5F9EA0/FFFFFF?text=Image+10';" alt="Sankalp Classes Photo 10" class="gallery-image">
+                        <div class="image-overlay">
+                            <span class="overlay-text">Celebration</span>
+                        </div>
                     </div>
-                    <div class="rounded-xl overflow-hidden shadow-lg card-hover-effect">
+                    <div class="rounded-xl overflow-hidden shadow-lg card-hover-effect group">
                         <img src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(11).JPG" onerror="this.onerror=null;this.src='https://placehold.co/600x400/4682B4/FFFFFF?text=Image+11';" alt="Sankalp Classes Photo 11" class="gallery-image">
+                        <div class="image-overlay">
+                            <span class="overlay-text">Workshop Fun</span>
+                        </div>
                     </div>
-                    <div class="rounded-xl overflow-hidden shadow-lg card-hover-effect">
+                    <div class="rounded-xl overflow-hidden shadow-lg card-hover-effect group">
                         <img src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(12).JPG" onerror="this.onerror=null;this.src='https://placehold.co/600x400/6495ED/FFFFFF?text=Image+12';" alt="Sankalp Classes Photo 12" class="gallery-image">
+                        <div class="image-overlay">
+                            <span class="overlay-text">Graduation Day</span>
+                        </div>
                     </div>
-                    <div class="rounded-xl overflow-hidden shadow-lg card-hover-effect">
+                    <div class="rounded-xl overflow-hidden shadow-lg card-hover-effect group">
                         <img src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(13).JPG" onerror="this.onerror=null;this.src='https://placehold.co/600x400/B0C4DE/000000?text=Image+13';" alt="Sankalp Classes Photo 13" class="gallery-image">
+                        <div class="image-overlay">
+                            <span class="overlay-text">Happy Faces</span>
+                        </div>
                     </div>
-                    <div class="rounded-xl overflow-hidden shadow-lg card-hover-effect">
+                    <div class="rounded-xl overflow-hidden shadow-lg card-hover-effect group">
                         <img src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(14).JPG" onerror="this.onerror=null;this.src='https://placehold.co/600x400/D3D3D3/000000?text=Image+14';" alt="Sankalp Classes Photo 14" class="gallery-image">
+                        <div class="image-overlay">
+                            <span class="overlay-text">Collaborative Learning</span>
+                        </div>
                     </div>
-                    <div class="rounded-xl overflow-hidden shadow-lg card-hover-effect">
+                    <div class="rounded-xl overflow-hidden shadow-lg card-hover-effect group">
                         <img src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(15).JPG" onerror="this.onerror=null;this.src='https://placehold.co/600x400/F0F8FF/000000?text=Image+15';" alt="Sankalp Classes Photo 15" class="gallery-image">
+                        <div class="image-overlay">
+                            <span class="overlay-text">Award Ceremony</span>
+                        </div>
                     </div>
-                    <div class="rounded-xl overflow-hidden shadow-lg card-hover-effect">
+                    <div class="rounded-xl overflow-hidden shadow-lg card-hover-effect group">
                         <img src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(16).jpg" onerror="this.onerror=null;this.src='https://placehold.co/600x400/B0E0E6/000000?text=Image+16';" alt="Sankalp Classes Photo 16" class="gallery-image">
+                        <div class="image-overlay">
+                            <span class="overlay-text">Future Innovators</span>
+                        </div>
                     </div>
-                    <div class="rounded-xl overflow-hidden shadow-lg card-hover-effect">
+                    <div class="rounded-xl overflow-hidden shadow-lg card-hover-effect group">
                         <img src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(17).jpg" onerror="this.onerror=null;this.src='https://placehold.co/600x400/87CEFA/000000?text=Image+17';" alt="Sankalp Classes Photo 17" class="gallery-image">
+                        <div class="image-overlay">
+                            <span class="overlay-text">Inspiring Minds</span>
+                        </div>
                     </div>
-                    <div class="rounded-xl overflow-hidden shadow-lg card-hover-effect">
+                    <div class="rounded-xl overflow-hidden shadow-lg card-hover-effect group">
                         <img src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(18).jpg" onerror="this.onerror=null;this.src='https://placehold.co/600x400/6A5ACD/FFFFFF?text=Image+18';" alt="Sankalp Classes Photo 18" class="gallery-image">
+                        <div class="image-overlay">
+                            <span class="overlay-text">Bright Futures</span>
+                        </div>
                     </div>
 
-                    <!-- Video Embed 1 (YouTube) -->
                     <div class="video-responsive card-hover-effect">
-                        <iframe src="https://www.youtube.com/embed/G1Fq-rqGc4s?controls=0&modestbranding=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen title="Sankalp Classes Event Video"></iframe>
+                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen title="Sankalp Classes Event Video"></iframe>
                     </div>
 
-                    <!-- Video Embed 2 (Local Video) - Example with w3schools video -->
                     <div class="video-responsive card-hover-effect">
                         <video controls preload="metadata" title="Sankalp Classes Event Video 2">
                             <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
@@ -197,21 +383,19 @@
                     </div>
 
                 </div>
-                <p class="text-lg text-center mt-12 text-gray-600 font-medium">More memorable moments and videos coming soon!</p>
+                <p class="text-xl text-center mt-12 text-gray-700 font-semibold">🌟 More unforgettable moments and exciting videos coming soon! Stay tuned! 🌟</p>
             </div>
         </section>
 
     </main>
 
-    <!-- Footer Section (Consistent with index.html) -->
     <footer class="bg-gray-900 text-white text-center p-6 mt-12 shadow-inner">
         <div class="container mx-auto">
-            <p>&copy; 2025 Sankalp Classes & Computer Classes. All rights reserved.</p>
-            <p class="text-sm mt-2 opacity-80">Designed by Ayu 💡 for Sankalp Classes & Computer Classes.</p>
+            <p class="text-lg">&copy; 2025 Sankalp Classes & Computer Classes. All rights reserved.</p>
+            <p class="text-sm mt-3 opacity-90">Crafted with passion by <span class="font-bold text-accent-teal">Ayu 💡</span> for Sankalp Classes & Computer Classes.</p>
         </div>
     </footer>
 
-    <!-- JavaScript for Mobile Navigation (Consistent with index.html) -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const mobileMenuButton = document.getElementById('mobile-menu-button');
