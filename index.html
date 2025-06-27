@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,584 +9,323 @@
 
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Custom Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Font Awesome for icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" xintegrity="sha512-z7P0bM/oRjB2Gj5iO/u8DqP+k2yW2Z6ZgA+k7I+d/n2n+z9Y+xW5fW7fW6xW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aW2zW6aT:
-/* Custom CSS for Sankalp Classes Website - Redesigned Theme */
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-/* --- Root Variables for Theme Colors --- */
-:root {
-    --primary-blue: #2563eb;    /* Tailwind blue-600 */
-    --dark-blue: #1e3a8a;       /* Tailwind blue-900 */
-    --indigo-dark: #3730a3;     /* Tailwind indigo-800 */
-    --indigo-light: #4f46e5;    /* Tailwind indigo-600 */
-    --accent-amber: #f59e0b;    /* Tailwind amber-500 for highlights */
-    --background-light: #f8fafc; /* Tailwind slate-50 */
-    --text-color-primary: #374151; /* Tailwind gray-700 */
-    --border-light: #e2e8f0;    /* Tailwind gray-200 */
-    --blue-gradient-start: #1d4ed8; /* Tailwind blue-700 */
-    --blue-gradient-end: #3730a3;   /* Tailwind indigo-800 */
-}
+    <!-- Custom Styles -->
+    <style>
+        /* General Body Styles */
+        body {
+            font-family: 'Poppins', sans-serif; /* Set Poppins as default body font */
+            background-color: #f8fafc; /* Light gray background for overall site */
+            color: #333;
+        }
 
-/* Ensure smooth scrolling and padding for fixed header */
-html {
-    scroll-behavior: smooth;
-    scroll-padding-top: 6rem; /* Adjust for fixed header height on scroll */
-}
+        /* Ensure Inter font is applied to headings explicitly */
+        h1, h2, h3, h4, h5, h6, .font-inter {
+            font-family: 'Inter', sans-serif;
+        }
 
-body {
-    font-family: 'Poppins', sans-serif;
-    color: var(--text-color-primary);
-    background-color: var(--background-light);
-    line-height: 1.7; /* Improved readability */
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
+        /* Section Padding for Responsiveness */
+        .section-padding {
+            padding: 6rem 1rem; /* More generous padding for sections */
+        }
+        @media (min-width: 768px) {
+            .section-padding {
+                padding: 8rem 2rem; /* Even more padding on larger screens */
+            }
+        }
 
-/* Headings use Inter font */
-h1, h2, h3, h4, h5, h6 {
-    font-family: 'Inter', sans-serif;
-}
+        /* Base Card Styles (used in Courses, Facilities, Contact info) */
+        .card {
+            background-color: white;
+            border-radius: 0.75rem; /* rounded-xl */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.08); /* slightly softer shadow */
+            padding: 1.5rem;
+            /* Combine hover transitions for a single card class */
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+        .card:hover {
+            transform: translateY(-8px) scale(1.02); /* Lifts and slightly scales (from card-hover-effect) */
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1); /* Stronger shadow (from card-hover-effect) */
+        }
 
-/* --- Header & Navigation --- */
-.main-header {
-    background-image: linear-gradient(to right, var(--blue-gradient-start), var(--blue-gradient-end));
-    border-bottom: 2px solid transparent;
-    transition: all 0.3s ease-in-out;
-    height: 6rem; /* Fixed height for header */
-    display: flex;
-    align-items: center;
-    position: fixed; /* Ensures it stays on top */
-    width: 100%;
-    z-index: 20;
-    top: 0;
-    left: 0;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); /* default shadow */
-}
+        /* Unique Creative Background for Home Section */
+        .home-background-creative {
+            /* Using slightly different, yet vibrant, colors for the gradient */
+            background: linear-gradient(-45deg, #4F46E5, #6366F1, #8B5CF6, #EC4899); /* More harmonious blues and purples */
+            background-size: 400% 400%; /* Larger size for animation */
+            animation: gradientMove 20s ease infinite; /* Slower animation for subtlety */
+        }
 
-/* Styles for header when scrolled */
-.main-header.scrolled {
-    background-color: rgba(29, 78, 216, 0.95); /* blue-700 with opacity */
-    backdrop-filter: blur(8px); /* Frosted glass effect */
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* stronger shadow */
-    border-bottom-color: rgba(255, 255, 255, 0.15); /* Subtle white line */
-    padding-top: 0.75rem; /* py-3 */
-    padding-bottom: 0.75rem; /* py-3 */
-    height: 5rem; /* Slightly reduced height */
-}
+        @keyframes gradientMove {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
 
-/* Navigation Links */
-.main-header .nav-link {
-    position: relative;
-    padding: 0.75rem 1rem; /* More generous padding */
-    color: white; /* Default text color */
-    transition: color 0.2s ease, background-color 0.2s ease, transform 0.2s ease;
-    border-radius: 0.375rem; /* rounded-md */
-    font-weight: 500; /* Medium weight */
-}
+        /* Custom Button Styles for a more professional look */
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #4F46E5; /* Indigo 600 */
+            color: white;
+            font-weight: 700; /* bold */
+            padding: 0.75rem 2rem; /* py-3 px-8 */
+            border-radius: 9999px; /* rounded-full */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* shadow-lg */
+            transition: all 0.3s ease-in-out;
+            transform: scale(1);
+            font-size: 1.125rem; /* text-xl */
+            text-decoration: none; /* Remove underline for links */
+            white-space: nowrap; /* Prevent text wrapping on button */
+            position: relative; /* For ripple effect */
+            overflow: hidden; /* For ripple effect */
+        }
+        .btn-primary:hover {
+            background-color: #4338CA; /* Indigo 700 */
+            transform: scale(1.05);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.15);
+        }
+        .btn-primary:focus {
+            outline: none;
+            box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.5); /* ring-4 focus:ring-indigo-300 */
+        }
 
-.main-header .nav-link:hover {
-    background-color: rgba(255, 255, 255, 0.15); /* Slightly more prominent hover */
-    transform: translateY(-2px);
-    color: #dbeafe; /* blue-100 */
-}
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #22C55E; /* Green 500 */
+            color: white;
+            font-weight: 700; /* bold */
+            padding: 0.75rem 2rem; /* py-3 px-8 */
+            border-radius: 9999px; /* rounded-full */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* shadow-lg */
+            transition: all 0.3s ease-in-out;
+            transform: scale(1);
+            font-size: 1.125rem; /* text-xl */
+            text-decoration: none; /* Remove underline for links */
+            white-space: nowrap; /* Prevent text wrapping on button */
+            position: relative; /* For ripple effect */
+            overflow: hidden; /* For ripple effect */
+        }
+        .btn-secondary:hover {
+            background-color: #16A34A; /* Green 600 */
+            transform: scale(1.05);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.15);
+        }
+        .btn-secondary:focus {
+            outline: none;
+            box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.5); /* ring-4 focus:ring-green-300 */
+        }
 
-/* Underline animation for active and hovered links */
-.main-header .nav-link::after {
-    content: '';
-    position: absolute;
-    bottom: 0.25rem; /* Adjusted for better visual alignment */
-    left: 50%;
-    transform: translateX(-50%) scaleX(0);
-    width: calc(100% - 2rem); /* Width based on padding */
-    height: 2px;
-    background-color: var(--accent-amber); /* Accent color for active link */
-    transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Smooth transition */
-    border-radius: 9999px; /* rounded-full */
-}
+        /* Drop shadow for main headings */
+        .drop-shadow-md {
+            text-shadow: 0 2px 4px rgba(0,0,0,0.15);
+        }
 
-.main-header .nav-link:hover::after,
-.main-header .nav-link.current-active-link::after {
-    transform: translateX(-50%) scaleX(1);
-}
+        /* Nav link specific styling for consistency and hover */
+        .nav-link {
+            display: block;
+            padding: 0.5rem 0.75rem; /* py-2 px-3 */
+            border-radius: 0.375rem; /* rounded-md */
+            transition: background-color 0.2s, color 0.2s; /* transition-colors duration-200 */
+            position: relative; /* For the active link indicator */
+            overflow: hidden; /* To clip pseudo-element */
+        }
+        .nav-link:hover {
+            background-color: rgba(255, 255, 255, 0.1); /* hover:bg-white hover:bg-opacity-10 */
+        }
+        /* Active link indicator */
+        .nav-link.current-active-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 3px;
+            background-color: white;
+            border-radius: 2px;
+            animation: expandUnderline 0.3s forwards;
+        }
 
-.main-header .nav-link.current-active-link {
-    font-weight: 700; /* Bold for active link */
-    color: var(--accent-amber); /* Ensure text color is amber for active */
-}
+        @keyframes expandUnderline {
+            from { width: 0; }
+            to { width: 100%; }
+        }
 
-/* Navigation Call to Action Button */
-.btn-nav-cta {
-    display: inline-flex;
-    align-items: center;
-    padding: 0.75rem 1.5rem; /* Matches Allen's button size */
-    border-radius: 0.25rem; /* Slightly less rounded */
-    background-color: var(--accent-amber); /* Accent color */
-    color: var(--dark-blue); /* Dark blue text for contrast */
-    font-weight: 600; /* Semi-bold */
-    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
-    box-shadow: 0 2px 5px rgba(245, 158, 11, 0.3); /* Softer shadow */
-    flex-shrink: 0; /* Prevents shrinking on smaller screens */
-    margin-left: auto; /* Pushes to the right */
-}
+        /* Sticky Header styling */
+        .main-header.scrolled {
+            background: linear-gradient(to right, rgba(30, 58, 138, 0.95), rgba(49, 46, 129, 0.95)); /* A slightly darker, semi-transparent blue */
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+        }
 
-.btn-nav-cta:hover {
-    background-color: #d97706; /* Darker amber on hover */
-    transform: translateY(-1px); /* Less pronounced lift */
-    box-shadow: 0 4px 10px rgba(245, 158, 11, 0.5);
-}
+        /* ------------------------------------- */
+        /* Animations for UI/UX enhancements     */
+        /* ------------------------------------- */
 
-.btn-nav-cta:active {
-    transform: translateY(0);
-    box-shadow: 0 1px 3px rgba(245, 158, 11, 0.2);
-}
+        /* Common animation state for elements that will fade in/slide up */
+        .animate-on-load-hero-text,
+        .animate-on-load-hero-buttons,
+        .animate-on-load-hero-grid,
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(20px); /* Initial position below final */
+            transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+        }
 
-/* Mobile Menu Transitions */
-#main-nav {
-    transform-origin: top;
-    transition: transform 0.4s ease-out, opacity 0.4s ease-out, max-height 0.4s ease-out;
-}
-#main-nav.hidden-mobile { /* Custom class for hiding on mobile */
-    transform: scaleY(0);
-    opacity: 0;
-    max-height: 0;
-}
-#main-nav.open-mobile { /* Custom class for opening on mobile */
-    transform: scaleY(1);
-    opacity: 1;
-    max-height: 500px; /* Sufficient height for content */
-}
-@media (min-width: 768px) {
-    #main-nav.hidden-mobile, #main-nav.open-mobile {
-        transform: none; /* Reset transform for desktop */
-        opacity: 1;
-        max-height: none;
-    }
-}
+        /* Delays for staggered animation in Hero section */
+        .delay-100 { transition-delay: 0.1s; }
+        .delay-200 { transition-delay: 0.2s; }
+        .delay-300 { transition-delay: 0.3s; }
+        .delay-400 { transition-delay: 0.4s; }
+        .delay-500 { transition-delay: 0.5s; }
+        .delay-600 { transition-delay: 0.6s; }
 
+        /* Class added by JavaScript to trigger the animation */
+        .animate-on-load-hero-text.is-visible,
+        .animate-on-load-hero-buttons.is-visible,
+        .animate-on-load-hero-grid.is-visible,
+        .animate-on-scroll.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
 
-/* --- General Section Styling --- */
-.section-padding {
-    padding-top: 5rem; /* 80px */
-    padding-bottom: 5rem; /* 80px */
-}
-
-@media (min-width: 768px) {
-    .section-padding {
-        padding-top: 7rem; /* 112px */
-        padding-bottom: 7rem; /* 112px */
-    }
-}
-
-.section-title {
-    font-size: 2.5rem; /* text-4xl */
-    font-weight: 800; /* font-extrabold */
-    font-family: 'Inter', sans-serif;
-    color: var(--primary-blue);
-    margin-bottom: 2.5rem; /* mb-10 */
-    text-align: center;
-    position: relative;
-    padding-bottom: 1rem; /* pb-4 */
-}
-.section-title::after {
-    content: '';
-    position: absolute;
-    left: 50%;
-    bottom: 0;
-    width: 6rem; /* w-24 */
-    height: 0.5rem; /* h-2 */
-    background-image: linear-gradient(to right, var(--primary-blue), var(--indigo-light));
-    border-radius: 9999px; /* rounded-full */
-    transform: translateX(-50%);
-}
-
-/* --- Hero Section Specifics --- */
-.hero-section-bg {
-    /* Layered background handled in HTML */
-    background-image: url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="%239c92ac" fill-opacity="0.1" fill-rule="evenodd"%3E%3Cpath d="M0 0h30v30H0V0zm30 30h30v30H30V30z"/%3E%3C/g%3E%3C/svg%3E');
-    background-size: 30px 30px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    min-height: calc(100vh - 6rem); /* Adjust for header height */
-    color: white;
-    overflow: hidden;
-    position: relative; /* Ensure relative positioning for children */
-}
-
-/* Frosted Glass Effect for Hero Container */
-.frosted-glass-card {
-    background-color: rgba(255, 255, 255, 0.9); /* Slightly less opaque */
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    padding: 2rem 3rem; /* p-8 md:p-12 */
-    border-radius: 1rem; /* rounded-2xl */
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25); /* shadow-2xl */
-    transform: scale(1); /* Initial state for hover effect */
-    transition: all 0.5s ease-in-out;
-}
-.frosted-glass-card:hover {
-    transform: scale(1.005);
-}
-
-
-/* Feature Cards (Why Choose Us) */
-.feature-card {
-    display: flex;
-    align-items: flex-start;
-    background-color: var(--background-light); /* Lighter background for cards */
-    padding: 1.25rem; /* p-5 */
-    border-radius: 0.75rem; /* rounded-xl */
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08); /* Softer, more subtle shadow */
-    border: 1px solid var(--border-light);
-    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-}
-
-.feature-card:hover {
-    transform: translateY(-8px); /* More pronounced lift */
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15); /* Stronger shadow on hover */
-    border-color: var(--primary-blue); /* Highlight border */
-}
-
-/* --- Primary & Secondary Buttons --- */
-.btn-primary {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 1.25rem 2.5rem; /* Larger buttons */
-    border-radius: 9999px; /* full rounded */
-    background-image: linear-gradient(to right, var(--primary-blue), var(--indigo-light));
-    color: white;
-    font-weight: 700;
-    text-align: center;
-    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Smooth easing */
-    box-shadow: 0 5px 15px rgba(33, 150, 243, 0.4);
-    border: 2px solid transparent;
-    letter-spacing: 0.05em;
-    font-family: 'Inter', sans-serif;
-    font-size: 1.125rem; /* text-lg */
-}
-
-.btn-primary:hover {
-    background-image: linear-gradient(to right, var(--dark-blue), var(--indigo-dark));
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(33, 150, 243, 0.6);
-}
-
-.btn-primary:active {
-    transform: translateY(0);
-    box-shadow: 0 2px 8px rgba(33, 150, 243, 0.3);
-}
-
-.btn-secondary {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 1.25rem 2.5rem; /* Larger buttons */
-    border-radius: 9999px; /* full rounded */
-    background-color: white;
-    color: var(--primary-blue);
-    font-weight: 700;
-    text-align: center;
-    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    border: 2px solid var(--primary-blue);
-    letter-spacing: 0.05em;
-    font-family: 'Inter', sans-serif;
-    font-size: 1.125rem; /* text-lg */
-}
-
-.btn-secondary:hover {
-    background-color: var(--primary-blue);
-    color: white;
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-}
-
-.btn-secondary:active {
-    transform: translateY(0);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-}
-
-/* --- Form Specific Styles --- */
-.form-input {
-    width: 100%;
-    padding: 0.75rem 1rem; /* py-3 px-4 */
-    border: 1px solid #d1d5db; /* gray-300 */
-    border-radius: 0.5rem; /* rounded-lg */
-    font-size: 1rem; /* text-base */
-    line-height: 1.5;
-    color: #374151; /* gray-700 */
-    background-color: #ffffff; /* white */
-    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.05);
-    transition: border-color 0.2s ease, box-shadow 0.2s ease;
-}
-
-.form-input:focus {
-    outline: none;
-    border-color: var(--primary-blue);
-    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2); /* blue-600 with opacity */
-}
-
-.form-input::placeholder {
-    color: #9ca3af; /* gray-400 */
-}
-
-.btn-primary-form {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0.75rem 1.5rem;
-    border-radius: 0.5rem; /* rounded-lg */
-    background-color: var(--primary-blue);
-    color: white;
-    font-weight: 600;
-    text-align: center;
-    transition: all 0.3s ease;
-    box-shadow: 0 3px 8px rgba(33, 150, 243, 0.3);
-    width: 100%; /* Ensures button takes full width of parent */
-}
-
-.btn-primary-form:hover {
-    background-color: var(--dark-blue);
-    transform: translateY(-2px);
-    box-shadow: 0 5px 12px rgba(33, 150, 243, 0.4);
-}
-
-.btn-primary-form:active {
-    transform: translateY(0);
-    box-shadow: 0 1px 3px rgba(33, 150, 243, 0.2);
-}
-
-
-/* --- Courses, Facilities, Contact Cards --- */
-.course-card, .facility-card, .info-card {
-    background-color: white;
-    padding: 1.75rem; /* p-7, slightly more padding */
-    border-radius: 1rem; /* rounded-xl */
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08); /* Consistent shadow with feature cards */
-    border: 1px solid var(--border-light);
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-}
-
-.course-card:hover, .facility-card:hover, .info-card:hover {
-    transform: translateY(-10px); /* More significant lift on hover */
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
-    border-color: var(--indigo-light); /* Accent border on hover */
-}
-
-.course-card-icon, .facility-card-icon {
-    text-align: center;
-    margin-bottom: 1rem;
-}
-.course-card-icon i, .facility-card-icon i {
-    font-size: 3rem; /* text-5xl */
-    color: var(--accent-amber); /* amber-400 */
-}
-
-
-.course-card-title {
-    font-size: 1.75rem; /* text-3xl */
-    font-weight: 700; /* font-bold */
-    font-family: 'Inter', sans-serif;
-    color: var(--primary-blue);
-    margin-bottom: 1rem; /* mb-4 */
-    padding-bottom: 0.5rem; /* pb-2 */
-    border-bottom: 2px solid var(--primary-blue); /* Stronger border for title */
-    text-align: center; /* Center the course titles */
-}
-
-.read-more-link {
-    color: var(--indigo-light);
-    font-weight: 600;
-    transition: color 0.2s ease, transform 0.2s ease;
-    display: inline-flex;
-    align-items: center;
-}
-
-.read-more-link:hover {
-    color: var(--indigo-dark);
-    transform: translateX(4px); /* Slight movement on hover */
-}
-
-/* Subtle Background for Sections */
-.bg-pattern-light {
-    background-image: url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="%239C92AC" fill-opacity="0.05" fill-rule="evenodd"%3E%3Cpath d="M0 0h30v30H0V0zm30 30h30v30H30V30z"/%3E%3C/g%3E%3C/svg%3E');
-}
-
-
-/* --- Animations (existing, refined) --- */
-.animate-on-load-hero-text,
-.animate-on-load-hero-buttons,
-.animate-on-load-hero-grid,
-.animate-on-scroll {
-    opacity: 0;
-    transform: translateY(30px); /* More pronounced initial translateY */
-    transition: opacity 1s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-.animate-on-load-hero-text.is-visible,
-.animate-on-load-hero-buttons.is-visible,
-.animate-on-load-hero-grid.is-visible,
-.animate-on-scroll.is-visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* Delay for hero animations for staggered effect */
-.animate-on-load-hero-text.delay-100 { transition-delay: 0.1s; }
-.animate-on-load-hero-text.delay-200 { transition-delay: 0.2s; }
-.animate-on-load-hero-buttons.delay-300 { transition-delay: 0.3s; }
-.animate-on-load-hero-text.delay-400 { transition-delay: 0.4s; }
-.animate-on-load-hero-text.delay-500 { transition-delay: 0.5s; }
-.animate-on-load-hero-grid.delay-600 { transition-delay: 0.6s; }
-
-/* Custom scrollbar for better aesthetics */
-::-webkit-scrollbar {
-    width: 10px;
-    height: 10px;
-}
-::-webkit-scrollbar-track {
-    background: #f1f1f1;
-    border-radius: 5px;
-}
-::-webkit-scrollbar-thumb {
-    background: #888;
-    border-radius: 5px;
-}
-::-webkit-scrollbar-thumb:hover {
-    background: #555;
-}
-
+        /* For mobile menu transition - ensure it's smooth */
+        #main-nav {
+            transform-origin: top; /* Animation originates from top */
+        }
+        #main-nav.hidden {
+            opacity: 0;
+            max-height: 0;
+            pointer-events: none; /* Disable clicks when hidden */
+        }
+        #main-nav.flex { /* This class is added by JS when menu is open */
+            opacity: 1;
+            max-height: 500px; /* Sufficient height to show all links, adjust if more links are added */
+            pointer-events: auto; /* Enable clicks when visible */
+            overflow: hidden; /* Prevent content from overflowing during transition */
+            padding-bottom: 1rem; /* Add some padding to bottom of mobile menu */
+        }
     </style>
 </head>
-<body class="font-poppins text-gray-800 bg-slate-50">
+<body class="font-poppins text-gray-800 bg-gray-50">
 
-    <!-- Header and Navigation Bar -->
-    <header class="main-header">
+    <header class="main-header bg-gradient-to-r from-blue-700 to-indigo-800 text-white p-4 shadow-xl fixed w-full z-10 transition-all duration-300 ease-in-out">
         <div class="container mx-auto flex justify-between items-center px-4 relative">
-            <!-- Logo (Sankalp Classes) -->
-            <div class="flex-shrink-0">
-                <a href="#home" class="flex items-center space-x-2">
-                    <img src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/logo.jpg" alt="Sankalp Classes Logo" class="h-12 w-12 md:h-16 md:w-16 rounded-full mr-0 border-2 border-white shadow-md transform hover:scale-105 transition-transform duration-200">
-                    <span class="text-xl md:text-2xl font-bold font-inter text-amber-300 hidden sm:block">SANKALP</span>
-                </a>
+            <div class="flex items-center">
+                <!-- Company Logo -->
+                <img src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/logo.jpg" alt="Sankalp Classes Logo" class="h-10 w-10 rounded-full mr-3 border-2 border-white shadow-md">
+                <!-- Company Name (Responsive) -->
+                <h1 class="text-2xl font-extrabold font-inter tracking-wide">Sankalp Classes <span class="hidden md:inline">& Computer Classes</span></h1>
+                <span class="md:hidden text-lg ml-1">& Computer Classes</span>
             </div>
 
-            <!-- Mobile Menu Button -->
-            <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none p-2 rounded-md transition-transform duration-300 transform active:scale-95 focus:ring-2 focus:ring-amber-300">
+            <!-- Mobile Menu Toggle Button -->
+            <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none focus:ring-2 focus:ring-white p-2 rounded-md">
                 <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
                 </svg>
             </button>
 
-            <!-- Main Navigation -->
-            <nav id="main-nav" class="hidden-mobile md:flex flex-col md:flex-row md:static absolute top-full left-0 w-full md:w-auto md:bg-transparent md:shadow-none overflow-hidden items-center md:flex-grow md:justify-center">
-                <ul class="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-8 text-lg py-4 md:py-0 px-4 md:px-0 w-full md:w-auto">
-                    <li><a href="#home" class="nav-link">Home</a></li>
-                    <li><a href="#about" class="nav-link">About Us</a></li>
-                    <li><a href="#courses" class="nav-link">Courses</a></li>
-                    <li><a href="#facilities" class="nav-link">Facilities</a></li>
-                    <li><a href="album.html" class="nav-link">Album</a></li>
-                    <li><a href="#contact" class="nav-link">Contact</a></li>
+            <!-- Main Navigation Menu -->
+            <nav id="main-nav" class="hidden md:flex flex-col md:flex-row md:static absolute top-full left-0 w-full md:w-auto bg-gradient-to-r from-blue-700 to-indigo-800 md:bg-transparent shadow-lg md:shadow-none transition-all duration-300 ease-in-out opacity-0 md:opacity-100 max-h-0 md:max-h-full overflow-hidden">
+                <ul class="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-8 text-lg font-medium py-4 md:py-0 px-4 md:px-0">
+                    <li><a href="#home" class="nav-link block py-2 px-3 rounded-md hover:bg-white hover:bg-opacity-10 transition-colors duration-200">Home</a></li>
+                    <li><a href="#about" class="nav-link block py-2 px-3 rounded-md hover:bg-white hover:bg-opacity-10 transition-colors duration-200">About Us</a></li>
+                    <li><a href="#courses" class="nav-link block py-2 px-3 rounded-md hover:bg-white hover:bg-opacity-10 transition-colors duration-200">Courses</a></li>
+                    <li><a href="#facilities" class="nav-link block py-2 px-3 rounded-md hover:bg-white hover:bg-opacity-10 transition-colors duration-200">Facilities</a></li>
+                    <li><a href="album.html" class="nav-link block py-2 px-3 rounded-md hover:bg-white hover:bg-opacity-10 transition-colors duration-200">Album</a></li>
+                    <li><a href="#contact" class="nav-link block py-2 px-3 rounded-md hover:bg-white hover:bg-opacity-10 transition-colors duration-200">Contact</a></li>
                 </ul>
             </nav>
-
-            <!-- Call to Action Button (pushed to the right) -->
-            <div class="mt-4 md:mt-0 hidden md:flex items-center flex-shrink-0 ml-auto">
-                <a href="#contact" class="btn-nav-cta">
-                    Request Callback <span class="ml-2 text-lg">📞</span>
-                </a>
-            </div>
         </div>
     </header>
 
-    <!-- Main Content Area -->
     <main class="pt-24">
-        <!-- Hero Section -->
-        <section id="home" class="section-padding hero-section-bg">
-            <div class="absolute inset-0 bg-blue-900 opacity-80 z-0"></div>
-            <!-- Background image overlay (add your hero-bg.jpg to the specified path) -->
-            <img src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/hero-bg.jpg" alt="Sankalp Classes background" class="absolute inset-0 w-full h-full object-cover opacity-20 z-0 transform scale-110 motion-safe:animate-pulse">
-
-            <div class="container mx-auto frosted-glass-card max-w-4xl relative z-10">
+        <!-- Home Section: Hero Area with Introduction and Key Selling Points -->
+        <section id="home" class="relative section-padding home-background-creative flex flex-col justify-center items-center text-center min-h-[calc(100vh-96px)]">
+            <!-- Overlay for background effect -->
+            <div class="absolute inset-0 bg-black opacity-30"></div>
+            <div class="container mx-auto bg-white bg-opacity-95 p-8 md:p-12 rounded-2xl shadow-2xl max-w-4xl relative z-10 border border-blue-100 transform transition-all duration-500 ease-in-out hover:scale-[1.005]">
+                <!-- Main Headline -->
                 <h2 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-blue-800 mb-6 font-inter leading-tight drop-shadow-md animate-on-load-hero-text delay-100">
-                    <span class="block">Empowering Your Future</span>
-                    <span class="block text-indigo-700">Through <span class="text-blue-600">Cutting-Edge</span> Education</span>
+                    <span class="block">Unlock Your Potential</span>
+                    <span class="block text-indigo-700">with Cutting-Edge Tech Skills</span>
                 </h2>
+                <!-- Sub-headline -->
                 <p class="text-xl md:text-2xl leading-relaxed mb-8 font-light text-gray-700 max-w-2xl mx-auto animate-on-load-hero-text delay-200">
-                    Your trusted partner for <strong>High-Quality, Affordable, and Job-Oriented</strong> Computer & Academic Education in Ratanpura, Mau.
+                    Your Gateway to <strong class="text-blue-600">High-Quality, Affordable, and Job-Oriented</strong> Computer Education in Ratanpura, Mau.
                 </p>
 
+                <!-- Call to Action Buttons -->
                 <div class="flex flex-col sm:flex-row justify-center gap-4 mt-8 animate-on-load-hero-buttons delay-300">
                     <a href="#courses" class="btn-primary">
-                        <i class="fas fa-book-open mr-2 text-xl"></i> View Our Courses
+                        <span class="mr-2 text-2xl">🚀</span> Explore Courses
                     </a>
-                    <a href="#contact" class="btn-secondary">
-                        <i class="fas fa-phone-volume mr-2 text-xl"></i> Request a Call Back
+                    <a href="tel:9807534582" class="btn-secondary">
+                        <span class="mr-2 text-2xl">📞</span> Call Now: 9807534582
                     </a>
                 </div>
+                <!-- Location information -->
                 <p class="text-md md:text-lg mt-6 text-gray-600 font-medium animate-on-load-hero-text delay-400">📍 City Center, Ratanpura, Mau</p>
 
-                <h3 class="text-2xl font-bold text-indigo-700 mt-16 mb-6 font-inter border-b-2 border-indigo-300 pb-3 inline-block animate-on-load-hero-text delay-500">💡 Why Choose Sankalp?</h3>
+                <!-- "Why Choose Us" Section -->
+                <h3 class="text-2xl font-bold text-indigo-700 mt-16 mb-6 font-inter border-b-2 border-indigo-300 pb-3 inline-block animate-on-load-hero-text delay-500">💡 Why Choose Us?</h3>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 text-gray-700 text-left animate-on-load-hero-grid delay-600">
-                    <div class="feature-card">
-                        <i class="fas fa-chalkboard-user text-4xl text-amber-500 mr-3 mt-1"></i>
-                        <p class="leading-relaxed font-semibold"><strong>Experienced Faculty</strong> – Learn from dedicated and certified experts passionate about teaching.</p>
+                    <!-- Feature Cards -->
+                    <div class="flex items-start bg-blue-50 p-5 rounded-lg shadow-md border border-blue-200 card">
+                        <span class="text-4xl text-blue-600 mr-3 mt-1">👨‍🏫</span>
+                        <p class="leading-relaxed font-semibold"><strong>Experienced Trainers</strong> – Learn from certified and skilled professionals dedicated to your success.</p>
                     </div>
-                    <div class="feature-card">
-                        <i class="fas fa-laptop-code text-4xl text-amber-500 mr-3 mt-1"></i>
-                        <p class="leading-relaxed font-semibold"><strong>Practical Training</strong> – Hands-on, real-world projects prepare you for immediate job readiness.</p>
+                    <div class="flex items-start bg-blue-50 p-5 rounded-lg shadow-md border border-blue-200 card">
+                        <span class="text-4xl text-blue-600 mr-3 mt-1">🧑‍💻</span>
+                        <p class="leading-relaxed font-semibold"><strong>Practical & Job-Oriented Training</strong> – Our industry-ready curriculum ensures you gain real-world skills.</p>
                     </div>
-                    <div class="feature-card">
-                        <i class="fas fa-hand-holding-dollar text-4xl text-amber-500 mr-3 mt-1"></i>
-                        <p class="leading-relaxed font-semibold"><strong>Affordable Education</strong> – High-value courses designed to fit your budget.</p>
+                    <div class="flex items-start bg-blue-50 p-5 rounded-lg shadow-md border border-blue-200 card">
+                        <span class="text-4xl text-blue-600 mr-3 mt-1">💰</span>
+                        <p class="leading-relaxed font-semibold"><strong>Affordable Fees</strong> – High-quality education made accessible within your budget.</p>
                     </div>
-                    <div class="feature-card">
-                        <i class="fas fa-trophy text-4xl text-amber-500 mr-3 mt-1"></i>
-                        <p class="leading-relaxed font-semibold"><strong>Recognized Certifications</strong> – Boost your career with credentials valued by employers.</p>
+                    <div class="flex items-start bg-blue-50 p-5 rounded-lg shadow-md border border-blue-200 card">
+                        <span class="text-4xl text-blue-600 mr-3 mt-1">🏆</span>
+                        <p class="leading-relaxed font-semibold"><strong>Government-Recognized Certification</strong> – Boost your career with valid and widely accepted credentials.</p>
                     </div>
-                    <div class="feature-card">
-                        <i class="fas fa-flask text-4xl text-amber-500 mr-3 mt-1"></i>
-                        <p class="leading-relaxed font-semibold"><strong>State-of-the-Art Labs</strong> – Access modern computers and software for optimal learning.</p>
+                    <div class="flex items-start bg-blue-50 p-5 rounded-lg shadow-md border border-blue-200 card">
+                        <span class="text-4xl text-blue-600 mr-3 mt-1">💻</span>
+                        <p class="leading-relaxed font-semibold"><strong>Modern Computer Labs</strong> – Real-time, hands-on learning with the latest technology and software.</p>
                     </div>
-                    <div class="feature-card">
-                        <i class="fas fa-user-graduate text-4xl text-amber-500 mr-3 mt-1"></i>
-                        <p class="leading-relaxed font-semibold"><strong>Personalized Attention</strong> – Small batch sizes ensure one-on-one guidance and support.</p>
+                    <div class="flex items-start bg-blue-50 p-5 rounded-lg shadow-md border border-blue-200 card">
+                        <span class="text-4xl text-blue-600 mr-3 mt-1">🎯</span>
+                        <p class="leading-relaxed font-semibold"><strong>Small Batches for Personal Attention</strong> – Individualized focus ensures better understanding and progress.</p>
                     </div>
-                    <div class="feature-card">
-                        <i class="fas fa-book-reader text-4xl text-amber-500 mr-3 mt-1"></i>
-                        <p class="leading-relaxed font-semibold"><strong>24/7 Library Access</strong> – Flexible study environment with extensive learning resources.</p>
+                    <div class="flex items-start bg-blue-50 p-5 rounded-lg shadow-md border border-blue-200 card">
+                        <span class="text-4xl text-blue-600 mr-3 mt-1">📚</span>
+                        <p class="leading-relaxed font-semibold"><strong>24/7 Library Access</strong> – Study at your convenience anytime with extensive learning resources.</p>
                     </div>
-                    <div class="feature-card">
-                        <i class="fas fa-calendar-alt text-4xl text-amber-500 mr-3 mt-1"></i>
-                        <p class="leading-relaxed font-semibold"><strong>Flexible Timings</strong> – Learn at your own pace with schedules that fit your life.</p>
+                    <div class="flex items-start bg-blue-50 p-5 rounded-lg shadow-md border border-blue-200 card">
+                        <span class="text-4xl text-blue-600 mr-3 mt-1">🗓️</span>
+                        <p class="leading-relaxed font-semibold"><strong>Flexible Course Timings</strong> – Learn at your own pace and convenience with adaptable schedules.</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- About Us Section -->
-        <section id="about" class="section-padding bg-slate-100 bg-pattern-light animate-on-scroll">
+        <section id="about" class="section-padding bg-gray-100 animate-on-scroll">
             <div class="container mx-auto bg-white p-8 md:p-12 rounded-2xl shadow-xl max-w-5xl border border-gray-200">
-                <h2 class="section-title">📖 About Us</h2>
+                <h2 class="text-4xl font-extrabold font-inter text-blue-800 mb-6 text-center">📖 About Us</h2>
                 <h3 class="text-3xl font-semibold text-indigo-700 mb-8 text-center leading-snug">Empowering Students with <strong class="text-blue-600">Skills that Matter</strong> for a Digital Future</h3>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
                     <div class="md:order-2">
                         <p class="text-lg leading-relaxed mb-4 text-gray-700">At Sankalp Classes & Computer Classes, we are driven by a singular belief: technology has the power to transform lives. Established in the vibrant community of Ratanpura, Mau, our coaching center has rapidly evolved into a trusted beacon for aspiring IT professionals and students eager to build a strong foundation in computer science.</p>
                         <p class="text-lg leading-relaxed mb-4 text-gray-700">Our core mission is to deliver <strong class="text-indigo-600">practical, result-driven computer education</strong> that genuinely empowers our students to thrive in the modern digital world. We go beyond mere theory. With a team of highly experienced and certified trainers, we immerse our students in real-world applications, ensuring they not only grasp concepts but also master the essential tools and technologies demanded by today's job market.</p>
                     </div>
-                    <div class="md:order-1 relative group overflow-hidden rounded-xl shadow-lg border border-gray-200">
-                        <img src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(5).JPG" alt="Students in a modern computer lab" class="w-full h-auto object-cover transform transition-transform duration-500 group-hover:scale-105">
-                        <div class="absolute inset-0 bg-gradient-to-t from-blue-900 via-transparent to-transparent opacity-50 group-hover:opacity-70 transition-opacity duration-300"></div>
-                        <p class="absolute bottom-4 left-4 text-white text-xl font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300 translate-y-4 group-hover:translate-y-0">Learning in action!</p>
+                    <div class="md:order-1">
+                        <!-- Image with fallback for broken links -->
+                        <img src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(5).JPG" onerror="this.onerror=null;this.src='https://placehold.co/600x400/81C784/FFFFFF?text=About+Us+Image';" alt="Students in a modern computer lab" class="rounded-xl shadow-lg border border-gray-200 w-full h-auto object-cover">
                     </div>
                 </div>
                 <p class="text-lg leading-relaxed mt-6 mb-4 text-gray-700 text-center">We offer a diverse portfolio of certified diploma courses, cutting-edge job-ready skill training programs, and specialized software classes designed to give you a significant competitive advantage. Whether you're taking your first steps in IT or aiming to upgrade your existing knowledge, Sankalp Classes provides the perfect learning environment for your ambitions.</p>
@@ -594,45 +333,355 @@ h1, h2, h3, h4, h5, h6 {
             </div>
         </section>
 
-        <!-- Our Diverse Courses Section -->
+        <!-- Courses Section -->
         <section id="courses" class="section-padding bg-blue-50 animate-on-scroll">
             <div class="container mx-auto">
-                <h2 class="section-title">🎓 Our Diverse Courses</h2>
-                <p class="text-xl text-center mb-12 max-w-3xl mx-auto text-gray-700 leading-relaxed">Explore a wide range of <strong>industry-relevant courses</strong> designed for beginners, students, and professionals to elevate their digital expertise, along with comprehensive academic and competitive exam coaching.</p>
+                <h2 class="text-4xl font-extrabold font-inter text-blue-800 mb-10 text-center">🎓 Our Diverse Courses</h2>
+                <p class="text-xl text-center mb-12 max-w-3xl mx-auto text-gray-700 leading-relaxed">Explore a wide range of <strong class="text-blue-600">industry-relevant courses</strong> designed for beginners, students, and professionals to elevate their digital expertise, along with comprehensive academic and competitive exam coaching.</p>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 
-                    <!-- Course Card: Academic & Competitive Coaching -->
-                    <div class="course-card">
-                        <div class="course-card-icon"><i class="fas fa-book-open-reader"></i></div>
-                        <h3 class="course-card-title">Academic & Competitive Coaching</h3>
+                    <!-- Academic Coaching & Competitive Exams Card -->
+                    <div class="card p-6 border border-blue-200 shadow-xl flex flex-col h-full">
+                        <h3 class="text-2xl font-bold font-inter text-blue-700 mb-4 pb-2 border-b border-blue-100">📚 Academic & Competitive Coaching</h3>
                         <ul class="list-disc list-inside text-gray-700 space-y-2 text-md flex-grow">
-                            <li>Comprehensive coaching for <strong>Class 6 to 12</strong> (CBSE, UP, ICSE Boards).</li>
-                            <li>Targeted preparation for <strong>SSC CGL</strong> and other one-day competitive exams.</li>
+                            <li>Comprehensive coaching for **Class 6 to 12** (CBSE, UP, ICSE Boards).</li>
+                            <li>Targeted preparation for **SSC CGL** and other one-day competitive exams.</li>
                             <li>Experienced faculty and result-oriented strategies for academic excellence and exam success.</li>
                         </ul>
                         <div class="mt-4 text-right">
-                             <a href="#contact" class="read-more-link">Learn More <span aria-hidden="true">→</span></a>
+                             <a href="#contact" class="text-indigo-600 hover:text-indigo-800 font-semibold transition-colors duration-200 text-sm">Learn More <span aria-hidden="true">→</span></a>
                         </div>
                     </div>
 
-                    <!-- Course Card: Diploma Courses -->
-                    <div class="course-card">
-                        <div class="course-card-icon"><i class="fas fa-award"></i></div>
-                        <h3 class="course-card-title">Diploma Courses</h3>
+                    <!-- Diploma Courses Card -->
+                    <div class="card p-6 border border-blue-200 shadow-xl flex flex-col h-full">
+                        <h3 class="text-2xl font-bold font-inter text-blue-700 mb-4 pb-2 border-b border-blue-100">🏅 Diploma Courses</h3>
                         <ul class="list-disc list-inside text-gray-700 space-y-2 text-md flex-grow">
-                            <li>Comprehensive Computer Diploma Programs for <strong>long-term career building.</strong></li>
+                            <li>Comprehensive Computer Diploma Programs for **long-term career building.**</li>
                             <li>Includes practical project work & government-recognized certification.</li>
                             <li>Designed with a robust job-oriented curriculum.</li>
                         </ul>
                         <div class="mt-4 text-right">
-                             <a href="#contact" class="read-more-link">Learn More <span aria-hidden="true">→</span></a>
+                             <a href="#contact" class="text-indigo-600 hover:text-indigo-800 font-semibold transition-colors duration-200 text-sm">Learn More <span aria-hidden="true">→</span></a>
                         </div>
                     </div>
 
-                    <!-- Course Card: Video Editing -->
-                    <div class="course-card">
-                        <div class="course-card-icon"><i class="fas fa-video"></i></div>
-                        <h3 class="course-card-title">Video Editing</h3>
-                        <ul class="list-disc list-inside text-gray-700 space-y-2 text-
+                    <!-- Video Editing Card -->
+                    <div class="card p-6 border border-blue-200 shadow-xl flex flex-col h-full">
+                        <h3 class="text-2xl font-bold font-inter text-blue-700 mb-4 pb-2 border-b border-blue-100">✂️ Video Editing</h3>
+                        <ul class="list-disc list-inside text-gray-700 space-y-2 text-md flex-grow">
+                            <li>Master tools like **Adobe Premiere Pro, Filmora**, and more.</li>
+                            <li>Learn video cutting, professional effects, seamless transitions, and audio syncing.</li>
+                            <li>Ideal for aspiring YouTube creators and media professionals.</li>
+                        </ul>
+                        <div class="mt-4 text-right">
+                             <a href="#contact" class="text-indigo-600 hover:text-indigo-800 font-semibold transition-colors duration-200 text-sm">Learn More <span aria-hidden="true">→</span></a>
+                        </div>
+                    </div>
+
+                    <!-- Animation Card -->
+                    <div class="card p-6 border border-blue-200 shadow-xl flex flex-col h-full">
+                        <h3 class="text-2xl font-bold font-inter text-blue-700 mb-4 pb-2 border-b border-blue-100">🎨 Animation</h3>
+                        <ul class="list-disc list-inside text-gray-700 space-y-2 text-md flex-grow">
+                            <li>Introduction to both **2D & 3D Animation** principles.</li>
+                            <li>Develop skills to create compelling character movements, scenes & visual effects.</li>
+                            <li>Perfect for graphic design and gaming enthusiasts.</li>
+                        </ul>
+                        <div class="mt-4 text-right">
+                             <a href="#contact" class="text-indigo-600 hover:text-indigo-800 font-semibold transition-colors duration-200 text-sm">Learn More <span aria-hidden="true">→</span></a>
+                        </div>
+                    </div>
+
+                    <!-- ADCA Card -->
+                    <div class="card p-6 border border-blue-200 shadow-xl flex flex-col h-full">
+                        <h3 class="text-2xl font-bold font-inter text-blue-700 mb-4 pb-2 border-b border-blue-100">🖥️ ADCA (Advanced Diploma in Computer Application)</h3>
+                        <ul class="list-disc list-inside text-gray-700 space-y-2 text-md flex-grow">
+                            <li>Gain full practical knowledge of **essential computer applications**.</li>
+                            <li>Extensive coverage including MS Office Suite, Internet fundamentals, DBMS, Tally, and Graphic Designing.</li>
+                        </ul>
+                        <div class="mt-4 text-right">
+                             <a href="#contact" class="text-indigo-600 hover:text-indigo-800 font-semibold transition-colors duration-200 text-sm">Learn More <span aria-hidden="true">→</span></a>
+                        </div>
+                    </div>
+
+                    <!-- DCA Card -->
+                    <div class="card p-6 border border-blue-200 shadow-xl flex flex-col h-full">
+                        <h3 class="text-2xl font-bold font-inter text-blue-700 mb-4 pb-2 border-b border-blue-100">📁 DCA (Diploma in Computer Applications)</h3>
+                        <ul class="list-disc list-inside text-gray-700 space-y-2 text-md flex-grow">
+                            <li>**Foundational computer knowledge** tailored for beginners.</li>
+                            <li>Covers core applications: MS Word, Excel, PowerPoint, and Internet usage.</li>
+                        </ul>
+                        <div class="mt-4 text-right">
+                             <a href="#contact" class="text-indigo-600 hover:text-indigo-800 font-semibold transition-colors duration-200 text-sm">Learn More <span aria-hidden="true">→</span></a>
+                        </div>
+                    </div>
+
+                    <!-- Tally Prime with GST Card -->
+                    <div class="card p-6 border border-blue-200 shadow-xl flex flex-col h-full">
+                        <h3 class="text-2xl font-bold font-inter text-blue-700 mb-4 pb-2 border-b border-blue-100">📊 Tally Prime with GST</h3>
+                        <ul class="list-disc list-inside text-gray-700 space-y-2 text-md flex-grow">
+                            <li>Specialized training in **Tally Prime accounting software**.</li>
+                            <li>Learn key functionalities including GST, efficient billing, inventory management, and report generation.</li>
+                            <li>Highly recommended for commerce students and job seekers in accounting.</li>
+                        </ul>
+                        <div class="mt-4 text-right">
+                             <a href="#contact" class="text-indigo-600 hover:text-indigo-800 font-semibold transition-colors duration-200 text-sm">Learn More <span aria-hidden="true">→</span></a>
+                        </div>
+                    </div>
+
+                    <!-- MS Office Card -->
+                    <div class="card p-6 border border-blue-200 shadow-xl flex flex-col h-full">
+                        <h3 class="text-2xl font-bold font-inter text-blue-700 mb-4 pb-2 border-b border-blue-100">🖱️ MS Office</h3>
+                        <ul class="list-disc list-inside text-gray-700 space-y-2 text-md flex-grow">
+                            <li>Master the full **MS Office suite**: Word, Excel, PowerPoint, and Outlook.</li>
+                            <li>Learn essential shortcut tips, advanced formatting, and effective document management.</li>
+                        </ul>
+                        <div class="mt-4 text-right">
+                             <a href="#contact" class="text-indigo-600 hover:text-indigo-800 font-semibold transition-colors duration-200 text-sm">Learn More <span aria-hidden="true">→</span></a>
+                        </div>
+                    </div>
+
+                    <!-- Graphic Designing Card -->
+                    <div class="card p-6 border border-blue-200 shadow-xl flex flex-col h-full">
+                        <h3 class="text-2xl font-bold font-inter text-blue-700 mb-4 pb-2 border-b border-blue-100">🎨 Graphic Designing</h3>
+                        <ul class="list-disc list-inside text-gray-700 space-y-2 text-md flex-grow">
+                            <li>Hands-on training with industry-standard software: **Photoshop, CorelDRAW, Illustrator.**</li>
+                            <li>Develop skills in poster design, professional logo making, advanced image editing, and impactful branding.</li>
+                        </ul>
+                        <div class="mt-4 text-right">
+                             <a href="#contact" class="text-indigo-600 hover:text-indigo-800 font-semibold transition-colors duration-200 text-sm">Learn More <span aria-hidden="true">→</span></a>
+                        </div>
+                    </div>
+
+                    <!-- Typing (Hindi & English) Card -->
+                    <div class="card p-6 border border-blue-200 shadow-xl flex flex-col h-full">
+                        <h3 class="text-2xl font-bold font-inter text-blue-700 mb-4 pb-2 border-b border-blue-100">⌨️ Typing (Hindi & English)</h3>
+                        <ul class="list-disc list-inside text-gray-700 space-y-2 text-md flex-grow">
+                            <li>Dedicated **speed typing classes** with daily practice sessions.</li>
+                            <li>Significantly improves both accuracy and overall typing speed.</li>
+                            <li>Excellent preparation for various competitive exams requiring typing proficiency.</li>
+                        </ul>
+                        <div class="mt-4 text-right">
+                             <a href="#contact" class="text-indigo-600 hover:text-indigo-800 font-semibold transition-colors duration-200 text-sm">Learn More <span aria-hidden="true">→</span></a>
+                        </div>
+                    </div>
+                </div>
+                <p class="text-lg text-center mt-12 text-gray-600 font-medium">All courses come with completion certificates and dedicated placement assistance.</p>
+                <div class="mt-8 text-center">
+                    <a href="tel:9807534582" class="btn-primary">
+                        <span class="mr-2 text-2xl">✅</span> Enroll Now! Call: 9807534582
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Facilities Section -->
+        <section id="facilities" class="section-padding bg-gray-100 animate-on-scroll">
+            <div class="container mx-auto bg-white p-8 md:p-12 rounded-2xl shadow-xl max-w-5xl border border-gray-200">
+                <h2 class="text-4xl font-extrabold font-inter text-blue-800 mb-10 text-center">🌟 Our State-of-the-Art Facilities</h2>
+                <p class="text-xl text-center mb-12 max-w-3xl mx-auto text-gray-700 leading-relaxed">At Sankalp Classes, we provide <strong class="text-blue-600">top-notch facilities</strong> designed to enhance your learning experience, foster collaboration, and support your academic and professional success.</p>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Facility Cards -->
+                    <div class="card p-6 border border-blue-200 shadow-xl flex flex-col items-center text-center">
+                        <span class="text-6xl text-indigo-600 mb-4">📚</span>
+                        <h3 class="text-2xl font-bold font-inter text-blue-700 mb-2">24/7 Library Access</h3>
+                        <p class="text-gray-700 leading-relaxed">Our comprehensive library is available around the clock, providing a quiet and resourceful environment for self-study and research. Access a wide range of books, journals, and digital resources anytime you need them.</p>
+                    </div>
+                    <div class="card p-6 border border-blue-200 shadow-xl flex flex-col items-center text-center">
+                        <span class="text-6xl text-green-600 mb-4">💻</span>
+                        <h3 class="text-2xl font-bold font-inter text-blue-700 mb-2">Modern Computer Labs</h3>
+                        <p class="text-gray-700 leading-relaxed">Equipped with the latest hardware and software, our computer labs offer real-time, hands-on experience. Work on your projects, practice your skills, and stay updated with the newest technologies.</p>
+                    </div>
+                    <div class="card p-6 border border-blue-200 shadow-xl flex flex-col items-center text-center">
+                        <span class="text-6xl text-yellow-600 mb-4">🛋️</span>
+                        <h3 class="text-2xl font-bold font-inter text-blue-700 mb-2">Comfortable Study Zones</h3>
+                        <p class="text-gray-700 leading-relaxed">Beyond the lab, find comfortable and conducive study zones designed for individual focus or group discussions. A perfect space to collaborate and concentrate.</p>
+                    </div>
+                    <div class="card p-6 border border-blue-200 shadow-xl flex flex-col items-center text-center">
+                        <span class="text-6xl text-red-600 mb-4">📶</span>
+                        <h3 class="text-2xl font-bold font-inter text-blue-700 mb-2">High-Speed Wi-Fi</h3>
+                        <p class="text-gray-700 leading-relaxed">Stay connected with our high-speed internet access available throughout the institute, ensuring seamless online learning and research.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section-padding bg-blue-50 animate-on-scroll">
+            <div class="container mx-auto bg-white p-8 md:p-12 rounded-2xl shadow-xl max-w-4xl border border-blue-200 text-center">
+                <h2 class="text-4xl font-extrabold font-inter text-blue-800 mb-6">📞 Get in Touch with Sankalp</h2>
+                <p class="text-xl mb-8 text-gray-700 leading-relaxed">Have questions? Ready to start your computer education journey?
+                    We’re just a call or visit away! Reach out to us anytime to learn more about our courses and facilities.</p>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-lg text-gray-700">
+                    <!-- Contact Information Cards -->
+                    <div class="flex flex-col items-center p-6 bg-gray-50 rounded-lg shadow-md border border-gray-100 card">
+                        <span class="text-4xl text-blue-600 mb-2">📍</span>
+                        <p class="font-semibold text-xl">Address:</p>
+                        <p>Sankalp Classes & Computer Classes</p>
+                        <p>City Center, Ratanpura, Mau – Uttar Pradesh</p>
+                    </div>
+
+                    <div class="flex flex-col items-center p-6 bg-gray-50 rounded-lg shadow-md border border-gray-100 card">
+                        <span class="text-4xl text-blue-600 mb-2">📞</span>
+                        <p class="font-semibold text-xl">Phone:</p>
+                        <a href="tel:9807534582" class="text-blue-700 hover:underline text-2xl font-bold transition-colors duration-200">9807534582</a>
+                    </div>
+
+                    <div class="flex flex-col items-center p-6 bg-gray-50 rounded-lg shadow-md border border-gray-100 card">
+                        <span class="text-4xl text-blue-600 mb-2">📧</span>
+                        <p class="font-semibold text-xl">Email:</p>
+                        <a href="mailto:sankalpclasses@gmail.com" class="text-blue-700 hover:underline text-xl transition-colors duration-200">sankalpclasses@gmail.com</a>
+                    </div>
+
+                    <div class="flex flex-col items-center p-6 bg-gray-50 rounded-lg shadow-md border border-gray-100 card">
+                        <span class="text-4xl text-blue-600 mb-2">🕒</span>
+                        <p class="font-semibold text-xl">Working Hours:</p>
+                        <p>Monday to Saturday: 9:00 AM – 7:00 PM</p>
+                        <p>Sunday: Closed</p>
+                    </div>
+                </div>
+                <!-- Google Maps Embed -->
+                <div class="mt-12">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3587.218844883162!2d83.56834167512803!3d26.657788876800746!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399120614ddf4e2f%3A0xb36ed5d4a13d711c!2sSankalp%20Classes%20%26%20Computer%20Classes!5e0!3m2!1sen!2sin!4v1719409867540!5m2!1sen!2sin"
+                        width="100%"
+                        height="450"
+                        style="border:0;"
+                        allowfullscreen=""
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"
+                        class="rounded-xl shadow-lg border border-blue-200 animate-on-scroll"
+                    ></iframe>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="bg-gray-900 text-white text-center p-6 mt-12 shadow-inner">
+        <div class="container mx-auto">
+            <p>&copy; 2025 Sankalp Classes & Computer Classes. All rights reserved.</p>
+            <p class="text-sm mt-2 opacity-80">Designed by AI with 💡 for Sankalp Classes & Computer Classes.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Mobile Navigation and Animations -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mainNav = document.getElementById('main-nav');
+            const navLinks = mainNav.querySelectorAll('a');
+            const header = document.querySelector('.main-header'); // Get the header
+            const sections = document.querySelectorAll('section[id]'); // All sections with an ID
+
+            // Function to toggle mobile menu
+            mobileMenuButton.addEventListener('click', function() {
+                mainNav.classList.toggle('hidden');
+                if (mainNav.classList.contains('hidden')) {
+                    mainNav.classList.remove('opacity-100', 'max-h-screen', 'flex'); // Ensure flex is removed when hiding
+                    mainNav.classList.add('opacity-0', 'max-h-0');
+                } else {
+                    mainNav.classList.remove('opacity-0', 'max-h-0');
+                    mainNav.classList.add('opacity-100', 'max-h-screen', 'flex'); // Ensure flex is added when showing
+                }
+            });
+
+            // Close mobile menu when a nav link is clicked
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    // Only close if the menu is open and it's a mobile view
+                    if (!mainNav.classList.contains('hidden') && window.innerWidth < 768) {
+                        mainNav.classList.add('hidden');
+                        mainNav.classList.remove('opacity-100', 'max-h-screen');
+                        mainNav.classList.add('opacity-0', 'max-h-0');
+                    }
+                });
+            });
+
+            // Handle window resize to ensure correct menu state for desktop
+            window.addEventListener('resize', function() {
+                if (window.innerWidth >= 768) { // If desktop
+                    mainNav.classList.remove('hidden', 'opacity-0', 'max-h-0');
+                    mainNav.classList.add('opacity-100', 'max-h-full');
+                } else { // If mobile
+                    // Restore initial hidden state if window is resized smaller
+                    if (!mainNav.classList.contains('hidden')) { // If menu is currently open on desktop and resized to mobile
+                         mainNav.classList.add('hidden'); // Hide it
+                         mainNav.classList.remove('opacity-100', 'max-h-screen');
+                         mainNav.classList.add('opacity-0', 'max-h-0');
+                    }
+                }
+            });
+
+            // --- Sticky Header and Active Nav Link Logic ---
+            window.addEventListener('scroll', function() {
+                // Sticky Header
+                if (window.scrollY > 50) { // Add 'scrolled' class after scrolling 50px
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+
+                // Active Nav Link (for larger screens or when menu is open)
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    // Adjusted offset for header height and some buffer
+                    const sectionHeight = section.clientHeight;
+                    const offset = 100; // Adjust this value as needed
+
+                    if (window.scrollY >= sectionTop - offset && window.scrollY < sectionTop + sectionHeight - offset) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove('current-active-link');
+                    // Check if href includes current section ID, but only if not linking to album.html
+                    if (link.href.includes(current) && !link.href.includes('album.html')) {
+                        link.classList.add('current-active-link');
+                    }
+                    // Special handling for album.html link when on album.html page
+                    if (window.location.pathname.includes('album.html') && link.href.includes('album.html')) {
+                         link.classList.add('current-active-link');
+                    }
+                });
+            });
+
+            // --- On-Load Animations for Hero Section ---
+            const heroElements = document.querySelectorAll('.animate-on-load-hero-text, .animate-on-load-hero-buttons, .animate-on-load-hero-grid');
+            // Trigger hero section animations after a slight delay
+            setTimeout(() => {
+                heroElements.forEach(el => el.classList.add('is-visible'));
+            }, 100); // Small delay to ensure CSS is loaded
+
+            // --- On-Scroll Animations for other sections (using IntersectionObserver) ---
+            const animateOnScrollElements = document.querySelectorAll('.animate-on-scroll');
+
+            const observerOptions = {
+                root: null, // Use the viewport as the root
+                rootMargin: '0px',
+                threshold: 0.1 // Trigger when 10% of the element is visible
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target); // Stop observing once animated
+                    }
+                });
+            }, observerOptions);
+
+            animateOnScrollElements.forEach(el => {
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+</html>
 
