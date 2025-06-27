@@ -14,7 +14,7 @@
 
     <!-- Custom Styles -->
     <style>
-        /* Base font settings */
+        /* Base font settings for the entire body */
         body {
             font-family: 'Inter', sans-serif;
             background-color: #f0f4f8; /* Light blue-gray background */
@@ -22,22 +22,22 @@
             line-height: 1.6;
         }
 
-        /* Headings use Exo 2 font */
+        /* Headings and elements with 'font-heading' class use Exo 2 font */
         h1, h2, h3, h4, h5, h6, .font-heading {
             font-family: 'Exo 2', sans-serif;
         }
 
-        /* Section padding for consistency across the site */
+        /* Consistent padding for all main content sections */
         .section-padding {
-            padding: 5rem 1rem;
+            padding: 5rem 1rem; /* Default for smaller screens */
         }
         @media (min-width: 768px) {
             .section-padding {
-                padding: 7rem 2rem;
+                padding: 7rem 2rem; /* Increased padding for larger screens */
             }
         }
 
-        /* Primary Button Style (for consistency) */
+        /* Primary Call-to-Action Button Styling (for consistency with main site) */
         .btn-primary {
             display: inline-flex;
             align-items: center;
@@ -54,20 +54,20 @@
             white-space: nowrap;
         }
         .btn-primary:hover {
-            background-color: #3730A3; /* Indigo 800 */
+            background-color: #3730A3; /* Darker Indigo on hover */
             transform: translateY(-3px) scale(1.02);
             box-shadow: 0 8px 20px rgba(79, 70, 229, 0.4);
         }
 
-        /* Header specific styles */
+        /* Header Specific Styles (Consistent with index.html) */
         .main-header {
-            background-color: #1a202c; /* Darker background for header */
+            background-color: #1a202c; /* Dark background for header */
             transition: background-color 0.3s ease, box-shadow 0.3s ease;
         }
         .main-header.scrolled {
-            background-color: rgba(26, 32, 44, 0.95); /* Slightly transparent on scroll */
-            box-shadow: 0 6px 20px rgba(0,0,0,0.25);
-            backdrop-filter: blur(5px); /* Modern blur effect */
+            background-color: rgba(26, 32, 44, 0.95); /* Slightly transparent dark background on scroll */
+            box-shadow: 0 6px 20px rgba(0,0,0,0.25); /* Stronger shadow on scroll */
+            backdrop-filter: blur(5px); /* Modern blur effect for scrolled header */
         }
         .nav-link {
             color: white;
@@ -79,12 +79,14 @@
             font-weight: 500;
         }
         .nav-link:hover {
-            background-color: rgba(255, 255, 255, 0.15);
+            background-color: rgba(255, 255, 255, 0.15); /* Light transparent background on hover */
         }
+        /* Style for the currently active navigation link */
         .nav-link.current-active-link {
             background-color: rgba(255, 255, 255, 0.2);
             font-weight: 700;
         }
+        /* Underline animation for active navigation link */
         .nav-link.current-active-link::after {
             content: '';
             position: absolute;
@@ -92,16 +94,15 @@
             left: 0;
             width: 100%;
             height: 3px;
-            background-color: #6366F1; /* Indigo 500 */
-            animation: fadeInUnderline 0.3s forwards;
+            background-color: #6366F1; /* Indigo 500 underline */
+            animation: fadeInUnderline 0.3s forwards; /* Animation to expand the underline */
         }
-
         @keyframes fadeInUnderline {
             from { width: 0%; opacity: 0; }
             to { width: 100%; opacity: 1; }
         }
 
-        /* Mobile navigation specific styles */
+        /* Mobile Navigation Specific Styles (Consistent with index.html) */
         #main-nav {
             transform-origin: top;
             transition: transform 0.3s ease-out, opacity 0.3s ease-out, max-height 0.3s ease-out;
@@ -114,23 +115,23 @@
         }
         #main-nav.flex {
             opacity: 1;
-            max-height: 500px; /* Sufficient height */
+            max-height: 500px;
             transform: scaleY(1);
             pointer-events: auto;
             overflow: hidden;
-            background-color: #2d3748; /* Darker background for mobile menu */
+            background-color: #2d3748;
         }
 
-        /* Album Hero Section */
+        /* Album Hero Section Styling */
         .album-hero-background {
             background: linear-gradient(135deg, #6366F1, #8B5CF6, #A78BFA); /* Soft purple-blue gradient */
-            min-height: 40vh;
+            min-height: 40vh; /* Shorter than main hero as it's a secondary page hero */
             display: flex;
             align-items: center;
             justify-content: center;
         }
 
-        /* Album Grid Items */
+        /* Album Grid Items Styling */
         .album-item {
             position: relative;
             cursor: pointer;
@@ -138,16 +139,26 @@
             overflow: hidden;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background-color: #e2e8f0; /* Light background for images that don't fill the frame */
+            display: flex; /* Use flexbox to center image vertically */
+            align-items: center;
+            justify-content: center;
+            height: 250px; /* Fixed height for consistent grid */
         }
         .album-item:hover {
-            transform: translateY(-5px) scale(1.02);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            transform: translateY(-5px) scale(1.02); /* Slight lift and scale on hover */
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* More pronounced shadow on hover */
         }
-        .album-item img, .album-item video, .album-item iframe {
+        .album-item img {
             width: 100%;
-            height: 250px; /* Consistent height for grid items */
-            object-fit: cover;
+            height: 100%; /* Image takes full height of the flex container */
+            object-fit: contain; /* IMPORTANT: Ensures the whole image fits without cropping */
             display: block;
+        }
+        /* Video specific wrapper for consistent aspect ratio and sizing */
+        .album-item .video-item {
+             height: auto; /* Allow videos to define their height via padding-bottom */
+             display: block;
         }
         .album-item .video-responsive {
             position: relative;
@@ -155,6 +166,7 @@
             height: 0;
             overflow: hidden;
             border-radius: 0.75rem;
+            width: 100%; /* Ensure video responsive wrapper takes full width */
         }
         .album-item .video-responsive iframe,
         .album-item .video-responsive video {
@@ -176,10 +188,10 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            z-index: 1000;
+            z-index: 1000; /* High z-index to be on top */
             opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.3s ease;
+            visibility: hidden; /* Initially hidden */
+            transition: opacity 0.3s ease; /* Smooth fade-in/out */
         }
         .lightbox-overlay.active {
             opacity: 1;
@@ -196,37 +208,39 @@
         .lightbox-content img {
             max-width: 100%;
             max-height: 100%;
-            object-fit: contain; /* Ensure image fits within bounds */
+            object-fit: contain; /* Ensures the whole image fits within the lightbox */
             border-radius: 0.5rem;
-            box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.5); /* Strong shadow for lightbox image */
         }
 
+        /* Navigation buttons for lightbox (Previous/Next) */
         .lightbox-nav-btn {
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            background: rgba(0, 0, 0, 0.5);
+            background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
             color: white;
             padding: 1rem;
             border-radius: 50%;
             cursor: pointer;
-            z-index: 1010;
+            z-index: 1010; /* Above the image */
             transition: background-color 0.2s ease, transform 0.2s ease;
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 40px; /* Fixed size for touch targets */
+            width: 40px; /* Fixed size for better touch targets */
             height: 40px;
         }
         .lightbox-nav-btn:hover {
-            background: rgba(0, 0, 0, 0.7);
-            transform: translateY(-50%) scale(1.1);
+            background: rgba(0, 0, 0, 0.7); /* Darker background on hover */
+            transform: translateY(-50%) scale(1.1); /* Slight scale on hover */
         }
-        .lightbox-nav-btn.left { left: 20px; }
-        .lightbox-nav-btn.right { right: 20px; }
+        .lightbox-nav-btn.left { left: 20px; } /* Position left button */
+        .lightbox-nav-btn.right { right: 20px; } /* Position right button */
+        /* Adjust navigation buttons for mobile for easier tapping */
         @media (max-width: 767px) {
             .lightbox-nav-btn {
-                width: 50px; /* Larger for better touch */
+                width: 50px;
                 height: 50px;
                 padding: 0.5rem;
             }
@@ -234,6 +248,7 @@
             .lightbox-nav-btn.right { right: 5px; }
         }
 
+        /* Close button for lightbox */
         .lightbox-close-btn {
             position: absolute;
             top: 15px;
@@ -252,8 +267,8 @@
             transition: background-color 0.2s ease, transform 0.2s ease;
         }
         .lightbox-close-btn:hover {
-            background: rgba(255, 0, 0, 0.7);
-            transform: rotate(90deg);
+            background: rgba(255, 0, 0, 0.7); /* Red background on hover */
+            transform: rotate(90deg); /* Rotate animation on hover */
         }
     </style>
 </head>
@@ -262,17 +277,20 @@
     <!-- Header Section (Consistent with index.html) -->
     <header class="main-header bg-gray-900 text-white p-4 shadow-lg fixed w-full z-50 transition-all duration-300 ease-in-out">
         <div class="container mx-auto flex justify-between items-center px-4">
+            <!-- Logo and Site Title -->
             <div class="flex items-center">
-                <img src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/logo.jpg" alt="Sankalp Classes Logo" class="h-10 w-10 rounded-full mr-3 border-2 border-indigo-400 shadow-md">
+                <img src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/logo.jpg" onerror="this.onerror=null;this.src='https://placehold.co/40x40/4F46E5/FFFFFF?text=Logo';" alt="Sankalp Classes Logo" class="h-10 w-10 rounded-full mr-3 border-2 border-indigo-400 shadow-md">
                 <h1 class="text-2xl font-extrabold font-heading tracking-wide text-indigo-100">Sankalp Classes</h1>
             </div>
 
+            <!-- Mobile Menu Toggle Button (Hamburger Icon) -->
             <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none focus:ring-2 focus:ring-indigo-400 p-2 rounded-md">
                 <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
                 </svg>
             </button>
 
+            <!-- Main Navigation Menu -->
             <nav id="main-nav" class="hidden md:flex flex-col md:flex-row md:static absolute top-full left-0 w-full md:w-auto bg-gray-900 md:bg-transparent shadow-lg md:shadow-none transition-all duration-300 ease-in-out opacity-0 md:opacity-100 max-h-0 md:max-h-full overflow-hidden">
                 <ul class="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-8 text-lg font-medium py-4 md:py-0 px-4 md:px-0">
                     <li><a href="index.html#home" class="nav-link">Home</a></li>
@@ -286,7 +304,7 @@
         </div>
     </header>
 
-    <main class="pt-[4rem] md:pt-[5rem]">
+    <main class="pt-[4rem] md:pt-[5rem]"> <!-- Adjusted padding-top for fixed header -->
 
         <!-- Album Hero Section -->
         <section class="album-hero-background text-white text-center section-padding">
@@ -305,6 +323,7 @@
                 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 photo-grid">
 
                     <!-- Album Images (18 Slots) - Each wrapped in an album-item for click functionality -->
+                    <!-- The 'data-src' attribute holds the high-resolution image for the lightbox -->
                     <div class="album-item" data-src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(1).JPG">
                         <img src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(1).JPG" onerror="this.onerror=null;this.src='https://placehold.co/600x400/81C784/FFFFFF?text=Image+1';" alt="Sankalp Classes Photo 1">
                     </div>
@@ -324,40 +343,40 @@
                         <img src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(6).JPG" onerror="this.onerror=null;this.src='https://placehold.co/600x400/F0E68C/000000?text=Image+6';" alt="Sankalp Classes Photo 6">
                     </div>
                     <div class="album-item" data-src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(7).JPG">
-                        <img src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(7).JPG" onerror="this.onerror=null;this.src='https://placehold.co/600x400/C0C0C0/333333?text=Image+7';" alt="Sankalp Classes Photo 7">
+                        <img src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(7).JPG">
                     </div>
                     <div class="album-item" data-src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(8).JPG">
-                        <img src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(8).JPG" onerror="this.onerror=null;this.src='https://placehold.co/600x400/A9A9A9/FFFFFF?text=Image+8';" alt="Sankalp Classes Photo 8">
+                        <img src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(8).JPG">
                     </div>
                     <div class="album-item" data-src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(9).JPG">
-                        <img src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(9).JPG" onerror="this.onerror=null;this.src='https://placehold.co/600x400/778899/FFFFFF?text=Image+9';" alt="Sankalp Classes Photo 9">
+                        <img src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(9).JPG">
                     </div>
                     <div class="album-item" data-src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(10).JPG">
-                        <img src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(10).JPG" onerror="this.onerror=null;this.src='https://placehold.co/600x400/5F9EA0/FFFFFF?text=Image+10';" alt="Sankalp Classes Photo 10">
+                        <img src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(10).JPG">
                     </div>
                     <div class="album-item" data-src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(11).JPG">
-                        <img src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(11).JPG" onerror="this.onerror=null;this.src='https://placehold.co/600x400/4682B4/FFFFFF?text=Image+11';" alt="Sankalp Classes Photo 11">
+                        <img src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(11).JPG">
                     </div>
                     <div class="album-item" data-src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(12).JPG">
-                        <img src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(12).JPG" onerror="this.onerror=null;this.src='https://placehold.co/600x400/6495ED/FFFFFF?text=Image+12';" alt="Sankalp Classes Photo 12">
+                        <img src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(12).JPG">
                     </div>
                     <div class="album-item" data-src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(13).JPG">
-                        <img src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(13).JPG" onerror="this.onerror=null;this.src='https://placehold.co/600x400/B0C4DE/000000?text=Image+13';" alt="Sankalp Classes Photo 13">
+                        <img src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(13).JPG">
                     </div>
                     <div class="album-item" data-src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(14).JPG">
-                        <img src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(14).JPG" onerror="this.onerror=null;this.src='https://placehold.co/600x400/D3D3D3/000000?text=Image+14';" alt="Sankalp Classes Photo 14">
+                        <img src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(14).JPG">
                     </div>
                     <div class="album-item" data-src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(15).JPG">
-                        <img src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(15).JPG" onerror="this.onerror=null;this.src='https://placehold.co/600x400/F0F8FF/000000?text=Image+15';" alt="Sankalp Classes Photo 15">
+                        <img src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(15).JPG">
                     </div>
                     <div class="album-item" data-src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(16).jpg">
-                        <img src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(16).jpg" onerror="this.onerror=null;this.src='https://placehold.co/600x400/B0E0E6/000000?text=Image+16';" alt="Sankalp Classes Photo 16">
+                        <img src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(16).jpg">
                     </div>
                     <div class="album-item" data-src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(17).jpg">
-                        <img src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(17).jpg" onerror="this.onerror=null;this.src='https://placehold.co/600x400/87CEFA/000000?text=Image+17';" alt="Sankalp Classes Photo 17">
+                        <img src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(17).jpg">
                     </div>
                     <div class="album-item" data-src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(18).jpg">
-                        <img src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(18).jpg" onerror="this.onerror=null;this.src='https://placehold.co/600x400/6A5ACD/FFFFFF?text=Image+18';" alt="Sankalp Classes Photo 18">
+                        <img src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(18).jpg">
                     </div>
 
                     <!-- Video Embed 1 (YouTube) -->
@@ -428,9 +447,10 @@
             // Close mobile menu when a nav link is clicked (for smooth UX)
             navLinks.forEach(link => {
                 link.addEventListener('click', () => {
+                    // Only close if on a mobile view and menu is open
                     if (window.innerWidth < 768 && !mainNav.classList.contains('hidden')) {
                         mainNav.classList.add('hidden');
-                        mainNav.classList.remove('opacity-100', 'max-h-screen', 'flex');
+                        mainNav.classList.remove('opacity-100', 'max-h-screen');
                         mainNav.classList.add('opacity-0', 'max-h-0');
                     }
                 });
@@ -438,10 +458,11 @@
 
             // Handle window resize to ensure correct menu state for desktop
             window.addEventListener('resize', function() {
-                if (window.innerWidth >= 768) {
+                if (window.innerWidth >= 768) { // If desktop view
                     mainNav.classList.remove('hidden', 'opacity-0', 'max-h-0');
                     mainNav.classList.add('opacity-100', 'max-h-full');
-                } else {
+                } else { // If mobile view
+                    // If menu is currently open (from desktop resize) and now mobile, hide it
                     if (!mainNav.classList.contains('hidden')) {
                          mainNav.classList.add('hidden');
                          mainNav.classList.remove('opacity-100', 'max-h-screen');
@@ -473,7 +494,8 @@
             const lightboxCloseBtn = document.getElementById('lightbox-close-btn');
             const lightboxPrevBtn = document.getElementById('lightbox-prev-btn');
             const lightboxNextBtn = document.getElementById('lightbox-next-btn');
-            const galleryItems = document.querySelectorAll('.album-item:not(.video-item)'); // Select only image items
+            // Select only image items for the lightbox (exclude videos)
+            const galleryItems = Array.from(document.querySelectorAll('.album-item:not(.video-item)'));
             let currentImageIndex = 0;
 
             function openLightbox(index) {
@@ -481,30 +503,31 @@
 
                 currentImageIndex = index;
                 const imgSrc = galleryItems[currentImageIndex].getAttribute('data-src');
-                lightboxImg.src = imgSrc;
-                lightboxOverlay.classList.add('active');
-                document.body.style.overflow = 'hidden'; // Prevent scrolling background
+                lightboxImg.src = imgSrc; // Set the source for the lightbox image
+                lightboxOverlay.classList.add('active'); // Activate the lightbox overlay
+                document.body.style.overflow = 'hidden'; // Prevent background scrolling
             }
 
             function closeLightbox() {
-                lightboxOverlay.classList.remove('active');
-                document.body.style.overflow = ''; // Restore scrolling
+                lightboxOverlay.classList.remove('active'); // Deactivate the lightbox overlay
+                document.body.style.overflow = ''; // Restore background scrolling
             }
 
             function showNextImage() {
-                currentImageIndex = (currentImageIndex + 1) % galleryItems.length;
+                currentImageIndex = (currentImageIndex + 1) % galleryItems.length; // Cycle through images
                 openLightbox(currentImageIndex);
             }
 
             function showPrevImage() {
+                // Handle negative index by adding galleryItems.length before modulo
                 currentImageIndex = (currentImageIndex - 1 + galleryItems.length) % galleryItems.length;
                 openLightbox(currentImageIndex);
             }
 
-            // Event listeners for opening lightbox
+            // Event listeners for opening lightbox when an image is clicked
             galleryItems.forEach((item, index) => {
                 item.addEventListener('click', (e) => {
-                    e.preventDefault(); // Prevent default link behavior if it was a link
+                    e.preventDefault(); // Prevent default link behavior if any
                     openLightbox(index);
                 });
             });
@@ -516,7 +539,7 @@
 
             // Keyboard navigation (Escape, Left Arrow, Right Arrow)
             document.addEventListener('keydown', (e) => {
-                if (lightboxOverlay.classList.contains('active')) {
+                if (lightboxOverlay.classList.contains('active')) { // Only respond if lightbox is open
                     if (e.key === 'Escape') {
                         closeLightbox();
                     } else if (e.key === 'ArrowLeft') {
@@ -533,20 +556,20 @@
 
             lightboxOverlay.addEventListener('touchstart', (e) => {
                 if (lightboxOverlay.classList.contains('active')) {
-                    touchStartX = e.touches[0].clientX;
+                    touchStartX = e.touches[0].clientX; // Record start X position of touch
                 }
             });
 
             lightboxOverlay.addEventListener('touchend', (e) => {
                 if (lightboxOverlay.classList.contains('active')) {
-                    touchEndX = e.changedTouches[0].clientX;
-                    const minSwipeDistance = 50; // Minimum pixels for a swipe
+                    touchEndX = e.changedTouches[0].clientX; // Record end X position of touch
+                    const minSwipeDistance = 50; // Minimum pixels for a recognized swipe
 
                     if (touchEndX < touchStartX - minSwipeDistance) {
-                        // Swiped left
+                        // Swiped left (show next image)
                         showNextImage();
                     } else if (touchEndX > touchStartX + minSwipeDistance) {
-                        // Swiped right
+                        // Swiped right (show previous image)
                         showPrevImage();
                     }
                 }
