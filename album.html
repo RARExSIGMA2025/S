@@ -3,285 +3,379 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sankalp Classes | Album - Visuals</title>
-    <!-- Meta Description for SEO -->
-    <meta name="description" content="Photo and video album of Sankalp Classes & Computer Classes showcasing celebrations, prize distribution ceremonies, events, and campus life in Ratanpura, Mau.">
-    <!-- Keywords for SEO -->
-    <meta name="keywords" content="Sankalp Classes album, computer classes photos Mau, prize distribution videos, celebration videos, educational events, Ratanpura Mau institute album">
+    <title>Sankalp Computer Classes | Our Album & Events</title>
+    <meta name="description" content="Explore the vibrant moments, student achievements, and campus life at Sankalp Computer Classes through our photo and video gallery.">
+    <meta name="keywords" content="Sankalp Classes album, computer institute photos Mau, student events, prize distribution, campus life, educational videos, Ratanpura Mau gallery">
 
-    <!-- Link to Tailwind CSS CDN -->
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Link to Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Custom Styles for Album Page -->
+    <!-- Google Fonts: Exo 2 for headings, Inter for body text -->
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Custom Styles -->
     <style>
-        /* General Body Styles */
+        /* Base font settings */
         body {
-            font-family: 'Poppins', sans-serif; /* Set Poppins as default body font */
-            background-color: #f8fafc; /* Light gray background for overall site */
-            color: #333;
-        }
-
-        /* Ensure Inter font is applied to headings explicitly */
-        h1, h2, h3, h4, h5, h6, .font-inter {
             font-family: 'Inter', sans-serif;
+            background-color: #f0f4f8; /* Light blue-gray background */
+            color: #334155; /* Slate 800 for text */
+            line-height: 1.6;
         }
 
-        /* Section Padding for Responsiveness */
+        /* Headings use Exo 2 font */
+        h1, h2, h3, h4, h5, h6, .font-heading {
+            font-family: 'Exo 2', sans-serif;
+        }
+
+        /* Section padding for consistency across the site */
         .section-padding {
-            padding: 6rem 1rem; /* More generous padding for sections */
+            padding: 5rem 1rem;
         }
         @media (min-width: 768px) {
             .section-padding {
-                padding: 8rem 2rem; /* Even more padding on larger screens */
+                padding: 7rem 2rem;
             }
         }
 
-        /* Base Card Styles (used in Courses, Facilities, Contact info) */
-        .card {
-            background-color: white;
-            border-radius: 0.75rem; /* rounded-xl */
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.08); /* slightly softer shadow */
-            padding: 1.5rem;
-            /* Combine hover transitions for a single card class */
-            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        /* Primary Button Style (for consistency) */
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #4F46E5; /* Indigo 600 */
+            color: white;
+            font-weight: 600;
+            padding: 0.8rem 2.2rem;
+            border-radius: 9999px; /* Fully rounded */
+            box-shadow: 0 5px 15px rgba(79, 70, 229, 0.3);
+            transition: all 0.3s ease-in-out;
+            text-decoration: none;
+            font-size: 1.05rem;
+            white-space: nowrap;
         }
-        .card:hover {
-            transform: translateY(-8px) scale(1.02); /* Lifts and slightly scales (from card-hover-effect) */
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1); /* Stronger shadow (from card-hover-effect) */
+        .btn-primary:hover {
+            background-color: #3730A3; /* Indigo 800 */
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 8px 20px rgba(79, 70, 229, 0.4);
         }
 
-        /* Nav link specific styling for consistency and hover */
+        /* Header specific styles */
+        .main-header {
+            background-color: #1a202c; /* Darker background for header */
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        .main-header.scrolled {
+            background-color: rgba(26, 32, 44, 0.95); /* Slightly transparent on scroll */
+            box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+            backdrop-filter: blur(5px); /* Modern blur effect */
+        }
         .nav-link {
-            display: block;
-            padding: 0.5rem 0.75rem; /* py-2 px-3 */
-            border-radius: 0.375rem; /* rounded-md */
-            transition: background-color 0.2s, color 0.2s; /* transition-colors duration-200 */
-            position: relative; /* For the active link indicator */
-            overflow: hidden; /* To clip pseudo-element */
+            color: white;
+            padding: 0.6rem 1rem;
+            border-radius: 0.375rem;
+            transition: background-color 0.2s ease, color 0.2s ease;
+            position: relative;
+            overflow: hidden;
+            font-weight: 500;
         }
         .nav-link:hover {
-            background-color: rgba(255, 255, 255, 0.1); /* hover:bg-white hover:bg-opacity-10 */
+            background-color: rgba(255, 255, 255, 0.15);
         }
-        /* Active link indicator */
+        .nav-link.current-active-link {
+            background-color: rgba(255, 255, 255, 0.2);
+            font-weight: 700;
+        }
         .nav-link.current-active-link::after {
             content: '';
             position: absolute;
             bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 0;
+            left: 0;
+            width: 100%;
             height: 3px;
-            background-color: white;
-            border-radius: 2px;
-            animation: expandUnderline 0.3s forwards;
+            background-color: #6366F1; /* Indigo 500 */
+            animation: fadeInUnderline 0.3s forwards;
         }
 
-        @keyframes expandUnderline {
-            from { width: 0; }
-            to { width: 100%; }
+        @keyframes fadeInUnderline {
+            from { width: 0%; opacity: 0; }
+            to { width: 100%; opacity: 1; }
         }
 
-        /* Sticky Header styling */
-        .main-header.scrolled {
-            background: linear-gradient(to right, rgba(30, 58, 138, 0.95), rgba(49, 46, 129, 0.95)); /* A slightly darker, semi-transparent blue */
-            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-        }
-
-        /* For mobile menu transition - ensure it's smooth */
+        /* Mobile navigation specific styles */
         #main-nav {
-            transform-origin: top; /* Animation originates from top */
+            transform-origin: top;
+            transition: transform 0.3s ease-out, opacity 0.3s ease-out, max-height 0.3s ease-out;
         }
         #main-nav.hidden {
             opacity: 0;
             max-height: 0;
-            pointer-events: none; /* Disable clicks when hidden */
+            transform: scaleY(0);
+            pointer-events: none;
         }
-        #main-nav.flex { /* This class is added by JS when menu is open */
+        #main-nav.flex {
             opacity: 1;
-            max-height: 500px; /* Sufficient height to show all links, adjust if more links are added */
-            pointer-events: auto; /* Enable clicks when visible */
-            overflow: hidden; /* Prevent content from overflowing during transition */
-            padding-bottom: 1rem; /* Add some padding to bottom of mobile menu */
+            max-height: 500px; /* Sufficient height */
+            transform: scaleY(1);
+            pointer-events: auto;
+            overflow: hidden;
+            background-color: #2d3748; /* Darker background for mobile menu */
         }
 
-
-        /* Custom CSS for consistency and new hover effects for Album Page */
-        /* Card hover effects - Applied to gallery items (already defined in general .card, but re-emphasized here for clarity) */
-        .card-hover-effect {
-            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-        }
-        .card-hover-effect:hover {
-            transform: translateY(-8px) scale(1.02); /* Lifts and slightly scales */
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1); /* Stronger shadow */
+        /* Album Hero Section */
+        .album-hero-background {
+            background: linear-gradient(135deg, #6366F1, #8B5CF6, #A78BFA); /* Soft purple-blue gradient */
+            min-height: 40vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        /* Responsive video embedding */
-        .video-responsive {
+        /* Album Grid Items */
+        .album-item {
             position: relative;
-            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            cursor: pointer;
+            border-radius: 0.75rem;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .album-item:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+        .album-item img, .album-item video, .album-item iframe {
+            width: 100%;
+            height: 250px; /* Consistent height for grid items */
+            object-fit: cover;
+            display: block;
+        }
+        .album-item .video-responsive {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
             height: 0;
             overflow: hidden;
-            border-radius: 0.75rem; /* More rounded corners */
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.06);
-            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            border-radius: 0.75rem;
         }
-        .video-responsive:hover {
-            transform: scale(1.03);
-            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.15);
-        }
-        .video-responsive iframe,
-        .video-responsive video {
+        .album-item .video-responsive iframe,
+        .album-item .video-responsive video {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            border: 0;
         }
 
-        /* General image styling for gallery */
-        .gallery-image {
+        /* Lightbox/Modal Gallery Styles */
+        .lightbox-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
             width: 100%;
-            height: 200px; /* Fixed height for consistent grid appearance */
-            object-fit: cover; /* Cover the area, cropping if necessary */
-            border-radius: 0.75rem; /* Consistent rounded corners with videos */
-            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85); /* Darker, more opaque overlay */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease;
         }
-        .gallery-image:hover {
-            transform: scale(1.03);
-            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.15);
+        .lightbox-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        .lightbox-content {
+            position: relative;
+            max-width: 90%;
+            max-height: 90%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .lightbox-content img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain; /* Ensure image fits within bounds */
+            border-radius: 0.5rem;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
         }
 
-        /* Hero section specific style for the album page */
-        .album-hero-background {
-            background: linear-gradient(135deg, #6A5ACD, #8A2BE2, #C042BC); /* More vibrant purple-blue gradient */
-            padding-top: 6rem;
-            padding-bottom: 6rem;
+        .lightbox-nav-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            padding: 1rem;
+            border-radius: 50%;
+            cursor: pointer;
+            z-index: 1010;
+            transition: background-color 0.2s ease, transform 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px; /* Fixed size for touch targets */
+            height: 40px;
+        }
+        .lightbox-nav-btn:hover {
+            background: rgba(0, 0, 0, 0.7);
+            transform: translateY(-50%) scale(1.1);
+        }
+        .lightbox-nav-btn.left { left: 20px; }
+        .lightbox-nav-btn.right { right: 20px; }
+        @media (max-width: 767px) {
+            .lightbox-nav-btn {
+                width: 50px; /* Larger for better touch */
+                height: 50px;
+                padding: 0.5rem;
+            }
+            .lightbox-nav-btn.left { left: 5px; }
+            .lightbox-nav-btn.right { right: 5px; }
+        }
+
+        .lightbox-close-btn {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: rgba(0, 0, 0, 0.6);
+            color: white;
+            border-radius: 50%;
+            width: 35px;
+            height: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            cursor: pointer;
+            z-index: 1010;
+            transition: background-color 0.2s ease, transform 0.2s ease;
+        }
+        .lightbox-close-btn:hover {
+            background: rgba(255, 0, 0, 0.7);
+            transform: rotate(90deg);
         }
     </style>
 </head>
-<body class="font-poppins text-gray-800 bg-gray-50">
+<body class="selection:bg-indigo-200 selection:text-indigo-900">
 
     <!-- Header Section (Consistent with index.html) -->
-    <header class="main-header bg-gradient-to-r from-blue-700 to-indigo-800 text-white p-4 shadow-xl fixed w-full z-10 transition-all duration-300 ease-in-out">
-        <div class="container mx-auto flex justify-between items-center px-4 relative">
+    <header class="main-header bg-gray-900 text-white p-4 shadow-lg fixed w-full z-50 transition-all duration-300 ease-in-out">
+        <div class="container mx-auto flex justify-between items-center px-4">
             <div class="flex items-center">
-                <!-- Company Logo -->
-                <img src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/logo.jpg" alt="Sankalp Classes Logo" class="h-10 w-10 rounded-full mr-3 border-2 border-white shadow-md">
-                <!-- Company Name (Responsive) -->
-                <h1 class="text-2xl font-extrabold font-inter tracking-wide">Sankalp Classes <span class="hidden md:inline">& Computer Classes</span></h1>
-                <span class="md:hidden text-lg ml-1">& Computer Classes</span> <!-- Shorter text for small screens -->
+                <img src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/logo.jpg" alt="Sankalp Classes Logo" class="h-10 w-10 rounded-full mr-3 border-2 border-indigo-400 shadow-md">
+                <h1 class="text-2xl font-extrabold font-heading tracking-wide text-indigo-100">Sankalp Classes</h1>
             </div>
 
-            <!-- Mobile Menu Button (Hamburger) -->
-            <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none focus:ring-2 focus:ring-white p-2 rounded-md">
+            <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none focus:ring-2 focus:ring-indigo-400 p-2 rounded-md">
                 <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
                 </svg>
             </button>
 
-            <!-- Navigation Menu -->
-            <nav id="main-nav" class="hidden md:flex flex-col md:flex-row md:static absolute top-full left-0 w-full md:w-auto bg-gradient-to-r from-blue-700 to-indigo-800 md:bg-transparent shadow-lg md:shadow-none transition-all duration-300 ease-in-out opacity-0 md:opacity-100 max-h-0 md:max-h-full overflow-hidden">
+            <nav id="main-nav" class="hidden md:flex flex-col md:flex-row md:static absolute top-full left-0 w-full md:w-auto bg-gray-900 md:bg-transparent shadow-lg md:shadow-none transition-all duration-300 ease-in-out opacity-0 md:opacity-100 max-h-0 md:max-h-full overflow-hidden">
                 <ul class="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-8 text-lg font-medium py-4 md:py-0 px-4 md:px-0">
-                    <li><a href="index.html#home" class="nav-link block py-2 px-3 rounded-md hover:bg-white hover:bg-opacity-10 transition-colors duration-200">Home</a></li>
-                    <li><a href="index.html#about" class="nav-link block py-2 px-3 rounded-md hover:bg-white hover:bg-opacity-10 transition-colors duration-200">About Us</a></li>
-                    <li><a href="index.html#courses" class="nav-link block py-2 px-3 rounded-md hover:bg-white hover:bg-opacity-10 transition-colors duration-200">Courses</a></li>
-                    <li><a href="index.html#facilities" class="nav-link block py-2 px-3 rounded-md hover:bg-white hover:bg-opacity-10 transition-colors duration-200">Facilities</a></li>
-                    <li><a href="album.html" class="nav-link block py-2 px-3 rounded-md hover:bg-white hover:bg-opacity-10 transition-colors duration-200">Album</a></li>
-                    <li><a href="index.html#contact" class="nav-link block py-2 px-3 rounded-md hover:bg-white hover:bg-opacity-10 transition-colors duration-200">Contact</a></li>
+                    <li><a href="index.html#home" class="nav-link">Home</a></li>
+                    <li><a href="index.html#about" class="nav-link">About Us</a></li>
+                    <li><a href="index.html#courses" class="nav-link">Courses</a></li>
+                    <li><a href="index.html#facilities" class="nav-link">Facilities</a></li>
+                    <li><a href="album.html" class="nav-link current-active-link">Album</a></li> <!-- 'current-active-link' for current page -->
+                    <li><a href="index.html#contact" class="nav-link">Contact</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <!-- Main Content for Album Page -->
-    <main class="pt-24"> <!-- Increased padding-top for fixed header -->
+    <main class="pt-[4rem] md:pt-[5rem]">
 
         <!-- Album Hero Section -->
-        <section class="section-padding album-hero-background text-white text-center">
+        <section class="album-hero-background text-white text-center section-padding">
             <div class="container mx-auto">
-                <h1 class="text-4xl md:text-5xl font-extrabold mb-4 font-inter">🎉 Our Memorable Moments 🎉</h1>
-                <p class="text-xl md:text-2xl font-light opacity-90">Celebrating achievements, events, and campus life at Sankalp Classes.</p>
+                <h1 class="text-4xl md:text-5xl font-extrabold font-heading mb-4">🎉 Our Memorable Moments 🎉</h1>
+                <p class="text-lg md:text-xl font-light opacity-90 max-w-2xl mx-auto">
+                    A visual journey showcasing our vibrant campus life, student achievements, and special events.
+                </p>
             </div>
         </section>
 
-        <!-- Album Photo & Video Grid -->
+        <!-- Album Content Grid -->
         <section id="album-content" class="section-padding bg-gray-100">
-            <div class="container mx-auto bg-white p-8 md:p-10 rounded-xl shadow-lg max-w-6xl border border-gray-200">
+            <div class="container mx-auto bg-white p-6 md:p-10 rounded-xl shadow-lg max-w-7xl border border-gray-200">
 
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 photo-grid">
 
-                    <!-- Album Images (18 Slots) with fallback placeholders -->
-                    <div class="rounded-xl overflow-hidden shadow-lg card-hover-effect">
-                        <img src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(1).JPG" onerror="this.onerror=null;this.src='https://placehold.co/600x400/81C784/FFFFFF?text=Image+1';" alt="Sankalp Classes Photo 1" class="gallery-image">
+                    <!-- Album Images (18 Slots) - Each wrapped in an album-item for click functionality -->
+                    <div class="album-item" data-src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(1).JPG">
+                        <img src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(1).JPG" onerror="this.onerror=null;this.src='https://placehold.co/600x400/81C784/FFFFFF?text=Image+1';" alt="Sankalp Classes Photo 1">
                     </div>
-                    <div class="rounded-xl overflow-hidden shadow-lg card-hover-effect">
-                        <img src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(2).JPG" onerror="this.onerror=null;this.src='https://placehold.co/600x400/ADD8E6/000000?text=Image+2';" alt="Sankalp Classes Photo 2" class="gallery-image">
+                    <div class="album-item" data-src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(2).JPG">
+                        <img src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(2).JPG" onerror="this.onerror=null;this.src='https://placehold.co/600x400/ADD8E6/000000?text=Image+2';" alt="Sankalp Classes Photo 2">
                     </div>
-                    <div class="rounded-xl overflow-hidden shadow-lg card-hover-effect">
-                        <img src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(3).JPG" onerror="this.onerror=null;this.src='https://placehold.co/600x400/FFDDC1/000000?text=Image+3';" alt="Sankalp Classes Photo 3" class="gallery-image">
+                    <div class="album-item" data-src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(3).JPG">
+                        <img src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(3).JPG" onerror="this.onerror=null;this.src='https://placehold.co/600x400/FFDDC1/000000?text=Image+3';" alt="Sankalp Classes Photo 3">
                     </div>
-                    <div class="rounded-xl overflow-hidden shadow-lg card-hover-effect">
-                        <img src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(4).JPG" onerror="this.onerror=null;this.src='https://placehold.co/600x400/DDA0DD/000000?text=Image+4';" alt="Sankalp Classes Photo 4" class="gallery-image">
+                    <div class="album-item" data-src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(4).JPG">
+                        <img src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(4).JPG" onerror="this.onerror=null;this.src='https://placehold.co/600x400/DDA0DD/000000?text=Image+4';" alt="Sankalp Classes Photo 4">
                     </div>
-                    <div class="rounded-xl overflow-hidden shadow-lg card-hover-effect">
-                        <img src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(5).JPG" onerror="this.onerror=null;this.src='https://placehold.co/600x400/98FB98/000000?text=Image+5';" alt="Sankalp Classes Photo 5" class="gallery-image">
+                    <div class="album-item" data-src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(5).JPG">
+                        <img src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(5).JPG" onerror="this.onerror=null;this.src='https://placehold.co/600x400/98FB98/000000?text=Image+5';" alt="Sankalp Classes Photo 5">
                     </div>
-                    <div class="rounded-xl overflow-hidden shadow-lg card-hover-effect">
-                        <img src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(6).JPG" onerror="this.onerror=null;this.src='https://placehold.co/600x400/F0E68C/000000?text=Image+6';" alt="Sankalp Classes Photo 6" class="gallery-image">
+                    <div class="album-item" data-src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(6).JPG">
+                        <img src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(6).JPG" onerror="this.onerror=null;this.src='https://placehold.co/600x400/F0E68C/000000?text=Image+6';" alt="Sankalp Classes Photo 6">
                     </div>
-                    <div class="rounded-xl overflow-hidden shadow-lg card-hover-effect">
-                        <img src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(7).JPG" onerror="this.onerror=null;this.src='https://placehold.co/600x400/C0C0C0/333333?text=Image+7';" alt="Sankalp Classes Photo 7" class="gallery-image">
+                    <div class="album-item" data-src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(7).JPG">
+                        <img src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(7).JPG" onerror="this.onerror=null;this.src='https://placehold.co/600x400/C0C0C0/333333?text=Image+7';" alt="Sankalp Classes Photo 7">
                     </div>
-                    <div class="rounded-xl overflow-hidden shadow-lg card-hover-effect">
-                        <img src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(8).JPG" onerror="this.onerror=null;this.src='https://placehold.co/600x400/A9A9A9/FFFFFF?text=Image+8';" alt="Sankalp Classes Photo 8" class="gallery-image">
+                    <div class="album-item" data-src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(8).JPG">
+                        <img src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(8).JPG" onerror="this.onerror=null;this.src='https://placehold.co/600x400/A9A9A9/FFFFFF?text=Image+8';" alt="Sankalp Classes Photo 8">
                     </div>
-                    <div class="rounded-xl overflow-hidden shadow-lg card-hover-effect">
-                        <img src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(9).JPG" onerror="this.onerror=null;this.src='https://placehold.co/600x400/778899/FFFFFF?text=Image+9';" alt="Sankalp Classes Photo 9" class="gallery-image">
+                    <div class="album-item" data-src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(9).JPG">
+                        <img src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(9).JPG" onerror="this.onerror=null;this.src='https://placehold.co/600x400/778899/FFFFFF?text=Image+9';" alt="Sankalp Classes Photo 9">
                     </div>
-                    <div class="rounded-xl overflow-hidden shadow-lg card-hover-effect">
-                        <img src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(10).JPG" onerror="this.onerror=null;this.src='https://placehold.co/600x400/5F9EA0/FFFFFF?text=Image+10';" alt="Sankalp Classes Photo 10" class="gallery-image">
+                    <div class="album-item" data-src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(10).JPG">
+                        <img src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(10).JPG" onerror="this.onerror=null;this.src='https://placehold.co/600x400/5F9EA0/FFFFFF?text=Image+10';" alt="Sankalp Classes Photo 10">
                     </div>
-                    <div class="rounded-xl overflow-hidden shadow-lg card-hover-effect">
-                        <img src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(11).JPG" onerror="this.onerror=null;this.src='https://placehold.co/600x400/4682B4/FFFFFF?text=Image+11';" alt="Sankalp Classes Photo 11" class="gallery-image">
+                    <div class="album-item" data-src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(11).JPG">
+                        <img src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(11).JPG" onerror="this.onerror=null;this.src='https://placehold.co/600x400/4682B4/FFFFFF?text=Image+11';" alt="Sankalp Classes Photo 11">
                     </div>
-                    <div class="rounded-xl overflow-hidden shadow-lg card-hover-effect">
-                        <img src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(12).JPG" onerror="this.onerror=null;this.src='https://placehold.co/600x400/6495ED/FFFFFF?text=Image+12';" alt="Sankalp Classes Photo 12" class="gallery-image">
+                    <div class="album-item" data-src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(12).JPG">
+                        <img src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(12).JPG" onerror="this.onerror=null;this.src='https://placehold.co/600x400/6495ED/FFFFFF?text=Image+12';" alt="Sankalp Classes Photo 12">
                     </div>
-                    <div class="rounded-xl overflow-hidden shadow-lg card-hover-effect">
-                        <img src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(13).JPG" onerror="this.onerror=null;this.src='https://placehold.co/600x400/B0C4DE/000000?text=Image+13';" alt="Sankalp Classes Photo 13" class="gallery-image">
+                    <div class="album-item" data-src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(13).JPG">
+                        <img src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(13).JPG" onerror="this.onerror=null;this.src='https://placehold.co/600x400/B0C4DE/000000?text=Image+13';" alt="Sankalp Classes Photo 13">
                     </div>
-                    <div class="rounded-xl overflow-hidden shadow-lg card-hover-effect">
-                        <img src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(14).JPG" onerror="this.onerror=null;this.src='https://placehold.co/600x400/D3D3D3/000000?text=Image+14';" alt="Sankalp Classes Photo 14" class="gallery-image">
+                    <div class="album-item" data-src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(14).JPG">
+                        <img src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(14).JPG" onerror="this.onerror=null;this.src='https://placehold.co/600x400/D3D3D3/000000?text=Image+14';" alt="Sankalp Classes Photo 14">
                     </div>
-                    <div class="rounded-xl overflow-hidden shadow-lg card-hover-effect">
-                        <img src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(15).JPG" onerror="this.onerror=null;this.src='https://placehold.co/600x400/F0F8FF/000000?text=Image+15';" alt="Sankalp Classes Photo 15" class="gallery-image">
+                    <div class="album-item" data-src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(15).JPG">
+                        <img src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(15).JPG" onerror="this.onerror=null;this.src='https://placehold.co/600x400/F0F8FF/000000?text=Image+15';" alt="Sankalp Classes Photo 15">
                     </div>
-                    <div class="rounded-xl overflow-hidden shadow-lg card-hover-effect">
-                        <img src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(16).jpg" onerror="this.onerror=null;this.src='https://placehold.co/600x400/B0E0E6/000000?text=Image+16';" alt="Sankalp Classes Photo 16" class="gallery-image">
+                    <div class="album-item" data-src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(16).jpg">
+                        <img src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(16).jpg" onerror="this.onerror=null;this.src='https://placehold.co/600x400/B0E0E6/000000?text=Image+16';" alt="Sankalp Classes Photo 16">
                     </div>
-                    <div class="rounded-xl overflow-hidden shadow-lg card-hover-effect">
-                        <img src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(17).jpg" onerror="this.onerror=null;this.src='https://placehold.co/600x400/87CEFA/000000?text=Image+17';" alt="Sankalp Classes Photo 17" class="gallery-image">
+                    <div class="album-item" data-src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(17).jpg">
+                        <img src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(17).jpg" onerror="this.onerror=null;this.src='https://placehold.co/600x400/87CEFA/000000?text=Image+17';" alt="Sankalp Classes Photo 17">
                     </div>
-                    <div class="rounded-xl overflow-hidden shadow-lg card-hover-effect">
-                        <img src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(18).jpg" onerror="this.onerror=null;this.src='https://placehold.co/600x400/6A5ACD/FFFFFF?text=Image+18';" alt="Sankalp Classes Photo 18" class="gallery-image">
+                    <div class="album-item" data-src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(18).jpg">
+                        <img src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(18).jpg" onerror="this.onerror=null;this.src='https://placehold.co/600x400/6A5ACD/FFFFFF?text=Image+18';" alt="Sankalp Classes Photo 18">
                     </div>
 
                     <!-- Video Embed 1 (YouTube) -->
-                    <div class="video-responsive card-hover-effect">
-                        <iframe src="https://www.youtube.com/embed/G1Fq-rqGc4s?controls=0&modestbranding=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen title="Sankalp Classes Event Video"></iframe>
+                    <div class="album-item video-item">
+                        <div class="video-responsive">
+                            <iframe src="https://www.youtube.com/embed/G1Fq-rqGc4s?controls=0&modestbranding=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen title="Sankalp Classes Event Video"></iframe>
+                        </div>
                     </div>
 
                     <!-- Video Embed 2 (Local Video) - Example with w3schools video -->
-                    <div class="video-responsive card-hover-effect">
-                        <video controls preload="metadata" title="Sankalp Classes Event Video 2">
-                            <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
-                            Your browser does not support the video tag.
-                        </video>
+                    <div class="album-item video-item">
+                        <div class="video-responsive">
+                            <video controls preload="metadata" title="Sankalp Classes Event Video 2">
+                                <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
                     </div>
-
                 </div>
                 <p class="text-lg text-center mt-12 text-gray-600 font-medium">More memorable moments and videos coming soon!</p>
             </div>
@@ -290,40 +384,53 @@
     </main>
 
     <!-- Footer Section (Consistent with index.html) -->
-    <footer class="bg-gray-900 text-white text-center p-6 mt-12 shadow-inner">
+    <footer class="bg-gray-900 text-gray-300 text-center p-6 mt-12 shadow-inner">
         <div class="container mx-auto">
-            <p>&copy; 2025 Sankalp Classes & Computer Classes. All rights reserved.</p>
-            <p class="text-sm mt-2 opacity-80">Designed by AI with 💡 for Sankalp Classes & Computer Classes.</p>
+            <p class="text-sm md:text-base">&copy; 2025 Sankalp Computer Classes. All rights reserved.</p>
+            <p class="text-xs mt-2 opacity-70">Crafted with passion for a brighter digital future.</p>
         </div>
     </footer>
 
-    <!-- JavaScript for Mobile Navigation (Consistent with index.html) -->
+    <!-- Lightbox/Modal Gallery Structure -->
+    <div id="lightbox-overlay" class="lightbox-overlay">
+        <span id="lightbox-close-btn" class="lightbox-close-btn">&times;</span>
+        <div class="lightbox-content">
+            <img id="lightbox-img" src="" alt="Gallery Image">
+        </div>
+        <span id="lightbox-prev-btn" class="lightbox-nav-btn left">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-left"><path d="m15 18-6-6 6-6"/></svg>
+        </span>
+        <span id="lightbox-next-btn" class="lightbox-nav-btn right">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right"><path d="m9 18 6-6-6-6"/></svg>
+        </span>
+    </div>
+
+    <!-- JavaScript for Interactions and Animations -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const mobileMenuButton = document.getElementById('mobile-menu-button');
             const mainNav = document.getElementById('main-nav');
-            const navLinks = document.querySelectorAll('.nav-link');
-            const header = document.querySelector('.main-header'); // Get the header
+            const navLinks = mainNav.querySelectorAll('a');
+            const header = document.querySelector('.main-header');
 
-            // Function to toggle mobile menu
+            // --- Mobile Navigation Toggle ---
             mobileMenuButton.addEventListener('click', function() {
                 mainNav.classList.toggle('hidden');
                 if (mainNav.classList.contains('hidden')) {
-                    mainNav.classList.remove('opacity-100', 'max-h-screen', 'flex'); // Ensure flex is removed when hiding
+                    mainNav.classList.remove('opacity-100', 'max-h-screen', 'flex');
                     mainNav.classList.add('opacity-0', 'max-h-0');
                 } else {
                     mainNav.classList.remove('opacity-0', 'max-h-0');
-                    mainNav.classList.add('opacity-100', 'max-h-screen', 'flex'); // Ensure flex is added when showing
+                    mainNav.classList.add('opacity-100', 'max-h-screen', 'flex');
                 }
             });
 
-            // Close mobile menu when a nav link is clicked
+            // Close mobile menu when a nav link is clicked (for smooth UX)
             navLinks.forEach(link => {
                 link.addEventListener('click', () => {
-                    // Only close if the menu is open and it's a mobile view
-                    if (!mainNav.classList.contains('hidden') && window.innerWidth < 768) {
+                    if (window.innerWidth < 768 && !mainNav.classList.contains('hidden')) {
                         mainNav.classList.add('hidden');
-                        mainNav.classList.remove('opacity-100', 'max-h-screen');
+                        mainNav.classList.remove('opacity-100', 'max-h-screen', 'flex');
                         mainNav.classList.add('opacity-0', 'max-h-0');
                     }
                 });
@@ -331,34 +438,118 @@
 
             // Handle window resize to ensure correct menu state for desktop
             window.addEventListener('resize', function() {
-                if (window.innerWidth >= 768) { // If desktop
+                if (window.innerWidth >= 768) {
                     mainNav.classList.remove('hidden', 'opacity-0', 'max-h-0');
                     mainNav.classList.add('opacity-100', 'max-h-full');
-                } else { // If mobile
-                    // Restore initial hidden state if window is resized smaller
-                    if (!mainNav.classList.contains('hidden')) { // If menu is currently open on desktop and resized to mobile
-                         mainNav.classList.add('hidden'); // Hide it
+                } else {
+                    if (!mainNav.classList.contains('hidden')) {
+                         mainNav.classList.add('hidden');
                          mainNav.classList.remove('opacity-100', 'max-h-screen');
                          mainNav.classList.add('opacity-0', 'max-h-0');
                     }
                 }
             });
 
-            // --- Sticky Header Logic (re-added for album page) ---
+            // --- Sticky Header Logic ---
             window.addEventListener('scroll', function() {
-                if (window.scrollY > 50) { // Add 'scrolled' class after scrolling 50px
+                if (window.scrollY > 50) {
                     header.classList.add('scrolled');
                 } else {
                     header.classList.remove('scrolled');
                 }
 
-                // Active Nav Link for Album page (always activate the Album link on this page)
+                // Active Nav Link: Highlight 'Album' link specifically on this page
                 navLinks.forEach(link => {
                     link.classList.remove('current-active-link');
-                    if (link.href.includes('album.html')) {
+                    if (link.getAttribute('href').includes('album.html')) {
                         link.classList.add('current-active-link');
                     }
                 });
+            });
+
+            // --- Lightbox/Image Gallery Functionality ---
+            const lightboxOverlay = document.getElementById('lightbox-overlay');
+            const lightboxImg = document.getElementById('lightbox-img');
+            const lightboxCloseBtn = document.getElementById('lightbox-close-btn');
+            const lightboxPrevBtn = document.getElementById('lightbox-prev-btn');
+            const lightboxNextBtn = document.getElementById('lightbox-next-btn');
+            const galleryItems = document.querySelectorAll('.album-item:not(.video-item)'); // Select only image items
+            let currentImageIndex = 0;
+
+            function openLightbox(index) {
+                if (index < 0 || index >= galleryItems.length) return; // Boundary check
+
+                currentImageIndex = index;
+                const imgSrc = galleryItems[currentImageIndex].getAttribute('data-src');
+                lightboxImg.src = imgSrc;
+                lightboxOverlay.classList.add('active');
+                document.body.style.overflow = 'hidden'; // Prevent scrolling background
+            }
+
+            function closeLightbox() {
+                lightboxOverlay.classList.remove('active');
+                document.body.style.overflow = ''; // Restore scrolling
+            }
+
+            function showNextImage() {
+                currentImageIndex = (currentImageIndex + 1) % galleryItems.length;
+                openLightbox(currentImageIndex);
+            }
+
+            function showPrevImage() {
+                currentImageIndex = (currentImageIndex - 1 + galleryItems.length) % galleryItems.length;
+                openLightbox(currentImageIndex);
+            }
+
+            // Event listeners for opening lightbox
+            galleryItems.forEach((item, index) => {
+                item.addEventListener('click', (e) => {
+                    e.preventDefault(); // Prevent default link behavior if it was a link
+                    openLightbox(index);
+                });
+            });
+
+            // Event listeners for lightbox controls
+            lightboxCloseBtn.addEventListener('click', closeLightbox);
+            lightboxPrevBtn.addEventListener('click', showPrevImage);
+            lightboxNextBtn.addEventListener('click', showNextImage);
+
+            // Keyboard navigation (Escape, Left Arrow, Right Arrow)
+            document.addEventListener('keydown', (e) => {
+                if (lightboxOverlay.classList.contains('active')) {
+                    if (e.key === 'Escape') {
+                        closeLightbox();
+                    } else if (e.key === 'ArrowLeft') {
+                        showPrevImage();
+                    } else if (e.key === 'ArrowRight') {
+                        showNextImage();
+                    }
+                }
+            });
+
+            // Touch/Swipe navigation for mobile
+            let touchStartX = 0;
+            let touchEndX = 0;
+
+            lightboxOverlay.addEventListener('touchstart', (e) => {
+                if (lightboxOverlay.classList.contains('active')) {
+                    touchStartX = e.touches[0].clientX;
+                }
+            });
+
+            lightboxOverlay.addEventListener('touchend', (e) => {
+                if (lightboxOverlay.classList.contains('active')) {
+                    touchEndX = e.changedTouches[0].clientX;
+                    const minSwipeDistance = 50; // Minimum pixels for a swipe
+
+                    if (touchEndX < touchStartX - minSwipeDistance) {
+                        // Swiped left
+                        showNextImage();
+                    } else if (touchEndX > touchStartX + minSwipeDistance) {
+                        // Swiped right
+                        showPrevImage();
+                    }
+                }
             });
         });
     </script>
