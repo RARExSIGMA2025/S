@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
@@ -365,6 +364,36 @@
             }
         }
 
+        /* Footer Specific Styles */
+        .footer-background {
+            background-color: #10061e; /* Darker base for footer */
+            transition: background-color 0.3s ease;
+        }
+        .footer-gradient-overlay {
+            background: linear-gradient(135deg, #3f0d88, #0f172a, #000000); /* Dynamic gradient */
+        }
+        @keyframes backgroundPan {
+            0% { background-position: 0% 0%; }
+            100% { background-position: 100% 100%; }
+        }
+        .animate-pulse {
+            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: .7; }
+        }
+        /* General link styling for footer */
+        .footer-link {
+            position: relative;
+            z-index: 1;
+            display: inline-block; /* Ensure transform applies */
+            font-weight: 500;
+        }
+        .footer-link:hover {
+            transform: scale(1.1); /* Subtle scale on hover */
+        }
+
         /* Ripple Effect for buttons (NEW) */
         .ripple {
             position: absolute;
@@ -580,28 +609,34 @@
 
     </main>
 
-    <!-- Footer Section (Consistent with index.html) -->
+    <!-- Footer Section -->
     <footer class="bg-gray-950 text-white p-12 mt-24 shadow-2xl relative overflow-hidden group rounded-t-3xl">
-  <div class="absolute inset-0 bg-gradient-to-br from-[#3f0d88] via-[#0f172a] to-black opacity-70 transform -skew-y-3 scale-110 group-hover:scale-105 transition-transform duration-700"></div>
-  <div class="container mx-auto relative z-10 text-center">
-    <p class="text-2xl md:text-4xl font-extrabold mb-4 tracking-widest text-yellow-400 drop-shadow-xl animate-pulse">
-      Sankalp: Where Coders Are Forged ⚔️
-    </p>
-    <p class="text-sm md:text-lg text-gray-300 mb-6 max-w-3xl mx-auto opacity-90">
-      Not just an institute — a legacy. Powered by vision, driven by code. Every batch, every byte, building futures since 2017.
-    </p>
-    <div class="flex justify-center items-center space-x-8 text-gray-400 text-base font-medium">
-      <a href="/courses" class="hover:text-yellow-300 transition-all duration-300 transform hover:scale-105">Explore Courses</a>
-      <span class="opacity-50">|</span>
-      <a href="/alumni" class="hover:text-indigo-300 transition-all duration-300 transform hover:scale-105">Meet Our Legends</a>
-      <span class="opacity-50">|</span>
-      <a href="/contact" class="hover:text-purple-300 transition-all duration-300 transform hover:scale-105">Connect with Sankalp</a>
-    </div>
-    <div class="mt-10 text-gray-500 text-xs tracking-wide">
-      &copy; 2017 – 2025 <strong>Sankalp Computer Classes</strong>. Crafted by Ayu. <br class="hidden sm:block">
-      💻 Excellence isn't taught — it's coded in.
-    </div>
-  </div>
+        <!-- Background gradient overlay with skew and scale for visual effect -->
+        <div class="absolute inset-0 bg-gradient-to-br from-[#3f0d88] via-[#0f172a] to-black opacity-70 transform -skew-y-3 scale-110 group-hover:scale-105 transition-transform duration-700" style="background-size: 200% 200%; animation: backgroundPan 15s ease infinite alternate;"></div>
+        
+        <div class="container mx-auto relative z-10 text-center">
+            <!-- Main tagline with pulsing animation -->
+            <p class="text-2xl md:text-4xl font-extrabold mb-4 tracking-widest text-yellow-400 drop-shadow-xl animate-pulse">
+                Sankalp: Where Coders Are Forged ⚔️
+            </p>
+            <!-- Descriptive text about the institute -->
+            <p class="text-sm md:text-lg text-gray-300 mb-6 max-w-3xl mx-auto opacity-90">
+                Not just an institute — a legacy. Powered by vision, driven by code. Every batch, every byte, building futures since 2017.
+            </p>
+            <!-- Quick links for navigation within the footer -->
+            <div class="flex justify-center items-center space-x-8 text-gray-400 text-base font-medium">
+                <a href="index.html#courses" class="footer-link hover:text-yellow-300 transition-all duration-300 transform hover:scale-105">Explore Courses</a>
+                <span class="opacity-50">|</span>
+                <a href="album.html" class="footer-link hover:text-indigo-300 transition-all duration-300 transform hover:scale-105">Our Album</a>
+                <span class="opacity-50">|</span>
+                <a href="index.html#contact" class="footer-link hover:text-purple-300 transition-all duration-300 transform hover:scale-105">Connect with Sankalp</a>
+            </div>
+            <!-- Copyright and additional info -->
+            <div class="mt-10 text-gray-500 text-xs tracking-wide">
+                &copy; 2017 – 2025 <strong>Sankalp Computer Classes</strong>. Crafted by Ayu. <br class="hidden sm:block">
+                💻 Excellence isn't taught — it's coded in.
+            </div>
+        </div>
     </footer>
 
 
@@ -788,8 +823,8 @@
                 const radius = diameter / 2;
 
                 circle.style.width = circle.style.height = `${diameter}px`;
-                circle.style.left = `${event.clientX - button.offsetLeft - radius}px`;
-                circle.style.top = `${event.clientY - button.offsetTop - radius}px`;
+                circle.style.left = `${event.clientX - button.getBoundingClientRect().left - radius}px`;
+                circle.style.top = `${event.clientY - button.getBoundingClientRect().top - radius}px`;
                 circle.classList.add("ripple");
 
                 // Remove any existing ripples to prevent accumulation
@@ -801,7 +836,7 @@
                 button.appendChild(circle);
             }
 
-            // Apply ripple effect to specific buttons
+            // Apply ripple effect to specific buttons (ensure they have overflow: hidden in CSS)
             lightboxPrevBtn.addEventListener('click', createRipple);
             lightboxNextBtn.addEventListener('click', createRipple);
             lightboxCloseBtn.addEventListener('click', createRipple);
@@ -835,3 +870,4 @@
     </script>
 </body>
 </html>
+
