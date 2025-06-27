@@ -14,7 +14,7 @@
 
     <!-- Custom Styles -->
     <style>
-        /* Base font settings */
+        /* Base font settings for the entire body */
         body {
             font-family: 'Inter', sans-serif;
             background-color: #f0f4f8; /* Light blue-gray background */
@@ -22,22 +22,22 @@
             line-height: 1.6;
         }
 
-        /* Headings use Exo 2 font */
+        /* Headings and elements with 'font-heading' class use Exo 2 font */
         h1, h2, h3, h4, h5, h6, .font-heading {
             font-family: 'Exo 2', sans-serif;
         }
 
-        /* Section padding for consistency across the site */
+        /* Consistent padding for all main content sections */
         .section-padding {
-            padding: 5rem 1rem;
+            padding: 5rem 1rem; /* Default for smaller screens */
         }
         @media (min-width: 768px) {
             .section-padding {
-                padding: 7rem 2rem;
+                padding: 7rem 2rem; /* Increased padding for larger screens */
             }
         }
 
-        /* Primary Button Style */
+        /* Primary Call-to-Action Button Styling */
         .btn-primary {
             display: inline-flex;
             align-items: center;
@@ -48,31 +48,31 @@
             padding: 0.8rem 2.2rem;
             border-radius: 9999px; /* Fully rounded */
             box-shadow: 0 5px 15px rgba(79, 70, 229, 0.3);
-            transition: all 0.3s ease-in-out;
-            text-decoration: none;
+            transition: all 0.3s ease-in-out; /* Smooth transitions for hover/active states */
+            text-decoration: none; /* Remove underline from links acting as buttons */
             font-size: 1.05rem;
-            white-space: nowrap;
+            white-space: nowrap; /* Prevent text wrapping */
         }
         .btn-primary:hover {
-            background-color: #3730A3; /* Indigo 800 */
-            transform: translateY(-3px) scale(1.02);
-            box-shadow: 0 8px 20px rgba(79, 70, 229, 0.4);
+            background-color: #3730A3; /* Darker Indigo on hover */
+            transform: translateY(-3px) scale(1.02); /* Slight lift and scale */
+            box-shadow: 0 8px 20px rgba(79, 70, 229, 0.4); /* Enhanced shadow on hover */
         }
         .btn-primary:active {
-            transform: translateY(0);
+            transform: translateY(0); /* Return to original position on click */
             box-shadow: 0 4px 10px rgba(79, 70, 229, 0.2);
         }
 
-        /* Secondary Button Style */
+        /* Secondary Button Styling */
         .btn-secondary {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            background-color: transparent;
-            color: #4F46E5; /* Indigo 600 */
+            background-color: transparent; /* Transparent background */
+            color: #4F46E5; /* Indigo 600 text */
             font-weight: 600;
             padding: 0.8rem 2.2rem;
-            border: 2px solid #4F46E5;
+            border: 2px solid #4F46E5; /* Indigo border */
             border-radius: 9999px;
             transition: all 0.3s ease-in-out;
             text-decoration: none;
@@ -80,8 +80,8 @@
             white-space: nowrap;
         }
         .btn-secondary:hover {
-            background-color: #4F46E5;
-            color: white;
+            background-color: #4F46E5; /* Fill with Indigo on hover */
+            color: white; /* White text on hover */
             transform: translateY(-3px) scale(1.02);
             box-shadow: 0 5px 15px rgba(79, 70, 229, 0.2);
         }
@@ -90,30 +90,30 @@
             box-shadow: none;
         }
 
-        /* Card styles for various sections */
+        /* General Card Styling (used in Courses, Facilities) */
         .card {
             background-color: white;
-            border-radius: 0.75rem;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            border-radius: 0.75rem; /* Rounded corners */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); /* Subtle shadow */
             padding: 2rem;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border: 1px solid #e2e8f0; /* Slate 200 */
-            height: 100%; /* Ensure cards in grids have equal height */
+            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effects */
+            border: 1px solid #e2e8f0; /* Light border */
+            height: 100%; /* Ensures uniform height in grid layouts */
         }
         .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            transform: translateY(-5px); /* Lifts the card on hover */
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); /* More pronounced shadow on hover */
         }
 
-        /* Header specific styles */
+        /* Header Specific Styles */
         .main-header {
-            background-color: #1a202c; /* Darker background for header */
+            background-color: #1a202c; /* Dark background for header */
             transition: background-color 0.3s ease, box-shadow 0.3s ease;
         }
         .main-header.scrolled {
-            background-color: rgba(26, 32, 44, 0.95); /* Slightly transparent on scroll */
-            box-shadow: 0 6px 20px rgba(0,0,0,0.25);
-            backdrop-filter: blur(5px); /* Modern blur effect */
+            background-color: rgba(26, 32, 44, 0.95); /* Slightly transparent dark background on scroll */
+            box-shadow: 0 6px 20px rgba(0,0,0,0.25); /* Stronger shadow on scroll */
+            backdrop-filter: blur(5px); /* Modern blur effect for scrolled header */
         }
         .nav-link {
             color: white;
@@ -125,12 +125,14 @@
             font-weight: 500;
         }
         .nav-link:hover {
-            background-color: rgba(255, 255, 255, 0.15);
+            background-color: rgba(255, 255, 255, 0.15); /* Light transparent background on hover */
         }
+        /* Style for the currently active navigation link */
         .nav-link.current-active-link {
             background-color: rgba(255, 255, 255, 0.2);
             font-weight: 700;
         }
+        /* Underline animation for active navigation link */
         .nav-link.current-active-link::after {
             content: '';
             position: absolute;
@@ -138,120 +140,137 @@
             left: 0;
             width: 100%;
             height: 3px;
-            background-color: #6366F1; /* Indigo 500 */
-            animation: fadeInUnderline 0.3s forwards;
+            background-color: #6366F1; /* Indigo 500 underline */
+            animation: fadeInUnderline 0.3s forwards; /* Animation to expand the underline */
         }
-
         @keyframes fadeInUnderline {
             from { width: 0%; opacity: 0; }
             to { width: 100%; opacity: 1; }
         }
 
-        /* Mobile navigation specific styles */
+        /* Mobile Navigation Specific Styles */
         #main-nav {
             transform-origin: top;
-            transition: transform 0.3s ease-out, opacity 0.3s ease-out, max-height 0.3s ease-out;
+            transition: transform 0.3s ease-out, opacity 0.3s ease-out, max-height 0.3s ease-out; /* Smooth transition for mobile menu */
         }
         #main-nav.hidden {
             opacity: 0;
             max-height: 0;
-            transform: scaleY(0);
-            pointer-events: none;
+            transform: scaleY(0); /* Collapse vertically */
+            pointer-events: none; /* Disable interactions when hidden */
         }
         #main-nav.flex {
             opacity: 1;
-            max-height: 500px; /* Sufficient height */
-            transform: scaleY(1);
+            max-height: 500px; /* Sufficient height to display all links */
+            transform: scaleY(1); /* Expand vertically */
             pointer-events: auto;
             overflow: hidden;
             background-color: #2d3748; /* Darker background for mobile menu */
         }
 
-        /* Hero section specific styles */
+        /* Hero Section Specific Styles */
         .hero-background {
-            background: linear-gradient(135deg, #1d4ed8, #4338ca, #6d28d9); /* Deep blues and purples */
-            min-height: 80vh;
+            background: linear-gradient(135deg, #1d4ed8, #4338ca, #6d28d9); /* Deep blues and purples gradient */
+            min-height: 80vh; /* Minimum height for hero section */
             display: flex;
             align-items: center;
             justify-content: center;
             position: relative;
-            overflow: hidden; /* For particles/shapes */
+            overflow: hidden; /* Hide any overflowing animated shapes */
         }
         .hero-overlay {
             position: absolute;
             inset: 0;
-            background: rgba(0,0,0,0.3); /* Subtle dark overlay */
+            background: rgba(0,0,0,0.3); /* Subtle dark overlay for text contrast */
         }
-        /* Optional: Add animated shapes/particles */
+        /* Animated background shapes for visual interest */
         .hero-background::before, .hero-background::after {
             content: '';
             position: absolute;
             border-radius: 50%;
             opacity: 0.15;
-            animation: pulse 10s infinite ease-in-out alternate;
+            animation: pulse 10s infinite ease-in-out alternate; /* Pulsating animation */
             z-index: 0;
         }
         .hero-background::before {
             width: 300px;
             height: 300px;
-            background: #a78bfa; /* Light purple */
+            background: #a78bfa; /* Light purple circle */
             top: -50px;
             left: -50px;
         }
         .hero-background::after {
             width: 400px;
             height: 400px;
-            background: #818cf8; /* Light blue */
+            background: #818cf8; /* Light blue circle */
             bottom: -100px;
             right: -100px;
-            animation-delay: 2s;
+            animation-delay: 2s; /* Stagger the animation of the second shape */
         }
         @keyframes pulse {
             0% { transform: scale(0.95); opacity: 0.15; }
             100% { transform: scale(1.05); opacity: 0.25; }
         }
 
-
-        /* Animations */
+        /* General Animations for Scroll-triggered elements */
         .animate-on-load-hero-text,
         .animate-on-load-hero-buttons,
         .animate-on-scroll {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+            opacity: 0; /* Initially hidden */
+            transform: translateY(20px); /* Initially moved down */
+            transition: opacity 0.7s ease-out, transform 0.7s ease-out; /* Smooth transition */
         }
+        /* Class added by JavaScript to make elements visible and animate */
         .animate-on-load-hero-text.is-visible,
         .animate-on-load-hero-buttons.is-visible,
         .animate-on-scroll.is-visible {
-            opacity: 1;
-            transform: translateY(0);
+            opacity: 1; /* Fully visible */
+            transform: translateY(0); /* Move to original position */
         }
+        /* Staggered delays for elements in the hero section */
         .animate-on-load-hero-text { transition-delay: 0.1s; }
         .animate-on-load-hero-buttons { transition-delay: 0.4s; }
-        .animate-on-scroll:nth-child(1) { transition-delay: 0.05s; }
-        .animate-on-scroll:nth-child(2) { transition-delay: 0.1s; }
-        .animate-on-scroll:nth-child(3) { transition-delay: 0.15s; }
-        /* Add more specific delays for grid items if needed */
+        /* Staggered delays for cards in sections (handled via JS for flexibility) */
         .card.animate-on-scroll { transition-delay: var(--delay); }
 
-        /* Specific styles for About section image */
+        /* Specific styles for About section image to make it clickable */
         .about-image-wrapper {
             position: relative;
             overflow: hidden;
             border-radius: 1rem;
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: block; /* Ensure the link wrapper behaves as a block */
         }
         .about-image-wrapper:hover {
-            transform: scale(1.03);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+            transform: scale(1.03); /* Slight scale on hover */
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25); /* Enhanced shadow on hover */
         }
         .about-image-wrapper img {
             width: 100%;
             height: auto;
             display: block;
-            object-fit: cover;
+            object-fit: cover; /* Cover the area, cropping if needed */
             border-radius: 1rem;
+        }
+
+        /* Form specific styles */
+        .form-input {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 1px solid #cbd5e0; /* Light gray border */
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+        .form-input:focus {
+            outline: none;
+            border-color: #4F46E5; /* Indigo border on focus */
+            box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.2); /* Light indigo shadow on focus */
+        }
+        .form-textarea {
+            min-height: 100px;
+            resize: vertical;
         }
     </style>
 </head>
@@ -262,11 +281,11 @@
         <div class="container mx-auto flex justify-between items-center px-4">
             <!-- Logo and Site Title -->
             <div class="flex items-center">
-                <img src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/logo.jpg" alt="Sankalp Classes Logo" class="h-10 w-10 rounded-full mr-3 border-2 border-indigo-400 shadow-md">
+                <img src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/logo.jpg" onerror="this.onerror=null;this.src='https://placehold.co/40x40/4F46E5/FFFFFF?text=Logo';" alt="Sankalp Classes Logo" class="h-10 w-10 rounded-full mr-3 border-2 border-indigo-400 shadow-md">
                 <h1 class="text-2xl font-extrabold font-heading tracking-wide text-indigo-100">Sankalp Classes</h1>
             </div>
 
-            <!-- Mobile Menu Button (Hamburger) -->
+            <!-- Mobile Menu Toggle Button (Hamburger Icon) -->
             <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none focus:ring-2 focus:ring-indigo-400 p-2 rounded-md">
                 <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
@@ -320,7 +339,7 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                     <div class="md:order-2">
                         <p class="text-lg leading-relaxed text-gray-700 mb-6">
-                            At Sankalp Computer Classes, we are dedicated to **empowering students with skills that matter for a digital future.** Located in the heart of Ratanpura, Mau, we have become a beacon of high-quality, practical computer education. Our mission is to bridge the gap between academic knowledge and industry demands, equipping our students with the competencies needed to excel.
+                            At Sankalp Computer Classes, we are dedicated to <strong class="text-indigo-700">empowering students with skills that matter for a digital future.</strong> Located in the heart of Ratanpura, Mau, we have become a beacon of high-quality, practical computer education. Our mission is to bridge the gap between academic knowledge and industry demands, equipping our students with the competencies needed to excel.
                         </p>
                         <p class="text-lg leading-relaxed text-gray-700">
                             Our experienced faculty, modern infrastructure, and career-focused curriculum ensure that every student receives personalized attention and hands-on training. We believe in fostering an environment where learning is not just about gaining certificates, but about building a strong foundation for a thriving career. Join our community and transform your aspirations into achievements.
@@ -347,127 +366,108 @@
                 </p>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <!-- Course Card 1: Full Stack Web Development -->
+                    <!-- Academic & Competitive Exam Preparation -->
                     <div class="card animate-on-scroll" style="--delay: 0s;">
-                        <div class="text-5xl text-indigo-500 mb-4 text-center">💡</div>
-                        <h3 class="text-2xl font-bold font-heading text-gray-800 mb-3 text-center">Full Stack Web Development (MERN)</h3>
-                        <p class="text-gray-600 text-sm leading-relaxed mb-4">Master MongoDB, Express.js, React.js, and Node.js to build dynamic, scalable web applications from front-end to back-end.</p>
-                        <ul class="list-disc list-inside text-sm text-gray-600 space-y-1">
-                            <li>Modern UI with React.js</li>
-                            <li>Server-side with Node.js & Express</li>
-                            <li>Database design with MongoDB</li>
-                            <li>Deployment strategies</li>
+                        <div class="text-5xl text-emerald-600 mb-4 text-center">🎓</div>
+                        <h3 class="text-2xl font-bold font-heading text-gray-800 mb-3 text-center">Academic & Competitive Coaching</h3>
+                        <ul class="list-disc list-inside text-sm text-gray-700 space-y-1">
+                            <li>Comprehensive coaching for **UP Board, CBSE, ICSE Boards** (Classes 6-12).</li>
+                            <li>Targeted preparation for **SSC CGL** and other government exams.</li>
+                            <li>Specialized coaching for **CHS, BHU, Navodaya, Sainik Vidyalay, Gurukul** entrance exams.</li>
+                            <li>Intensive preparation for **IIT JEE, NEET, CUET** entrance examinations.</li>
                         </ul>
                     </div>
 
-                    <!-- Course Card 2: Data Science & Machine Learning -->
+                    <!-- Professional Computer & Software Training -->
                     <div class="card animate-on-scroll" style="--delay: 0.1s;">
-                        <div class="text-5xl text-blue-500 mb-4 text-center">📊</div>
-                        <h3 class="text-2xl font-bold font-heading text-gray-800 mb-3 text-center">Data Science & Machine Learning</h3>
-                        <p class="text-gray-600 text-sm leading-relaxed mb-4">Dive into data analysis, visualization, and predictive modeling using Python, scikit-learn, and popular ML algorithms.</p>
-                        <ul class="list-disc list-inside text-sm text-gray-600 space-y-1">
-                            <li>Python for Data Analysis</li>
-                            <li>Machine Learning Algorithms</li>
-                            <li>Data Visualization with Matplotlib/Seaborn</li>
-                            <li>Predictive Analytics</li>
+                        <div class="text-5xl text-indigo-600 mb-4 text-center">💻</div>
+                        <h3 class="text-2xl font-bold font-heading text-gray-800 mb-3 text-center">Professional Computer & Software Training</h3>
+                        <ul class="list-disc list-inside text-sm text-gray-700 space-y-1">
+                            <li>**ADCA** (Advanced Diploma in Computer Application)</li>
+                            <li>**HDCA** (Higher Diploma in Computer Application)</li>
+                            <li>**DCA** (Diploma in Computer Application)</li>
+                            <li>**PGDCA** (Post Graduate Diploma in Computer Application)</li>
+                            <li>**DDTP** (Desktop Publishing)</li>
+                            <li>**MS Excel** - Basic to Advanced</li>
                         </ul>
                     </div>
 
-                    <!-- Course Card 3: UI/UX Design -->
+                    <!-- Tally & Financial Accounting -->
                     <div class="card animate-on-scroll" style="--delay: 0.2s;">
-                        <div class="text-5xl text-purple-500 mb-4 text-center">✨</div>
-                        <h3 class="text-2xl font-bold font-heading text-gray-800 mb-3 text-center">UI/UX Design</h3>
-                        <p class="text-gray-600 text-sm leading-relaxed mb-4">Learn to create intuitive and aesthetically pleasing user interfaces and experiences for web and mobile applications.</p>
-                        <ul class="list-disc list-inside text-sm text-gray-600 space-y-1">
-                            <li>Wireframing & Prototyping</li>
-                            <li>User Research & Persona Development</li>
-                            <li>Figma/Adobe XD proficiency</li>
-                            <li>Responsive Design principles</li>
+                        <div class="text-5xl text-purple-600 mb-4 text-center">📊</div>
+                        <h3 class="text-2xl font-bold font-heading text-gray-800 mb-3 text-center">Tally & Financial Accounting</h3>
+                        <ul class="list-disc list-inside text-sm text-gray-700 space-y-1">
+                            <li>**Tally Prime** with comprehensive GST implementation.</li>
+                            <li>**Tally ERP 9** (Legacy system support and advanced features).</li>
+                            <li>**DFA** (Diploma in Financial Accounting).</li>
+                            <li>Practical training in billing, inventory, and financial reporting.</li>
                         </ul>
                     </div>
 
-                    <!-- Course Card 4: Cybersecurity Fundamentals -->
+                    <!-- Graphic Design & Multimedia -->
                     <div class="card animate-on-scroll" style="--delay: 0.3s;">
-                        <div class="text-5xl text-red-500 mb-4 text-center">🔒</div>
-                        <h3 class="text-2xl font-bold font-heading text-gray-800 mb-3 text-center">Cybersecurity Fundamentals</h3>
-                        <p class="text-gray-600 text-sm leading-relaxed mb-4">Understand the basics of network security, threat detection, and safeguarding digital assets in an interconnected world.</p>
-                        <ul class="list-disc list-inside text-sm text-gray-600 space-y-1">
-                            <li>Network Security Basics</li>
-                            <li>Common Cyber Threats</li>
-                            <li>Incident Response</li>
-                            <li>Best Practices for Data Protection</li>
+                        <div class="text-5xl text-yellow-600 mb-4 text-center">🎨</div>
+                        <h3 class="text-2xl font-bold font-heading text-gray-800 mb-3 text-center">Graphic Design & Multimedia</h3>
+                        <ul class="list-disc list-inside text-sm text-gray-700 space-y-1">
+                            <li>**Adobe Photoshop** for image editing and manipulation.</li>
+                            <li>**CorelDRAW** for vector graphics and illustration.</li>
+                            <li>Principles of professional logo creation and branding.</li>
+                            <li>Digital poster and brochure design.</li>
                         </ul>
                     </div>
 
-                    <!-- Course Card 5: Digital Marketing & SEO -->
+                    <!-- Typing & Data Entry -->
                     <div class="card animate-on-scroll" style="--delay: 0.4s;">
-                        <div class="text-5xl text-green-500 mb-4 text-center">📈</div>
-                        <h3 class="text-2xl font-bold font-heading text-gray-800 mb-3 text-center">Digital Marketing & SEO</h3>
-                        <p class="text-gray-600 text-sm leading-relaxed mb-4">Master online marketing strategies including SEO, social media marketing, content creation, and analytics to boost brand visibility.</p>
-                        <ul class="list-disc list-inside text-sm text-gray-600 space-y-1">
-                            <li>Search Engine Optimization (SEO)</li>
-                            <li>Social Media Marketing</li>
-                            <li>Content Marketing</li>
-                            <li>Google Analytics</li>
-                        </ul>
-                    </div>
-
-                    <!-- Course Card 6: Tally Prime with GST -->
-                    <div class="card animate-on-scroll" style="--delay: 0.5s;">
-                        <div class="text-5xl text-orange-500 mb-4 text-center">💲</div>
-                        <h3 class="text-2xl font-bold font-heading text-gray-800 mb-3 text-center">Tally Prime with GST</h3>
-                        <p class="text-gray-600 text-sm leading-relaxed mb-4">Comprehensive training in Tally Prime software, covering advanced accounting, inventory management, and Goods & Services Tax compliance.</p>
-                        <ul class="list-disc list-inside text-sm text-gray-600 space-y-1">
-                            <li>Advanced Accounting Entries</li>
-                            <li>Inventory Management</li>
-                            <li>GST Returns & Compliance</li>
-                            <li>Financial Reporting</li>
-                        </ul>
-                    </div>
-
-                     <!-- Course Card 7: Advanced Microsoft Office Suite -->
-                    <div class="card animate-on-scroll" style="--delay: 0.6s;">
-                        <div class="text-5xl text-teal-500 mb-4 text-center">📝</div>
-                        <h3 class="text-2xl font-bold font-heading text-gray-800 mb-3 text-center">Advanced Microsoft Office Suite</h3>
-                        <p class="text-gray-600 text-sm leading-relaxed mb-4">Master Word, Excel, PowerPoint, and Outlook for professional document creation, data analysis, presentations, and communication.</p>
-                        <ul class="list-disc list-inside text-sm text-gray-600 space-y-1">
-                            <li>Complex Excel Formulas & Macros</li>
-                            <li>Professional PowerPoint Presentations</li>
-                            <li>Word Document Automation</li>
-                            <li>Efficient Outlook Management</li>
-                        </ul>
-                    </div>
-
-                    <!-- Course Card 8: Typing (Hindi & English) -->
-                    <div class="card animate-on-scroll" style="--delay: 0.7s;">
-                        <div class="text-5xl text-cyan-500 mb-4 text-center">⌨️</div>
+                        <div class="text-5xl text-red-600 mb-4 text-center">⌨️</div>
                         <h3 class="text-2xl font-bold font-heading text-gray-800 mb-3 text-center">Typing (Hindi & English)</h3>
-                        <p class="text-gray-600 text-sm leading-relaxed mb-4">Dedicated practice sessions to significantly improve your typing speed and accuracy in both English and Hindi, essential for competitive exams and office work.</p>
-                        <ul class="list-disc list-inside text-sm text-gray-600 space-y-1">
-                            <li>Touch Typing Techniques</li>
-                            <li>Speed & Accuracy Drills</li>
-                            <li>Ergonomics for Typing</li>
-                            <li>Practice for Competitive Exams</li>
+                        <ul class="list-disc list-inside text-sm text-gray-700 space-y-1">
+                            <li>Dedicated speed and accuracy training.</li>
+                            <li>Daily practice sessions for rapid improvement.</li>
+                            <li>Essential for government job exams and data entry roles.</li>
+                            <li>Master both Devanagari and Roman script typing.</li>
                         </ul>
                     </div>
 
-                    <!-- Course Card 9: Academic & Competitive Exam Coaching -->
-                    <div class="card animate-on-scroll" style="--delay: 0.8s;">
-                        <div class="text-5xl text-emerald-500 mb-4 text-center">📚</div>
-                        <h3 class="text-2xl font-bold font-heading text-gray-800 mb-3 text-center">Academic & Competitive Exam Coaching</h3>
-                        <p class="text-gray-600 text-sm leading-relaxed mb-4">Comprehensive coaching for school academics (Classes 6-12) and targeted preparation for various government competitive examinations.</p>
-                        <ul class="list-disc list-inside text-sm text-gray-600 space-y-1">
-                            <li>Science & Math Tutoring (6-12)</li>
-                            <li>SSC CGL & Bank Exam Prep</li>
-                            <li>Railway & Other One-Day Exams</li>
-                            <li>Expert Faculty & Study Material</li>
+                    <!-- Web Essentials & Programming (New, based on modern tech trends) -->
+                    <div class="card animate-on-scroll" style="--delay: 0.5s;">
+                        <div class="text-5xl text-blue-600 mb-4 text-center">🌐</div>
+                        <h3 class="text-2xl font-bold font-heading text-gray-800 mb-3 text-center">Web Essentials & Programming</h3>
+                        <ul class="list-disc list-inside text-sm text-gray-700 space-y-1">
+                            <li>Fundamentals of **HTML, CSS, JavaScript** for web pages.</li>
+                            <li>Introduction to responsive web design.</li>
+                            <li>Basic programming logic and problem-solving.</li>
+                            <li>(Future: Python Basics for scripting and automation)</li>
                         </ul>
                     </div>
+
                 </div>
                 <div class="text-center mt-16">
-                    <a href="#contact" class="btn-primary">
+                    <a href="#callback" class="btn-primary">
                         <span class="mr-2">👉</span> Inquire About Courses
                     </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Awards & Recognition Section (NEW) -->
+        <section id="awards" class="section-padding bg-gray-100 animate-on-scroll">
+            <div class="container mx-auto max-w-6xl text-center">
+                <h2 class="text-4xl font-extrabold font-heading text-gray-800 mb-12">
+                    Our <span class="text-green-600">Prestigious Recognitions</span>
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center justify-center">
+                    <div class="card flex flex-col items-center p-8 animate-on-scroll" style="--delay: 0s;">
+                        <span class="text-7xl text-yellow-500 mb-4">🏆</span>
+                        <h3 class="text-2xl font-bold font-heading text-gray-800 mb-2">India's Best Institute Award</h3>
+                        <p class="text-lg text-gray-700">Winner 2024 - Awarded by <strong class="text-red-500">CEO Ashneer Grover</strong></p>
+                        <p class="text-sm text-gray-500 mt-2">Recognizing our commitment to excellence in education.</p>
+                    </div>
+                    <div class="card flex flex-col items-center p-8 animate-on-scroll" style="--delay: 0.1s;">
+                        <span class="text-7xl text-blue-500 mb-4">⭐</span>
+                        <h3 class="text-2xl font-bold font-heading text-gray-800 mb-2">Top 100 Institute List</h3>
+                        <p class="text-lg text-gray-700">Proudly featured among India's elite educational institutions.</p>
+                        <p class="text-sm text-gray-500 mt-2">A testament to our quality, infrastructure, and student success.</p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -507,11 +507,59 @@
             </div>
         </section>
 
+        <!-- Request a Callback / Contact Form Section (NEW) -->
+        <section id="callback" class="section-padding bg-gradient-to-br from-purple-50 to-pink-50 animate-on-scroll">
+            <div class="container mx-auto max-w-3xl bg-white p-8 md:p-10 rounded-xl shadow-lg border border-gray-200">
+                <h2 class="text-4xl font-extrabold font-heading text-center text-gray-800 mb-8">
+                    Ready to Start? <span class="text-purple-600">Request a Callback!</span>
+                </h2>
+                <p class="text-center text-lg text-gray-600 mb-8">
+                    Fill out the form below, and our team will get in touch with you shortly to discuss your learning goals.
+                </p>
+                <form action="https://formspree.io/f/xovwpynb" method="POST" class="space-y-6">
+                    <div>
+                        <label for="name" class="block text-gray-700 text-lg font-medium mb-2">Your Name</label>
+                        <input type="text" id="name" name="name" class="form-input" placeholder="Enter your full name" required>
+                    </div>
+                    <div>
+                        <label for="email" class="block text-gray-700 text-lg font-medium mb-2">Email Address</label>
+                        <input type="email" id="email" name="email" class="form-input" placeholder="your.email@example.com" required>
+                    </div>
+                    <div>
+                        <label for="phone" class="block text-gray-700 text-lg font-medium mb-2">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" class="form-input" placeholder="+91 98765 43210" required>
+                    </div>
+                    <div>
+                        <label for="course" class="block text-gray-700 text-lg font-medium mb-2">Interested Course</label>
+                        <select id="course" name="course" class="form-input" required>
+                            <option value="">Select a course...</option>
+                            <option value="Academic & Competitive Coaching">Academic & Competitive Coaching</option>
+                            <option value="Full Stack Web Development">Professional Computer & Software Training</option>
+                            <option value="Tally & Financial Accounting">Tally & Financial Accounting</option>
+                            <option value="Graphic Design & Multimedia">Graphic Design & Multimedia</option>
+                            <option value="Typing (Hindi & English)">Typing (Hindi & English)</option>
+                            <option value="Web Essentials & Programming">Web Essentials & Programming</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="message" class="block text-gray-700 text-lg font-medium mb-2">Your Message</label>
+                        <textarea id="message" name="message" class="form-input form-textarea" placeholder="Tell us about your requirements..."></textarea>
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="btn-primary">
+                            <span class="mr-2">✉️</span> Send Request
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </section>
+
         <!-- Contact Section -->
         <section id="contact" class="section-padding bg-gradient-to-br from-blue-50 to-indigo-50 animate-on-scroll">
             <div class="container mx-auto max-w-5xl">
                 <h2 class="text-4xl font-extrabold font-heading text-center text-gray-800 mb-12">
-                    Get in <span class="text-indigo-600">Touch</span>
+                    Connect <span class="text-indigo-600">With Us</span>
                 </h2>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-10 bg-white p-8 rounded-xl shadow-lg border border-gray-200">
                     <!-- Contact Details -->
@@ -540,7 +588,7 @@
                     <!-- Google Map Embed with CORRECTED Coordinates -->
                     <div class="w-full h-80 md:h-full rounded-xl overflow-hidden shadow-md border border-gray-200">
                         <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3587.218844883162!2d83.74248582498263!3d25.920122977759055!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjXCsDU1JzEyLjQiTiA4M8KwNDQuNDcuOCJF!5e0!3m2!1sen!2sin!4v1678901234567!5m2!1sen!2sin"
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14283.47354148154!2d83.74248582498263!3d25.920122977759055!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjXCsDU1JzEyLjQiTiA4M8KwNDQuNDcuOCJF!5e0!3m2!1sen!2sin!4v1719488400000!5m2!1sen!2sin"
                             width="100%"
                             height="100%"
                             style="border:0;"
@@ -587,6 +635,7 @@
             // Close mobile menu when a nav link is clicked (for smooth UX)
             navLinks.forEach(link => {
                 link.addEventListener('click', () => {
+                    // Only close if on a mobile view and menu is open
                     if (window.innerWidth < 768 && !mainNav.classList.contains('hidden')) {
                         mainNav.classList.add('hidden');
                         mainNav.classList.remove('opacity-100', 'max-h-screen', 'flex');
@@ -597,10 +646,11 @@
 
             // Handle window resize to ensure correct menu state for desktop
             window.addEventListener('resize', function() {
-                if (window.innerWidth >= 768) {
+                if (window.innerWidth >= 768) { // If desktop view
                     mainNav.classList.remove('hidden', 'opacity-0', 'max-h-0');
                     mainNav.classList.add('opacity-100', 'max-h-full');
-                } else {
+                } else { // If mobile view
+                    // If menu is currently open (from desktop resize) and now mobile, hide it
                     if (!mainNav.classList.contains('hidden')) {
                          mainNav.classList.add('hidden');
                          mainNav.classList.remove('opacity-100', 'max-h-screen');
@@ -623,7 +673,8 @@
                 const headerHeight = header.offsetHeight; // Get dynamic header height
 
                 sections.forEach(section => {
-                    const sectionTop = section.offsetTop - headerHeight - 30; // Adjust for header and a buffer
+                    // Adjust sectionTop to consider the fixed header and a small buffer
+                    const sectionTop = section.offsetTop - headerHeight - 30;
                     const sectionBottom = sectionTop + section.offsetHeight;
 
                     if (window.scrollY >= sectionTop && window.scrollY < sectionBottom) {
@@ -646,6 +697,7 @@
             const heroTextElements = document.querySelectorAll('.animate-on-load-hero-text');
             const heroButtonElements = document.querySelectorAll('.animate-on-load-hero-buttons');
 
+            // Trigger hero section animations after a slight delay to ensure CSS is loaded
             setTimeout(() => {
                 heroTextElements.forEach(el => el.classList.add('is-visible'));
                 heroButtonElements.forEach(el => el.classList.add('is-visible'));
@@ -655,25 +707,27 @@
             const animateOnScrollElements = document.querySelectorAll('.animate-on-scroll');
 
             const observerOptions = {
-                root: null, // Use the viewport as the root
+                root: null, // Use the viewport as the root for observation
                 rootMargin: '0px',
-                threshold: 0.1 // Trigger when 10% of the element is visible
+                threshold: 0.1 // Trigger when 10% of the element is visible in the viewport
             };
 
             const observer = new IntersectionObserver((entries, observer) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
-                        // Apply a staggered delay for grid items
+                        // Apply a staggered delay for grid items (like course cards, facility cards)
+                        // This uses a CSS custom property '--delay' for animation-delay
                         if (entry.target.classList.contains('card')) {
                             const index = Array.from(entry.target.parentNode.children).indexOf(entry.target);
                             entry.target.style.setProperty('--delay', `${index * 0.1}s`);
                         }
-                        entry.target.classList.add('is-visible');
+                        entry.target.classList.add('is-visible'); // Add class to trigger animation
                         observer.unobserve(entry.target); // Stop observing once animated
                     }
                 });
             }, observerOptions);
 
+            // Observe each element marked for scroll animation
             animateOnScrollElements.forEach(el => {
                 observer.observe(el);
             });
