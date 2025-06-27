@@ -378,9 +378,9 @@
 
         <!-- Album Content Grid -->
         <section id="album-content" class="section-padding bg-gray-100">
-            <div class="container mx-auto bg-white p-6 md:p-10 rounded-xl shadow-lg max-w-7xl border border-gray-200">
-
-                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 photo-grid">
+            <div class="container mx-auto bg-white p-6 md:p-10 rounded-xl shadow-lg max-w-6xl border border-gray-200">
+                <!-- Changed grid-cols-4 to grid-cols-3 for large screens, increased gap -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 photo-grid">
 
                     <!-- Album Images (18 Slots) - Each wrapped in an album-item for click functionality -->
                     <!-- The 'data-src' attribute holds the high-resolution image for the lightbox -->
@@ -646,7 +646,7 @@
             function closeLightbox() {
                 lightboxOverlay.classList.remove('active'); // Deactivate the lightbox overlay
                 document.body.style.overflow = ''; // Restore background scrolling
-                lightboxImg.style.opacity = '0'; // Hide image when closing
+                lightboxImg.style.opacity = '0'; // Hide image when closing to ensure fade-in next time
             }
 
             function showNextImage() {
