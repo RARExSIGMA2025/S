@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
@@ -123,28 +124,35 @@
             background-color: #2d3748;
         }
 
-        /* Album Hero Section Styling */
+        /* Album Hero Section Styling (Unique Look) */
         .album-hero-background {
-            background: linear-gradient(135deg, #4F46E5, #6366F1, #8B5CF6); /* Deeper, more engaging gradient */
-            min-height: 40vh;
+            /* Dynamic radial gradient with animation */
+            background: radial-gradient(circle at top left, #6366F1, #8B5CF6, #4F46E5);
+            background-size: 200% 200%; /* Larger size for animation */
+            animation: backgroundPan 15s ease infinite alternate; /* Pan the background slowly */
+            min-height: 45vh; /* Slightly taller hero for impact */
             display: flex;
             align-items: center;
             justify-content: center;
             position: relative;
             overflow: hidden;
         }
+        @keyframes backgroundPan {
+            0% { background-position: 0% 0%; }
+            100% { background-position: 100% 100%; }
+        }
         .album-hero-background::before {
             content: '';
             position: absolute;
             inset: 0;
-            background: rgba(0,0,0,0.15); /* Subtle dark overlay */
+            background: rgba(0,0,0,0.25); /* More pronounced dark overlay for contrast */
             z-index: 0;
         }
         .album-hero-content {
             position: relative;
             z-index: 1; /* Ensure content is above overlay */
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.4); /* Subtle text shadow */
         }
-
 
         /* Album Grid Items Styling */
         .album-item {
@@ -152,19 +160,28 @@
             cursor: pointer;
             border-radius: 0.75rem;
             overflow: hidden;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            background-color: #ffffff; /* White background for the card */
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1); /* Slightly stronger initial shadow */
+            transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); /* Smoother animation curve */
+            background-color: #ffffff;
             display: flex;
             align-items: center;
             justify-content: center;
-            height: 250px; /* Fixed height for consistent grid */
-            border: 1px solid #e2e8f0; /* Light border */
+            height: 250px;
+            border: 1px solid #e2e8f0;
+            /* Animation for staggered fade-in */
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+            transition-delay: var(--stagger-delay, 0s); /* Custom property for staggered delay */
+        }
+        .album-item.is-visible {
+            opacity: 1;
+            transform: translateY(0);
         }
         /* Hover effect for album items */
         .album-item:hover {
-            transform: translateY(-8px); /* Lifts the card on hover */
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15); /* More pronounced shadow */
+            transform: translateY(-10px) scale(1.02); /* More pronounced lift and scale */
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2); /* Stronger shadow */
         }
 
         /* Image within album item (ensures full image fit) */
@@ -173,14 +190,14 @@
             height: 100%;
             object-fit: contain; /* PERFECT FIT: Ensures the whole image is visible without cropping */
             display: block;
-            transition: transform 0.3s ease; /* Smooth zoom for image on hover if needed */
+            transition: transform 0.3s ease;
         }
 
-        /* Overlay for hover effects on album items */
+        /* Overlay for hover effects on album items with icon */
         .album-item-overlay {
             position: absolute;
             inset: 0;
-            background-color: rgba(0, 0, 0, 0.5); /* Dark transparent overlay */
+            background-color: rgba(0, 0, 0, 0.6); /* Slightly darker transparent overlay */
             display: flex;
             align-items: center;
             justify-content: center;
@@ -190,14 +207,21 @@
             font-size: 2.5rem;
             pointer-events: none; /* Allow clicks to pass through to the item */
         }
-        /* Show overlay on hover */
+        /* Icon within overlay */
+        .album-item-overlay svg {
+            transition: transform 0.3s ease; /* Icon scale animation */
+        }
+        /* Show overlay and animate icon on hover */
         .album-item:hover .album-item-overlay {
             opacity: 1;
+        }
+        .album-item:hover .album-item-overlay svg {
+            transform: scale(1.1); /* Slightly enlarge icon on hover */
         }
 
         /* Video specific wrapper for consistent aspect ratio and sizing */
         .album-item .video-item-wrapper {
-             height: 100%; /* Take full height of the album-item card */
+             height: 100%;
              width: 100%;
         }
         .album-item .video-responsive {
@@ -205,7 +229,7 @@
             padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
             height: 0;
             overflow: hidden;
-            border-radius: 0.75rem; /* Match parent card's border-radius */
+            border-radius: 0.75rem;
             width: 100%;
         }
         .album-item .video-responsive iframe,
@@ -215,7 +239,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            border-radius: inherit; /* Inherit border-radius from parent */
+            border-radius: inherit;
         }
 
         /* Lightbox/Modal Gallery Styles */
@@ -225,15 +249,15 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.9); /* Darker, more opaque overlay */
+            background: rgba(0, 0, 0, 0.95); /* Even darker, almost opaque overlay */
             display: flex;
             justify-content: center;
             align-items: center;
             z-index: 1000;
             opacity: 0;
             visibility: hidden;
-            transition: opacity 0.3s ease; /* Smooth fade-in/out */
-            backdrop-filter: blur(5px); /* Subtle blur effect on background */
+            transition: opacity 0.4s ease; /* Slower fade for lightbox */
+            backdrop-filter: blur(8px); /* More pronounced blur effect */
         }
         .lightbox-overlay.active {
             opacity: 1;
@@ -241,19 +265,25 @@
         }
         .lightbox-content {
             position: relative;
-            max-width: 95%; /* Increased max-width for larger images */
-            max-height: 95%; /* Increased max-height */
+            max-width: 95%;
+            max-height: 95%;
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: transform 0.3s ease, opacity 0.3s ease; /* For content animations */
+            opacity: 0; /* Initial state for entry animation */
+            transform: scale(0.95); /* Initial state for entry animation */
+            transition: opacity 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+        .lightbox-overlay.active .lightbox-content {
+            opacity: 1;
+            transform: scale(1);
         }
         .lightbox-content img {
             max-width: 100%;
             max-height: 100%;
-            object-fit: contain; /* Ensures the whole image fits without cropping */
-            border-radius: 0.75rem; /* More rounded corners */
-            box-shadow: 0 0 40px rgba(0, 0, 0, 0.7); /* Stronger shadow */
+            object-fit: contain;
+            border-radius: 0.75rem;
+            box-shadow: 0 0 50px rgba(0, 0, 0, 0.8); /* Even stronger shadow */
             transition: opacity 0.3s ease; /* For image changing animation */
         }
 
@@ -262,72 +292,93 @@
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            background: rgba(255, 255, 255, 0.2); /* Semi-transparent white background */
+            background: rgba(255, 255, 255, 0.25); /* Slightly more opaque white */
             color: white;
             padding: 1rem;
             border-radius: 50%;
             cursor: pointer;
             z-index: 1010;
-            transition: background-color 0.2s ease, transform 0.2s ease;
+            transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 50px; /* Larger size for better touch targets */
-            height: 50px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            width: 55px; /* Larger buttons */
+            height: 55px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.4); /* Stronger button shadow */
+            overflow: hidden; /* For ripple effect */
         }
         .lightbox-nav-btn:hover {
-            background: rgba(255, 255, 255, 0.4); /* More transparent white on hover */
-            transform: translateY(-50%) scale(1.05); /* Slight scale on hover */
+            background: rgba(255, 255, 255, 0.4);
+            transform: translateY(-50%) scale(1.08); /* More noticeable scale */
+            box-shadow: 0 6px 20px rgba(0,0,0,0.5);
         }
-        .lightbox-nav-btn.left { left: 20px; }
-        .lightbox-nav-btn.right { right: 20px; }
+        .lightbox-nav-btn.left { left: 25px; } /* Slightly more inward */
+        .lightbox-nav-btn.right { right: 25px; } /* Slightly more inward */
         /* Adjust navigation buttons for very small mobile screens */
         @media (max-width: 640px) {
             .lightbox-nav-btn {
-                width: 45px;
-                height: 45px;
+                width: 50px;
+                height: 50px;
                 left: 10px;
                 right: 10px;
             }
         }
         /* Icon styling inside buttons */
         .lightbox-nav-btn svg {
-            width: 28px;
-            height: 28px;
+            width: 30px; /* Larger icon */
+            height: 30px;
         }
 
         /* Close button for lightbox */
         .lightbox-close-btn {
             position: absolute;
-            top: 20px;
-            right: 20px;
-            background: rgba(255, 255, 255, 0.2); /* Semi-transparent white background */
+            top: 25px; /* Slightly more inward */
+            right: 25px; /* Slightly more inward */
+            background: rgba(255, 255, 255, 0.25);
             color: white;
             border-radius: 50%;
-            width: 40px;
-            height: 40px;
+            width: 45px; /* Larger close button */
+            height: 45px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.8rem; /* Larger 'x' icon */
+            font-size: 1.8rem;
             cursor: pointer;
             z-index: 1010;
-            transition: background-color 0.2s ease, transform 0.2s ease;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+            overflow: hidden; /* For ripple effect */
         }
         .lightbox-close-btn:hover {
-            background: rgba(255, 0, 0, 0.7); /* Red background on hover */
-            transform: rotate(90deg) scale(1.05); /* Rotate and slight scale on hover */
+            background: rgba(255, 0, 0, 0.7);
+            transform: rotate(90deg) scale(1.08); /* More noticeable rotate and scale */
+            box-shadow: 0 6px 20px rgba(255,0,0,0.5);
         }
         /* Adjust close button for very small mobile screens */
         @media (max-width: 640px) {
             .lightbox-close-btn {
-                top: 10px;
-                right: 10px;
-                width: 35px;
-                height: 35px;
-                font-size: 1.4rem;
+                top: 15px;
+                right: 15px;
+                width: 40px;
+                height: 40px;
+                font-size: 1.6rem;
+            }
+        }
+
+        /* Ripple Effect for buttons (NEW) */
+        .ripple {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5); /* White ripple */
+            animation: ripple-animation 0.6s linear forwards;
+            pointer-events: none; /* Ensure clicks go through */
+            transform: scale(0);
+        }
+
+        @keyframes ripple-animation {
+            to {
+                transform: scale(2.5); /* Expand ripple */
+                opacity: 0; /* Fade out */
             }
         }
     </style>
@@ -369,17 +420,18 @@
         <!-- Album Hero Section -->
         <section class="album-hero-background text-white text-center section-padding">
             <div class="album-hero-content container mx-auto">
-                <h1 class="text-4xl md:text-5xl font-extrabold font-heading mb-4">🎉 Our Memorable Moments 🎉</h1>
+                <h1 class="text-4xl md:text-5xl font-extrabold font-heading mb-4">✨ Our Campus Life in Moments ✨</h1>
                 <p class="text-lg md:text-xl font-light opacity-90 max-w-2xl mx-auto">
-                    A visual journey showcasing our vibrant campus life, student achievements, and special events.
+                    A vibrant collection of our events, student achievements, and the daily life that makes Sankalp special.
                 </p>
             </div>
         </section>
 
         <!-- Album Content Grid -->
         <section id="album-content" class="section-padding bg-gray-100">
+            <!-- Increased max-w to 6xl for slightly more content width, but still contained -->
             <div class="container mx-auto bg-white p-6 md:p-10 rounded-xl shadow-lg max-w-6xl border border-gray-200">
-                <!-- Changed grid-cols-4 to grid-cols-3 for large screens, increased gap -->
+                <!-- Changed to lg:grid-cols-3 for 3 photos in a row on large screens -->
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 photo-grid">
 
                     <!-- Album Images (18 Slots) - Each wrapped in an album-item for click functionality -->
@@ -710,8 +762,59 @@
                     }
                 }
             });
+
+            // --- Ripple Effect for Buttons ---
+            function createRipple(event) {
+                const button = event.currentTarget;
+                const circle = document.createElement("span");
+                const diameter = Math.max(button.offsetWidth, button.offsetHeight);
+                const radius = diameter / 2;
+
+                circle.style.width = circle.style.height = `${diameter}px`;
+                circle.style.left = `${event.clientX - button.offsetLeft - radius}px`;
+                circle.style.top = `${event.clientY - button.offsetTop - radius}px`;
+                circle.classList.add("ripple");
+
+                // Remove any existing ripples to prevent accumulation
+                const oldRipple = button.querySelector(".ripple");
+                if (oldRipple) {
+                    oldRipple.remove();
+                }
+
+                button.appendChild(circle);
+            }
+
+            // Apply ripple effect to specific buttons
+            lightboxPrevBtn.addEventListener('click', createRipple);
+            lightboxNextBtn.addEventListener('click', createRipple);
+            lightboxCloseBtn.addEventListener('click', createRipple);
+
+
+            // --- On-Scroll Animations for Album Items (Staggered Fade-in) ---
+            const albumItems = document.querySelectorAll('.album-item');
+
+            const observerOptions = {
+                root: null, // Use the viewport as the root
+                rootMargin: '0px',
+                threshold: 0.1 // Trigger when 10% of the element is visible
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        // Apply staggered delay using a CSS custom property
+                        const index = Array.from(albumItems).indexOf(entry.target);
+                        entry.target.style.setProperty('--stagger-delay', `${index * 0.05}s`); /* Faster stagger */
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target); // Stop observing once animated
+                    }
+                });
+            }, observerOptions);
+
+            albumItems.forEach(item => {
+                observer.observe(item);
+            });
         });
     </script>
 </body>
 </html>
-
