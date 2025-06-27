@@ -20,6 +20,7 @@
             background-color: #f0f4f8; /* Light blue-gray background */
             color: #334155; /* Slate 800 for text */
             line-height: 1.6;
+            overflow-x: hidden; /* Prevent horizontal scroll from any element */
         }
 
         /* Headings and elements with 'font-heading' class use Exo 2 font */
@@ -52,6 +53,8 @@
             text-decoration: none; /* Remove underline from links acting as buttons */
             font-size: 1.05rem;
             white-space: nowrap; /* Prevent text wrapping */
+            position: relative; /* For ripple effect */
+            overflow: hidden; /* For ripple effect */
         }
         .btn-primary:hover {
             background-color: #3730A3; /* Darker Indigo on hover */
@@ -78,6 +81,8 @@
             text-decoration: none;
             font-size: 1.05rem;
             white-space: nowrap;
+            position: relative; /* For ripple effect */
+            overflow: hidden; /* For ripple effect */
         }
         .btn-secondary:hover {
             background-color: #4F46E5; /* Fill with Indigo on hover */
@@ -272,6 +277,115 @@
             min-height: 100px;
             resize: vertical;
         }
+
+        /* Footer Specific Styles */
+        .footer-background {
+            background-color: #10061e; /* Darker base for footer */
+            transition: background-color 0.3s ease;
+        }
+        /* This is the gradient overlay that moves */
+        .footer-gradient-overlay {
+            background: linear-gradient(135deg, #3f0d88, #0f172a, #000000); /* Dynamic gradient */
+        }
+        /* Animation for the background pan in footer */
+        @keyframes backgroundPan {
+            0% { background-position: 0% 0%; }
+            100% { background-position: 100% 100%; }
+        }
+        /* Pulsing animation for text */
+        .animate-pulse-strong { /* Renamed to avoid conflict with default pulse */
+            animation: pulse-strong 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        @keyframes pulse-strong {
+            0%, 100% { opacity: 1; }
+            50% { opacity: .7; }
+        }
+        /* General link styling for footer */
+        .footer-link {
+            position: relative;
+            z-index: 1;
+            display: inline-block; /* Ensure transform applies */
+            font-weight: 500;
+        }
+        .footer-link:hover {
+            transform: scale(1.1); /* Subtle scale on hover */
+        }
+
+        /* Social Media Sidebar Styles (NEW) */
+        .social-media-sidebar {
+            position: fixed;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%) translateX(100%); /* Start off-screen to the right */
+            z-index: 40; /* Below header, above content */
+            display: flex;
+            flex-direction: column;
+            gap: 1rem; /* Space between icons */
+            padding: 0.75rem;
+            background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+            border-radius: 0.75rem 0 0 0.75rem; /* Rounded left side */
+            box-shadow: -5px 0 15px rgba(0,0,0,0.2);
+            transition: transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1); /* Smooth slide-in */
+        }
+        .social-media-sidebar.is-visible {
+            transform: translateY(-50%) translateX(0); /* Slide into view */
+        }
+        @media (max-width: 768px) {
+            .social-media-sidebar {
+                padding: 0.5rem; /* Smaller padding on mobile */
+                gap: 0.75rem;
+                transform: translateY(-50%) translateX(100%); /* Ensure it stays off-screen */
+            }
+        }
+
+        .social-icon-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px; /* Icon size */
+            height: 50px;
+            border-radius: 50%;
+            color: white;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+            position: relative; /* For ripple effect */
+            overflow: hidden; /* For ripple effect */
+        }
+        @media (max-width: 768px) {
+            .social-icon-link {
+                width: 45px; /* Smaller icons on mobile */
+                height: 45px;
+            }
+        }
+        .social-icon-link:hover {
+            transform: scale(1.1) rotate(6deg); /* Scale and slight rotate on hover */
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        .social-icon-link svg {
+            width: 24px; /* SVG icon size */
+            height: 24px;
+        }
+        /* Specific brand colors */
+        .social-icon-facebook { background-color: #1877F2; }
+        .social-icon-whatsapp { background-color: #25D366; }
+        .social-icon-instagram { background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%); } /* Instagram gradient */
+
+        /* Ripple Effect for buttons (NEW) */
+        .ripple {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5); /* White ripple */
+            animation: ripple-animation 0.6s linear forwards;
+            pointer-events: none; /* Ensure clicks go through */
+            transform: scale(0);
+        }
+
+        @keyframes ripple-animation {
+            to {
+                transform: scale(2.5); /* Expand ripple */
+                opacity: 0; /* Fade out */
+            }
+        }
     </style>
 </head>
 <body class="selection:bg-indigo-200 selection:text-indigo-900">
@@ -307,6 +421,23 @@
     </header>
 
     <main class="pt-[4rem] md:pt-[5rem]"> <!-- Adjusted padding-top to account for fixed header height -->
+
+        <!-- Social Media Sidebar (NEW) -->
+        <div id="social-sidebar" class="social-media-sidebar">
+            <a href="https://www.facebook.com/sankalpcomputerclasses" target="_blank" rel="noopener noreferrer" class="social-icon-link social-icon-facebook" title="Follow us on Facebook">
+                <!-- Facebook Icon (Lucide-like SVG) -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-facebook"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </a>
+            <a href="https://wa.me/9807534582" target="_blank" rel="noopener noreferrer" class="social-icon-link social-icon-whatsapp" title="Message us on WhatsApp">
+                <!-- WhatsApp Icon (Lucide-like SVG) -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-whatsapp"><path d="M12.02 2A10 10 0 0 0 2 12c0 2.22.75 4.3 2.06 6.01L2 22l4.03-2.06A9.95 9.95 0 0 0 12.02 22h.01c5.52 0 10-4.48 10-10S17.55 2 12.02 2zm3.32 12.8c-.13.2-.8.52-1.16.59-.35.08-.66.12-.96.06-.3-.06-.71-.24-1.02-.59-.3-.35-1.05-1.29-1.46-2.09-.4-.8-.11-1.16.27-1.46.35-.29.8-.72.93-.86.13-.14.28-.1.44.02.16.12.27.34.4.52.12.18.25.4.38.6.13.2.1.25.03.35-.07.1-.47.45-.6.55-.13.1-.28.16-.5.18-.2.02-.37.03-.5-.03z"/></svg>
+            </a>
+            <a href="https://www.instagram.com/sankalpcomputerclasses" target="_blank" rel="noopener noreferrer" class="social-icon-link social-icon-instagram" title="Follow us on Instagram">
+                <!-- Instagram Icon (Lucide-like SVG) -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-instagram"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37a4 4 0 1 1-7.24 2.83L2 22l7.24-7.24A4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
+        </div>
+
 
         <!-- Hero Section -->
         <section id="home" class="hero-background text-white text-center relative">
@@ -534,7 +665,7 @@
                         <select id="course" name="course" class="form-input" required>
                             <option value="">Select a course...</option>
                             <option value="Academic & Competitive Coaching">Academic & Competitive Coaching</option>
-                            <option value="Full Stack Web Development">Professional Computer & Software Training</option>
+                            <option value="Professional Computer & Software Training">Professional Computer & Software Training</option>
                             <option value="Tally & Financial Accounting">Tally & Financial Accounting</option>
                             <option value="Graphic Design & Multimedia">Graphic Design & Multimedia</option>
                             <option value="Typing (Hindi & English)">Typing (Hindi & English)</option>
@@ -604,12 +735,35 @@
     </main>
 
     <!-- Footer Section -->
-    <footer class="bg-gray-900 text-gray-300 text-center p-6 mt-12 shadow-inner">
-        <div class="container mx-auto">
-            <p class="text-sm md:text-base">&copy; 2025 Sankalp Computer Classes. All rights reserved.</p>
-            <p class="text-xs mt-2 opacity-70">Crafted with passion for a brighter digital future.</p>
+    <footer class="bg-gray-950 text-white p-12 mt-24 shadow-2xl relative overflow-hidden group rounded-t-3xl">
+        <!-- Background gradient overlay with skew and scale for visual effect -->
+        <div class="absolute inset-0 bg-gradient-to-br from-[#3f0d88] via-[#0f172a] to-black opacity-70 transform -skew-y-3 scale-110 group-hover:scale-105 transition-transform duration-700" style="background-size: 200% 200%; animation: backgroundPan 15s ease infinite alternate;"></div>
+        
+        <div class="container mx-auto relative z-10 text-center">
+            <!-- Main tagline with pulsing animation -->
+            <p class="text-2xl md:text-4xl font-extrabold mb-4 tracking-widest text-yellow-400 drop-shadow-xl animate-pulse-strong">
+                Sankalp: Where Coders Are Forged ⚔️
+            </p>
+            <!-- Descriptive text about the institute -->
+            <p class="text-sm md:text-lg text-gray-300 mb-6 max-w-3xl mx-auto opacity-90">
+                Not just an institute — a legacy. Powered by vision, driven by code. Every batch, every byte, building futures since 2017.
+            </p>
+            <!-- Quick links for navigation within the footer -->
+            <div class="flex justify-center items-center space-x-8 text-gray-400 text-base font-medium">
+                <a href="#courses" class="footer-link hover:text-yellow-300 transition-all duration-300 transform hover:scale-105">Explore Courses</a>
+                <span class="opacity-50">|</span>
+                <a href="album.html" class="footer-link hover:text-indigo-300 transition-all duration-300 transform hover:scale-105">Our Album</a>
+                <span class="opacity-50">|</span>
+                <a href="#contact" class="footer-link hover:text-purple-300 transition-all duration-300 transform hover:scale-105">Connect with Sankalp</a>
+            </div>
+            <!-- Copyright and additional info -->
+            <div class="mt-10 text-gray-500 text-xs tracking-wide">
+                &copy; 2017 – 2025 <strong>Sankalp Computer Classes</strong>. Crafted by Ayu. <br class="hidden sm:block">
+                💻 Excellence isn't taught — it's coded in.
+            </div>
         </div>
     </footer>
+
 
     <!-- JavaScript for Interactions and Animations -->
     <script>
@@ -619,6 +773,7 @@
             const navLinks = mainNav.querySelectorAll('a');
             const header = document.querySelector('.main-header');
             const sections = document.querySelectorAll('section[id]');
+            const socialSidebar = document.getElementById('social-sidebar'); // Get the social media sidebar
 
             // --- Mobile Navigation Toggle ---
             mobileMenuButton.addEventListener('click', function() {
@@ -638,7 +793,7 @@
                     // Only close if on a mobile view and menu is open
                     if (window.innerWidth < 768 && !mainNav.classList.contains('hidden')) {
                         mainNav.classList.add('hidden');
-                        mainNav.classList.remove('opacity-100', 'max-h-screen', 'flex');
+                        mainNav.classList.remove('opacity-100', 'max-h-screen');
                         mainNav.classList.add('opacity-0', 'max-h-0');
                     }
                 });
@@ -730,6 +885,40 @@
             // Observe each element marked for scroll animation
             animateOnScrollElements.forEach(el => {
                 observer.observe(el);
+            });
+
+            // --- Social Media Sidebar Animation (Slide-in) ---
+            // Trigger social media sidebar to slide in after hero animation
+            setTimeout(() => {
+                if (socialSidebar) { // Check if the element exists
+                    socialSidebar.classList.add('is-visible');
+                }
+            }, 800); // Adjust delay as needed
+
+            // --- Ripple Effect for Buttons ---
+            function createRipple(event) {
+                const button = event.currentTarget;
+                const circle = document.createElement("span");
+                const diameter = Math.max(button.offsetWidth, button.offsetHeight);
+                const radius = diameter / 2;
+
+                circle.style.width = circle.style.height = `${diameter}px`;
+                circle.style.left = `${event.clientX - button.getBoundingClientRect().left - radius}px`;
+                circle.style.top = `${event.clientY - button.getBoundingClientRect().top - radius}px`;
+                circle.classList.add("ripple");
+
+                // Remove any existing ripples to prevent accumulation
+                const oldRipple = button.querySelector(".ripple");
+                if (oldRipple) {
+                    oldRipple.remove();
+                }
+
+                button.appendChild(circle);
+            }
+
+            // Apply ripple effect to primary/secondary buttons and social media links
+            document.querySelectorAll('.btn-primary, .btn-secondary, .social-icon-link').forEach(button => {
+                button.addEventListener('click', createRipple);
             });
         });
     </script>
