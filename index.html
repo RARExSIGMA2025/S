@@ -345,12 +345,20 @@
             width: 50px; /* Icon size */
             height: 50px;
             border-radius: 50%;
-            color: white;
+            color: white; /* Fallback text color for icons */
             transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
             box-shadow: 0 3px 8px rgba(0,0,0,0.2);
             position: relative; /* For ripple effect */
             overflow: hidden; /* For ripple effect */
         }
+        /* Ensure image fits inside the circular container */
+        .social-icon-link img {
+            width: 80%; /* Make image slightly smaller than container to give padding */
+            height: 80%;
+            object-fit: contain; /* Ensure entire logo is visible */
+            filter: drop-shadow(0 0 1px rgba(0,0,0,0.2)); /* Optional: subtle shadow for PNGs */
+        }
+
         @media (max-width: 768px) {
             .social-icon-link {
                 width: 45px; /* Smaller icons on mobile */
@@ -361,11 +369,7 @@
             transform: scale(1.1) rotate(6deg); /* Scale and slight rotate on hover */
             box-shadow: 0 5px 15px rgba(0,0,0,0.3);
         }
-        .social-icon-link svg {
-            width: 24px; /* SVG icon size */
-            height: 24px;
-        }
-        /* Specific brand colors */
+        /* Specific brand colors (for background behind icons) */
         .social-icon-facebook { background-color: #1877F2; }
         .social-icon-whatsapp { background-color: #25D366; }
         .social-icon-instagram { background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%); } /* Instagram gradient */
@@ -426,20 +430,16 @@
         <!-- Social Media Sidebar (NEW) -->
         <div id="social-sidebar" class="social-media-sidebar">
             <a href="https://www.facebook.com/sankalp.rtp.9" target="_blank" rel="noopener noreferrer" class="social-icon-link social-icon-facebook" title="Follow us on Facebook">
-                <!-- Facebook Icon (Lucide-like SVG) -->
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-facebook"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+                <img src="https://github.com/RARExSIGMA2025/Sankalp/blob/main/Image/Logo/facebook.png?raw=true" onerror="this.onerror=null;this.src='https://placehold.co/24x24/1877F2/FFFFFF?text=FB';" alt="Facebook Icon">
             </a>
             <a href="https://wa.me/919807534582?text=I%20AM%20HERE%20FROM%20YOUR%20WEBSITE%20%E2%9C%A8" target="_blank" rel="noopener noreferrer" class="social-icon-link social-icon-whatsapp" title="Message us on WhatsApp">
-                <!-- WhatsApp Icon (Lucide-like SVG) -->
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-whatsapp"><path d="M12.02 2A10 10 0 0 0 2 12c0 2.22.75 4.3 2.06 6.01L2 22l4.03-2.06A9.95 9.95 0 0 0 12.02 22h.01c5.52 0 10-4.48 10-10S17.55 2 12.02 2zm3.32 12.8c-.13.2-.8.52-1.16.59-.35.08-.66.12-.96.06-.3-.06-.71-.24-1.02-.59-.3-.35-1.05-1.29-1.46-2.09-.4-.8-.11-1.16.27-1.46.35-.29.8-.72.93-.86.13-.14.28-.1.44.02.16.12.27.34.4.52.12.18.25.4.38.6.13.2.1.25.03.35-.07.1-.47.45-.6.55-.13.1-.28.16-.5.18-.2.02-.37.03-.5-.03z"/></svg>
+                <img src="https://github.com/RARExSIGMA2025/Sankalp/blob/main/Image/Logo/whatsapp.png?raw=true" onerror="this.onerror=null;this.src='https://placehold.co/24x24/25D366/FFFFFF?text=WA';" alt="WhatsApp Icon">
             </a>
             <a href="https://www.instagram.com/sankalpclasses.rtp" target="_blank" rel="noopener noreferrer" class="social-icon-link social-icon-instagram" title="Follow us on Instagram">
-                <!-- Instagram Icon (Lucide-like SVG) -->
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-instagram"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37a4 4 0 1 1-7.24 2.83L2 22l7.24-7.24A4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                <img src="https://github.com/RARExSIGMA2025/Sankalp/blob/main/Image/Logo/instagram.png?raw=true" onerror="this.onerror=null;this.src='https://placehold.co/24x24/E1306C/FFFFFF?text=IG';" alt="Instagram Icon">
             </a>
             <a href="https://youtube.com/@sankalpclassesrtp" target="_blank" rel="noopener noreferrer" class="social-icon-link social-icon-youtube" title="Subscribe to our YouTube channel">
-                <!-- YouTube Icon (Lucide-like SVG) -->
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-youtube"><path d="M2.5 17.5a2.5 2.5 0 0 1-2.5-2.5v-7a2.5 2.5 0 0 1 2.5-2.5h19a2.5 2.5 0 0 1 2.5 2.5v7a2.5 2.5 0 0 1-2.5 2.5z"/><polygon points="10 8 16 12 10 16 10 8"/></svg>
+                <img src="https://github.com/RARExSIGMA2025/Sankalp/blob/main/Image/Logo/youtube.png?raw=true" onerror="this.onerror=null;this.src='https://placehold.co/24x24/FF0000/FFFFFF?text=YT';" alt="YouTube Icon">
             </a>
         </div>
 
@@ -716,7 +716,7 @@
                         </div>
                         <div>
                             <h3 class="text-xl font-bold font-heading text-gray-800 mb-2">🕒 Working Hours</h3>
-                            <p class="text-gray-700">Monday - Saturday: 9:00 AM – 7:00 PM</p>
+                            <p class="text-gray-700">Monday to Saturday: 7:00 a.m. to 5:00 p.m.</p>
                             <p class="text-gray-700">Sunday: Closed</p>
                         </div>
                     </div>
