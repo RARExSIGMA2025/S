@@ -1,870 +1,350 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sankalp Computer Classes | Our Album & Events</title>
-    <meta name="description" content="Explore the vibrant moments, student achievements, and campus life at Sankalp Computer Classes through our photo and video gallery.">
-    <meta name="keywords" content="Sankalp Classes album, computer institute photos Mau, student events, prize distribution, campus life, educational videos, Ratanpura Mau gallery">
-
+    <title>Institute Album - Capturing Memories</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts: Exo 2 for headings, Inter for body text -->
-    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-    <!-- Custom Styles -->
+    <!-- Google Fonts - Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        /* Base font settings for the entire body */
+        /* Base styles for body and typography */
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f0f4f8; /* Light blue-gray background */
-            color: #334155; /* Slate 800 for text */
+            background-color: #f0f4f8; /* Light gray background */
+            color: #2d3748; /* Dark text for readability */
             line-height: 1.6;
-            overflow-x: hidden; /* Prevent horizontal scroll from any element */
+            overflow-x: hidden; /* Prevent horizontal scroll due to animations */
         }
-
-        /* Headings and elements with 'font-heading' class use Exo 2 font */
-        h1, h2, h3, h4, h5, h6, .font-heading {
-            font-family: 'Exo 2', sans-serif;
+        /* Smooth scrolling behavior for anchor links */
+        html {
+            scroll-behavior: smooth;
         }
-
-        /* Consistent padding for all main content sections */
+        /* Consistent vertical padding for all sections, responsive */
         .section-padding {
-            padding: 5rem 1rem; /* Default for smaller screens */
+            padding: 4rem 1rem; /* Default for mobile */
         }
-        @media (min-width: 768px) {
+        @media (min-width: 640px) { /* Small screens and up */
             .section-padding {
-                padding: 7rem 2rem; /* Increased padding for larger screens */
+                padding: 6rem 2rem;
+            }
+        }
+        @media (min-width: 1024px) { /* Large screens and up */
+            .section-padding {
+                padding: 8rem 4rem;
+            }
+        }
+        /* Accessibility: Custom focus outline */
+        *:focus {
+            outline: none;
+        }
+        *:focus-visible {
+            outline: 2px solid #3b82f6; /* Blue outline for accessibility */
+            outline-offset: 2px;
+            border-radius: 0.375rem; /* Match rounded corners of elements */
+        }
+
+        /* Animation Keyframes for Fade-In and Slide-Up */
+        @keyframes fadeInSlideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
             }
         }
 
-        /* Primary Call-to-Action Button Styling (for consistency with main site) */
-        .btn-primary {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            background-color: #4F46E5; /* Indigo 600 */
-            color: white;
-            font-weight: 600;
-            padding: 0.8rem 2.2rem;
-            border-radius: 9999px; /* Fully rounded */
-            box-shadow: 0 5px 15px rgba(79, 70, 229, 0.3);
-            transition: all 0.3s ease-in-out;
-            text-decoration: none;
-            font-size: 1.05rem;
-            white-space: nowrap;
-        }
-        .btn-primary:hover {
-            background-color: #3730A3; /* Darker Indigo on hover */
-            transform: translateY(-3px) scale(1.02);
-            box-shadow: 0 8px 20px rgba(79, 70, 229, 0.4);
-        }
-
-        /* Header Specific Styles (Consistent with index.html) */
-        .main-header {
-            background-color: #1a202c; /* Dark background for header */
-            transition: background-color 0.3s ease, box-shadow 0.3s ease;
-        }
-        .main-header.scrolled {
-            background-color: rgba(26, 32, 44, 0.95); /* Slightly transparent dark background on scroll */
-            box-shadow: 0 6px 20px rgba(0,0,0,0.25); /* Stronger shadow on scroll */
-            backdrop-filter: blur(5px); /* Modern blur effect for scrolled header */
-        }
-        .nav-link {
-            color: white;
-            padding: 0.6rem 1rem;
-            border-radius: 0.375rem;
-            transition: background-color 0.2s ease, color 0.2s ease;
-            position: relative;
-            overflow: hidden;
-            font-weight: 500;
-        }
-        .nav-link:hover {
-            background-color: rgba(255, 255, 255, 0.15); /* Light transparent background on hover */
-        }
-        /* Style for the currently active navigation link */
-        .nav-link.current-active-link {
-            background-color: rgba(255, 255, 255, 0.2);
-            font-weight: 700;
-        }
-        /* Underline animation for active navigation link */
-        .nav-link.current-active-link::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background-color: #6366F1; /* Indigo 500 underline */
-            animation: fadeInUnderline 0.3s forwards; /* Animation to expand the underline */
-        }
-        @keyframes fadeInUnderline {
-            from { width: 0%; opacity: 0; }
-            to { width: 100%; opacity: 1; }
-        }
-
-        /* Mobile Navigation Specific Styles (Consistent with index.html) */
-        #main-nav {
-            transform-origin: top;
-            transition: transform 0.3s ease-out, opacity 0.3s ease-out, max-height 0.3s ease-out;
-        }
-        #main-nav.hidden {
-            opacity: 0;
-            max-height: 0;
-            transform: scaleY(0);
-            pointer-events: none;
-        }
-        #main-nav.flex {
-            opacity: 1;
-            max-height: 500px;
-            transform: scaleY(1);
-            pointer-events: auto;
-            overflow: hidden;
-            background-color: #2d3748;
-        }
-
-        /* Album Hero Section Styling (Unique Look) */
-        .album-hero-background {
-            /* Dynamic radial gradient with animation */
-            background: radial-gradient(circle at top left, #6366F1, #8B5CF6, #4F46E5);
-            background-size: 200% 200%; /* Larger size for animation */
-            animation: backgroundPan 15s ease infinite alternate; /* Pan the background slowly */
-            min-height: 45vh; /* Slightly taller hero for impact */
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            overflow: hidden;
-        }
-        @keyframes backgroundPan {
-            0% { background-position: 0% 0%; }
-            100% { background-position: 100% 100%; }
-        }
-        .album-hero-background::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: rgba(0,0,0,0.25); /* More pronounced dark overlay for contrast */
-            z-index: 0;
-        }
-        .album-hero-content {
-            position: relative;
-            z-index: 1; /* Ensure content is above overlay */
-            text-shadow: 2px 2px 8px rgba(0,0,0,0.4); /* Subtle text shadow */
-        }
-
-        /* Album Grid Items Styling */
-        .album-item {
-            position: relative;
-            cursor: pointer;
-            border-radius: 0.75rem;
-            overflow: hidden;
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1); /* Slightly stronger initial shadow */
-            transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); /* Smoother animation curve */
-            background-color: #ffffff;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 250px;
-            border: 1px solid #e2e8f0;
-            /* Animation for staggered fade-in */
+        /* Class to apply the animation when element is visible */
+        .animate-on-scroll {
             opacity: 0;
             transform: translateY(20px);
             transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-            transition-delay: var(--stagger-delay, 0s); /* Custom property for staggered delay */
         }
-        .album-item.is-visible {
+
+        .animate-on-scroll.is-visible {
             opacity: 1;
             transform: translateY(0);
         }
-        /* Hover effect for album items */
-        .album-item:hover {
-            transform: translateY(-10px) scale(1.02); /* More pronounced lift and scale */
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2); /* Stronger shadow */
+
+        /* Animation delays for staggered effect */
+        .delay-100 { transition-delay: 0.1s; }
+        .delay-200 { transition-delay: 0.2s; }
+        .delay-300 { transition-delay: 0.3s; }
+        .delay-400 { transition-delay: 0.4s; }
+        .delay-500 { transition-delay: 0.5s; }
+        .delay-600 { transition-delay: 0.6s; }
+        .delay-700 { transition-delay: 0.7s; }
+        .delay-800 { transition-delay: 0.8s; }
+        .delay-900 { transition-delay: 0.9s; }
+        .delay-1000 { transition-delay: 1.0s; }
+
+        /* Custom style for the hero background pattern */
+        .hero-pattern {
+            background-image: url('data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23ffffff\' fill-opacity=\'0.1\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm12 12v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm-28 0v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm28-28v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zM0 6v-2h2v2H0zm18 0v-2h2v2h-2zm-9 3v-2h2v2H9zm18 0v-2h2v2h-2zm-9 3v-2h2v2H9zm18 0v-2h2v2h-2zm-9 3v-2h2v2H9zm18 0v-2h2v2h-2zm-9 3v-2h2v2H9zm18 0v-2h2v2h-2z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');
+            background-size: 60px 60px; /* Adjust as needed */
         }
 
-        /* Image within album item (ensures full image fit) */
-        .album-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain; /* PERFECT FIT: Ensures the whole image is visible without cropping */
-            display: block;
-            transition: transform 0.3s ease;
-        }
-
-        /* Overlay for hover effects on album items with icon */
-        .album-item-overlay {
-            position: absolute;
-            inset: 0;
-            background-color: rgba(0, 0, 0, 0.6); /* Slightly darker transparent overlay */
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0; /* Hidden by default */
-            transition: opacity 0.3s ease;
-            color: white;
-            font-size: 2.5rem;
-            pointer-events: none; /* Allow clicks to pass through to the item */
-        }
-        /* Icon within overlay */
-        .album-item-overlay svg {
-            transition: transform 0.3s ease; /* Icon scale animation */
-        }
-        /* Show overlay and animate icon on hover */
-        .album-item:hover .album-item-overlay {
-            opacity: 1;
-        }
-        .album-item:hover .album-item-overlay svg {
-            transform: scale(1.1); /* Slightly enlarge icon on hover */
-        }
-
-        /* Video specific wrapper for consistent aspect ratio and sizing */
-        .album-item .video-item-wrapper {
-             height: 100%;
-             width: 100%;
-        }
-        .album-item .video-responsive {
+        /* For responsive video embeds (16:9 aspect ratio) */
+        .video-container {
             position: relative;
-            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            width: 100%;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
             height: 0;
             overflow: hidden;
-            border-radius: 0.75rem;
-            width: 100%;
+            border-radius: 0.5rem; /* Match rounded-lg */
         }
-        .album-item .video-responsive iframe,
-        .album-item .video-responsive video {
+        .video-container iframe,
+        .video-container object,
+        .video-container embed {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            border-radius: inherit;
+            border: 0;
         }
 
-        /* Lightbox/Modal Gallery Styles */
-        .lightbox-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.95); /* Even darker, almost opaque overlay */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.4s ease; /* Slower fade for lightbox */
-            backdrop-filter: blur(8px); /* More pronounced blur effect */
-        }
-        .lightbox-overlay.active {
-            opacity: 1;
-            visibility: visible;
-        }
-        .lightbox-content {
-            position: relative;
-            max-width: 95%;
-            max-height: 95%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0; /* Initial state for entry animation */
-            transform: scale(0.95); /* Initial state for entry animation */
-            transition: opacity 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
-        }
-        .lightbox-overlay.active .lightbox-content {
-            opacity: 1;
-            transform: scale(1);
-        }
-        .lightbox-content img {
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: contain;
-            border-radius: 0.75rem;
-            box-shadow: 0 0 50px rgba(0, 0, 0, 0.8); /* Even stronger shadow */
-            transition: opacity 0.3s ease; /* For image changing animation */
-        }
-
-        /* Navigation buttons for lightbox (Previous/Next) */
-        .lightbox-nav-btn {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(255, 255, 255, 0.25); /* Slightly more opaque white */
-            color: white;
-            padding: 1rem;
-            border-radius: 50%;
-            cursor: pointer;
-            z-index: 1010;
-            transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 55px; /* Larger buttons */
-            height: 55px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.4); /* Stronger button shadow */
-            overflow: hidden; /* For ripple effect */
-        }
-        .lightbox-nav-btn:hover {
-            background: rgba(255, 255, 255, 0.4);
-            transform: translateY(-50%) scale(1.08); /* More noticeable scale */
-            box-shadow: 0 6px 20px rgba(0,0,0,0.5);
-        }
-        .lightbox-nav-btn.left { left: 25px; } /* Slightly more inward */
-        .lightbox-nav-btn.right { right: 25px; } /* Slightly more inward */
-        /* Adjust navigation buttons for very small mobile screens */
-        @media (max-width: 640px) {
-            .lightbox-nav-btn {
-                width: 50px;
-                height: 50px;
-                left: 10px;
-                right: 10px;
-            }
-        }
-        /* Icon styling inside buttons */
-        .lightbox-nav-btn svg {
-            width: 30px; /* Larger icon */
-            height: 30px;
-        }
-
-        /* Close button for lightbox */
-        .lightbox-close-btn {
-            position: absolute;
-            top: 25px; /* Slightly more inward */
-            right: 25px; /* Slightly more inward */
-            background: rgba(255, 255, 255, 0.25);
-            color: white;
-            border-radius: 50%;
-            width: 45px; /* Larger close button */
-            height: 45px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.8rem;
-            cursor: pointer;
-            z-index: 1010;
-            transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
-            overflow: hidden; /* For ripple effect */
-        }
-        .lightbox-close-btn:hover {
-            background: rgba(255, 0, 0, 0.7);
-            transform: rotate(90deg) scale(1.08); /* More noticeable rotate and scale */
-            box-shadow: 0 6px 20px rgba(255,0,0,0.5);
-        }
-        /* Adjust close button for very small mobile screens */
-        @media (max-width: 640px) {
-            .lightbox-close-btn {
-                top: 15px;
-                right: 15px;
-                width: 40px;
-                height: 40px;
-                font-size: 1.6rem;
-            }
-        }
-
-        /* Footer Specific Styles */
-        .footer-background {
-            background-color: #10061e; /* Darker base for footer */
-            transition: background-color 0.3s ease;
-        }
-        .footer-gradient-overlay {
-            background: linear-gradient(135deg, #3f0d88, #0f172a, #000000); /* Dynamic gradient */
-        }
-        @keyframes backgroundPan {
-            0% { background-position: 0% 0%; }
-            100% { background-position: 100% 100%; }
-        }
-        .animate-pulse {
-            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-        }
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: .7; }
-        }
-        /* General link styling for footer */
-        .footer-link {
-            position: relative;
-            z-index: 1;
-            display: inline-block; /* Ensure transform applies */
-            font-weight: 500;
-        }
-        .footer-link:hover {
-            transform: scale(1.1); /* Subtle scale on hover */
-        }
-
-        /* Ripple Effect for buttons (NEW) */
-        .ripple {
-            position: absolute;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.5); /* White ripple */
-            animation: ripple-animation 0.6s linear forwards;
-            pointer-events: none; /* Ensure clicks go through */
-            transform: scale(0);
-        }
-
-        @keyframes ripple-animation {
-            to {
-                transform: scale(2.5); /* Expand ripple */
-                opacity: 0; /* Fade out */
-            }
+        /* Scroll to top button specific styles */
+        #scroll-to-top-btn {
+            z-index: 1000; /* Ensure it's above other content */
         }
     </style>
 </head>
-<body class="selection:bg-indigo-200 selection:text-indigo-900">
-
-    <!-- Header Section (Consistent with index.html) -->
-    <header class="main-header bg-gray-900 text-white p-4 shadow-lg fixed w-full z-50 transition-all duration-300 ease-in-out">
-        <div class="container mx-auto flex justify-between items-center px-4">
-            <!-- Logo and Site Title -->
-            <div class="flex items-center">
-                <img src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/logo.jpg" onerror="this.onerror=null;this.src='https://placehold.co/40x40/4F46E5/FFFFFF?text=Logo';" alt="Sankalp Classes Logo" class="h-10 w-10 rounded-full mr-3 border-2 border-indigo-400 shadow-md">
-                <h1 class="text-2xl font-extrabold font-heading tracking-wide text-indigo-100">Sankalp Classes</h1>
+<body>
+    <!-- Header -->
+    <header class="bg-white shadow-md py-4 fixed top-0 left-0 w-full z-50">
+        <nav class="container mx-auto flex justify-between items-center px-4 sm:px-6 lg:px-8">
+            <a href="#" class="text-2xl font-extrabold text-blue-600 tracking-wide animate-on-scroll delay-100">
+                <i class="fas fa-graduation-cap mr-2"></i> LEARNWELL Institute
+            </a>
+            <div class="hidden md:flex space-x-6">
+                <a href="#photos" class="text-gray-600 hover:text-blue-700 font-medium transition duration-300 px-3 py-2 rounded-md animate-on-scroll delay-200">
+                    <i class="fas fa-images mr-1"></i> Photos
+                </a>
+                <a href="#videos" class="text-gray-600 hover:text-blue-700 font-medium transition duration-300 px-3 py-2 rounded-md animate-on-scroll delay-300">
+                    <i class="fas fa-video mr-1"></i> Videos
+                </a>
             </div>
-
-            <!-- Mobile Menu Toggle Button (Hamburger Icon) -->
-            <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none focus:ring-2 focus:ring-indigo-400 p-2 rounded-md">
-                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
-                </svg>
-            </button>
-
-            <!-- Main Navigation Menu -->
-            <nav id="main-nav" class="hidden md:flex flex-col md:flex-row md:static absolute top-full left-0 w-full md:w-auto bg-gray-900 md:bg-transparent shadow-lg md:shadow-none transition-all duration-300 ease-in-out opacity-0 md:opacity-100 max-h-0 md:max-h-full overflow-hidden">
-                <ul class="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-8 text-lg font-medium py-4 md:py-0 px-4 md:px-0">
-                    <li><a href="index.html#home" class="nav-link">Home</a></li>
-                    <li><a href="index.html#about" class="nav-link">About Us</a></li>
-                    <li><a href="index.html#courses" class="nav-link">Courses</a></li>
-                    <li><a href="index.html#facilities" class="nav-link">Facilities</a></li>
-                    <li><a href="album.html" class="nav-link current-active-link">Album</a></li> <!-- 'current-active-link' for current page -->
-                    <li><a href="index.html#contact" class="nav-link">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
+            <!-- Mobile Menu Button - (Not needed for a simple album, but included for scalability if needed) -->
+            <!-- <button id="mobile-menu-button" class="md:hidden text-gray-600 hover:text-blue-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded-md p-2">
+                <i class="fas fa-bars text-xl"></i>
+            </button> -->
+        </nav>
     </header>
 
-    <main class="pt-[4rem] md:pt-[5rem]"> <!-- Adjusted padding-top for fixed header -->
-
-        <!-- Album Hero Section -->
-        <section class="album-hero-background text-white text-center section-padding">
-            <div class="album-hero-content container mx-auto">
-                <h1 class="text-4xl md:text-5xl font-extrabold font-heading mb-4">✨ Our Campus Life in Moments ✨</h1>
-                <p class="text-lg md:text-xl font-light opacity-90 max-w-2xl mx-auto">
-                    A vibrant collection of our events, student achievements, and the daily life that makes Sankalp special.
+    <main class="mt-20">
+        <!-- Hero Section -->
+        <section id="hero" class="section-padding bg-gradient-to-r from-blue-600 to-indigo-700 text-white flex flex-col items-center justify-center text-center relative overflow-hidden hero-pattern">
+            <div class="absolute inset-0 z-0 hero-pattern"></div>
+            <div class="z-10 max-w-3xl animate-on-scroll delay-100">
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold mb-4 leading-tight">
+                    Welcome to Our Album!
+                </h1>
+                <p class="text-lg sm:text-xl font-light opacity-90 mb-8">
+                    Relive the vibrant moments and inspiring journeys at LearnWell Institute.
                 </p>
+                <a href="#photos" class="inline-flex items-center bg-white text-blue-600 px-8 py-4 rounded-full text-lg font-semibold hover:bg-gray-100 transition duration-300 shadow-lg transform hover:scale-105 animate-on-scroll delay-200">
+                    Explore Photos <i class="fas fa-arrow-down ml-3 text-base"></i>
+                </a>
             </div>
         </section>
 
-        <!-- Album Content Grid -->
-        <section id="album-content" class="section-padding bg-gray-100">
-            <!-- Increased max-w to 6xl for slightly more content width, but still contained -->
-            <div class="container mx-auto bg-white p-6 md:p-10 rounded-xl shadow-lg max-w-6xl border border-gray-200">
-                <!-- Changed to lg:grid-cols-3 for 3 photos in a row on large screens -->
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 photo-grid">
-
-                    <!-- Album Images (18 Slots) - Each wrapped in an album-item for click functionality -->
-                    <!-- The 'data-src' attribute holds the high-resolution image for the lightbox -->
-                    <div class="album-item" data-src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(1).JPG">
-                        <img src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(1).JPG" onerror="this.onerror=null;this.src='https://placehold.co/600x400/81C784/FFFFFF?text=Image+1';" alt="Sankalp Classes Photo 1">
-                        <div class="album-item-overlay">
-                            <!-- Magnifying Glass Icon -->
-                            <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-zoom-in"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+        <!-- Photo Gallery Section -->
+        <section id="photos" class="section-padding bg-white">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl sm:text-4xl font-bold text-center mb-12 text-blue-800 animate-on-scroll delay-100">Our Moments</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Photo Card 1 -->
+                    <div class="photo-item bg-gray-50 rounded-lg shadow-md overflow-hidden hover:shadow-xl transition duration-300 transform hover:-translate-y-1 animate-on-scroll delay-200">
+                        <img src="https://placehold.co/800x600/E0F2F7/0077B5?text=Annual+Day+2024" alt="Annual Day Celebration" class="w-full h-56 object-cover transition duration-300 transform hover:scale-105">
+                        <div class="p-5">
+                            <h3 class="text-xl font-semibold mb-2 text-gray-800">Annual Day Celebration</h3>
+                            <p class="text-gray-600 text-sm">A glimpse into our joyous annual event, celebrating achievements and talents.</p>
                         </div>
                     </div>
-                    <div class="album-item" data-src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(2).JPG">
-                        <img src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(2).JPG" onerror="this.onerror=null;this.src='https://placehold.co/600x400/ADD8E6/000000?text=Image+2';" alt="Sankalp Classes Photo 2">
-                        <div class="album-item-overlay">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-zoom-in"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+                    <!-- Photo Card 2 -->
+                    <div class="photo-item bg-gray-50 rounded-lg shadow-md overflow-hidden hover:shadow-xl transition duration-300 transform hover:-translate-y-1 animate-on-scroll delay-300">
+                        <img src="https://placehold.co/800x600/C3DCE3/007BFF?text=Student+Workshop" alt="Student Workshop" class="w-full h-56 object-cover transition duration-300 transform hover:scale-105">
+                        <div class="p-5">
+                            <h3 class="text-xl font-semibold mb-2 text-gray-800">Interactive Student Workshop</h3>
+                            <p class="text-gray-600 text-sm">Students engaged in hands-on learning and collaborative projects.</p>
                         </div>
                     </div>
-                    <div class="album-item" data-src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(3).JPG">
-                        <img src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(3).JPG" onerror="this.onerror=null;this.src='https://placehold.co/600x400/FFDDC1/000000?text=Image+3';" alt="Sankalp Classes Photo 3">
-                        <div class="album-item-overlay">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-zoom-in"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+                    <!-- Photo Card 3 -->
+                    <div class="photo-item bg-gray-50 rounded-lg shadow-md overflow-hidden hover:shadow-xl transition duration-300 transform hover:-translate-y-1 animate-on-scroll delay-400">
+                        <img src="https://placehold.co/800x600/D4EDDA/28A745?text=Graduation+Ceremony" alt="Graduation Ceremony" class="w-full h-56 object-cover transition duration-300 transform hover:scale-105">
+                        <div class="p-5">
+                            <h3 class="text-xl font-semibold mb-2 text-gray-800">Batch of 2024 Graduation</h3>
+                            <p class="text-gray-600 text-sm">Proud moments as our students step into a brighter future.</p>
                         </div>
                     </div>
-                    <div class="album-item" data-src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(4).JPG">
-                        <img src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(4).JPG" onerror="this.onerror=null;this.src='https://placehold.co/600x400/DDA0DD/000000?text=Image+4';" alt="Sankalp Classes Photo 4">
-                        <div class="album-item-overlay">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-zoom-in"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+                    <!-- Photo Card 4 -->
+                    <div class="photo-item bg-gray-50 rounded-lg shadow-md overflow-hidden hover:shadow-xl transition duration-300 transform hover:-translate-y-1 animate-on-scroll delay-500">
+                        <img src="https://placehold.co/800x600/FFF8DC/F0B900?text=Field+Trip+Fun" alt="Educational Field Trip" class="w-full h-56 object-cover transition duration-300 transform hover:scale-105">
+                        <div class="p-5">
+                            <h3 class="text-xl font-semibold mb-2 text-gray-800">Educational Field Trip</h3>
+                            <p class="text-gray-600 text-sm">Learning beyond the classroom walls, exploring new horizons.</p>
                         </div>
                     </div>
-                    <div class="album-item" data-src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(5).JPG">
-                        <img src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(5).JPG" onerror="this.onerror=null;this.src='https://placehold.co/600x400/98FB98/000000?text=Image+5';" alt="Sankalp Classes Photo 5">
-                        <div class="album-item-overlay">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-zoom-in"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+                    <!-- Photo Card 5 -->
+                    <div class="photo-item bg-gray-50 rounded-lg shadow-md overflow-hidden hover:shadow-xl transition duration-300 transform hover:-translate-y-1 animate-on-scroll delay-600">
+                        <img src="https://placehold.co/800x600/F8E7F0/FF6B81?text=Cultural+Fest" alt="Cultural Fest" class="w-full h-56 object-cover transition duration-300 transform hover:scale-105">
+                        <div class="p-5">
+                            <h3 class="text-xl font-semibold mb-2 text-gray-800">Cultural Festivities</h3>
+                            <p class="text-gray-600 text-sm">Showcasing diverse talents and vibrant cultural performances.</p>
                         </div>
                     </div>
-                    <div class="album-item" data-src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(6).JPG">
-                        <img src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(6).JPG" onerror="this.onerror=null;this.src='https://placehold.co/600x400/F0E68C/000000?text=Image+6';" alt="Sankalp Classes Photo 6">
-                        <div class="album-item-overlay">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-zoom-in"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
-                        </div>
-                    </div>
-                    <div class="album-item" data-src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(7).JPG">
-                        <img src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(7).JPG" onerror="this.onerror=null;this.src='https://placehold.co/600x400/C0C0C0/333333?text=Image+7';" alt="Sankalp Classes Photo 7">
-                        <div class="album-item-overlay">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-zoom-in"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
-                        </div>
-                    </div>
-                    <div class="album-item" data-src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(8).JPG">
-                        <img src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(8).JPG" onerror="this.onerror=null;this.src='https://placehold.co/600x400/A9A9A9/FFFFFF?text=Image+8';" alt="Sankalp Classes Photo 8">
-                        <div class="album-item-overlay">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-zoom-in"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
-                        </div>
-                    </div>
-                    <div class="album-item" data-src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(9).JPG">
-                        <img src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(9).JPG" onerror="this.onerror=null;this.src='https://placehold.co/600x400/778899/FFFFFF?text=Image+9';" alt="Sankalp Classes Photo 9">
-                        <div class="album-item-overlay">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-zoom-in"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
-                        </div>
-                    </div>
-                    <div class="album-item" data-src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(10).JPG">
-                        <img src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(10).JPG" onerror="this.onerror=null;this.src='https://placehold.co/600x400/5F9EA0/FFFFFF?text=Image+10';" alt="Sankalp Classes Photo 10">
-                        <div class="album-item-overlay">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-zoom-in"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
-                        </div>
-                    </div>
-                    <div class="album-item" data-src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(11).JPG">
-                        <img src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(11).JPG" onerror="this.onerror=null;this.src='https://placehold.co/600x400/4682B4/FFFFFF?text=Image+11';" alt="Sankalp Classes Photo 11">
-                        <div class="album-item-overlay">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-zoom-in"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
-                        </div>
-                    </div>
-                    <div class="album-item" data-src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(12).JPG">
-                        <img src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(12).JPG" onerror="this.onerror=null;this.src='https://placehold.co/600x400/6495ED/FFFFFF?text=Image+12';" alt="Sankalp Classes Photo 12">
-                        <div class="album-item-overlay">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-zoom-in"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
-                        </div>
-                    </div>
-                    <div class="album-item" data-src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(13).JPG">
-                        <img src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(13).JPG" onerror="this.onerror=null;this.src='https://placehold.co/600x400/B0C4DE/000000?text=Image+13';" alt="Sankalp Classes Photo 13">
-                        <div class="album-item-overlay">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-zoom-in"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
-                        </div>
-                    </div>
-                    <div class="album-item" data-src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(14).JPG">
-                        <img src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(14).JPG" onerror="this.onerror=null;this.src='https://placehold.co/600x400/D3D3D3/000000?text=Image+14';" alt="Sankalp Classes Photo 14">
-                        <div class="album-item-overlay">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-zoom-in"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
-                        </div>
-                    </div>
-                    <div class="album-item" data-src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(15).JPG">
-                        <img src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(15).JPG" onerror="this.onerror=null;this.src='https://placehold.co/600x400/F0F8FF/000000?text=Image+15';" alt="Sankalp Classes Photo 15">
-                        <div class="album-item-overlay">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-zoom-in"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
-                        </div>
-                    </div>
-                    <div class="album-item" data-src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(16).jpg">
-                        <img src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(16).jpg" onerror="this.onerror=null;this.src='https://placehold.co/600x400/B0E0E6/000000?text=Image+16';" alt="Sankalp Classes Photo 16">
-                        <div class="album-item-overlay">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-zoom-in"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
-                        </div>
-                    </div>
-                    <div class="album-item" data-src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(17).jpg">
-                        <img src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(17).jpg" onerror="this.onerror=null;this.src='https://placehold.co/600x400/87CEFA/000000?text=Image+17';" alt="Sankalp Classes Photo 17">
-                        <div class="album-item-overlay">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-zoom-in"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
-                        </div>
-                    </div>
-                    <div class="album-item" data-src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(18).jpg">
-                        <img src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(18).jpg" onerror="this.onerror=null;this.src='https://placehold.co/600x400/6A5ACD/FFFFFF?text=Image+18';" alt="Sankalp Classes Photo 18">
-                        <div class="album-item-overlay">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-zoom-in"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
-                        </div>
-                    </div>
-
-                    <!-- Video Embed 1 (YouTube) -->
-                    <div class="album-item video-item">
-                        <div class="video-item-wrapper">
-                            <div class="video-responsive">
-                                <iframe src="https://www.youtube.com/embed/G1Fq-rqGc4s?controls=0&modestbranding=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen title="Sankalp Classes Event Video"></iframe>
-                            </div>
-                        </div>
-                        <div class="album-item-overlay">
-                            <!-- Play Icon -->
-                            <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-play"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-                        </div>
-                    </div>
-
-                    <!-- Video Embed 2 (Local Video) - Example with w3schools video -->
-                    <div class="album-item video-item">
-                        <div class="video-item-wrapper">
-                            <div class="video-responsive">
-                                <video controls preload="metadata" title="Sankalp Classes Event Video 2">
-                                    <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
-                                    Your browser does not support the video tag.
-                                </video>
-                            </div>
-                        </div>
-                        <div class="album-item-overlay">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-play"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                    <!-- Photo Card 6 -->
+                    <div class="photo-item bg-gray-50 rounded-lg shadow-md overflow-hidden hover:shadow-xl transition duration-300 transform hover:-translate-y-1 animate-on-scroll delay-700">
+                        <img src="https://placehold.co/800x600/E6F3F9/4299E1?text=Lab+Session" alt="Science Lab Session" class="w-full h-56 object-cover transition duration-300 transform hover:scale-105">
+                        <div class="p-5">
+                            <h3 class="text-xl font-semibold mb-2 text-gray-800">Hands-On Lab Sessions</h3>
+                            <p class="text-gray-600 text-sm">Practical learning in action, fostering scientific curiosity.</p>
                         </div>
                     </div>
                 </div>
-                <p class="text-lg text-center mt-12 text-gray-600 font-medium">More memorable moments and videos coming soon!</p>
             </div>
         </section>
 
+        <!-- Video Gallery Section -->
+        <section id="videos" class="section-padding bg-blue-50">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl sm:text-4xl font-bold text-center mb-12 text-blue-800 animate-on-scroll delay-100">Our Stories in Motion</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Video Card 1 (YouTube Embed) -->
+                    <div class="video-item bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition duration-300 transform hover:-translate-y-1 animate-on-scroll delay-200">
+                        <div class="video-container">
+                            <!-- Replace with your actual YouTube embed link -->
+                            <iframe src="https://www.youtube.com/embed/videoseries?list=PL_m_yW_8l56xP7g5t0j3Ym2j2q6X-S9Y0"
+                                frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen
+                                title="LearnWell Institute Campus Tour" class="rounded-t-lg"></iframe>
+                        </div>
+                        <div class="p-5">
+                            <h3 class="text-xl font-semibold mb-2 text-gray-800">Campus Tour & Facilities</h3>
+                            <p class="text-gray-600 text-sm">A virtual tour showcasing our modern campus and state-of-the-art facilities.</p>
+                        </div>
+                    </div>
+                    <!-- Video Card 2 (YouTube Embed) -->
+                    <div class="video-item bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition duration-300 transform hover:-translate-y-1 animate-on-scroll delay-300">
+                        <div class="video-container">
+                            <!-- Replace with your actual YouTube embed link -->
+                            <iframe src="https://www.youtube.com/embed/videoseries?list=PL_m_yW_8l56xP7g5t0j3Ym2j2q6X-S9Y0"
+                                frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen
+                                title="Student Testimonials" class="rounded-t-lg"></iframe>
+                        </div>
+                        <div class="p-5">
+                            <h3 class="text-xl font-semibold mb-2 text-gray-800">Student Success Stories</h3>
+                            <p class="text-gray-600 text-sm">Hear directly from our successful alumni about their journey at LearnWell.</p>
+                        </div>
+                    </div>
+                    <!-- Video Card 3 (YouTube Embed) -->
+                    <div class="video-item bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition duration-300 transform hover:-translate-y-1 animate-on-scroll delay-400">
+                        <div class="video-container">
+                            <!-- Replace with your actual YouTube embed link -->
+                            <iframe src="https://www.youtube.com/embed/videoseries?list=PL_m_yW_8l56xP7g5t0j3Ym2j2q6X-S9Y0"
+                                frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen
+                                title="Event Highlights" class="rounded-t-lg"></iframe>
+                        </div>
+                        <div class="p-5">
+                            <h3 class="text-xl font-semibold mb-2 text-gray-800">Event Highlights Reel</h3>
+                            <p class="text-gray-600 text-sm">A compilation of the best moments from our recent events and activities.</p>
+                        </div>
+                    </div>
+                    <!-- Video Card 4 (YouTube Embed) -->
+                    <div class="video-item bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition duration-300 transform hover:-translate-y-1 animate-on-scroll delay-500">
+                        <div class="video-container">
+                            <!-- Replace with your actual YouTube embed link -->
+                            <iframe src="https://www.youtube.com/embed/videoseries?list=PL_m_yW_8l56xP7g5t0j3Ym2j2q6X-S9Y0"
+                                frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen
+                                title="Faculty Introduction" class="rounded-t-lg"></iframe>
+                        </div>
+                        <div class="p-5">
+                            <h3 class="text-xl font-semibold mb-2 text-gray-800">Meet Our Expert Faculty</h3>
+                            <p class="text-gray-600 text-sm">Get to know the dedicated educators who inspire and guide our students.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 
-    <!-- Footer Section -->
-    <footer class="bg-gray-950 text-white p-12 mt-24 shadow-2xl relative overflow-hidden group rounded-t-3xl">
-        <!-- Background gradient overlay with skew and scale for visual effect -->
-        <div class="absolute inset-0 bg-gradient-to-br from-[#3f0d88] via-[#0f172a] to-black opacity-70 transform -skew-y-3 scale-110 group-hover:scale-105 transition-transform duration-700" style="background-size: 200% 200%; animation: backgroundPan 15s ease infinite alternate;"></div>
-        
-        <div class="container mx-auto relative z-10 text-center">
-            <!-- Main tagline with pulsing animation -->
-            <p class="text-2xl md:text-4xl font-extrabold mb-4 tracking-widest text-yellow-400 drop-shadow-xl animate-pulse">
-                Sankalp: Igniting Potential, Shaping Tomorrow's Leaders.🪐
-            </p>
-            <!-- Descriptive text about the institute -->
-            <p class="text-sm md:text-lg text-gray-300 mb-6 max-w-3xl mx-auto opacity-90">
-                More than an institute – a journey of growth. Dedicated to nurturing talent, empowering aspirations, and shaping success stories since 2017.
-            </p>
-            <!-- Quick links for navigation within the footer -->
-            <div class="flex justify-center items-center space-x-8 text-gray-400 text-base font-medium">
-                <a href="index.html#courses" class="footer-link hover:text-yellow-300 transition-all duration-300 transform hover:scale-105">Explore Courses</a>
-                <span class="opacity-50">|</span>
-                <a href="album.html" class="footer-link hover:text-indigo-300 transition-all duration-300 transform hover:scale-105">Our Album</a>
-                <span class="opacity-50">|</span>
-                <a href="index.html#contact" class="footer-link hover:text-purple-300 transition-all duration-300 transform hover:scale-105">Connect with Sankalp</a>
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8 text-center">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <p class="mb-4 text-gray-300">&copy; 2025 LearnWell Institute. All rights reserved.</p>
+            <div class="flex justify-center space-x-6 mb-4">
+                <a href="#" class="text-gray-300 hover:text-blue-400 transition duration-300" aria-label="Facebook">
+                    <i class="fab fa-facebook-f text-xl"></i>
+                </a>
+                <a href="#" class="text-gray-300 hover:text-blue-400 transition duration-300" aria-label="Instagram">
+                    <i class="fab fa-instagram text-xl"></i>
+                </a>
+                <a href="#" class="text-gray-300 hover:text-red-400 transition duration-300" aria-label="YouTube">
+                    <i class="fab fa-youtube text-xl"></i>
+                </a>
+                <a href="#" class="text-gray-300 hover:text-blue-400 transition duration-300" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin-in text-xl"></i>
+                </a>
             </div>
-            <!-- Copyright and additional info -->
-            <div class="mt-10 text-gray-500 text-xs tracking-wide">
-                &copy; 2017 – 2025 <strong>Sankalp Computer Classes</strong>. Crafted by Ayu. <br class="hidden sm:block">
-                💻 Excellence isn't taught — it's developers in.
-            </div>
+            <p class="text-gray-500 text-sm">Cultivating knowledge, inspiring futures.</p>
         </div>
     </footer>
 
+    <!-- Scroll to Top Button -->
+    <button id="scroll-to-top-btn" class="fixed bottom-6 right-6 bg-blue-600 text-white p-3 rounded-full shadow-lg hover:bg-blue-700 transition duration-300 opacity-0 transform translate-y-5" aria-label="Scroll to top">
+        <i class="fas fa-arrow-up text-lg"></i>
+    </button>
 
-    <!-- Lightbox/Modal Gallery Structure -->
-    <div id="lightbox-overlay" class="lightbox-overlay">
-        <span id="lightbox-close-btn" class="lightbox-close-btn">&times;</span>
-        <div class="lightbox-content">
-            <img id="lightbox-img" src="" alt="Gallery Image">
-        </div>
-        <span id="lightbox-prev-btn" class="lightbox-nav-btn left">
-            <!-- Lucide Left Arrow Icon -->
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-left"><path d="m15 18-6-6 6-6"/></svg>
-        </span>
-        <span id="lightbox-next-btn" class="lightbox-nav-btn right">
-            <!-- Lucide Right Arrow Icon -->
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right"><path d="m9 18 6-6-6-6"/></svg>
-        </span>
-    </div>
-
-    <!-- JavaScript for Interactions and Animations -->
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const mobileMenuButton = document.getElementById('mobile-menu-button');
-            const mainNav = document.getElementById('main-nav');
-            const navLinks = mainNav.querySelectorAll('a');
-            const header = document.querySelector('.main-header');
+        /**
+         * Intersection Observer for scroll-triggered animations.
+         * Elements with 'animate-on-scroll' class will gain 'is-visible' class
+         * when they enter the viewport, triggering their CSS transitions.
+         */
+        document.addEventListener('DOMContentLoaded', () => {
+            const animateElements = document.querySelectorAll('.animate-on-scroll');
 
-            // --- Mobile Navigation Toggle ---
-            mobileMenuButton.addEventListener('click', function() {
-                mainNav.classList.toggle('hidden');
-                if (mainNav.classList.contains('hidden')) {
-                    mainNav.classList.remove('opacity-100', 'max-h-screen', 'flex');
-                    mainNav.classList.add('opacity-0', 'max-h-0');
-                } else {
-                    mainNav.classList.remove('opacity-0', 'max-h-0');
-                    mainNav.classList.add('opacity-100', 'max-h-screen', 'flex');
-                }
-            });
-
-            // Close mobile menu when a nav link is clicked (for smooth UX)
-            navLinks.forEach(link => {
-                link.addEventListener('click', () => {
-                    // Only close if on a mobile view and menu is open
-                    if (window.innerWidth < 768 && !mainNav.classList.contains('hidden')) {
-                        mainNav.classList.add('hidden');
-                        mainNav.classList.remove('opacity-100', 'max-h-screen');
-                        mainNav.classList.add('opacity-0', 'max-h-0');
-                    }
-                });
-            });
-
-            // Handle window resize to ensure correct menu state for desktop
-            window.addEventListener('resize', function() {
-                if (window.innerWidth >= 768) { // If desktop view
-                    mainNav.classList.remove('hidden', 'opacity-0', 'max-h-0');
-                    mainNav.classList.add('opacity-100', 'max-h-full');
-                } else { // If mobile view
-                    // If menu is currently open (from desktop resize) and now mobile, hide it
-                    if (!mainNav.classList.contains('hidden')) {
-                         mainNav.classList.add('hidden');
-                         mainNav.classList.remove('opacity-100', 'max-h-screen');
-                         mainNav.classList.add('opacity-0', 'max-h-0');
-                    }
-                }
-            });
-
-            // --- Sticky Header Logic ---
-            window.addEventListener('scroll', function() {
-                if (window.scrollY > 50) {
-                    header.classList.add('scrolled');
-                } else {
-                    header.classList.remove('scrolled');
-                }
-
-                // Active Nav Link: Highlight 'Album' link specifically on this page
-                navLinks.forEach(link => {
-                    link.classList.remove('current-active-link');
-                    if (link.getAttribute('href').includes('album.html')) {
-                        link.classList.add('current-active-link');
-                    }
-                });
-            });
-
-            // --- Lightbox/Image Gallery Functionality ---
-            const lightboxOverlay = document.getElementById('lightbox-overlay');
-            const lightboxImg = document.getElementById('lightbox-img');
-            const lightboxCloseBtn = document.getElementById('lightbox-close-btn');
-            const lightboxPrevBtn = document.getElementById('lightbox-prev-btn');
-            const lightboxNextBtn = document.getElementById('lightbox-next-btn');
-            // Select only image items for the lightbox (exclude videos as they don't open in the image lightbox)
-            const galleryImageItems = Array.from(document.querySelectorAll('.album-item:not(.video-item)'));
-            let currentImageIndex = 0;
-
-            function openLightbox(index) {
-                if (index < 0 || index >= galleryImageItems.length) return; // Boundary check
-
-                currentImageIndex = index;
-                const imgSrc = galleryImageItems[currentImageIndex].getAttribute('data-src');
-
-                // Smoothly fade out current image, change src, then fade in new image
-                lightboxImg.style.opacity = '0';
-                setTimeout(() => {
-                    lightboxImg.src = imgSrc;
-                    lightboxImg.style.opacity = '1';
-                }, 300); // Match CSS transition duration
-
-                lightboxOverlay.classList.add('active'); // Activate the lightbox overlay
-                document.body.style.overflow = 'hidden'; // Prevent background scrolling
-            }
-
-            function closeLightbox() {
-                lightboxOverlay.classList.remove('active'); // Deactivate the lightbox overlay
-                document.body.style.overflow = ''; // Restore background scrolling
-                lightboxImg.style.opacity = '0'; // Hide image when closing to ensure fade-in next time
-            }
-
-            function showNextImage() {
-                currentImageIndex = (currentImageIndex + 1) % galleryImageItems.length; // Cycle through images
-                openLightbox(currentImageIndex);
-            }
-
-            function showPrevImage() {
-                // Handle negative index by adding galleryImageItems.length before modulo
-                currentImageIndex = (currentImageIndex - 1 + galleryImageItems.length) % galleryImageItems.length;
-                openLightbox(currentImageIndex);
-            }
-
-            // Event listeners for opening lightbox when an image is clicked
-            galleryImageItems.forEach((item, index) => {
-                item.addEventListener('click', (e) => {
-                    e.preventDefault(); // Prevent default link behavior if any
-                    openLightbox(index);
-                });
-            });
-
-            // Event listeners for lightbox controls
-            lightboxCloseBtn.addEventListener('click', closeLightbox);
-            lightboxPrevBtn.addEventListener('click', showPrevImage);
-            lightboxNextBtn.addEventListener('click', showNextImage);
-
-            // Keyboard navigation (Escape, Left Arrow, Right Arrow)
-            document.addEventListener('keydown', (e) => {
-                if (lightboxOverlay.classList.contains('active')) { // Only respond if lightbox is open
-                    if (e.key === 'Escape') {
-                        closeLightbox();
-                    } else if (e.key === 'ArrowLeft') {
-                        showPrevImage();
-                    } else if (e.key === 'ArrowRight') {
-                        showNextImage();
-                    }
-                }
-            });
-
-            // Touch/Swipe navigation for mobile
-            let touchStartX = 0;
-            let touchEndX = 0;
-
-            lightboxOverlay.addEventListener('touchstart', (e) => {
-                if (lightboxOverlay.classList.contains('active')) {
-                    touchStartX = e.touches[0].clientX; // Record start X position of touch
-                }
-            });
-
-            lightboxOverlay.addEventListener('touchend', (e) => {
-                if (lightboxOverlay.classList.contains('active')) {
-                    touchEndX = e.changedTouches[0].clientX; // Record end X position of touch
-                    const minSwipeDistance = 50; // Minimum pixels for a recognized swipe
-
-                    if (touchEndX < touchStartX - minSwipeDistance) {
-                        // Swiped left (show next image)
-                        showNextImage();
-                    } else if (touchEndX > touchStartX + minSwipeDistance) {
-                        // Swiped right (show previous image)
-                        showPrevImage();
-                    }
-                }
-            });
-
-            // --- Ripple Effect for Buttons ---
-            function createRipple(event) {
-                const button = event.currentTarget;
-                const circle = document.createElement("span");
-                const diameter = Math.max(button.offsetWidth, button.offsetHeight);
-                const radius = diameter / 2;
-
-                circle.style.width = circle.style.height = `${diameter}px`;
-                circle.style.left = `${event.clientX - button.getBoundingClientRect().left - radius}px`;
-                circle.style.top = `${event.clientY - button.getBoundingClientRect().top - radius}px`;
-                circle.classList.add("ripple");
-
-                // Remove any existing ripples to prevent accumulation
-                const oldRipple = button.querySelector(".ripple");
-                if (oldRipple) {
-                    oldRipple.remove();
-                }
-
-                button.appendChild(circle);
-            }
-
-            // Apply ripple effect to specific buttons (ensure they have overflow: hidden in CSS)
-            lightboxPrevBtn.addEventListener('click', createRipple);
-            lightboxNextBtn.addEventListener('click', createRipple);
-            lightboxCloseBtn.addEventListener('click', createRipple);
-
-
-            // --- On-Scroll Animations for Album Items (Staggered Fade-in) ---
-            const albumItems = document.querySelectorAll('.album-item');
-
-            const observerOptions = {
-                root: null, // Use the viewport as the root
-                rootMargin: '0px',
-                threshold: 0.1 // Trigger when 10% of the element is visible
-            };
-
-            const observer = new IntersectionObserver((entries, observer) => {
+            const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
-                        // Apply staggered delay using a CSS custom property
-                        const index = Array.from(albumItems).indexOf(entry.target);
-                        entry.target.style.setProperty('--stagger-delay', `${index * 0.05}s`); /* Faster stagger */
                         entry.target.classList.add('is-visible');
                         observer.unobserve(entry.target); // Stop observing once animated
                     }
                 });
-            }, observerOptions);
+            }, {
+                threshold: 0.1, // Trigger when 10% of the element is visible
+                rootMargin: '0px 0px -50px 0px' // Offset to trigger slightly earlier
+            });
 
-            albumItems.forEach(item => {
-                observer.observe(item);
+            animateElements.forEach(element => {
+                observer.observe(element);
+            });
+
+            // --- Scroll to Top Button Logic ---
+            const scrollToTopBtn = document.getElementById('scroll-to-top-btn');
+
+            window.addEventListener('scroll', () => {
+                // Show button when scrolled down, hide when near top
+                if (window.pageYOffset > 300) {
+                    scrollToTopBtn.classList.add('opacity-100', 'translate-y-0');
+                    scrollToTopBtn.classList.remove('opacity-0', 'translate-y-5');
+                } else {
+                    scrollToTopBtn.classList.add('opacity-0', 'translate-y-5');
+                    scrollToTopBtn.classList.remove('opacity-100', 'translate-y-0');
+                }
+            });
+
+            // Smooth scroll to top when button is clicked
+            scrollToTopBtn.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
             });
         });
     </script>
