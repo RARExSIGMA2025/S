@@ -11,6 +11,8 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Fonts: Inter for body text -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons (if needed, otherwise use SVGs) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" xintegrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0V4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <!-- Custom Styles -->
     <style>
@@ -40,32 +42,32 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            background-color: #6366F1; /* Indigo 500 */
+            background-color: #3b82f6; /* Blue 500 */
             color: white;
             font-weight: 600;
             padding: 1rem 2.5rem; /* Larger padding */
             border-radius: 9999px; /* Fully rounded */
-            box-shadow: 0 4px 10px rgba(99, 102, 241, 0.3); /* Softer shadow */
+            box-shadow: 0 4px 10px rgba(59, 130, 246, 0.3); /* Softer blue shadow */
             transition: all 0.3s ease-in-out;
             text-decoration: none;
             font-size: 1.05rem;
             white-space: nowrap;
         }
         .btn-primary:hover {
-            background-color: #4F46E5; /* Darker Indigo on hover */
+            background-color: #2563eb; /* Darker Blue on hover */
             transform: translateY(-2px) scale(1.02); /* Subtle lift and scale */
-            box-shadow: 0 6px 15px rgba(99, 102, 241, 0.4);
+            box-shadow: 0 6px 15px rgba(59, 130, 246, 0.4);
         }
 
-        /* Header Specific Styles (Retained from your provided code) */
+        /* Header Specific Styles (Updated for iOS look - no blur) */
         .main-header {
-            background-color: #1a202c; /* Dark background for header */
+            background-color: rgba(26, 32, 44, 0.95); /* Dark background for header, slightly transparent */
             transition: background-color 0.3s ease, box-shadow 0.3s ease;
+            /* Removed backdrop-filter as requested */
         }
         .main-header.scrolled {
-            background-color: rgba(26, 32, 44, 0.95); /* Slightly transparent dark background on scroll */
+            background-color: rgba(26, 32, 44, 0.9); /* Slightly less opaque on scroll */
             box-shadow: 0 6px 20px rgba(0,0,0,0.25); /* Stronger shadow on scroll */
-            backdrop-filter: blur(5px); /* Modern blur effect for scrolled header */
         }
         .nav-link {
             color: white;
@@ -92,7 +94,7 @@
             left: 0;
             width: 100%;
             height: 3px;
-            background-color: #6366F1; /* Indigo 500 underline */
+            background-color: #3b82f6; /* Blue 500 underline */
             animation: fadeInUnderline 0.3s forwards; /* Animation to expand the underline */
         }
         @keyframes fadeInUnderline {
@@ -100,7 +102,7 @@
             to { width: 100%; opacity: 1; }
         }
 
-        /* Mobile Navigation Specific Styles (Retained) */
+        /* Mobile Navigation Specific Styles */
         #main-nav {
             transform-origin: top;
             transition: transform 0.3s ease-out, opacity 0.3s ease-out, max-height 0.3s ease-out;
@@ -113,24 +115,24 @@
         }
         #main-nav.flex {
             opacity: 1;
-            max-height: 500px;
+            max-height: 500px; /* Sufficient height for mobile menu */
             transform: scaleY(1);
             pointer-events: auto;
             overflow: hidden;
             background-color: #2d3748;
         }
 
-        /* Album Hero Section Styling (Reverted to previous simple gradient) */
+        /* Album Hero Section Styling (Enhanced Blue Gradient) */
         .album-hero-background {
-            background: linear-gradient(to right, #3b82f6, #60a5fa); /* Blue gradient */
-            min-height: 45vh; /* Consistent height */
+            background: linear-gradient(to right, #3b82f6, #60a5fa); /* Vibrant blue gradient */
+            min-height: 45vh;
             display: flex;
             align-items: center;
             justify-content: center;
             position: relative;
             overflow: hidden;
-            border-radius: 0 0 1.5rem 1.5rem; /* Rounded bottom corners */
-            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3); /* Soft shadow */
+            border-radius: 0 0 2.5rem 2.5rem; /* More rounded bottom corners */
+            box-shadow: 0 15px 40px rgba(59, 130, 246, 0.4); /* Stronger, softer blue shadow */
         }
         /* Simple background pattern overlay (from previous version) */
         .hero-pattern {
@@ -144,51 +146,51 @@
         .album-hero-content {
             position: relative;
             z-index: 1; /* Ensure content is above pattern */
-            /* Removed text-shadow from here */
         }
 
-        /* Album Grid Items Styling (Reverted to previous aesthetic) */
+        /* Album Grid Items Styling (Enhanced for iOS "cutout" look) */
         .album-item {
             position: relative;
             cursor: pointer;
-            border-radius: 0.75rem;
+            border-radius: 1.5rem; /* More aggressive rounded corners */
             overflow: hidden;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Softer initial shadow */
-            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Simpler transition */
             background-color: #ffffff;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* Stronger initial shadow */
+            transition: transform 0.3s ease-out, box-shadow 0.3s ease-out; /* Smooth transition */
             height: 14rem; /* h-56 in Tailwind CSS, consistent height */
-            border: 1px solid #e2e8f0;
+            border: 1px solid #e2e8f0; /* Subtle border */
 
             /* Animation for fade-in on scroll */
             opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out; /* Match generic animate-on-scroll */
+            transform: translateY(30px); /* Start further down */
+            transition: opacity 0.7s ease-out, transform 0.7s ease-out; /* Slower, smoother animation */
         }
         .album-item.is-visible {
             opacity: 1;
             transform: translateY(0);
         }
-        /* Hover effect for album items */
+        /* Hover effect for album items (iOS-like lift and shadow) */
         .album-item:hover {
-            transform: translateY(-5px) scale(1.01); /* Subtle lift and scale */
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* Slightly stronger shadow on hover */
+            transform: translateY(-8px) scale(1.02); /* More pronounced lift and scale */
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2); /* Stronger, more diffused shadow on hover */
         }
 
-        /* Image within album item (reverted to object-cover) */
+        /* Image within album item */
         .album-item img {
             width: 100%;
             height: 100%;
-            object-fit: cover; /* Reverted to object-cover */
+            object-fit: cover;
             display: block;
             transition: transform 0.3s ease;
         }
 
-        /* Overlay for hover effects on album items with icon */
+        /* Overlay for hover effects on album items with icon (Blue Tint) */
         .album-item-overlay {
             position: absolute;
             inset: 0;
-            background-color: rgba(0, 0, 0, 0.5); /* Lighter transparent overlay */
+            background-color: rgba(59, 130, 246, 0.4); /* Blue transparent overlay */
             display: flex;
+            flex-direction: column; /* Align icon and text vertically */
             align-items: center;
             justify-content: center;
             opacity: 0; /* Hidden by default */
@@ -196,20 +198,33 @@
             color: white;
             font-size: 2.5rem;
             pointer-events: none; /* Allow clicks to pass through to the item */
+            border-radius: inherit; /* Inherit border-radius from parent */
+        }
+        .album-item-overlay span {
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-top: 0.5rem;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
         }
         /* Icon within overlay */
         .album-item-overlay svg {
             transition: transform 0.3s ease; /* Icon scale animation */
         }
-        /* Show overlay and animate icon on hover */
+        /* Show overlay and animate icon/text on hover */
         .album-item:hover .album-item-overlay {
             opacity: 1;
         }
         .album-item:hover .album-item-overlay svg {
             transform: scale(1.1); /* Slightly enlarge icon on hover */
         }
+        .album-item:hover .album-item-overlay span {
+            opacity: 1;
+            transform: translateY(0);
+        }
 
-        /* Video specific wrapper for consistent aspect ratio and sizing (retained) */
+        /* Video specific wrapper for consistent aspect ratio and sizing */
         .album-item .video-item-wrapper {
              height: 100%;
              width: 100%;
@@ -219,7 +234,7 @@
             padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
             height: 0;
             overflow: hidden;
-            border-radius: 0.75rem;
+            border-radius: inherit; /* Inherit border-radius */
             width: 100%;
         }
         .album-item .video-responsive iframe,
@@ -232,22 +247,23 @@
             border-radius: inherit;
         }
 
-        /* Lightbox/Modal Gallery Styles (Reverted to simpler version) */
+        /* Lightbox/Modal Gallery Styles (Enhanced for iOS look with blur) */
         .lightbox-overlay {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.9); /* Slightly more transparent */
+            background: rgba(0, 0, 0, 0.7); /* Darker, more prominent overlay */
+            backdrop-filter: blur(15px); /* Stronger blur for iOS modal effect */
+            -webkit-backdrop-filter: blur(15px); /* For Safari */
             display: flex;
             justify-content: center;
             align-items: center;
             z-index: 1000;
             opacity: 0;
             visibility: hidden;
-            transition: opacity 0.3s ease; /* Faster fade */
-            /* Removed backdrop-filter */
+            transition: opacity 0.3s ease;
         }
         .lightbox-overlay.active {
             opacity: 1;
@@ -262,128 +278,126 @@
             justify-content: center;
             opacity: 0; /* Initial state for image fade-in */
             transition: opacity 0.3s ease; /* For image changing animation */
-            /* Removed transform scale entry animation */
+            touch-action: pan-y; /* Allow vertical scroll, but capture horizontal for swipe */
         }
         .lightbox-overlay.active .lightbox-content {
             opacity: 1;
-            /* Removed transform scale */
         }
         .lightbox-content img {
             max-width: 100%;
             max-height: 100%;
-            object-fit: contain; /* Keep contain for lightbox for full view */
-            border-radius: 0.75rem;
-            box-shadow: 0 0 30px rgba(0, 0, 0, 0.7); /* Softer shadow */
+            object-fit: contain;
+            border-radius: 1rem; /* Rounded corners for lightbox image */
+            box-shadow: 0 0 40px rgba(0, 0, 0, 0.8); /* More prominent shadow */
             transition: opacity 0.3s ease; /* For image changing animation */
         }
 
-        /* Navigation buttons for lightbox (Previous/Next) - Reverted to simpler */
+        /* Navigation buttons for lightbox (Previous/Next) - iOS styled */
         .lightbox-nav-btn {
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            background: rgba(255, 255, 255, 0.15); /* More transparent */
+            background: rgba(255, 255, 255, 0.25); /* More opaque white transparent */
             color: white;
-            padding: 0.8rem; /* Smaller padding */
+            padding: 1rem; /* Larger padding */
             border-radius: 50%;
             cursor: pointer;
             z-index: 1010;
-            transition: background-color 0.2s ease;
+            transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 45px; /* Smaller buttons */
-            height: 45px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.3); /* Softer shadow */
-            /* Removed overflow: hidden; position: relative; for ripple */
+            width: 50px; /* Larger buttons */
+            height: 50px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.4); /* Stronger shadow */
         }
         .lightbox-nav-btn:hover {
-            background: rgba(255, 255, 255, 0.3); /* Slightly more opaque on hover */
-            transform: translateY(-50%) scale(1.05); /* Subtle scale */
-            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+            background: rgba(255, 255, 255, 0.4); /* Even more opaque on hover */
+            transform: translateY(-50%) scale(1.1); /* More pronounced scale */
+            box-shadow: 0 6px 20px rgba(0,0,0,0.5);
         }
-        .lightbox-nav-btn.left { left: 15px; } /* Closer to edge */
-        .lightbox-nav-btn.right { right: 15px; } /* Closer to edge */
-        /* Adjust navigation buttons for very small mobile screens (retained) */
+        .lightbox-nav-btn.left { left: 20px; } /* Further from edge */
+        .lightbox-nav-btn.right { right: 20px; } /* Further from edge */
+        /* Adjust navigation buttons for very small mobile screens */
         @media (max-width: 640px) {
             .lightbox-nav-btn {
-                width: 40px;
-                height: 40px;
-                left: 5px;
-                right: 5px;
+                width: 45px;
+                height: 45px;
+                left: 10px;
+                right: 10px;
+                padding: 0.8rem;
             }
         }
-        /* Icon styling inside buttons (reverted to smaller) */
+        /* Icon styling inside buttons */
         .lightbox-nav-btn svg {
-            width: 24px; /* Smaller icon */
-            height: 24px;
+            width: 28px; /* Larger icon */
+            height: 28px;
         }
 
-        /* Close button for lightbox (reverted to simpler) */
+        /* Close button for lightbox (iOS styled) */
         .lightbox-close-btn {
             position: absolute;
-            top: 15px; /* Closer to edge */
-            right: 15px; /* Closer to edge */
-            background: rgba(255, 255, 255, 0.15);
+            top: 20px; /* Further from edge */
+            right: 20px; /* Further from edge */
+            background: rgba(255, 255, 255, 0.25);
             color: white;
             border-radius: 50%;
-            width: 40px; /* Smaller close button */
-            height: 40px;
+            width: 45px; /* Larger close button */
+            height: 45px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.5rem; /* Smaller font size */
+            font-size: 1.8rem; /* Larger font size */
             cursor: pointer;
             z-index: 1010;
-            transition: background-color 0.2s ease, transform 0.2s ease;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
-            /* Removed overflow: hidden; position: relative; for ripple */
+            transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
         }
         .lightbox-close-btn:hover {
-            background: rgba(255, 0, 0, 0.6); /* Red on hover */
-            transform: rotate(90deg) scale(1.05); /* Subtle rotate and scale */
-            box-shadow: 0 4px 15px rgba(255,0,0,0.4);
+            background: rgba(255, 0, 0, 0.7); /* More vibrant red on hover */
+            transform: rotate(90deg) scale(1.1); /* More pronounced rotate and scale */
+            box-shadow: 0 6px 20px rgba(255,0,0,0.5);
         }
-        /* Adjust close button for very small mobile screens (retained) */
+        /* Adjust close button for very small mobile screens */
         @media (max-width: 640px) {
             .lightbox-close-btn {
-                top: 10px;
-                right: 10px;
-                width: 35px;
-                height: 35px;
-                font-size: 1.4rem;
+                top: 15px;
+                right: 15px;
+                width: 40px;
+                height: 40px;
+                font-size: 1.6rem;
             }
         }
 
-        /* Footer Specific Styles (Reverted to simpler version) */
+        /* Footer Specific Styles */
         footer {
             background-color: #1f2937; /* Darker gray from previous theme */
             color: white;
             padding: 3rem 1.5rem; /* Consistent padding */
             text-align: center;
-            box-shadow: 0 -5px 20px rgba(0,0,0,0.1); /* Shadow at the top */
-            border-radius: 1.5rem 1.5rem 0 0; /* Rounded top corners */
+            box-shadow: 0 -8px 30px rgba(0,0,0,0.15); /* Stronger shadow at the top */
+            border-radius: 2.5rem 2.5rem 0 0; /* More rounded top corners */
         }
         .footer-link {
-            transition: color 0.2s ease, transform 0.2s ease; /* Simpler transition */
+            transition: color 0.2s ease, transform 0.2s ease;
         }
         .footer-link:hover {
             color: #93c5fd; /* Light blue on hover */
             transform: translateY(-2px); /* Subtle lift */
         }
 
-        /* Animation for sections/elements as they come into view (Reverted to original behavior) */
+        /* Animation for sections/elements as they come into view */
         .animate-on-scroll {
             opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+            transform: translateY(30px);
+            transition: opacity 0.7s ease-out, transform 0.7s ease-out;
         }
         .animate-on-scroll.is-visible {
             opacity: 1;
             transform: translateY(0);
         }
 
-        /* Delay utilities for staggered animations (re-applied manually in HTML) */
+        /* Delay utilities for staggered animations */
         .delay-100 { transition-delay: 0.1s; }
         .delay-200 { transition-delay: 0.2s; }
         .delay-300 { transition-delay: 0.3s; }
@@ -394,33 +408,120 @@
         .delay-800 { transition-delay: 0.8s; }
         .delay-900 { transition-delay: 0.9s; }
         .delay-1000 { transition-delay: 1.0s; }
+        .delay-1100 { transition-delay: 1.1s; }
+        .delay-1200 { transition-delay: 1.2s; }
 
         /* Scroll to top button specific styles */
         #scroll-to-top-btn {
             z-index: 1000; /* Ensure it's above other content */
             transition: opacity 0.3s ease, transform 0.3s ease;
+            background-color: #3b82f6; /* Blue button */
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
+        }
+        #scroll-to-top-btn:hover {
+            background-color: #2563eb;
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 6px 20px rgba(59, 130, 246, 0.5);
+        }
+
+        /* Bottom Navigation Bar Styles (iOS-like) */
+        .bottom-nav-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 900; /* Below lightbox, above general content */
+            background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white */
+            backdrop-filter: blur(10px); /* Frosted glass effect */
+            -webkit-backdrop-filter: blur(10px); /* For Safari */
+            padding: 0.75rem 1rem; /* Vertical padding */
+            box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.08); /* Subtle top shadow */
+            border-top: 1px solid rgba(226, 232, 240, 0.5); /* Very light border */
+            display: flex;
+            justify-content: center; /* Center the inner dock */
+        }
+
+        .bottom-nav-dock {
+            display: flex;
+            background-color: rgba(240, 244, 248, 0.8); /* Light blue-gray transparent background for the dock */
+            border-radius: 9999px; /* Pill shape */
+            padding: 0.5rem; /* Padding inside the dock */
+            max-width: 90%; /* Limit width on larger screens */
+            width: fit-content; /* Shrink to fit content */
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1); /* Shadow for the dock */
+        }
+
+        .bottom-nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            flex: 1; /* Distribute space evenly */
+            padding: 0.5rem 1rem; /* Padding for each item */
+            color: #64748b; /* Slate 500 */
+            font-size: 0.75rem; /* Small text for labels */
+            font-weight: 600;
+            transition: color 0.2s ease, transform 0.2s ease, background-color 0.2s ease;
+            border-radius: 9999px; /* Rounded pill shape for active state */
+            cursor: pointer;
+            min-width: 60px; /* Minimum width for touch target */
+        }
+
+        .bottom-nav-item svg {
+            width: 24px;
+            height: 24px;
+            margin-bottom: 0.25rem; /* Space between icon and text */
+            transition: color 0.2s ease, transform 0.2s ease;
+        }
+
+        .bottom-nav-item.active {
+            color: #3b82f6; /* Blue 500 for active text */
+            background-color: rgba(59, 130, 246, 0.1); /* Light blue background for active item */
+            transform: translateY(-2px); /* Subtle lift on active */
+        }
+        .bottom-nav-item.active svg {
+            color: #3b82f6; /* Blue 500 for active icon */
+            transform: scale(1.1); /* Slightly larger active icon */
+        }
+
+        .bottom-nav-item:hover:not(.active) {
+            color: #3b82f6; /* Blue 500 on hover */
+            background-color: rgba(59, 130, 246, 0.05); /* Very subtle background on hover */
+        }
+
+        /* Adjust main content padding for bottom nav bar */
+        main {
+            padding-bottom: 6rem; /* Space for the fixed bottom navigation bar */
+        }
+        @media (min-width: 768px) {
+            main {
+                padding-bottom: 0; /* No extra padding on desktop as bottom nav is less prominent */
+            }
+            .bottom-nav-bar {
+                display: none; /* Hide bottom nav on desktop, use top nav */
+            }
         }
     </style>
 </head>
-<body class="selection:bg-indigo-200 selection:text-indigo-900">
+<body class="selection:bg-blue-200 selection:text-blue-900">
 
-    <!-- Header Section (Consistent with index.html) -->
+    <!-- Header Section -->
     <header class="main-header bg-gray-900 text-white p-4 shadow-lg fixed w-full z-50 transition-all duration-300 ease-in-out">
         <div class="container mx-auto flex justify-between items-center px-4">
             <!-- Logo and Site Title -->
             <div class="flex items-center">
-                <img src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/logo.jpg" onerror="this.onerror=null;this.src='https://placehold.co/40x40/4F46E5/FFFFFF?text=Logo';" alt="Sankalp Classes Logo" class="h-10 w-10 rounded-full mr-3 border-2 border-indigo-400 shadow-md">
-                <h1 class="text-2xl font-extrabold tracking-wide text-indigo-100">Sankalp Classes</h1>
+                <img src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/logo.jpg" onerror="this.onerror=null;this.src='https://placehold.co/40x40/4F46E5/FFFFFF?text=Logo';" alt="Sankalp Classes Logo" class="h-10 w-10 rounded-full mr-3 border-2 border-blue-400 shadow-md">
+                <h1 class="text-2xl font-extrabold tracking-wide text-blue-100">Sankalp Classes</h1>
             </div>
 
             <!-- Mobile Menu Toggle Button (Hamburger Icon) -->
-            <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none focus:ring-2 focus:ring-indigo-400 p-2 rounded-md">
+            <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none focus:ring-2 focus:ring-blue-400 p-2 rounded-md">
                 <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
                 </svg>
             </button>
 
-            <!-- Main Navigation Menu -->
+            <!-- Main Navigation Menu (Hidden on mobile by default, shown by JS) -->
             <nav id="main-nav" class="hidden md:flex flex-col md:flex-row md:static absolute top-full left-0 w-full md:w-auto bg-gray-900 md:bg-transparent shadow-lg md:shadow-none transition-all duration-300 ease-in-out opacity-0 md:opacity-100 max-h-0 md:max-h-full overflow-hidden">
                 <ul class="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-8 text-lg font-medium py-4 md:py-0 px-4 md:px-0">
                     <li><a href="index.html#home" class="nav-link">Home</a></li>
@@ -437,21 +538,22 @@
     <main class="pt-[4rem] md:pt-[5rem]"> <!-- Adjusted padding-top for fixed header -->
 
         <!-- Album Hero Section -->
-        <section class="album-hero-background hero-pattern text-white text-center section-padding rounded-b-3xl">
+        <section class="album-hero-background hero-pattern text-white text-center section-padding">
             <div class="album-hero-content container mx-auto">
                 <h1 class="text-4xl md:text-5xl font-extrabold mb-4 animate-on-scroll delay-100">✨ Our Campus Life in Moments ✨</h1>
                 <p class="text-lg md:text-xl font-light opacity-90 max-w-2xl mx-auto animate-on-scroll delay-200">
                     A vibrant collection of our events, student achievements, and the daily life that makes Sankalp special.
                 </p>
                 <a href="#album-content" class="btn-primary mt-8 animate-on-scroll delay-300">
-                    View Gallery <i class="fas fa-arrow-down ml-3 text-base"></i>
+                    View Gallery
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 ml-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg>
                 </a>
             </div>
         </section>
 
         <!-- Album Content Grid -->
         <section id="album-content" class="section-padding bg-gray-100">
-            <div class="container mx-auto bg-white p-6 md:p-10 rounded-xl shadow-lg max-w-6xl border border-gray-200">
+            <div class="container mx-auto bg-white p-6 md:p-10 rounded-3xl shadow-xl max-w-6xl border border-gray-200">
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 photo-grid">
 
                     <!-- Album Images (18 Slots) - Each wrapped in an album-item for click functionality -->
@@ -459,110 +561,127 @@
                     <div class="album-item animate-on-scroll delay-100" data-src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(1).JPG">
                         <img src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(1).JPG" onerror="this.onerror=null;this.src='https://placehold.co/600x400/81C784/FFFFFF?text=Image+1';" alt="Sankalp Classes Photo 1">
                         <div class="album-item-overlay">
-                            <!-- Magnifying Glass Icon -->
                             <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-zoom-in"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+                            <span>View Image</span>
                         </div>
                     </div>
                     <div class="album-item animate-on-scroll delay-200" data-src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(2).JPG">
                         <img src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(2).JPG" onerror="this.onerror=null;this.src='https://placehold.co/600x400/ADD8E6/000000?text=Image+2';" alt="Sankalp Classes Photo 2">
                         <div class="album-item-overlay">
                             <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-zoom-in"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+                            <span>View Image</span>
                         </div>
                     </div>
                     <div class="album-item animate-on-scroll delay-300" data-src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(3).JPG">
                         <img src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(3).JPG" onerror="this.onerror=null;this.src='https://placehold.co/600x400/FFDDC1/000000?text=Image+3';" alt="Sankalp Classes Photo 3">
                         <div class="album-item-overlay">
                             <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-zoom-in"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+                            <span>View Image</span>
                         </div>
                     </div>
                     <div class="album-item animate-on-scroll delay-400" data-src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(4).JPG">
                         <img src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(4).JPG" onerror="this.onerror=null;this.src='https://placehold.co/600x400/DDA0DD/000000?text=Image+4';" alt="Sankalp Classes Photo 4">
                         <div class="album-item-overlay">
                             <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-zoom-in"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+                            <span>View Image</span>
                         </div>
                     </div>
                     <div class="album-item animate-on-scroll delay-500" data-src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(5).JPG">
                         <img src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(5).JPG" onerror="this.onerror=null;this.src='https://placehold.co/600x400/98FB98/000000?text=Image+5';" alt="Sankalp Classes Photo 5">
                         <div class="album-item-overlay">
                             <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-zoom-in"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+                            <span>View Image</span>
                         </div>
                     </div>
                     <div class="album-item animate-on-scroll delay-600" data-src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(6).JPG">
                         <img src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(6).JPG" onerror="this.onerror=null;this.src='https://placehold.co/600x400/F0E68C/000000?text=Image+6';" alt="Sankalp Classes Photo 6">
                         <div class="album-item-overlay">
                             <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-zoom-in"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+                            <span>View Image</span>
                         </div>
                     </div>
                     <div class="album-item animate-on-scroll delay-700" data-src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(7).JPG">
                         <img src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(7).JPG" onerror="this.onerror=null;this.src='https://placehold.co/600x400/C0C0C0/333333?text=Image+7';" alt="Sankalp Classes Photo 7">
                         <div class="album-item-overlay">
                             <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-zoom-in"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+                            <span>View Image</span>
                         </div>
                     </div>
                     <div class="album-item animate-on-scroll delay-800" data-src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(8).JPG">
                         <img src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(8).JPG" onerror="this.onerror=null;this.src='https://placehold.co/600x400/A9A9A9/FFFFFF?text=Image+8';" alt="Sankalp Classes Photo 8">
                         <div class="album-item-overlay">
                             <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-zoom-in"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+                            <span>View Image</span>
                         </div>
                     </div>
                     <div class="album-item animate-on-scroll delay-900" data-src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(9).JPG">
                         <img src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(9).JPG" onerror="this.onerror=null;this.src='https://placehold.co/600x400/778899/FFFFFF?text=Image+9';" alt="Sankalp Classes Photo 9">
                         <div class="album-item-overlay">
                             <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-zoom-in"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+                            <span>View Image</span>
                         </div>
                     </div>
                     <div class="album-item animate-on-scroll delay-100" data-src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(10).JPG">
                         <img src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(10).JPG" onerror="this.onerror=null;this.src='https://placehold.co/600x400/5F9EA0/FFFFFF?text=Image+10';" alt="Sankalp Classes Photo 10">
                         <div class="album-item-overlay">
                             <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-zoom-in"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+                            <span>View Image</span>
                         </div>
                     </div>
                     <div class="album-item animate-on-scroll delay-200" data-src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(11).JPG">
                         <img src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(11).JPG" onerror="this.onerror=null;this.src='https://placehold.co/600x400/4682B4/FFFFFF?text=Image+11';" alt="Sankalp Classes Photo 11">
                         <div class="album-item-overlay">
                             <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-zoom-in"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+                            <span>View Image</span>
                         </div>
                     </div>
                     <div class="album-item animate-on-scroll delay-300" data-src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(12).JPG">
                         <img src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(12).JPG" onerror="this.onerror=null;this.src='https://placehold.co/600x400/6495ED/FFFFFF?text=Image+12';" alt="Sankalp Classes Photo 12">
                         <div class="album-item-overlay">
                             <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-zoom-in"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+                            <span>View Image</span>
                         </div>
                     </div>
                     <div class="album-item animate-on-scroll delay-400" data-src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(13).JPG">
                         <img src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(13).JPG" onerror="this.onerror=null;this.src='https://placehold.co/600x400/B0C4DE/000000?text=Image+13';" alt="Sankalp Classes Photo 13">
                         <div class="album-item-overlay">
                             <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-zoom-in"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+                            <span>View Image</span>
                         </div>
                     </div>
                     <div class="album-item animate-on-scroll delay-500" data-src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(14).JPG">
                         <img src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(14).JPG" onerror="this.onerror=null;this.src='https://placehold.co/600x400/D3D3D3/000000?text=Image+14';" alt="Sankalp Classes Photo 14">
                         <div class="album-item-overlay">
                             <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-zoom-in"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+                            <span>View Image</span>
                         </div>
                     </div>
                     <div class="album-item animate-on-scroll delay-600" data-src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(15).JPG">
                         <img src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(15).JPG" onerror="this.onerror=null;this.src='https://placehold.co/600x400/F0F8FF/000000?text=Image+15';" alt="Sankalp Classes Photo 15">
                         <div class="album-item-overlay">
                             <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-zoom-in"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+                            <span>View Image</span>
                         </div>
                     </div>
                     <div class="album-item animate-on-scroll delay-700" data-src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(16).jpg">
                         <img src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(16).jpg" onerror="this.onerror=null;this.src='https://placehold.co/600x400/B0E0E6/000000?text=Image+16';" alt="Sankalp Classes Photo 16">
                         <div class="album-item-overlay">
                             <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-zoom-in"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+                            <span>View Image</span>
                         </div>
                     </div>
                     <div class="album-item animate-on-scroll delay-800" data-src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(17).jpg">
                         <img src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(17).jpg" onerror="this.onerror=null;this.src='https://placehold.co/600x400/87CEFA/000000?text=Image+17';" alt="Sankalp Classes Photo 17">
                         <div class="album-item-overlay">
                             <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-zoom-in"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+                            <span>View Image</span>
                         </div>
                     </div>
                     <div class="album-item animate-on-scroll delay-900" data-src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(18).jpg">
                         <img src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(18).jpg" onerror="this.onerror=null;this.src='https://placehold.co/600x400/6A5ACD/FFFFFF?text=Image+18';" alt="Sankalp Classes Photo 18">
                         <div class="album-item-overlay">
                             <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-zoom-in"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+                            <span>View Image</span>
                         </div>
                     </div>
 
@@ -577,6 +696,7 @@
                         <div class="album-item-overlay">
                             <!-- Play Icon -->
                             <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-play"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                            <span>Watch Video</span>
                         </div>
                     </div>
 
@@ -593,6 +713,7 @@
                         </div>
                         <div class="album-item-overlay">
                             <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-play"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                            <span>Watch Video</span>
                         </div>
                     </div>
                 </div>
@@ -605,8 +726,8 @@
     <!-- Footer Section -->
     <footer class="bg-gray-800 text-white p-12 mt-24 shadow-xl relative rounded-t-3xl">
         <div class="container mx-auto relative z-10 text-center">
-            <!-- Main tagline (removed pulsing animation) -->
-            <p class="text-2xl md:text-4xl font-extrabold mb-4 tracking-widest text-yellow-300 drop-shadow-md">
+            <!-- Main tagline -->
+            <p class="text-2xl md:text-4xl font-extrabold mb-4 tracking-widest text-blue-300 drop-shadow-md">
                 Sankalp: Igniting Potential, Shaping Tomorrow's Leaders.🪐
             </p>
             <!-- Descriptive text about the institute -->
@@ -615,11 +736,11 @@
             </p>
             <!-- Quick links for navigation within the footer -->
             <div class="flex justify-center items-center space-x-8 text-gray-400 text-base font-medium">
-                <a href="index.html#courses" class="footer-link hover:text-yellow-200">Explore Courses</a>
+                <a href="index.html#courses" class="footer-link hover:text-blue-200">Explore Courses</a>
                 <span class="opacity-50">|</span>
-                <a href="album.html" class="footer-link hover:text-indigo-200">Our Album</a>
+                <a href="album.html" class="footer-link hover:text-blue-200">Our Album</a>
                 <span class="opacity-50">|</span>
-                <a href="index.html#contact" class="footer-link hover:text-purple-200">Connect with Sankalp</a>
+                <a href="index.html#contact" class="footer-link hover:text-blue-200">Connect with Sankalp</a>
             </div>
             <!-- Copyright and additional info -->
             <div class="mt-10 text-gray-500 text-xs tracking-wide">
@@ -631,7 +752,7 @@
 
     <!-- Scroll to Top Button -->
     <button id="scroll-to-top-btn" class="fixed bottom-6 right-6 bg-blue-600 text-white p-3 rounded-full shadow-lg hover:bg-blue-700 transition duration-300 opacity-0 transform translate-y-5" aria-label="Scroll to top">
-        <i class="fas fa-arrow-up text-lg"></i>
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg>
     </button>
 
     <!-- Lightbox/Modal Gallery Structure -->
@@ -641,14 +762,35 @@
             <img id="lightbox-img" src="" alt="Gallery Image">
         </div>
         <span id="lightbox-prev-btn" class="lightbox-nav-btn left">
-            <!-- Lucide Left Arrow Icon -->
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-left"><path d="m15 18-6-6 6-6"/></svg>
         </span>
         <span id="lightbox-next-btn" class="lightbox-nav-btn right">
-            <!-- Lucide Right Arrow Icon -->
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right"><path d="m9 18 6-6-6-6"/></svg>
         </span>
     </div>
+
+    <!-- Bottom Navigation Bar for Mobile (iOS-like) -->
+    <nav class="bottom-nav-bar md:hidden">
+        <div class="bottom-nav-dock">
+            <a href="index.html#home" class="bottom-nav-item">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-home"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                <span>Home</span>
+            </a>
+            <a href="album.html" class="bottom-nav-item active">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-image"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>
+                <span>Album</span>
+            </a>
+            <a href="index.html#courses" class="bottom-nav-item">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-book-open"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+                <span>Courses</span>
+            </a>
+            <a href="index.html#contact" class="bottom-nav-item">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mail"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-10 7L2 7"/></svg>
+                <span>Contact</span>
+            </a>
+        </div>
+    </nav>
+
 
     <!-- JavaScript for Interactions and Animations -->
     <script>
@@ -660,7 +802,9 @@
 
             // --- Mobile Navigation Toggle ---
             mobileMenuButton.addEventListener('click', function() {
+                // Toggle 'hidden' class for display control
                 mainNav.classList.toggle('hidden');
+                // Adjust opacity and max-height for smooth transition
                 if (mainNav.classList.contains('hidden')) {
                     mainNav.classList.remove('opacity-100', 'max-h-screen', 'flex');
                     mainNav.classList.add('opacity-0', 'max-h-0');
@@ -673,6 +817,7 @@
             // Close mobile menu when a nav link is clicked (for smooth UX)
             navLinks.forEach(link => {
                 link.addEventListener('click', () => {
+                    // Only close if it's a mobile view and the menu is open
                     if (window.innerWidth < 768 && !mainNav.classList.contains('hidden')) {
                         mainNav.classList.add('hidden');
                         mainNav.classList.remove('opacity-100', 'max-h-screen');
@@ -687,6 +832,7 @@
                     mainNav.classList.remove('hidden', 'opacity-0', 'max-h-0');
                     mainNav.classList.add('opacity-100', 'max-h-full', 'flex');
                 } else {
+                    // If resizing to mobile, ensure mobile menu is hidden
                     if (!mainNav.classList.contains('hidden')) {
                          mainNav.classList.add('hidden');
                          mainNav.classList.remove('opacity-100', 'max-h-screen', 'flex');
@@ -796,27 +942,41 @@
                 }
             });
 
-            // Touch/Swipe navigation for mobile
+            // --- Touch/Swipe navigation for mobile (iOS Album-like) ---
             let touchStartX = 0;
             let touchEndX = 0;
+            let isSwiping = false; // Flag to prevent accidental clicks triggering swipe
 
             lightboxOverlay.addEventListener('touchstart', (e) => {
                 if (lightboxOverlay.classList.contains('active')) {
                     touchStartX = e.touches[0].clientX;
+                    isSwiping = false; // Reset swipe flag
                 }
-            });
+            }, { passive: true }); // Use passive listener for better scroll performance
+
+            lightboxOverlay.addEventListener('touchmove', (e) => {
+                if (lightboxOverlay.classList.contains('active')) {
+                    touchEndX = e.touches[0].clientX;
+                    // Detect if enough horizontal movement has occurred to consider it a swipe
+                    if (Math.abs(touchEndX - touchStartX) > 20) {
+                        isSwiping = true;
+                    }
+                }
+            }, { passive: true });
 
             lightboxOverlay.addEventListener('touchend', (e) => {
-                if (lightboxOverlay.classList.contains('active')) {
-                    touchEndX = e.changedTouches[0].clientX;
-                    const minSwipeDistance = 50;
+                if (lightboxOverlay.classList.contains('active') && isSwiping) {
+                    const minSwipeDistance = 75; // Increased minimum swipe distance
 
                     if (touchEndX < touchStartX - minSwipeDistance) {
+                        // Swiped left (show next image)
                         showNextImage();
                     } else if (touchEndX > touchStartX + minSwipeDistance) {
+                        // Swiped right (show previous image)
                         showPrevImage();
                     }
                 }
+                isSwiping = false; // Reset swipe flag
             });
 
             // --- On-Scroll Animations for Album Items ---
@@ -864,3 +1024,4 @@
     </script>
 </body>
 </html>
+
