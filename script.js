@@ -1,93 +1,189 @@
-document.addEventListener('DOMContentLoaded', () => {
-    // ----------------------------------------------------
-    // 1. Universal Navigation Toggle Logic
-    // ----------------------------------------------------
+document.addEventListener('DOMContentLoaded', function() {
     const mobileMenuButton = document.getElementById('mobile-menu-button');
     const mainNav = document.getElementById('main-nav');
     const navLinks = mainNav.querySelectorAll('a');
+    const header = document.querySelector('.main-header');
+    const sections = document.querySelectorAll('section[id]');
+    const socialSidebar = document.getElementById('social-sidebar');
+    const themeToggleButton = document.getElementById('theme-toggle');
+    const sunIcon = document.getElementById('sun-icon');
+    const moonIcon = document.getElementById('moon-icon');
 
+    // --- Theme Toggle Logic ---
+    // Function to set the theme
+    function setTheme(theme) {
+        if (theme === 'dark') {
+            document.body.classList.remove('light-mode');
+            sunIcon.classList.add('hidden');
+            moonIcon.classList.remove('hidden');
+        } else {
+            document.body.classList.add('light-mode');
+            sunIcon.classList.remove('hidden');
+            moonIcon.classList.add('hidden');
+        }
+        localStorage.setItem('theme', theme);
+    }
+
+    // Initialize theme on load
+    const savedTheme = localStorage.getItem('theme') || 'dark'; // Default to dark if no theme saved
+    setTheme(savedTheme);
+
+    // Event listener for theme toggle button
+    themeToggleButton.addEventListener('click', function() {
+        const currentTheme = document.body.classList.contains('light-mode') ? 'light' : 'dark';
+        if (currentTheme === 'dark') {
+            setTheme('light');
+        } else {
+            setTheme('dark');
+        }
+    });
+
+    // --- Mobile Navigation Toggle ---
     if (mobileMenuButton && mainNav) {
-        mobileMenuButton.addEventListener('click', () => {
-            // Toggle the visibility and opacity/height for smooth transition
+        mobileMenuButton.addEventListener('click', function() {
             mainNav.classList.toggle('hidden');
             if (mainNav.classList.contains('hidden')) {
-                mainNav.classList.remove('opacity-100', 'max-h-screen', 'flex'); // Ensure flex is removed when hiding
+                mainNav.classList.remove('opacity-100', 'max-h-screen', 'flex');
                 mainNav.classList.add('opacity-0', 'max-h-0');
             } else {
                 mainNav.classList.remove('opacity-0', 'max-h-0');
-                mainNav.classList.add('opacity-100', 'max-h-screen', 'flex'); // Ensure flex is added when showing
+                mainNav.classList.add('opacity-100', 'max-h-screen', 'flex');
             }
         });
 
-        // Close menu when a link is clicked
+        // Close mobile menu when a nav link is clicked (for smooth UX)
         navLinks.forEach(link => {
             link.addEventListener('click', () => {
-                // Only close the menu if it's currently open
-                if (!mainNav.classList.contains('hidden')) {
+                // Only close if on a mobile view and menu is open
+                if (window.innerWidth < 768 && !mainNav.classList.contains('hidden')) {
                     mainNav.classList.add('hidden');
-                    mainNav.classList.remove('opacity-100', 'max-h-screen', 'flex');
+                    mainNav.classList.remove('opacity-100', 'max-h-screen');
                     mainNav.classList.add('opacity-0', 'max-h-0');
                 }
             });
         });
 
-        // Removed window.resize listener as navigation is now always toggle-based
+        // Handle window resize to ensure correct menu state for desktop
+        window.addEventListener('resize', function() {
+            if (window.innerWidth >= 768) { // If desktop view
+                mainNav.classList.remove('hidden', 'opacity-0', 'max-h-0');
+                mainNav.classList.add('opacity-100', 'max-h-full');
+            } else { // If mobile view
+                // If menu is currently open (from desktop resize) and now mobile, hide it
+                if (!mainNav.classList.contains('hidden')) {
+                    mainNav.classList.add('hidden');
+                    mainNav.classList.remove('opacity-100', 'max-h-screen');
+                    mainNav.classList.add('opacity-0', 'max-h-0');
+                }
+            }
+        });
     }
 
-    // ----------------------------------------------------
-    // 2. On-Load Hero Section Animations
-    // ----------------------------------------------------
-    const heroElements = document.querySelectorAll('.animate-on-load-hero-text, .animate-on-load-hero-buttons, .animate-on-load-hero-grid');
-    heroElements.forEach(element => {
-        setTimeout(() => {
-            element.classList.add('is-visible');
-        }, 100);
+    // --- Sticky Header and Active Nav Link Logic ---
+    window.addEventListener('scroll', function() {
+        // Sticky Header: Add 'scrolled' class when scrolled past a certain point
+        if (window.scrollY > 50) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+
+        // Active Navigation Link: Highlight current section in navigation
+        let currentSectionId = '';
+        const headerHeight = header.offsetHeight; // Get dynamic header height
+
+        sections.forEach(section => {
+            // Adjust sectionTop to consider the fixed header and a small buffer
+            const sectionTop = section.offsetTop - headerHeight - 30;
+            const sectionBottom = sectionTop + section.offsetHeight;
+
+            if (window.scrollY >= sectionTop && window.scrollY < sectionBottom) {
+                currentSectionId = section.getAttribute('id');
+            }
+        });
+
+        navLinks.forEach(link => {
+            link.classList.remove('current-active-link');
+            // Special handling for album.html link, which is external
+            if (link.getAttribute('href') === 'album.html' && window.location.pathname.includes('album.html')) {
+                link.classList.add('current-active-link');
+            } else if (link.getAttribute('href').includes(currentSectionId) && currentSectionId !== '') {
+                link.classList.add('current-active-link');
+            }
+        });
     });
 
-    // ----------------------------------------------------
-    // 3. On-Scroll Section Animations (Intersection Observer)
-    // ----------------------------------------------------
-    const animatedSections = document.querySelectorAll('.animate-on-scroll');
+    // --- Initial Load Animations for Hero Section ---
+    const heroTextElements = document.querySelectorAll('.animate-on-load-hero-text');
+    const heroButtonElements = document.querySelectorAll('.animate-on-load-hero-buttons');
+
+    // Trigger hero section animations after a slight delay to ensure CSS is loaded
+    setTimeout(() => {
+        heroTextElements.forEach(el => el.classList.add('is-visible'));
+        heroButtonElements.forEach(el => el.classList.add('is-visible'));
+    }, 100);
+
+    // --- On-Scroll Animations for other sections (using IntersectionObserver) ---
+    const animateOnScrollElements = document.querySelectorAll('.animate-on-scroll');
 
     const observerOptions = {
-        root: null, // viewport as root
+        root: null, // Use the viewport as the root for observation
         rootMargin: '0px',
-        threshold: 0.1 // 10% of element visible to trigger
+        threshold: 0.1 // Trigger when 10% of the element is visible in the viewport
     };
 
     const observer = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.classList.add('is-visible');
-                observer.unobserve(entry.target);
+                // Apply a staggered delay for grid items (like course cards, facility cards)
+                // This uses a CSS custom property '--delay' for animation-delay
+                if (entry.target.classList.contains('card')) {
+                    const index = Array.from(entry.target.parentNode.children).indexOf(entry.target);
+                    entry.target.style.setProperty('--delay', `${index * 0.1}s`);
+                }
+                entry.target.classList.add('is-visible'); // Add class to trigger animation
+                observer.unobserve(entry.target); // Stop observing once animated
             }
         });
     }, observerOptions);
 
-    animatedSections.forEach(section => {
-        observer.observe(section);
+    // Observe each element marked for scroll animation
+    animateOnScrollElements.forEach(el => {
+        observer.observe(el);
     });
 
-    // ----------------------------------------------------
-    // 4. Sticky Header Behavior
-    // ----------------------------------------------------
-    const mainHeader = document.querySelector('.main-header');
-    if (mainHeader) {
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) { // Add 'scrolled' class after scrolling down 50px
-                mainHeader.classList.add('scrolled');
-            } else {
-                mainHeader.classList.remove('scrolled');
-            }
-        });
+    // --- Social Media Sidebar Animation (Slide-in) ---
+    // Trigger social media sidebar to slide in after hero animation
+    setTimeout(() => {
+        if (socialSidebar) { // Check if the element exists
+            socialSidebar.classList.add('is-visible');
+        }
+    }, 800); // Adjust delay as needed
+
+    // --- Ripple Effect for Buttons ---
+    function createRipple(event) {
+        const button = event.currentTarget;
+        const circle = document.createElement("span");
+        const diameter = Math.max(button.offsetWidth, button.offsetHeight);
+        const radius = diameter / 2;
+
+        circle.style.width = circle.style.height = `${diameter}px`;
+        circle.style.left = `${event.clientX - button.getBoundingClientRect().left - radius}px`;
+        circle.style.top = `${event.clientY - button.getBoundingClientRect().top - radius}px`;
+        circle.classList.add("ripple");
+
+        // Remove any existing ripples to prevent accumulation
+        const oldRipple = button.querySelector(".ripple");
+        if (oldRipple) {
+            oldRipple.remove();
+        }
+
+        button.appendChild(circle);
     }
 
-    // ----------------------------------------------------
-    // 5. Navigation Active State on Scroll (using Intersection Observer)
-    // Removed active link logic as menu is always collapsed now
-    // If you still want an active state for the links INSIDE the collapsed menu,
-    // you would re-implement a simpler version of this.
-    // For now, I'm assuming the primary focus is on the "always collapsed" behavior.
-    // ----------------------------------------------------
+    // Apply ripple effect to primary/secondary buttons and social media links
+    document.querySelectorAll('.btn-primary, .btn-secondary, .social-icon-link').forEach(button => {
+        button.addEventListener('click', createRipple);
+    });
 });
 
