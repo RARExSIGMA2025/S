@@ -12,407 +12,43 @@
     <!-- Google Fonts: Exo 2 for headings, Inter for body text -->
     <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-    <!-- Custom Styles -->
-    <style>
-        /* Base font settings for the entire body */
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f0f4f8; /* Light blue-gray background */
-            color: #334155; /* Slate 800 for text */
-            line-height: 1.6;
-            overflow-x: hidden; /* Prevent horizontal scroll from any element */
-        }
-
-        /* Headings and elements with 'font-heading' class use Exo 2 font */
-        h1, h2, h3, h4, h5, h6, .font-heading {
-            font-family: 'Exo 2', sans-serif;
-        }
-
-        /* Consistent padding for all main content sections */
-        .section-padding {
-            padding: 5rem 1rem; /* Default for smaller screens */
-        }
-        @media (min-width: 768px) {
-            .section-padding {
-                padding: 7rem 2rem; /* Increased padding for larger screens */
-            }
-        }
-
-        /* Primary Call-to-Action Button Styling */
-        .btn-primary {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            background-color: #4F46E5; /* Indigo 600 */
-            color: white;
-            font-weight: 600;
-            padding: 0.8rem 2.2rem;
-            border-radius: 9999px; /* Fully rounded */
-            box-shadow: 0 5px 15px rgba(79, 70, 229, 0.3);
-            transition: all 0.3s ease-in-out; /* Smooth transitions for hover/active states */
-            text-decoration: none; /* Remove underline from links acting as buttons */
-            font-size: 1.05rem;
-            white-space: nowrap; /* Prevent text wrapping */
-            position: relative; /* For ripple effect */
-            overflow: hidden; /* For ripple effect */
-        }
-        .btn-primary:hover {
-            background-color: #3730A3; /* Darker Indigo on hover */
-            transform: translateY(-3px) scale(1.02); /* Slight lift and scale */
-            box-shadow: 0 8px 20px rgba(79, 70, 229, 0.4); /* Enhanced shadow on hover */
-        }
-        .btn-primary:active {
-            transform: translateY(0); /* Return to original position on click */
-            box-shadow: 0 4px 10px rgba(79, 70, 229, 0.2);
-        }
-
-        /* Secondary Button Styling */
-        .btn-secondary {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            background-color: transparent; /* Transparent background */
-            color: #4F46E5; /* Indigo 600 text */
-            font-weight: 600;
-            padding: 0.8rem 2.2rem;
-            border: 2px solid #4F46E5; /* Indigo border */
-            border-radius: 9999px;
-            transition: all 0.3s ease-in-out;
-            text-decoration: none;
-            font-size: 1.05rem;
-            white-space: nowrap;
-            position: relative; /* For ripple effect */
-            overflow: hidden; /* For ripple effect */
-        }
-        .btn-secondary:hover {
-            background-color: #4F46E5; /* Fill with Indigo on hover */
-            color: white; /* White text on hover */
-            transform: translateY(-3px) scale(1.02);
-            box-shadow: 0 5px 15px rgba(79, 70, 229, 0.2);
-        }
-        .btn-secondary:active {
-            transform: translateY(0);
-            box-shadow: none;
-        }
-
-        /* General Card Styling (used in Courses, Facilities) */
-        .card {
-            background-color: white;
-            border-radius: 0.75rem; /* Rounded corners */
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); /* Subtle shadow */
-            padding: 2rem;
-            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effects */
-            border: 1px solid #e2e8f0; /* Light border */
-            height: 100%; /* Ensures uniform height in grid layouts */
-        }
-        .card:hover {
-            transform: translateY(-5px); /* Lifts the card on hover */
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); /* More pronounced shadow on hover */
-        }
-
-        /* Header Specific Styles */
-        .main-header {
-            background-color: #1a202c; /* Dark background for header */
-            transition: background-color 0.3s ease, box-shadow 0.3s ease;
-        }
-        .main-header.scrolled {
-            background-color: rgba(26, 32, 44, 0.95); /* Slightly transparent dark background on scroll */
-            box-shadow: 0 6px 20px rgba(0,0,0,0.25); /* Stronger shadow on scroll */
-            backdrop-filter: blur(5px); /* Modern blur effect for scrolled header */
-        }
-        .nav-link {
-            color: white;
-            padding: 0.6rem 1rem;
-            border-radius: 0.375rem;
-            transition: background-color 0.2s ease, color 0.2s ease;
-            position: relative;
-            overflow: hidden;
-            font-weight: 500;
-        }
-        .nav-link:hover {
-            background-color: rgba(255, 255, 255, 0.15); /* Light transparent background on hover */
-        }
-        /* Style for the currently active navigation link */
-        .nav-link.current-active-link {
-            background-color: rgba(255, 255, 255, 0.2);
-            font-weight: 700;
-        }
-        /* Underline animation for active navigation link */
-        .nav-link.current-active-link::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background-color: #6366F1; /* Indigo 500 underline */
-            animation: fadeInUnderline 0.3s forwards; /* Animation to expand the underline */
-        }
-        @keyframes fadeInUnderline {
-            from { width: 0%; opacity: 0; }
-            to { width: 100%; opacity: 1; }
-        }
-
-        /* Mobile Navigation Specific Styles */
-        #main-nav {
-            transform-origin: top;
-            transition: transform 0.3s ease-out, opacity 0.3s ease-out, max-height 0.3s ease-out; /* Smooth transition for mobile menu */
-        }
-        #main-nav.hidden {
-            opacity: 0;
-            max-height: 0;
-            transform: scaleY(0); /* Collapse vertically */
-            pointer-events: none; /* Disable interactions when hidden */
-        }
-        #main-nav.flex {
-            opacity: 1;
-            max-height: 500px; /* Sufficient height to display all links */
-            transform: scaleY(1); /* Expand vertically */
-            pointer-events: auto;
-            overflow: hidden;
-            background-color: #2d3748; /* Darker background for mobile menu */
-        }
-
-        /* Hero Section Specific Styles */
-        .hero-background {
-            background: linear-gradient(135deg, #1d4ed8, #4338ca, #6d28d9); /* Deep blues and purples gradient */
-            min-height: 80vh; /* Minimum height for hero section */
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            overflow: hidden; /* Hide any overflowing animated shapes */
-        }
-        .hero-overlay {
-            position: absolute;
-            inset: 0;
-            background: rgba(0,0,0,0.3); /* Subtle dark overlay for text contrast */
-        }
-        /* Animated background shapes for visual interest */
-        .hero-background::before, .hero-background::after {
-            content: '';
-            position: absolute;
-            border-radius: 50%;
-            opacity: 0.15;
-            animation: pulse 10s infinite ease-in-out alternate; /* Pulsating animation */
-            z-index: 0;
-        }
-        .hero-background::before {
-            width: 300px;
-            height: 300px;
-            background: #a78bfa; /* Light purple circle */
-            top: -50px;
-            left: -50px;
-        }
-        .hero-background::after {
-            width: 400px;
-            height: 400px;
-            background: #818cf8; /* Light blue circle */
-            bottom: -100px;
-            right: -100px;
-            animation-delay: 2s; /* Stagger the animation of the second shape */
-        }
-        @keyframes pulse {
-            0% { transform: scale(0.95); opacity: 0.15; }
-            100% { transform: scale(1.05); opacity: 0.25; }
-        }
-
-        /* General Animations for Scroll-triggered elements */
-        .animate-on-load-hero-text,
-        .animate-on-load-hero-buttons,
-        .animate-on-scroll {
-            opacity: 0; /* Initially hidden */
-            transform: translateY(20px); /* Initially moved down */
-            transition: opacity 0.7s ease-out, transform 0.7s ease-out; /* Smooth transition */
-        }
-        /* Class added by JavaScript to make elements visible and animate */
-        .animate-on-load-hero-text.is-visible,
-        .animate-on-load-hero-buttons.is-visible,
-        .animate-on-scroll.is-visible {
-            opacity: 1; /* Fully visible */
-            transform: translateY(0); /* Move to original position */
-        }
-        /* Staggered delays for elements in the hero section */
-        .animate-on-load-hero-text { transition-delay: 0.1s; }
-        .animate-on-load-hero-buttons { transition-delay: 0.4s; }
-        /* Staggered delays for cards in sections (handled via JS for flexibility) */
-        .card.animate-on-scroll { transition-delay: var(--delay); }
-
-        /* Specific styles for About section image to make it clickable */
-        .about-image-wrapper {
-            position: relative;
-            overflow: hidden;
-            border-radius: 1rem;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            display: block; /* Ensure the link wrapper behaves as a block */
-        }
-        .about-image-wrapper:hover {
-            transform: scale(1.03); /* Slight scale on hover */
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25); /* Enhanced shadow on hover */
-        }
-        .about-image-wrapper img {
-            width: 100%;
-            height: auto;
-            display: block;
-            object-fit: cover; /* Cover the area, cropping if needed */
-            border-radius: 1rem;
-        }
-
-        /* Form specific styles */
-        .form-input {
-            width: 100%;
-            padding: 0.75rem 1rem;
-            border: 1px solid #cbd5e0; /* Light gray border */
-            border-radius: 0.5rem;
-            font-size: 1rem;
-            transition: border-color 0.2s ease, box-shadow 0.2s ease;
-        }
-        .form-input:focus {
-            outline: none;
-            border-color: #4F46E5; /* Indigo border on focus */
-            box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.2); /* Light indigo shadow on focus */
-        }
-        .form-textarea {
-            min-height: 100px;
-            resize: vertical;
-        }
-
-        /* Footer Specific Styles */
-        .footer-background {
-            background-color: #10061e; /* Darker base for footer */
-            transition: background-color 0.3s ease;
-        }
-        /* This is the gradient overlay that moves */
-        .footer-gradient-overlay {
-            background: linear-gradient(135deg, #3f0d88, #0f172a, #000000); /* Dynamic gradient */
-        }
-        /* Animation for the background pan in footer */
-        @keyframes backgroundPan {
-            0% { background-position: 0% 0%; }
-            100% { background-position: 100% 100%; }
-        }
-        /* Pulsing animation for text */
-        .animate-pulse-strong { /* Renamed to avoid conflict with default pulse */
-            animation: pulse-strong 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-        }
-        @keyframes pulse-strong {
-            0%, 100% { opacity: 1; }
-            50% { opacity: .7; }
-        }
-        /* General link styling for footer */
-        .footer-link {
-            position: relative;
-            z-index: 1;
-            display: inline-block; /* Ensure transform applies */
-            font-weight: 500;
-        }
-        .footer-link:hover {
-            transform: scale(1.1); /* Subtle scale on hover */
-        }
-
-        /* Social Media Sidebar Styles (NEW) */
-        .social-media-sidebar {
-            position: fixed;
-            right: 0;
-            top: 50%;
-            transform: translateY(-50%) translateX(100%); /* Start off-screen to the right */
-            z-index: 40; /* Below header, above content */
-            display: flex;
-            flex-direction: column;
-            gap: 1rem; /* Space between icons */
-            padding: 0.75rem;
-            background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
-            border-radius: 0.75rem 0 0 0.75rem; /* Rounded left side */
-            box-shadow: -5px 0 15px rgba(0,0,0,0.2);
-            transition: transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1); /* Smooth slide-in */
-        }
-        .social-media-sidebar.is-visible {
-            transform: translateY(-50%) translateX(0); /* Slide into view */
-        }
-        @media (max-width: 768px) {
-            .social-media-sidebar {
-                padding: 0.5rem; /* Smaller padding on mobile */
-                gap: 0.75rem;
-                transform: translateY(-50%) translateX(100%); /* Ensure it stays off-screen */
-            }
-        }
-
-        .social-icon-link {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 50px; /* Icon size */
-            height: 50px;
-            border-radius: 50%;
-            color: white; /* Fallback text color for icons */
-            transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
-            box-shadow: 0 3px 8px rgba(0,0,0,0.2);
-            position: relative; /* For ripple effect */
-            overflow: hidden; /* For ripple effect */
-        }
-        /* Ensure image fits inside the circular container */
-        .social-icon-link img {
-            width: 80%; /* Make image slightly smaller than container to give padding */
-            height: 80%;
-            object-fit: contain; /* Ensure entire logo is visible */
-            filter: drop-shadow(0 0 1px rgba(0,0,0,0.2)); /* Optional: subtle shadow for PNGs */
-        }
-
-        @media (max-width: 768px) {
-            .social-icon-link {
-                width: 45px; /* Smaller icons on mobile */
-                height: 45px;
-            }
-        }
-        .social-icon-link:hover {
-            transform: scale(1.1) rotate(6deg); /* Scale and slight rotate on hover */
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-        }
-        /* Specific brand colors (for background behind icons) */
-        .social-icon-facebook { background-color: #1877F2; }
-        .social-icon-whatsapp { background-color: #25D366; }
-        .social-icon-instagram { background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%); } /* Instagram gradient */
-        .social-icon-youtube { background-color: #FF0000; } /* YouTube red */
-
-        /* Ripple Effect for buttons (NEW) */
-        .ripple {
-            position: absolute;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.5); /* White ripple */
-            animation: ripple-animation 0.6s linear forwards;
-            pointer-events: none; /* Ensure clicks go through */
-            transform: scale(0);
-        }
-
-        @keyframes ripple-animation {
-            to {
-                transform: scale(2.5); /* Expand ripple */
-                opacity: 0; /* Fade out */
-            }
-        }
-    </style>
+    <!-- Custom Stylesheet -->
+    <link rel="stylesheet" href="style.css">
 </head>
-<body class="selection:bg-indigo-200 selection:text-indigo-900">
+<body class="selection:bg-purple-300 selection:text-purple-900">
 
     <!-- Header Section -->
-    <header class="main-header bg-gray-900 text-white p-4 shadow-lg fixed w-full z-50 transition-all duration-300 ease-in-out">
+    <header class="main-header text-white p-4 shadow-lg fixed w-full z-50 transition-all duration-300 ease-in-out">
         <div class="container mx-auto flex justify-between items-center px-4">
             <!-- Logo and Site Title -->
             <div class="flex items-center">
-                <img src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/logo.jpg" onerror="this.onerror=null;this.src='https://placehold.co/40x40/4F46E5/FFFFFF?text=Logo';" alt="Sankalp Classes Logo" class="h-10 w-10 rounded-full mr-3 border-2 border-indigo-400 shadow-md">
-                <h1 class="text-2xl font-extrabold font-heading tracking-wide text-indigo-100">Sankalp Classes</h1>
+                <img src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/logo.jpg" onerror="this.onerror=null;this.src='https://placehold.co/40x40/BB86FC/121212?text=Logo';" alt="Sankalp Classes Logo" class="h-10 w-10 rounded-full mr-3 border-2 border-accent-purple shadow-md">
+                <h1 class="text-2xl font-extrabold font-heading tracking-wide text-text-lighter">Sankalp Classes</h1>
             </div>
 
             <!-- Mobile Menu Toggle Button (Hamburger Icon) -->
-            <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none focus:ring-2 focus:ring-indigo-400 p-2 rounded-md">
-                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
-                </svg>
-            </button>
+            <div class="flex items-center space-x-4">
+                <!-- Theme Toggle Button -->
+                <button id="theme-toggle" class="p-2 rounded-full focus:outline-none focus:ring-2 focus:ring-accent-purple transition-colors">
+                    <!-- Sun Icon (Light Mode) -->
+                    <svg id="sun-icon" class="w-7 h-7 text-yellow-400 hidden" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2.5a.5.5 0 01.5.5v2a.5.5 0 01-1 0V3a.5.5 0 01.5-.5zM18.364 5.636a.5.5 0 010 .707l-1.414 1.414a.5.5 0 01-.707-.707l1.414-1.414a.5.5 0 01.707 0zM21.5 12a.5.5 0 01-.5.5h-2a.5.5 0 010-1h2a.5.5 0 01.5.5zM18.364 18.364a.5.5 0 01-.707 0l-1.414-1.414a.5.5 0 01.707-.707l1.414 1.414a.5.5 0 010 .707zM12 21.5a.5.5 0 01-.5-.5v-2a.5.5 0 011 0v2a.5.5 0 01-.5.5zM5.636 18.364a.5.5 0 010-.707l1.414-1.414a.5.5 0 01.707.707l-1.414 1.414a.5.5 0 01-.707 0zM2.5 12a.5.5 0 01.5-.5h2a.5.5 0 010 1H3a.5.5 0 01-.5-.5zM5.636 5.636a.5.5 0 01.707 0l1.414 1.414a.5.5 0 01-.707.707L5.636 6.343a.5.5 0 010-.707zM12 7a5 5 0 100 10 5 5 0 000-10z"></path>
+                    </svg>
+                    <!-- Moon Icon (Dark Mode) -->
+                    <svg id="moon-icon" class="w-7 h-7 text-indigo-300 hidden" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12.75 2.016a10.003 10.003 0 00-7.838 16.088c.704.704 1.492 1.282 2.35 1.724a.75.75 0 00.902-1.207 7.002 7.002 0 01-.983-1.827.75.75 0 00-1.12-.047 8.503 8.503 0 008.283-14.739.75.75 0 00-.586-1.266z"></path>
+                    </svg>
+                </button>
+
+                <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none focus:ring-2 focus:ring-accent-purple p-2 rounded-md">
+                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                    </svg>
+                </button>
+            </div>
 
             <!-- Main Navigation Menu -->
-            <nav id="main-nav" class="hidden md:flex flex-col md:flex-row md:static absolute top-full left-0 w-full md:w-auto bg-gray-900 md:bg-transparent shadow-lg md:shadow-none transition-all duration-300 ease-in-out opacity-0 md:opacity-100 max-h-0 md:max-h-full overflow-hidden">
+            <nav id="main-nav" class="hidden md:flex flex-col md:flex-row md:static absolute top-full left-0 w-full md:w-auto shadow-lg md:shadow-none transition-all duration-300 ease-in-out opacity-0 md:opacity-100 max-h-0 md:max-h-full overflow-hidden">
                 <ul class="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-8 text-lg font-medium py-4 md:py-0 px-4 md:px-0">
                     <li><a href="#home" class="nav-link">Home</a></li>
                     <li><a href="#about" class="nav-link">About Us</a></li>
@@ -427,19 +63,19 @@
 
     <main class="pt-[4rem] md:pt-[5rem]"> <!-- Adjusted padding-top to account for fixed header height -->
 
-        <!-- Social Media Sidebar (NEW) -->
+        <!-- Social Media Sidebar -->
         <div id="social-sidebar" class="social-media-sidebar">
             <a href="https://www.facebook.com/sankalp.rtp.9" target="_blank" rel="noopener noreferrer" class="social-icon-link social-icon-facebook" title="Follow us on Facebook">
-                <img src="https://github.com/RARExSIGMA2025/Sankalp/blob/main/Image/Logo/facebook.png?raw=true" onerror="this.onerror=null;this.src='https://placehold.co/24x24/1877F2/FFFFFF?text=FB';" alt="Facebook Icon">
+                <img src="https://github.com/RARExSIGMA2025/Sankalp/blob/main/Image/Logo/facebook.png?raw=true" onerror="this.onerror=null;this.src='https://placehold.co/24x24/1877F2/FFFFFF?text=FB';" alt="Facebook Icon" loading="lazy">
             </a>
             <a href="https://wa.me/919807534582?text=I%20AM%20HERE%20FROM%20YOUR%20WEBSITE%20%E2%9C%A8" target="_blank" rel="noopener noreferrer" class="social-icon-link social-icon-whatsapp" title="Message us on WhatsApp">
-                <img src="https://github.com/RARExSIGMA2025/Sankalp/blob/main/Image/Logo/whatsapp.png?raw=true" onerror="this.onerror=null;this.src='https://placehold.co/24x24/25D366/FFFFFF?text=WA';" alt="WhatsApp Icon">
+                <img src="https://github.com/RARExSIGMA2025/Sankalp/blob/main/Image/Logo/whatsapp.png?raw=true" onerror="this.onerror=null;this.src='https://placehold.co/24x24/25D366/FFFFFF?text=WA';" alt="WhatsApp Icon" loading="lazy">
             </a>
             <a href="https://www.instagram.com/sankalpclasses.rtp" target="_blank" rel="noopener noreferrer" class="social-icon-link social-icon-instagram" title="Follow us on Instagram">
-                <img src="https://github.com/RARExSIGMA2025/Sankalp/blob/main/Image/Logo/instagram.png?raw=true" onerror="this.onerror=null;this.src='https://placehold.co/24x24/E1306C/FFFFFF?text=IG';" alt="Instagram Icon">
+                <img src="https://github.com/RARExSIGMA2025/Sankalp/blob/main/Image/Logo/instagram.png?raw=true" onerror="this.onerror=null;this.src='https://placehold.co/24x24/E1306C/FFFFFF?text=IG';" alt="Instagram Icon" loading="lazy">
             </a>
             <a href="https://youtube.com/@sankalpclassesrtp" target="_blank" rel="noopener noreferrer" class="social-icon-link social-icon-youtube" title="Subscribe to our YouTube channel">
-                <img src="https://github.com/RARExSIGMA2025/Sankalp/blob/main/Image/Logo/youtube.png?raw=true" onerror="this.onerror=null;this.src='https://placehold.co/24x24/FF0000/FFFFFF?text=YT';" alt="YouTube Icon">
+                <img src="https://github.com/RARExSIGMA2025/Sankalp/blob/main/Image/Logo/youtube.png?raw=true" onerror="this.onerror=null;this.src='https://placehold.co/24x24/FF0000/FFFFFF?text=YT';" alt="YouTube Icon" loading="lazy">
             </a>
         </div>
 
@@ -467,24 +103,24 @@
         </section>
 
         <!-- About Us Section -->
-        <section id="about" class="section-padding bg-white animate-on-scroll">
+        <section id="about" class="section-padding bg-dark-bg-primary animate-on-scroll">
             <div class="container mx-auto max-w-6xl">
-                <h2 class="text-4xl font-extrabold font-heading text-center text-gray-800 mb-12">
-                    About <span class="text-indigo-600">Sankalp Classes</span>
+                <h2 class="text-4xl font-extrabold font-heading text-center text-text-lighter mb-12">
+                    About <span class="text-accent-purple">Sankalp Classes</span>
                 </h2>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                     <div class="md:order-2">
-                        <p class="text-lg leading-relaxed text-gray-700 mb-6">
-                            At Sankalp Computer Classes, we are dedicated to <strong class="text-indigo-700">empowering students with skills that matter for a digital future.</strong> Located in the heart of Ratanpura, Mau, we have become a beacon of high-quality, practical computer education. Our mission is to bridge the gap between academic knowledge and industry demands, equipping our students with the competencies needed to excel.
+                        <p class="text-lg leading-relaxed text-light-text mb-6 about-section-text">
+                            At Sankalp Computer Classes, we are dedicated to <strong class="text-accent-purple">empowering students with skills that matter for a digital future.</strong> Located in the heart of Ratanpura, Mau, we have become a beacon of high-quality, practical computer education. Our mission is to bridge the gap between academic knowledge and industry demands, equipping our students with the competencies needed to excel.
                         </p>
-                        <p class="text-lg leading-relaxed text-gray-700">
+                        <p class="text-lg leading-relaxed text-light-text about-section-text">
                             Our experienced faculty, modern infrastructure, and career-focused curriculum ensure that every student receives personalized attention and hands-on training. We believe in fostering an environment where learning is not just about gaining certificates, but about building a strong foundation for a thriving career. Join our community and transform your aspirations into achievements.
                         </p>
                     </div>
                     <div class="md:order-1 flex justify-center">
                         <!-- Image linking to the album page -->
                         <a href="album.html" class="about-image-wrapper block w-full max-w-md">
-                            <img src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(5).JPG" onerror="this.onerror=null;this.src='https://placehold.co/600x400/60A5FA/FFFFFF?text=About+Image';" alt="Students learning in class" class="rounded-xl shadow-lg">
+                            <img src="https://raw.githubusercontent.com/RARExSIGMA2025/Sankalp/main/Album/SCC(5).JPG" onerror="this.onerror=null;this.src='https://placehold.co/600x400/BB86FC/121212?text=About+Image';" alt="Students learning in class" class="rounded-xl shadow-lg" loading="lazy">
                         </a>
                     </div>
                 </div>
@@ -492,12 +128,12 @@
         </section>
 
         <!-- Courses Section -->
-        <section id="courses" class="section-padding bg-gradient-to-br from-indigo-50 to-blue-50 animate-on-scroll">
+        <section id="courses" class="section-padding bg-gradient-to-br from-dark-bg-secondary to-dark-bg-primary animate-on-scroll">
             <div class="container mx-auto max-w-7xl">
-                <h2 class="text-4xl font-extrabold font-heading text-center text-gray-800 mb-12">
-                    Our <span class="text-blue-600">Cutting-Edge Courses</span>
+                <h2 class="text-4xl font-extrabold font-heading text-center text-text-lighter mb-12">
+                    Our <span class="text-accent-teal">Cutting-Edge Courses</span>
                 </h2>
-                <p class="text-center text-lg text-gray-600 mb-12 max-w-3xl mx-auto">
+                <p class="text-center text-lg text-text-light mb-12 max-w-3xl mx-auto">
                     Explore our diverse range of industry-aligned programs designed to give you a competitive edge in today's tech landscape.
                 </p>
 
@@ -505,37 +141,37 @@
                     <!-- Academic & Competitive Exam Preparation -->
                     <div class="card animate-on-scroll" style="--delay: 0s;">
                         <div class="text-5xl text-emerald-600 mb-4 text-center">🎓</div>
-                        <h3 class="text-2xl font-bold font-heading text-gray-800 mb-3 text-center">Academic & Competitive Coaching</h3>
-                        <ul class="list-disc list-inside text-sm text-gray-700 space-y-1">
-                            <li>Comprehensive coaching for **UP Board, CBSE, ICSE Boards** (Classes 6-12).</li>
-                            <li>Targeted preparation for **SSC CGL** and other government exams.</li>
-                            <li>Specialized coaching for **CHS, BHU, Navodaya, Sainik Vidyalay, Gurukul** entrance exams.</li>
-                            <li>Intensive preparation for **IIT JEE, NEET, CUET** entrance examinations.</li>
+                        <h3 class="text-2xl font-bold font-heading text-text-lighter mb-3 text-center">Academic & Competitive Coaching</h3>
+                        <ul class="list-disc list-inside text-sm text-text-light space-y-1">
+                            <li>Comprehensive coaching for <strong class="text-accent-teal">UP Board, CBSE, ICSE Boards</strong> (Classes 6-12).</li>
+                            <li>Targeted preparation for <strong class="text-accent-teal">SSC CGL</strong> and other government exams.</li>
+                            <li>Specialized coaching for <strong class="text-accent-teal">CHS, BHU, Navodaya, Sainik Vidyalay, Gurukul</strong> entrance exams.</li>
+                            <li>Intensive preparation for <strong class="text-accent-teal">IIT JEE, NEET, CUET</strong> entrance examinations.</li>
                         </ul>
                     </div>
 
                     <!-- Professional Computer & Software Training -->
                     <div class="card animate-on-scroll" style="--delay: 0.1s;">
                         <div class="text-5xl text-indigo-600 mb-4 text-center">💻</div>
-                        <h3 class="text-2xl font-bold font-heading text-gray-800 mb-3 text-center">Professional Computer & Software Training</h3>
-                        <ul class="list-disc list-inside text-sm text-gray-700 space-y-1">
-                            <li>**ADCA** (Advanced Diploma in Computer Application)</li>
-                            <li>**HDCA** (Higher Diploma in Computer Application)</li>
-                            <li>**DCA** (Diploma in Computer Application)</li>
-                            <li>**PGDCA** (Post Graduate Diploma in Computer Application)</li>
-                            <li>**DDTP** (Desktop Publishing)</li>
-                            <li>**MS Excel** - Basic to Advanced</li>
+                        <h3 class="text-2xl font-bold font-heading text-text-lighter mb-3 text-center">Professional Computer & Software Training</h3>
+                        <ul class="list-disc list-inside text-sm text-text-light space-y-1">
+                            <li><strong class="text-accent-teal">ADCA</strong> (Advanced Diploma in Computer Application)</li>
+                            <li><strong class="text-accent-teal">HDCA</strong> (Higher Diploma in Computer Application)</li>
+                            <li><strong class="text-accent-teal">DCA</strong> (Diploma in Computer Application)</li>
+                            <li><strong class="text-accent-teal">PGDCA</strong> (Post Graduate Diploma in Computer Application)</li>
+                            <li><strong class="text-accent-teal">DDTP</strong> (Desktop Publishing)</li>
+                            <li><strong class="text-accent-teal">MS Excel</strong> - Basic to Advanced</li>
                         </ul>
                     </div>
 
                     <!-- Tally & Financial Accounting -->
                     <div class="card animate-on-scroll" style="--delay: 0.2s;">
                         <div class="text-5xl text-purple-600 mb-4 text-center">📊</div>
-                        <h3 class="text-2xl font-bold font-heading text-gray-800 mb-3 text-center">Tally & Financial Accounting</h3>
-                        <ul class="list-disc list-inside text-sm text-gray-700 space-y-1">
-                            <li>**Tally Prime** with comprehensive GST implementation.</li>
-                            <li>**Tally ERP 9** (Legacy system support and advanced features).</li>
-                            <li>**DFA** (Diploma in Financial Accounting).</li>
+                        <h3 class="text-2xl font-bold font-heading text-text-lighter mb-3 text-center">Tally & Financial Accounting</h3>
+                        <ul class="list-disc list-inside text-sm text-text-light space-y-1">
+                            <li><strong class="text-accent-teal">Tally Prime</strong> with comprehensive GST implementation.</li>
+                            <li><strong class="text-accent-teal">Tally ERP 9</strong> (Legacy system support and advanced features).</li>
+                            <li><strong class="text-accent-teal">DFA</strong> (Diploma in Financial Accounting).</li>
                             <li>Practical training in billing, inventory, and financial reporting.</li>
                         </ul>
                     </div>
@@ -543,10 +179,10 @@
                     <!-- Graphic Design & Multimedia -->
                     <div class="card animate-on-scroll" style="--delay: 0.3s;">
                         <div class="text-5xl text-yellow-600 mb-4 text-center">🎨</div>
-                        <h3 class="text-2xl font-bold font-heading text-gray-800 mb-3 text-center">Graphic Design & Multimedia</h3>
-                        <ul class="list-disc list-inside text-sm text-gray-700 space-y-1">
-                            <li>**Adobe Photoshop** for image editing and manipulation.</li>
-                            <li>**CorelDRAW** for vector graphics and illustration.</li>
+                        <h3 class="text-2xl font-bold font-heading text-text-lighter mb-3 text-center">Graphic Design & Multimedia</h3>
+                        <ul class="list-disc list-inside text-sm text-text-light space-y-1">
+                            <li><strong class="text-accent-teal">Adobe Photoshop</strong> for image editing and manipulation.</li>
+                            <li><strong class="text-accent-teal">CorelDRAW</strong> for vector graphics and illustration.</li>
                             <li>Principles of professional logo creation and branding.</li>
                             <li>Digital poster and brochure design.</li>
                         </ul>
@@ -555,8 +191,8 @@
                     <!-- Typing & Data Entry -->
                     <div class="card animate-on-scroll" style="--delay: 0.4s;">
                         <div class="text-5xl text-red-600 mb-4 text-center">⌨️</div>
-                        <h3 class="text-2xl font-bold font-heading text-gray-800 mb-3 text-center">Typing (Hindi & English)</h3>
-                        <ul class="list-disc list-inside text-sm text-gray-700 space-y-1">
+                        <h3 class="text-2xl font-bold font-heading text-text-lighter mb-3 text-center">Typing (Hindi & English)</h3>
+                        <ul class="list-disc list-inside text-sm text-text-light space-y-1">
                             <li>Dedicated speed and accuracy training.</li>
                             <li>Daily practice sessions for rapid improvement.</li>
                             <li>Essential for government job exams and data entry roles.</li>
@@ -567,9 +203,9 @@
                     <!-- Web Essentials & Programming (New, based on modern tech trends) -->
                     <div class="card animate-on-scroll" style="--delay: 0.5s;">
                         <div class="text-5xl text-blue-600 mb-4 text-center">🌐</div>
-                        <h3 class="text-2xl font-bold font-heading text-gray-800 mb-3 text-center">Web Essentials & Programming</h3>
-                        <ul class="list-disc list-inside text-sm text-gray-700 space-y-1">
-                            <li>Fundamentals of **HTML, CSS, JavaScript** for web pages.</li>
+                        <h3 class="text-2xl font-bold font-heading text-text-lighter mb-3 text-center">Web Essentials & Programming</h3>
+                        <ul class="list-disc list-inside text-sm text-text-light space-y-1">
+                            <li>Fundamentals of <strong class="text-accent-teal">HTML, CSS, JavaScript</strong> for web pages.</li>
                             <li>Introduction to responsive web design.</li>
                             <li>Basic programming logic and problem-solving.</li>
                             <li>(Future: Python Basics for scripting and automation)</li>
@@ -585,88 +221,88 @@
             </div>
         </section>
 
-        <!-- Awards & Recognition Section (NEW) -->
-        <section id="awards" class="section-padding bg-gray-100 animate-on-scroll">
+        <!-- Awards & Recognition Section -->
+        <section id="awards" class="section-padding bg-dark-bg-primary animate-on-scroll">
             <div class="container mx-auto max-w-6xl text-center">
-                <h2 class="text-4xl font-extrabold font-heading text-gray-800 mb-12">
-                    Our <span class="text-green-600">Prestigious Recognitions</span>
+                <h2 class="text-4xl font-extrabold font-heading text-text-lighter mb-12">
+                    Our <span class="text-accent-purple">Prestigious Recognitions</span>
                 </h2>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center justify-center">
                     <div class="card flex flex-col items-center p-8 animate-on-scroll" style="--delay: 0s;">
                         <span class="text-7xl text-yellow-500 mb-4">🏆</span>
-                        <h3 class="text-2xl font-bold font-heading text-gray-800 mb-2">India's Best Institute Award</h3>
-                        <p class="text-lg text-gray-700">Winner 2024 - Awarded by <strong class="text-red-500">CEO Ashneer Grover</strong></p>
-                        <p class="text-sm text-gray-500 mt-2">Recognizing our commitment to excellence in education.</p>
+                        <h3 class="text-2xl font-bold font-heading text-text-lighter mb-2">India's Best Institute Award</h3>
+                        <p class="text-lg text-text-light">Winner 2024 - Awarded by <strong class="text-accent-purple">CEO Ashneer Grover</strong></p>
+                        <p class="text-sm text-text-light mt-2">Recognizing our commitment to excellence in education.</p>
                     </div>
                     <div class="card flex flex-col items-center p-8 animate-on-scroll" style="--delay: 0.1s;">
                         <span class="text-7xl text-blue-500 mb-4">⭐</span>
-                        <h3 class="text-2xl font-bold font-heading text-gray-800 mb-2">Top 100 Institute List</h3>
-                        <p class="text-lg text-gray-700">Proudly featured among India's elite educational institutions.</p>
-                        <p class="text-sm text-gray-500 mt-2">A testament to our quality, infrastructure, and student success.</p>
+                        <h3 class="text-2xl font-bold font-heading text-text-lighter mb-2">Top 100 Institute List</h3>
+                        <p class="text-lg text-text-light">Proudly featured among India's elite educational institutions.</p>
+                        <p class="text-sm text-text-light mt-2">A testament to our quality, infrastructure, and student success.</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Facilities Section -->
-        <section id="facilities" class="section-padding bg-white animate-on-scroll">
+        <section id="facilities" class="section-padding bg-dark-bg-secondary animate-on-scroll">
             <div class="container mx-auto max-w-6xl">
-                <h2 class="text-4xl font-extrabold font-heading text-center text-gray-800 mb-12">
-                    Our <span class="text-indigo-600">Modern Facilities</span>
+                <h2 class="text-4xl font-extrabold font-heading text-center text-text-lighter mb-12">
+                    Our <span class="text-accent-teal">Modern Facilities</span>
                 </h2>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                     <!-- Facility Card 1: Modern Labs -->
                     <div class="card flex flex-col items-center text-center animate-on-scroll" style="--delay: 0s;">
                         <div class="text-6xl text-blue-600 mb-4">🖥️</div>
-                        <h3 class="text-xl font-bold font-heading text-gray-800 mb-2">Modern Computer Labs</h3>
-                        <p class="text-gray-600 text-sm">State-of-the-art systems with the latest software for hands-on learning.</p>
+                        <h3 class="text-xl font-bold font-heading text-text-lighter mb-2">Modern Computer Labs</h3>
+                        <p class="text-text-light text-sm">State-of-the-art systems with the latest software for hands-on learning.</p>
                     </div>
                     <!-- Facility Card 2: 24/7 Library -->
                     <div class="card flex flex-col items-center text-center animate-on-scroll" style="--delay: 0.1s;">
                         <div class="text-6xl text-green-600 mb-4">📚</div>
-                        <h3 class="text-xl font-bold font-heading text-gray-800 mb-2">24/7 Library Access</h3>
-                        <p class="text-gray-600 text-sm">Extensive resources available round-the-clock for self-study and research.</p>
+                        <h3 class="text-xl font-bold font-heading text-text-lighter mb-2">24/7 Library Access</h3>
+                        <p class="text-text-light text-sm">Extensive resources available round-the-clock for self-study and research.</p>
                     </div>
                     <!-- Facility Card 3: High-Speed Wi-Fi -->
                     <div class="card flex flex-col items-center text-center animate-on-scroll" style="--delay: 0.2s;">
                         <div class="text-6xl text-purple-600 mb-4">📡</div>
-                        <h3 class="text-xl font-bold font-heading text-gray-800 mb-2">High-Speed Wi-Fi</h3>
-                        <p class="text-gray-600 text-sm">Seamless internet connectivity throughout the campus for uninterrupted learning.</p>
+                        <h3 class="text-xl font-bold font-heading text-text-lighter mb-2">High-Speed Wi-Fi</h3>
+                        <p class="text-text-light text-sm">Seamless internet connectivity throughout the campus for uninterrupted learning.</p>
                     </div>
                     <!-- Facility Card 4: Comfortable Classrooms -->
                     <div class="card flex flex-col items-center text-center animate-on-scroll" style="--delay: 0.3s;">
                         <div class="text-6xl text-orange-600 mb-4">🛋️</div>
-                        <h3 class="text-xl font-bold font-heading text-gray-800 mb-2">Comfortable Classrooms</h3>
-                        <p class="text-gray-600 text-sm">Conducive learning environments designed for focus and interaction.</p>
+                        <h3 class="text-xl font-bold font-heading text-text-lighter mb-2">Comfortable Classrooms</h3>
+                        <p class="text-text-light text-sm">Conducive learning environments designed for focus and interaction.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Request a Callback / Contact Form Section (NEW) -->
-        <section id="callback" class="section-padding bg-gradient-to-br from-purple-50 to-pink-50 animate-on-scroll">
-            <div class="container mx-auto max-w-3xl bg-white p-8 md:p-10 rounded-xl shadow-lg border border-gray-200">
-                <h2 class="text-4xl font-extrabold font-heading text-center text-gray-800 mb-8">
-                    Ready to Start? <span class="text-purple-600">Request a Callback!</span>
+        <!-- Request a Callback / Contact Form Section -->
+        <section id="callback" class="section-padding bg-gradient-to-br from-dark-bg-primary to-dark-bg-secondary animate-on-scroll">
+            <div class="container mx-auto max-w-3xl p-8 md:p-10 rounded-xl shadow-lg border">
+                <h2 class="text-4xl font-extrabold font-heading text-center text-text-lighter mb-8">
+                    Ready to Start? <span class="text-accent-purple">Request a Callback!</span>
                 </h2>
-                <p class="text-center text-lg text-gray-600 mb-8">
+                <p class="text-center text-lg text-text-light mb-8">
                     Fill out the form below, and our team will get in touch with you shortly to discuss your learning goals.
                 </p>
                 <form action="https://formspree.io/f/xovwpynb" method="POST" class="space-y-6">
                     <div>
-                        <label for="name" class="block text-gray-700 text-lg font-medium mb-2">Your Name</label>
+                        <label for="name" class="block text-text-light text-lg font-medium mb-2 form-label">Your Name</label>
                         <input type="text" id="name" name="name" class="form-input" placeholder="Enter your full name" required>
                     </div>
                     <div>
-                        <label for="email" class="block text-gray-700 text-lg font-medium mb-2">Email Address</label>
+                        <label for="email" class="block text-text-light text-lg font-medium mb-2 form-label">Email Address</label>
                         <input type="email" id="email" name="email" class="form-input" placeholder="your.email@example.com" required>
                     </div>
                     <div>
-                        <label for="phone" class="block text-gray-700 text-lg font-medium mb-2">Phone Number</label>
+                        <label for="phone" class="block text-text-light text-lg font-medium mb-2 form-label">Phone Number</label>
                         <input type="tel" id="phone" name="phone" class="form-input" placeholder="+91 98765 43210" required>
                     </div>
                     <div>
-                        <label for="course" class="block text-gray-700 text-lg font-medium mb-2">Interested Course</label>
+                        <label for="course" class="block text-text-light text-lg font-medium mb-2 form-label">Interested Course</label>
                         <select id="course" name="course" class="form-input" required>
                             <option value="">Select a course...</option>
                             <option value="Academic & Competitive Coaching">Academic & Competitive Coaching</option>
@@ -679,7 +315,7 @@
                         </select>
                     </div>
                     <div>
-                        <label for="message" class="block text-gray-700 text-lg font-medium mb-2">Your Message</label>
+                        <label for="message" class="block text-text-light text-lg font-medium mb-2 form-label">Your Message</label>
                         <textarea id="message" name="message" class="form-input form-textarea" placeholder="Tell us about your requirements..."></textarea>
                     </div>
                     <div class="text-center">
@@ -692,37 +328,37 @@
         </section>
 
         <!-- Contact Section -->
-        <section id="contact" class="section-padding bg-gradient-to-br from-blue-50 to-indigo-50 animate-on-scroll">
+        <section id="contact" class="section-padding bg-gradient-to-br from-dark-bg-secondary to-dark-bg-primary animate-on-scroll">
             <div class="container mx-auto max-w-5xl">
-                <h2 class="text-4xl font-extrabold font-heading text-center text-gray-800 mb-12">
-                    Connect <span class="text-indigo-600">With Us</span>
+                <h2 class="text-4xl font-extrabold font-heading text-center text-text-lighter mb-12">
+                    Connect <span class="text-accent-teal">With Us</span>
                 </h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-10 bg-white p-8 rounded-xl shadow-lg border border-gray-200">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-10 bg-dark-bg-secondary p-8 rounded-xl shadow-lg border">
                     <!-- Contact Details -->
                     <div class="flex flex-col space-y-6">
                         <div>
-                            <h3 class="text-xl font-bold font-heading text-gray-800 mb-2">📍 Visit Us</h3>
-                            <p class="text-gray-700">Sankalp Computer Classes</p>
-                            <p class="text-gray-700">City Center, Ratanpura,</p>
-                            <p class="text-gray-700">Mau – Uttar Pradesh, India</p>
+                            <h3 class="text-xl font-bold font-heading text-accent-purple mb-2">📍 Visit Us</h3>
+                            <p class="text-text-light">Sankalp Computer Classes</p>
+                            <p class="text-text-light">City Center, Ratanpura,</p>
+                            <p class="text-text-light">Mau – Uttar Pradesh, India</p>
                         </div>
                         <div>
-                            <h3 class="text-xl font-bold font-heading text-gray-800 mb-2">📞 Call Us</h3>
-                            <a href="tel:9807534582" class="text-blue-600 hover:text-blue-800 text-2xl font-bold transition-colors">9807534582</a>
+                            <h3 class="text-xl font-bold font-heading text-accent-purple mb-2">📞 Call Us</h3>
+                            <a href="tel:9807534582" class="text-accent-teal hover:text-accent-purple text-2xl font-bold transition-colors">9807534582</a>
                         </div>
                         <div>
-                            <h3 class="text-xl font-bold font-heading text-gray-800 mb-2">📧 Email Us</h3>
-                            <a href="mailto:sankalpclasses@gmail.com" class="text-blue-600 hover:underline text-lg transition-colors">sankalpclasses@gmail.com</a>
+                            <h3 class="text-xl font-bold font-heading text-accent-purple mb-2">📧 Email Us</h3>
+                            <a href="mailto:sankalpclasses@gmail.com" class="text-accent-teal hover:underline text-lg transition-colors">sankalpclasses@gmail.com</a>
                         </div>
                         <div>
-                            <h3 class="text-xl font-bold font-heading text-gray-800 mb-2">🕒 Working Hours</h3>
-                            <p class="text-gray-700">Monday to Saturday: 7:00 a.m. to 5:00 p.m.</p>
-                            <p class="text-gray-700">Sunday: Closed</p>
+                            <h3 class="text-xl font-bold font-heading text-accent-purple mb-2">🕒 Working Hours</h3>
+                            <p class="text-text-light">Monday to Saturday: 7:00 a.m. to 5:00 p.m.</p>
+                            <p class="text-text-light">Sunday: Closed</p>
                         </div>
                     </div>
 
                     <!-- Google Map Embed with CORRECTED Coordinates -->
-                    <div class="w-full h-80 md:h-full rounded-xl overflow-hidden shadow-md border border-gray-200">
+                    <div class="w-full h-80 md:h-full rounded-xl overflow-hidden shadow-md border">
                         <iframe
                             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14283.47354148154!2d83.74248582498263!3d25.920122977759055!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjXCsDU1JzEyLjQiTiA4M8KwNDQuNDcuOCJF!5e0!3m2!1sen!2sin!4v1719488400000!5m2!1sen!2sin"
                             width="100%"
@@ -740,26 +376,26 @@
     </main>
 
     <!-- Footer Section -->
-    <footer class="bg-gray-950 text-white p-12 mt-24 shadow-2xl relative overflow-hidden group rounded-t-3xl">
+    <footer class="bg-dark-bg-primary text-white p-12 mt-24 shadow-2xl relative overflow-hidden group rounded-t-3xl">
         <!-- Background gradient overlay with skew and scale for visual effect -->
-        <div class="absolute inset-0 bg-gradient-to-br from-[#3f0d88] via-[#0f172a] to-black opacity-70 transform -skew-y-3 scale-110 group-hover:scale-105 transition-transform duration-700" style="background-size: 200% 200%; animation: backgroundPan 15s ease infinite alternate;"></div>
+        <div class="absolute inset-0 footer-gradient-overlay"></div>
         
         <div class="container mx-auto relative z-10 text-center">
             <!-- Main tagline with pulsing animation -->
-            <p class="text-2xl md:text-4xl font-extrabold mb-4 tracking-widest text-yellow-400 drop-shadow-xl animate-pulse-strong">
+            <p class="text-2xl md:text-4xl font-extrabold mb-4 tracking-widest drop-shadow-xl animate-pulse-strong">
                 Sankalp: Igniting Potential, Shaping Tomorrow's Leaders.🪐
             </p>
             <!-- Descriptive text about the institute -->
-            <p class="text-sm md:text-lg text-gray-300 mb-6 max-w-3xl mx-auto opacity-90">
+            <p class="text-sm md:text-lg text-text-light mb-6 max-w-3xl mx-auto opacity-90">
                 More than an institute – a journey of growth. Dedicated to nurturing talent, empowering aspirations, and shaping success stories since 2017.
             </p>
             <!-- Quick links for navigation within the footer -->
-            <div class="flex justify-center items-center space-x-8 text-gray-400 text-base font-medium">
-                <a href="#courses" class="footer-link hover:text-yellow-300 transition-all duration-300 transform hover:scale-105">Explore Courses</a>
+            <div class="flex justify-center items-center space-x-8 text-text-light text-base font-medium">
+                <a href="#courses" class="footer-link hover:text-accent-teal transition-all duration-300 transform hover:scale-105">Explore Courses</a>
                 <span class="opacity-50">|</span>
-                <a href="album.html" class="footer-link hover:text-indigo-300 transition-all duration-300 transform hover:scale-105">Our Album</a>
+                <a href="album.html" class="footer-link hover:text-accent-purple transition-all duration-300 transform hover:scale-105">Our Album</a>
                 <span class="opacity-50">|</span>
-                <a href="#contact" class="footer-link hover:text-purple-300 transition-all duration-300 transform hover:scale-105">Connect with Sankalp</a>
+                <a href="#contact" class="footer-link hover:text-accent-teal transition-all duration-300 transform hover:scale-105">Connect with Sankalp</a>
             </div>
             <!-- Copyright and additional info -->
             <div class="mt-10 text-gray-500 text-xs tracking-wide">
@@ -770,163 +406,8 @@
     </footer>
 
 
-    <!-- JavaScript for Interactions and Animations -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const mobileMenuButton = document.getElementById('mobile-menu-button');
-            const mainNav = document.getElementById('main-nav');
-            const navLinks = mainNav.querySelectorAll('a');
-            const header = document.querySelector('.main-header');
-            const sections = document.querySelectorAll('section[id]');
-            const socialSidebar = document.getElementById('social-sidebar'); // Get the social media sidebar
-
-            // --- Mobile Navigation Toggle ---
-            mobileMenuButton.addEventListener('click', function() {
-                mainNav.classList.toggle('hidden');
-                if (mainNav.classList.contains('hidden')) {
-                    mainNav.classList.remove('opacity-100', 'max-h-screen', 'flex');
-                    mainNav.classList.add('opacity-0', 'max-h-0');
-                } else {
-                    mainNav.classList.remove('opacity-0', 'max-h-0');
-                    mainNav.classList.add('opacity-100', 'max-h-screen', 'flex');
-                }
-            });
-
-            // Close mobile menu when a nav link is clicked (for smooth UX)
-            navLinks.forEach(link => {
-                link.addEventListener('click', () => {
-                    // Only close if on a mobile view and menu is open
-                    if (window.innerWidth < 768 && !mainNav.classList.contains('hidden')) {
-                        mainNav.classList.add('hidden');
-                        mainNav.classList.remove('opacity-100', 'max-h-screen');
-                        mainNav.classList.add('opacity-0', 'max-h-0');
-                    }
-                });
-            });
-
-            // Handle window resize to ensure correct menu state for desktop
-            window.addEventListener('resize', function() {
-                if (window.innerWidth >= 768) { // If desktop view
-                    mainNav.classList.remove('hidden', 'opacity-0', 'max-h-0');
-                    mainNav.classList.add('opacity-100', 'max-h-full');
-                } else { // If mobile view
-                    // If menu is currently open (from desktop resize) and now mobile, hide it
-                    if (!mainNav.classList.contains('hidden')) {
-                         mainNav.classList.add('hidden');
-                         mainNav.classList.remove('opacity-100', 'max-h-screen');
-                         mainNav.classList.add('opacity-0', 'max-h-0');
-                    }
-                }
-            });
-
-            // --- Sticky Header and Active Nav Link Logic ---
-            window.addEventListener('scroll', function() {
-                // Sticky Header: Add 'scrolled' class when scrolled past a certain point
-                if (window.scrollY > 50) {
-                    header.classList.add('scrolled');
-                } else {
-                    header.classList.remove('scrolled');
-                }
-
-                // Active Navigation Link: Highlight current section in navigation
-                let currentSectionId = '';
-                const headerHeight = header.offsetHeight; // Get dynamic header height
-
-                sections.forEach(section => {
-                    // Adjust sectionTop to consider the fixed header and a small buffer
-                    const sectionTop = section.offsetTop - headerHeight - 30;
-                    const sectionBottom = sectionTop + section.offsetHeight;
-
-                    if (window.scrollY >= sectionTop && window.scrollY < sectionBottom) {
-                        currentSectionId = section.getAttribute('id');
-                    }
-                });
-
-                navLinks.forEach(link => {
-                    link.classList.remove('current-active-link');
-                    // Special handling for album.html link, which is external
-                    if (link.getAttribute('href') === 'album.html' && window.location.pathname.includes('album.html')) {
-                        link.classList.add('current-active-link');
-                    } else if (link.getAttribute('href').includes(currentSectionId) && currentSectionId !== '') {
-                        link.classList.add('current-active-link');
-                    }
-                });
-            });
-
-            // --- Initial Load Animations for Hero Section ---
-            const heroTextElements = document.querySelectorAll('.animate-on-load-hero-text');
-            const heroButtonElements = document.querySelectorAll('.animate-on-load-hero-buttons');
-
-            // Trigger hero section animations after a slight delay to ensure CSS is loaded
-            setTimeout(() => {
-                heroTextElements.forEach(el => el.classList.add('is-visible'));
-                heroButtonElements.forEach(el => el.classList.add('is-visible'));
-            }, 100);
-
-            // --- On-Scroll Animations for other sections (using IntersectionObserver) ---
-            const animateOnScrollElements = document.querySelectorAll('.animate-on-scroll');
-
-            const observerOptions = {
-                root: null, // Use the viewport as the root for observation
-                rootMargin: '0px',
-                threshold: 0.1 // Trigger when 10% of the element is visible in the viewport
-            };
-
-            const observer = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        // Apply a staggered delay for grid items (like course cards, facility cards)
-                        // This uses a CSS custom property '--delay' for animation-delay
-                        if (entry.target.classList.contains('card')) {
-                            const index = Array.from(entry.target.parentNode.children).indexOf(entry.target);
-                            entry.target.style.setProperty('--delay', `${index * 0.1}s`);
-                        }
-                        entry.target.classList.add('is-visible'); // Add class to trigger animation
-                        observer.unobserve(entry.target); // Stop observing once animated
-                    }
-                });
-            }, observerOptions);
-
-            // Observe each element marked for scroll animation
-            animateOnScrollElements.forEach(el => {
-                observer.observe(el);
-            });
-
-            // --- Social Media Sidebar Animation (Slide-in) ---
-            // Trigger social media sidebar to slide in after hero animation
-            setTimeout(() => {
-                if (socialSidebar) { // Check if the element exists
-                    socialSidebar.classList.add('is-visible');
-                }
-            }, 800); // Adjust delay as needed
-
-            // --- Ripple Effect for Buttons ---
-            function createRipple(event) {
-                const button = event.currentTarget;
-                const circle = document.createElement("span");
-                const diameter = Math.max(button.offsetWidth, button.offsetHeight);
-                const radius = diameter / 2;
-
-                circle.style.width = circle.style.height = `${diameter}px`;
-                circle.style.left = `${event.clientX - button.getBoundingClientRect().left - radius}px`;
-                circle.style.top = `${event.clientY - button.getBoundingClientRect().top - radius}px`;
-                circle.classList.add("ripple");
-
-                // Remove any existing ripples to prevent accumulation
-                const oldRipple = button.querySelector(".ripple");
-                if (oldRipple) {
-                    oldRipple.remove();
-                }
-
-                button.appendChild(circle);
-            }
-
-            // Apply ripple effect to primary/secondary buttons and social media links
-            document.querySelectorAll('.btn-primary, .btn-secondary, .social-icon-link').forEach(button => {
-                button.addEventListener('click', createRipple);
-            });
-        });
-    </script>
+    <!-- Custom JavaScript -->
+    <script src="script.js"></script>
 </body>
 </html>
 
