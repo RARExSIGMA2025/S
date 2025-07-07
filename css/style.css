@@ -1,16 +1,302 @@
 /* Custom CSS for Sankalp Classes Website - Redesigned Theme */
 
-/* --- Root Variables for Theme Colors --- */
+/* --- Root Variables for New Dark Theme Colors --- */
 :root {
-    --primary-blue: #2563eb;    /* Tailwind blue-600 */
-    --dark-blue: #1e3a8a;       /* Tailwind blue-900 */
-    --indigo-dark: #3730a3;     /* Tailwind indigo-800 */
-    --indigo-light: #4f46e5;    /* Tailwind indigo-600 */
-    --accent-amber: #f59e0b;    /* Tailwind amber-500 for highlights */
-    --background-light: #f8fafc; /* Tailwind slate-50 */
-    --text-color-primary: #374151; /* Tailwind gray-700 */
-    --border-light: #e2e8f0;    /* Tailwind gray-200 */
+    /* Dark Mode Defaults */
+    --dark-bg-primary: #121212; /* Very dark background for body */
+    --dark-bg-secondary: #1E1E1E; /* Slightly lighter dark for cards/sections */
+    --dark-bg-tertiary: #2C2C2C; /* Even lighter for nested elements/hover */
+    --accent-purple: #BB86FC;   /* Vibrant purple accent */
+    --accent-teal: #03DAC6;     /* Vibrant teal accent */
+    --text-light: #E0E0E0;      /* Light gray for general text */
+    --text-lighter: #FFFFFF;    /* White for headings */
+    --border-dark: #333333;     /* Dark border for elements */
+    --shadow-dark: rgba(0, 0, 0, 0.4); /* Darker shadow */
+
+    /* Light Mode Variables (will be overridden by .light-mode class) */
+    --light-bg-primary: #F0F4F8; /* Light blue-gray background */
+    --light-bg-secondary: #FFFFFF; /* White for cards/sections */
+    --light-bg-tertiary: #F8FAFC; /* Even lighter for nested elements/hover */
+    --light-accent-purple: #6200EE; /* Deeper purple for light mode */
+    --light-accent-teal: #018786; /* Deeper teal for light mode */
+    --light-text-dark: #334155; /* Slate 800 for general text */
+    --light-text-darker: #1A202C; /* Darker for headings */
+    --light-border-light: #E2E8F0; /* Light border */
+    --light-shadow-light: rgba(0, 0, 0, 0.08); /* Subtle light shadow */
 }
+
+/* Light Mode overrides */
+body.light-mode {
+    background-color: var(--light-bg-primary);
+    color: var(--light-text-dark);
+}
+
+body.light-mode h1,
+body.light-mode h2,
+body.light-mode h3,
+body.light-mode h4,
+body.light-mode h5,
+body.light-mode h6,
+body.light-mode .font-heading {
+    color: var(--light-text-darker);
+}
+
+body.light-mode .main-header {
+    background-color: var(--light-bg-secondary);
+    border-bottom-color: var(--light-border-light);
+}
+
+body.light-mode .main-header.scrolled {
+    background-color: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    border-bottom-color: var(--light-accent-purple);
+}
+
+body.light-mode .nav-link {
+    color: var(--light-text-dark);
+}
+
+body.light-mode .nav-link:hover {
+    background-color: var(--light-bg-tertiary);
+    color: var(--light-accent-purple);
+}
+
+body.light-mode .nav-link.current-active-link {
+    background-color: var(--light-bg-tertiary);
+    color: var(--light-accent-teal);
+}
+
+body.light-mode .nav-link.current-active-link::after {
+    background-color: var(--light-accent-teal);
+}
+
+body.light-mode #main-nav.flex {
+    background-color: var(--light-bg-tertiary);
+    border-top-color: var(--light-border-light);
+}
+
+body.light-mode .hero-background {
+    background: linear-gradient(135deg, #A7BFE8, #6190E8, #88B0F2); /* Lighter blues gradient */
+}
+body.light-mode .hero-overlay {
+    background: rgba(255,255,255,0.2); /* Lighter overlay */
+}
+body.light-mode .hero-background::before {
+    background: #D1D8E7; /* Light blue-gray circle */
+}
+body.light-mode .hero-background::after {
+    background: #B0C4DE; /* Slightly darker light blue-gray circle */
+}
+body.light-mode .hero-background h2 {
+    color: var(--light-text-darker);
+}
+body.light-mode .hero-background .text-indigo-200 { /* Specific override for "Shape Your Future" */
+    color: var(--light-accent-purple);
+}
+body.light-mode .hero-background p {
+    color: var(--light-text-dark);
+}
+
+
+body.light-mode .btn-primary {
+    background-color: var(--light-accent-purple);
+    color: var(--light-bg-secondary);
+    box-shadow: 0 8px 20px rgba(98, 0, 238, 0.4);
+    border-color: transparent;
+}
+body.light-mode .btn-primary:hover {
+    background-color: #4B00B8; /* Darker purple on hover */
+    box-shadow: 0 12px 25px rgba(98, 0, 238, 0.6);
+    border-color: var(--light-accent-teal);
+}
+
+body.light-mode .btn-secondary {
+    color: var(--light-accent-purple);
+    border-color: var(--light-accent-purple);
+    background-color: transparent;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+body.light-mode .btn-secondary:hover {
+    background-color: var(--light-accent-purple);
+    color: var(--light-bg-secondary);
+    box-shadow: 0 8px 20px rgba(98, 0, 238, 0.3);
+    border-color: var(--light-accent-teal);
+}
+
+body.light-mode .card {
+    background-color: var(--light-bg-secondary);
+    box-shadow: 0 8px 20px var(--light-shadow-light);
+    border-color: var(--light-border-light);
+}
+body.light-mode .card:hover {
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    border-color: var(--light-accent-purple);
+}
+body.light-mode .card h3 {
+    color: var(--light-accent-teal);
+}
+body.light-mode .card ul {
+    color: var(--light-text-dark);
+}
+
+body.light-mode .about-section-text {
+    color: var(--light-text-dark);
+}
+body.light-mode .about-section-text strong {
+    color: var(--light-accent-purple);
+}
+body.light-mode .about-image-wrapper {
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    border-color: var(--light-border-light);
+}
+body.light-mode .about-image-wrapper:hover {
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+    border-color: var(--light-accent-teal);
+}
+
+body.light-mode #courses {
+    background: linear-gradient(135deg, var(--light-bg-primary), var(--light-bg-secondary));
+}
+body.light-mode #courses h2 .text-blue-600 {
+    color: var(--light-accent-teal);
+}
+body.light-mode #courses p.text-gray-600 {
+    color: var(--light-text-dark);
+}
+body.light-mode .card ul li strong {
+    color: var(--light-accent-teal);
+}
+
+body.light-mode #awards {
+    background-color: var(--light-bg-primary);
+}
+body.light-mode #awards h2 .text-green-600 {
+    color: var(--light-accent-purple);
+}
+body.light-mode #awards .card {
+    background-color: var(--light-bg-secondary);
+    box-shadow: 0 8px 20px var(--light-shadow-light);
+    border-color: var(--light-border-light);
+}
+body.light-mode #awards .card h3 {
+    color: var(--light-accent-teal);
+}
+body.light-mode #awards .card p {
+    color: var(--light-text-dark);
+}
+body.light-mode #awards .card strong {
+    color: var(--light-accent-purple);
+}
+
+body.light-mode #facilities {
+    background-color: var(--light-bg-secondary);
+}
+body.light-mode #facilities h2 .text-indigo-600 {
+    color: var(--light-accent-teal);
+}
+
+body.light-mode #callback {
+    background: linear-gradient(135deg, var(--light-bg-primary), var(--light-bg-secondary));
+}
+body.light-mode #callback .container {
+    background-color: var(--light-bg-secondary);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border-color: var(--light-border-light);
+}
+body.light-mode #callback h2 .text-purple-600 {
+    color: var(--light-accent-purple);
+}
+body.light-mode #callback p.text-gray-600 {
+    color: var(--light-text-dark);
+}
+body.light-mode .form-input,
+body.light-mode .form-textarea {
+    background-color: var(--light-bg-tertiary);
+    color: var(--light-text-dark);
+    border-color: var(--light-border-light);
+}
+body.light-mode .form-input:focus,
+body.light-mode .form-textarea:focus {
+    border-color: var(--light-accent-teal);
+    box-shadow: 0 0 0 3px rgba(1, 135, 134, 0.3);
+}
+body.light-mode .form-input::placeholder,
+body.light-mode .form-textarea::placeholder {
+    color: #9CA3AF;
+}
+body.light-mode .form-label {
+    color: var(--light-text-dark);
+}
+
+body.light-mode #contact {
+    background: linear-gradient(135deg, var(--light-bg-secondary), var(--light-bg-primary));
+}
+body.light-mode #contact h2 .text-indigo-600 {
+    color: var(--light-accent-teal);
+}
+body.light-mode #contact .container {
+    background-color: var(--light-bg-secondary);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border-color: var(--light-border-light);
+}
+body.light-mode #contact h3 {
+    color: var(--light-accent-purple);
+}
+body.light-mode #contact p,
+body.light-mode #contact a {
+    color: var(--light-text-dark);
+}
+body.light-mode #contact a.text-blue-600 {
+    color: var(--light-accent-teal);
+}
+body.light-mode #contact a.hover\:text-blue-800:hover {
+    color: var(--light-accent-purple);
+}
+body.light-mode #contact iframe {
+    border-color: var(--light-border-light);
+}
+
+body.light-mode footer {
+    background-color: var(--light-bg-secondary);
+    border-top-color: var(--light-border-light);
+}
+body.light-mode .footer-gradient-overlay {
+    background: linear-gradient(135deg, #E0EAFB, #BBD2EC, #DCE9F7); /* Lighter gradient for footer */
+    opacity: 0.9;
+}
+body.light-mode .animate-pulse-strong {
+    color: var(--light-accent-teal);
+    text-shadow: 0 0 10px rgba(1, 135, 134, 0.3);
+}
+body.light-mode .footer-link {
+    color: var(--light-text-dark);
+}
+body.light-mode .footer-link:hover {
+    color: var(--light-accent-purple);
+}
+body.light-mode .footer-link.hover\:text-yellow-300:hover { color: var(--light-accent-teal); }
+body.light-mode .footer-link.hover\:text-indigo-300:hover { color: var(--light-accent-purple); }
+body.light-mode .footer-link.hover\:text-purple-300:hover { color: var(--light-accent-teal); }
+body.light-mode footer .text-gray-300 { color: var(--light-text-dark); }
+body.light-mode footer .text-gray-500 { color: #6B7280; } /* Darker gray for copyright */
+
+body.light-mode .social-media-sidebar {
+    background-color: rgba(255, 255, 255, 0.8);
+    box-shadow: -5px 0 20px rgba(0,0,0,0.1);
+    border-left-color: var(--light-border-light);
+}
+body.light-mode .social-icon-link {
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    border-color: transparent;
+}
+body.light-mode .social-icon-link:hover {
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    border-color: var(--light-accent-teal);
+}
+body.light-mode .ripple {
+    background: rgba(0, 0, 0, 0.2); /* Darker ripple for light mode */
+}
+
 
 /* Ensure smooth scrolling and padding for fixed header */
 html {
@@ -18,92 +304,93 @@ html {
 }
 
 body {
-    font-family: 'Poppins', sans-serif;
-    color: var(--text-color-primary);
-    background-color: var(--background-light);
+    font-family: 'Inter', sans-serif;
     line-height: 1.7; /* Improved readability */
+    overflow-x: hidden; /* Prevent horizontal scroll from any element */
+    transition: background-color 0.5s ease, color 0.5s ease; /* Smooth theme transition */
+}
+
+/* Headings and elements with 'font-heading' class use Exo 2 font */
+h1, h2, h3, h4, h5, h6, .font-heading {
+    font-family: 'Exo 2', sans-serif;
 }
 
 /* --- Header & Navigation --- */
 .main-header {
-    border-bottom: 2px solid transparent;
-    transition: background-color 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
     height: 6rem; /* Fixed height for header */
     display: flex;
     align-items: center;
+    border-bottom: 1px solid var(--border-dark);
+    background-color: var(--dark-bg-primary);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
 /* Styles for header when scrolled */
 .main-header.scrolled {
-    background-color: var(--dark-blue); /* Darker, more solid background */
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25); /* Stronger shadow */
-    border-bottom-color: rgba(255, 255, 255, 0.15); /* Subtle white line */
+    background-color: rgba(18, 18, 18, 0.95); /* Slightly transparent dark background on scroll */
+    box-shadow: 0 6px 20px rgba(0,0,0,0.5); /* Stronger shadow on scroll */
+    backdrop-filter: blur(8px); /* More pronounced blur effect for scrolled header */
+    border-bottom-color: var(--accent-purple); /* Purple line on scroll */
 }
 
 /* Navigation Links */
-.main-header .nav-link {
+.nav-link {
     position: relative;
-    padding: 0.75rem 1rem; /* More generous padding */
-    transition: color 0.2s ease, background-color 0.2s ease, transform 0.2s ease;
-    border-radius: 0.375rem; /* rounded-md */
-    font-weight: 500; /* Medium weight */
+    padding: 0.8rem 1.2rem; /* More padding */
+    border-radius: 0.75rem; /* More rounded */
+    font-weight: 600; /* Semi-bold */
+    transition: background-color 0.2s ease, color 0.2s ease;
+    color: var(--text-light);
+    overflow: hidden;
 }
 
-.main-header .nav-link:hover {
-    background-color: rgba(255, 255, 255, 0.15); /* Slightly more prominent hover */
-    transform: translateY(-2px);
+.nav-link:hover {
+    background-color: var(--dark-bg-tertiary); /* Lighter dark transparent background on hover */
+    color: var(--accent-purple); /* Purple text on hover */
 }
 
-/* Underline animation for active and hovered links */
-.main-header .nav-link::after {
+/* Style for the currently active navigation link */
+.nav-link.current-active-link {
+    background-color: var(--dark-bg-tertiary);
+    color: var(--accent-teal); /* Teal for active link */
+    font-weight: 700;
+}
+
+/* Underline animation for active navigation link */
+.nav-link.current-active-link::after {
     content: '';
     position: absolute;
-    bottom: 0.25rem; /* Adjusted for better visual alignment */
-    left: 50%;
-    transform: translateX(-50%) scaleX(0);
-    width: calc(100% - 2rem); /* Width based on padding */
-    height: 2px;
-    background-color: var(--accent-amber); /* Accent color for active link */
-    transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Smooth transition */
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 4px; /* Thicker underline */
+    background-color: var(--accent-teal); /* Teal underline */
+    animation: fadeInUnderline 0.3s forwards;
+}
+@keyframes fadeInUnderline {
+    from { width: 0%; opacity: 0; }
+    to { width: 100%; opacity: 1; }
 }
 
-.main-header .nav-link:hover::after,
-.main-header .nav-link.current-active-link::after {
-    transform: translateX(-50%) scaleX(1);
+/* Mobile Navigation Specific Styles */
+#main-nav {
+    transform-origin: top;
+    transition: transform 0.3s ease-out, opacity 0.3s ease-out, max-height 0.3s ease-out;
 }
-
-.main-header .nav-link.current-active-link {
-    font-weight: 700; /* Bold for active link */
-    color: white; /* Ensure text color is white */
+#main-nav.hidden {
+    opacity: 0;
+    max-height: 0;
+    transform: scaleY(0);
+    pointer-events: none;
 }
-
-/* Navigation Call to Action Button */
-.btn-nav-cta {
-    display: inline-flex;
-    align-items: center;
-    padding: 0.75rem 1.5rem; /* Matches Allen's button size */
-    border-radius: 0.25rem; /* Slightly less rounded */
-    background-color: var(--accent-amber); /* Accent color */
-    color: var(--dark-blue); /* Dark blue text for contrast */
-    font-weight: 600; /* Semi-bold */
-    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
-    box-shadow: 0 2px 5px rgba(245, 158, 11, 0.3); /* Softer shadow */
-}
-
-.btn-nav-cta:hover {
-    background-color: #d97706; /* Darker amber on hover */
-    transform: translateY(-1px); /* Less pronounced lift */
-    box-shadow: 0 4px 10px rgba(245, 158, 11, 0.5);
-}
-
-.btn-nav-cta:active {
-    transform: translateY(0);
-    box-shadow: 0 1px 3px rgba(245, 158, 11, 0.2);
-}
-
-/* Mobile Menu Button Animation */
-#mobile-menu-button.open {
-    transform: rotate(90deg);
+#main-nav.flex {
+    opacity: 1;
+    max-height: 500px;
+    transform: scaleY(1);
+    pointer-events: auto;
+    overflow: hidden;
+    background-color: var(--dark-bg-tertiary); /* Darker background for mobile menu */
+    border-top: 1px solid var(--border-dark);
 }
 
 /* --- General Section Styling --- */
@@ -119,214 +406,414 @@ body {
     }
 }
 
-.section-title {
-    font-size: 2.5rem; /* text-4xl */
-    font-weight: 800; /* font-extrabold */
-    font-family: 'Inter', sans-serif;
-    color: var(--primary-blue);
-    margin-bottom: 2.5rem; /* mb-10 */
-    text-align: center;
-}
-
-/* --- Hero Section Specifics --- */
-.hero-section-bg {
-    /* Layered background handled in HTML */
-}
-
-/* Feature Cards (Why Choose Us) */
-.feature-card {
-    display: flex;
-    align-items: flex-start;
-    background-color: var(--background-light); /* Lighter background for cards */
-    padding: 1.25rem; /* p-5 */
-    border-radius: 0.75rem; /* rounded-xl */
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08); /* Softer, more subtle shadow */
-    border: 1px solid var(--border-light);
-    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-}
-
-.feature-card:hover {
-    transform: translateY(-8px); /* More pronounced lift */
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15); /* Stronger shadow on hover */
-    border-color: var(--primary-blue); /* Highlight border */
-}
-
 /* --- Primary & Secondary Buttons --- */
 .btn-primary {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 1.25rem 2.5rem; /* Larger buttons */
-    border-radius: 9999px; /* full rounded */
-    background-color: var(--primary-blue);
-    color: white;
-    font-weight: 700;
-    text-align: center;
-    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Smooth easing */
-    box-shadow: 0 5px 15px rgba(33, 150, 243, 0.4);
-    border: 2px solid transparent;
-    letter-spacing: 0.05em;
-    font-family: 'Inter', sans-serif;
-    font-size: 1.125rem; /* text-lg */
+    background-color: var(--accent-purple);
+    color: var(--dark-bg-primary); /* Dark text on vibrant button */
+    font-weight: 700; /* Bolder */
+    padding: 1rem 2.5rem; /* Larger padding */
+    border-radius: 9999px; /* Fully rounded */
+    box-shadow: 0 8px 20px rgba(187, 134, 252, 0.4); /* Shadow based on accent color */
+    transition: all 0.3s ease-in-out;
+    text-decoration: none;
+    font-size: 1.15rem; /* Slightly larger text */
+    white-space: nowrap;
+    position: relative;
+    overflow: hidden;
+    border: 2px solid transparent; /* Added for hover effect */
 }
-
 .btn-primary:hover {
-    background-color: var(--dark-blue);
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(33, 150, 243, 0.6);
+    background-color: #A06FEF; /* Darker purple on hover */
+    transform: translateY(-5px) scale(1.02); /* More pronounced lift and scale */
+    box-shadow: 0 12px 25px rgba(187, 134, 252, 0.6);
+    border-color: var(--accent-teal); /* Teal border on hover */
 }
-
 .btn-primary:active {
     transform: translateY(0);
-    box-shadow: 0 2px 8px rgba(33, 150, 243, 0.3);
+    box-shadow: 0 4px 10px rgba(187, 134, 252, 0.2);
 }
 
 .btn-secondary {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 1.25rem 2.5rem; /* Larger buttons */
-    border-radius: 9999px; /* full rounded */
-    background-color: white;
-    color: var(--primary-blue);
+    background-color: transparent;
+    color: var(--accent-purple); /* Purple text */
     font-weight: 700;
-    text-align: center;
-    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    border: 2px solid var(--primary-blue);
-    letter-spacing: 0.05em;
-    font-family: 'Inter', sans-serif;
-    font-size: 1.125rem; /* text-lg */
+    padding: 1rem 2.5rem; /* Larger padding */
+    border: 2px solid var(--accent-purple); /* Purple border */
+    border-radius: 9999px;
+    transition: all 0.3s ease-in-out;
+    text-decoration: none;
+    font-size: 1.15rem;
+    white-space: nowrap;
+    position: relative;
+    overflow: hidden;
 }
-
 .btn-secondary:hover {
-    background-color: var(--primary-blue);
-    color: white;
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    background-color: var(--accent-purple); /* Fill with purple on hover */
+    color: var(--dark-bg-primary); /* Dark text on hover */
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 8px 20px rgba(187, 134, 252, 0.3);
+    border-color: var(--accent-teal); /* Teal border on hover */
 }
-
 .btn-secondary:active {
     transform: translateY(0);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    box-shadow: none;
 }
 
-/* --- Form Specific Styles --- */
-.form-input {
-    width: 100%;
-    padding: 0.75rem 1rem; /* py-3 px-4 */
-    border: 1px solid #d1d5db; /* gray-300 */
-    border-radius: 0.5rem; /* rounded-lg */
-    font-size: 1rem; /* text-base */
-    line-height: 1.5;
-    color: #374151; /* gray-700 */
-    background-color: #ffffff; /* white */
-    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.05);
-    transition: border-color 0.2s ease, box-shadow 0.2s ease;
-}
-
-.form-input:focus {
-    outline: none;
-    border-color: var(--primary-blue);
-    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2); /* blue-600 with opacity */
-}
-
-.form-input::placeholder {
-    color: #9ca3af; /* gray-400 */
-}
-
-.btn-primary-form {
-    display: inline-flex;
+/* --- Hero Section Specifics --- */
+.hero-background {
+    background: linear-gradient(135deg, #21004D, #4A007F, #6A00A8); /* Deep purples gradient */
+    min-height: 85vh; /* Slightly taller hero */
+    display: flex;
     align-items: center;
     justify-content: center;
-    padding: 0.75rem 1.5rem;
-    border-radius: 0.5rem; /* rounded-lg */
-    background-color: var(--primary-blue);
-    color: white;
-    font-weight: 600;
-    text-align: center;
-    transition: all 0.3s ease;
-    box-shadow: 0 3px 8px rgba(33, 150, 243, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.4); /* Slightly stronger dark overlay for text contrast */
+}
+/* Animated background shapes for visual interest */
+.hero-background::before, .hero-background::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.15;
+    animation: pulse 10s infinite ease-in-out alternate;
+    z-index: 0;
+}
+.hero-background::before {
+    width: 350px; /* Larger */
+    height: 350px;
+    background: var(--accent-purple); /* Purple circle */
+    top: -70px;
+    left: -70px;
+}
+.hero-background::after {
+    width: 450px; /* Larger */
+    height: 450px;
+    background: var(--accent-teal); /* Teal circle */
+    bottom: -120px;
+    right: -120px;
+    animation-delay: 2s;
+}
+@keyframes pulse {
+    0% { transform: scale(0.95); opacity: 0.15; }
+    100% { transform: scale(1.05); opacity: 0.25; }
+}
+.hero-background h2 {
+    color: var(--text-lighter); /* White for main heading */
+}
+.hero-background .text-indigo-200 { /* Specific override for "Shape Your Future" */
+    color: var(--accent-purple); /* Purple accent */
+}
+.hero-background p {
+    color: var(--text-light); /* Light gray for paragraph */
 }
 
-.btn-primary-form:hover {
-    background-color: var(--dark-blue);
-    transform: translateY(-2px);
-    box-shadow: 0 5px 12px rgba(33, 150, 243, 0.4);
-}
-
-.btn-primary-form:active {
-    transform: translateY(0);
-    box-shadow: 0 1px 3px rgba(33, 150, 243, 0.2);
-}
-
-
-/* --- Courses, Facilities, Contact Cards --- */
-.course-card, .facility-card, .info-card {
-    background-color: white;
-    padding: 1.75rem; /* p-7, slightly more padding */
-    border-radius: 1rem; /* rounded-xl */
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08); /* Consistent shadow with feature cards */
-    border: 1px solid var(--border-light);
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-}
-
-.course-card:hover, .facility-card:hover, .info-card:hover {
-    transform: translateY(-10px); /* More significant lift on hover */
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
-    border-color: var(--indigo-light); /* Accent border on hover */
-}
-
-.course-card-title {
-    font-size: 1.75rem; /* text-3xl */
-    font-weight: 700; /* font-bold */
-    font-family: 'Inter', sans-serif;
-    color: var(--primary-blue);
-    margin-bottom: 1rem; /* mb-4 */
-    padding-bottom: 0.5rem; /* pb-2 */
-    border-bottom: 2px solid var(--primary-blue); /* Stronger border for title */
-}
-
-.read-more-link {
-    color: var(--indigo-light);
-    font-weight: 600;
-    transition: color 0.2s ease, transform 0.2s ease;
-    display: inline-flex;
-    align-items: center;
-}
-
-.read-more-link:hover {
-    color: var(--indigo-dark);
-    transform: translateX(4px); /* Slight movement on hover */
-}
-
-/* --- Animations (existing, refined) --- */
+/* General Animations for Scroll-triggered elements */
 .animate-on-load-hero-text,
 .animate-on-load-hero-buttons,
-.animate-on-load-hero-grid,
 .animate-on-scroll {
     opacity: 0;
     transform: translateY(30px); /* More pronounced initial translateY */
-    transition: opacity 1s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out; /* Slightly longer transition */
 }
-
+/* Class added by JavaScript to make elements visible and animate */
 .animate-on-load-hero-text.is-visible,
 .animate-on-load-hero-buttons.is-visible,
-.animate-on-load-hero-grid.is-visible,
 .animate-on-scroll.is-visible {
     opacity: 1;
     transform: translateY(0);
 }
+/* Staggered delays for elements in the hero section */
+.animate-on-load-hero-text { transition-delay: 0.1s; }
+.animate-on-load-hero-buttons { transition-delay: 0.4s; }
+/* Staggered delays for cards in sections (handled via JS for flexibility) */
+.card.animate-on-scroll { transition-delay: var(--delay); }
 
-/* Delay for hero animations for staggered effect */
-.animate-on-load-hero-text.delay-100 { transition-delay: 0.1s; }
-.animate-on-load-hero-text.delay-200 { transition-delay: 0.2s; }
-.animate-on-load-hero-buttons.delay-300 { transition-delay: 0.3s; }
-.animate-on-load-hero-text.delay-400 { transition-delay: 0.4s; }
-.animate-on-load-hero-text.delay-500 { transition-delay: 0.5s; }
-.animate-on-load-hero-grid.delay-600 { transition-delay: 0.6s; }
+/* Specific styles for About section image to make it clickable */
+.about-image-wrapper {
+    position: relative;
+    overflow: hidden;
+    border-radius: 1.5rem; /* More rounded */
+    box-shadow: 0 10px 25px var(--shadow-dark);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    display: block;
+    border: 1px solid var(--border-dark);
+}
+.about-image-wrapper:hover {
+    transform: scale(1.05); /* More pronounced scale on hover */
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+    border-color: var(--accent-teal); /* Teal border on hover */
+}
+.about-image-wrapper img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    border-radius: 1.5rem;
+}
+.about-section-text { /* Specific styling for text in about section */
+    color: var(--text-light);
+}
+.about-section-text strong {
+    color: var(--accent-purple); /* Highlighted text in purple */
+}
 
+/* Courses Section */
+#courses {
+    background: linear-gradient(135deg, var(--dark-bg-secondary), var(--dark-bg-primary)); /* Subtle dark gradient */
+}
+#courses h2 .text-blue-600 {
+    color: var(--accent-teal); /* Teal accent for section title */
+}
+#courses p.text-gray-600 {
+    color: var(--text-light);
+}
+/* Course card specific icon/emoji colors */
+.card .text-emerald-600 { color: #34D399; } /* Green */
+.card .text-indigo-600 { color: var(--accent-purple); } /* Purple */
+.card .text-purple-600 { color: #A78BFA; } /* Light purple */
+.card .text-yellow-600 { color: #FBBF24; } /* Amber */
+.card .text-red-600 { color: #EF4444; } /* Red */
+.card .text-blue-600 { color: var(--accent-teal); } /* Teal */
+.card ul {
+    list-style-type: disc;
+    list-style-position: inside;
+    padding-left: 0.5rem;
+}
+.card ul li strong {
+    color: var(--accent-teal); /* Highlight course names in teal */
+}
+
+/* Awards & Recognition Section */
+#awards {
+    background-color: var(--dark-bg-primary); /* Consistent dark background */
+}
+#awards h2 .text-green-600 {
+    color: var(--accent-purple); /* Purple accent for title */
+}
+#awards .card {
+    background-color: var(--dark-bg-secondary);
+    border-radius: 1.5rem;
+    box-shadow: 0 8px 20px var(--shadow-dark);
+    border: 1px solid var(--border-dark);
+}
+#awards .card h3 {
+    color: var(--accent-teal);
+}
+#awards .card p {
+    color: var(--text-light);
+}
+#awards .card strong {
+    color: var(--accent-purple);
+}
+#awards .card .text-yellow-500 { color: #FBBF24; } /* Amber trophy */
+#awards .card .text-blue-500 { color: var(--accent-teal); } /* Teal star */
+
+/* Facilities Section */
+#facilities {
+    background-color: var(--dark-bg-secondary); /* Consistent dark background */
+}
+#facilities h2 .text-indigo-600 {
+    color: var(--accent-teal); /* Teal accent for title */
+}
+/* Facility card specific icon/emoji colors */
+#facilities .card .text-blue-600 { color: var(--accent-purple); }
+#facilities .card .text-green-600 { color: #34D399; }
+#facilities .card .text-purple-600 { color: #A78BFA; }
+#facilities .card .text-orange-600 { color: #F97316; }
+
+/* Request a Callback / Contact Form Section */
+#callback {
+    background: linear-gradient(135deg, var(--dark-bg-primary), var(--dark-bg-secondary)); /* Subtle dark gradient */
+}
+#callback .container {
+    background-color: var(--dark-bg-secondary); /* Form container background */
+    border-radius: 1.5rem; /* More rounded */
+    box-shadow: 0 10px 30px var(--shadow-dark);
+    border: 1px solid var(--border-dark);
+}
+#callback h2 .text-purple-600 {
+    color: var(--accent-purple); /* Purple accent for title */
+}
+#callback p.text-gray-600 {
+    color: var(--text-light);
+}
+/* Form specific styles */
+.form-input, .form-textarea {
+    background-color: var(--dark-bg-tertiary); /* Darker input fields */
+    color: var(--text-light);
+    border: 1px solid var(--border-dark);
+    border-radius: 0.75rem; /* More rounded */
+    padding: 0.85rem 1.2rem;
+}
+.form-input:focus, .form-textarea:focus {
+    border-color: var(--accent-teal); /* Teal border on focus */
+    box-shadow: 0 0 0 3px rgba(3, 218, 198, 0.3); /* Teal shadow on focus */
+}
+.form-input::placeholder, .form-textarea::placeholder {
+    color: #9CA3AF; /* Gray placeholder text */
+}
+.form-label {
+    color: var(--text-light); /* Light text for labels */
+}
+
+/* Contact Section */
+#contact {
+    background: linear-gradient(135deg, var(--dark-bg-secondary), var(--dark-bg-primary)); /* Subtle dark gradient */
+}
+#contact h2 .text-indigo-600 {
+    color: var(--accent-teal); /* Teal accent for title */
+}
+#contact .container {
+    background-color: var(--dark-bg-secondary); /* Container background */
+    border-radius: 1.5rem; /* More rounded */
+    box-shadow: 0 10px 30px var(--shadow-dark);
+    border: 1px solid var(--border-dark);
+}
+#contact h3 {
+    color: var(--accent-purple); /* Purple for contact headings */
+}
+#contact p, #contact a {
+    color: var(--text-light);
+}
+#contact a.text-blue-600 {
+    color: var(--accent-teal); /* Teal for links */
+}
+#contact a.hover\:text-blue-800:hover {
+    color: var(--accent-purple); /* Purple on hover for links */
+}
+#contact iframe {
+    border-radius: 1rem; /* Rounded map */
+    border: 1px solid var(--border-dark);
+}
+
+/* Footer Section */
+footer {
+    background-color: var(--dark-bg-primary); /* Base dark background */
+    border-top: 1px solid var(--border-dark);
+    border-radius: 1.5rem 1.5rem 0 0; /* More rounded top corners */
+}
+.footer-gradient-overlay {
+    background: linear-gradient(135deg, #4A007F, #21004D, #121212); /* Deep purples to dark */
+    background-size: 200% 200%;
+    animation: backgroundPan 20s ease infinite alternate; /* Slower animation */
+    opacity: 0.8; /* Slightly more opaque */
+    transform: skewY(-2deg) scale(1.05); /* Less skew, slight scale */
+}
+@keyframes backgroundPan {
+    0% { background-position: 0% 0%; }
+    100% { background-position: 100% 100%; }
+}
+.animate-pulse-strong {
+    animation: pulse-strong 2.5s cubic-bezier(0.4, 0, 0.6, 1) infinite; /* Slower pulse */
+    color: var(--accent-teal); /* Teal for tagline */
+    text-shadow: 0 0 15px rgba(3, 218, 198, 0.5); /* Teal glow */
+}
+@keyframes pulse-strong {
+    0%, 100% { opacity: 1; }
+    50% { opacity: .8; }
+}
+.footer-link {
+    color: var(--text-light);
+    font-weight: 500;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+.footer-link:hover {
+    color: var(--accent-purple); /* Purple on hover */
+    transform: scale(1.1) translateY(-2px); /* Subtle lift and scale */
+}
+footer .text-gray-300 { color: var(--text-light); }
+footer .text-gray-500 { color: #9E9E9E; } /* Slightly lighter gray for copyright */
+
+/* Social Media Sidebar Styles */
+.social-media-sidebar {
+    position: fixed;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%) translateX(100%);
+    z-index: 40;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 0.75rem;
+    background-color: rgba(0, 0, 0, 0.8); /* Darker, more opaque background */
+    border-radius: 0.75rem 0 0 0.75rem;
+    box-shadow: -5px 0 20px rgba(0,0,0,0.4); /* Stronger shadow */
+    transition: transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+    border-left: 1px solid var(--border-dark);
+}
+.social-media-sidebar.is-visible {
+    transform: translateY(-50%) translateX(0);
+}
+@media (max-width: 768px) {
+    .social-media-sidebar {
+        padding: 0.5rem;
+        gap: 0.75rem;
+        transform: translateY(-50%) translateX(100%);
+    }
+}
+
+.social-icon-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 55px; /* Slightly larger icons */
+    height: 55px;
+    border-radius: 50%;
+    color: white;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3); /* More pronounced shadow */
+    position: relative;
+    overflow: hidden;
+    border: 1px solid transparent; /* For hover effect */
+}
+.social-icon-link img {
+    width: 70%; /* Make image slightly smaller than container to give padding */
+    height: 70%;
+    object-fit: contain;
+    filter: drop-shadow(0 0 2px rgba(0,0,0,0.5)); /* Stronger shadow for PNGs */
+}
+@media (max-width: 768px) {
+    .social-icon-link {
+        width: 48px; /* Smaller icons on mobile */
+        height: 48px;
+    }
+}
+.social-icon-link:hover {
+    transform: scale(1.15) rotate(8deg); /* More scale and rotate on hover */
+    box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+    border-color: var(--accent-teal); /* Teal border on hover */
+}
+/* Specific brand colors (for background behind icons) */
+.social-icon-facebook { background-color: #1877F2; }
+.social-icon-whatsapp { background-color: #25D366; }
+.social-icon-instagram { background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%); }
+.social-icon-youtube { background-color: #FF0000; }
+
+/* Ripple Effect for buttons */
+.ripple {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.4); /* Slightly less opaque white ripple */
+    animation: ripple-animation 0.7s linear forwards; /* Slightly longer animation */
+    pointer-events: none;
+    transform: scale(0);
+}
+
+@keyframes ripple-animation {
+    to {
+        transform: scale(3); /* Expand ripple more */
+        opacity: 0;
+    }
+}
 
